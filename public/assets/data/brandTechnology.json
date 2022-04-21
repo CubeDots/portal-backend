@@ -18,5 +18,25 @@
     {
         "featured_image":"/assets/images/whyustechnology/sinpas.png",
         "title":"sinpas"
+    },
+    {
+        "title":"dapyapi",
+        "featured_image":"/assets/images/home/partner/Dapyapi.png"
+    },
+    {
+        "title":"artas",
+        "featured_image":"/assets/images/home/partner/artas.png"
+    },
+    {
+        "title":"acarlar",
+        "featured_image":"/assets/images/home/partner/acarlar.png"
+    },
+    {
+        "title":"boss",
+        "featured_image":"/assets/images/home/partner/Boss4.png"
+    },
+    {
+        "title":"eroglu",
+        "featured_image":"/assets/images/home/partner/Eroglu.png"
     }
 ]

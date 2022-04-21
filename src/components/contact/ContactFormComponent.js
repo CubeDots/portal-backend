@@ -1,4 +1,4 @@
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
@@ -15,6 +15,8 @@ function ContactFormComponent() {
     const isAuthenticated = useIsAuthenticated();
     const auth = useAuthUser();
     const user = isAuthenticated() ? auth().user : null;
+
+    const [age, setAge] = useState();
 
     const [footersocialLoading, setFooterSocialLoading] = useState(false);
     const [footerSocialLinks, setFooterSocialLinks] = useState(null);
@@ -35,9 +37,9 @@ function ContactFormComponent() {
         fetchProjects();
         fetchCountries();
         setLoading(false);
-        if(user){
+        if (user) {
             //console.log("user",user)
-            setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1],email: user.email  }));
+            setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1], email: user.email }));
         }
     }, [user]);
 
@@ -146,28 +148,26 @@ function ContactFormComponent() {
         <>
             <form id="form2" onSubmit={onSubmit}>
 
-                <div className="row mb-3">
-                    <div className="col-md-6">
-                        <label className="form-label">First Name</label>
-                        <input type="text" className="form-control w-100" onKeyUp={()=>simpleValidator.current.showMessageFor('first_name')} placeholder="First Name" name="first_name" value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                        <div className='text-danger'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
+                <div className="row">
+                    <div className="col-md-6 mb-3 ">
+                            {/* <label className="form-label required">First Name</label> */}
+                            <input type="text" className="form-control w-100" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
                     </div>
-                    <div className="col-md-6">
-                        <label className="form-label">Last Name</label>
-                        <input type="text" className="form-control w-100" placeholder="Last Name" onKeyUp={()=>simpleValidator.current.showMessageFor('last_name')} name="last_name" value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                        <div className='text-danger'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha')}</div>
+                    <div className="col-md-6 mb-3">
+                            {/* <label className="form-label required">Last Name</label> */}
+                            <input type="text" className="form-control w-100" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
                     </div>
                 </div>
                 <div className="row mb-3">
                     <div className="col">
-                        <label className="form-label">Email Address</label>
-                        <input type="email" onKeyUp={()=>simpleValidator.current.showMessageFor('email')} className="form-control  w-100" placeholder="Email Address" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required/>
+                            {/* <label  className="form-label required">Email Address</label> */}
+                            <input type="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} className="form-control required w-100" placeholder="Email Address" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                     </div>
                     <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                 </div>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Country</label>
+                        {/* <label className="form-label">Country</label> */}
                         {countries.length > 0 ?
                             <>
                                 <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
@@ -178,30 +178,30 @@ function ContactFormComponent() {
                             : ''}
                     </div>
                     <div className="col-md-6 mb-3 mobileInputSection">
-                        <label className="form-label">Mobile</label>
-                        <div className="input-group">
-                            <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                            <input type="text" className="form-control " placeholder="Mobile" name="mobile" onKeyUp={()=>simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required/>
+                                {/* <label className="form-label required">Mobile</label> */}
+                                <div className="input-group">
+                                    <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
+                                    <input type="text" className="form-control " placeholder="Mobile" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
                         </div>
-                        <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                            <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Occupation</label>
+                        {/* <label className="form-label">Occupation</label> */}
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                            <option value="">Select Occupation</option>
-                            <option value="Agency">Agency</option>
+                            <option value="">Interesting As</option>
+                            <option value="Agency">Real Estate agent</option>
                             <option value="Developer">Developer</option>
                             <option value="Others">Others</option>
                         </select>
                     </div>
                     <div className="col-md-6 mb-3">
-                        <label className="form-label">Project Interest</label>
+                        {/* <label className="form-label">Project Interest</label> */}
                         {projects.length > 0 ?
                             <>
                                 <select className="form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
-                                    <option value="">Select Project</option>
+                                    <option value="">Project Interest</option>
                                     {projects.length > 0 && projects.map((row, index) => <option value={row.title} key={index} >{row.title}</option>)}
                                 </select>
                             </>
@@ -210,7 +210,7 @@ function ContactFormComponent() {
                 </div>
                 <div className="row">
                     <div className="col mb-3">
-                        <label className="form-label">Your Message</label>
+                        {/* <label className="form-label">Your Message</label> */}
                         <textarea className="form-control w-100" placeholder="Write Your Message" name="message" defaultValue={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
                     </div>
                 </div>

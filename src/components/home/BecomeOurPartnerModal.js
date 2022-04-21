@@ -175,14 +175,12 @@ function BecomeOurPartnerModal(props) {
                             <div className="enrollmentContent">
                                 <h4>Enrollment Request</h4>
                                 <form id="form1" onSubmit={onSubmit}>
-                                    <div className="row mb-3">
-                                        <div className="col-md-6">
-                                            <input type="text" className="form-control w-100" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} placeholder="First Name" name="first_name" value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                                            <div className='text-danger'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
+                                    <div className="row">
+                                        <div className="col-md-6 mb-3">
+                                            <input className="form-control" type="text" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
                                         </div>
-                                        <div className="col-md-6">
-                                            <input type="text" className="form-control w-100" placeholder="Last Name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} name="last_name" value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                                            <div className='text-danger'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha')}</div>
+                                        <div className="col-md-6 mb-3">
+                                            <input className="form-control" type="text" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
                                         </div>
                                     </div>
                                     <div className="row mb-3">
@@ -194,8 +192,8 @@ function BecomeOurPartnerModal(props) {
                                     <div className="row">
                                         <div className="col mb-3">
                                             <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                                                <option value="">Select Occupation</option>
-                                                <option value="Agency">Agency</option>
+                                                <option value="">Interesting As</option>
+                                                <option value="Agency">Real state agent</option>
                                                 <option value="Developer">Developer</option>
                                                 <option value="Others">Others</option>
                                             </select>

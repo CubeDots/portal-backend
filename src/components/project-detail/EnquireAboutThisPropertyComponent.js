@@ -19,8 +19,8 @@ function EnquireAboutThisPropertyComponent(props) {
     const isAuthenticated = useIsAuthenticated();
     const auth = useAuthUser();
     const user = isAuthenticated() ? auth().user : null;
-   // const toDayDate = new Date();
-   const startOfMonth = moment().format('YYYY-MM-DD');
+    // const toDayDate = new Date();
+    const startOfMonth = moment().format('YYYY-MM-DD');
     const [toDayDate, setToDayDate] = useState(new Date());
     const [toTime, setToTime] = useState('10:00:00');
 
@@ -132,27 +132,46 @@ function EnquireAboutThisPropertyComponent(props) {
             <div className="enquireForm sticky-top">
                 <h3 className="">Enquire about this Property</h3>
                 <form id="form2" onSubmit={onSubmit}>
+
                     <div className="mb-3">
-                        <label className="form-label">First Name</label>
-                        <input type="text" className="form-control" onKeyUp={()=>simpleValidator.current.showMessageFor('first_name')} placeholder="First Name" name="first_name" value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                        <div className='text-danger'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
+                        <div className='position-relative'>
+                            <label className="form-label">First Name</label>
+                            <input type="text" className="form-control" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                            <div className='starMandotoryEnquiryName'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                     <div className="mb-3">
-                        <label className="form-label">Last Name</label>
-                        <input type="text" className="form-control" placeholder="Last Name" onKeyUp={()=>simpleValidator.current.showMessageFor('last_name')} name="last_name" value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                        <div className='text-danger'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha')}</div>
+                        <div className='position-relative'>
+                            <label className="form-label">Last Name</label>
+                            <input type="text" className="form-control" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                            <div className='starMandotoryEnquiryName'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                
                     <div className="mb-3">
-                        <label className="form-label">Email Address</label>
-                        <input type="email" className="form-control" placeholder="Email Address" name="email" onKeyUp={()=>simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
-                        <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                        <div className='position-relative'>
+                            <label className="form-label">Email Address</label>
+                            <input type="email" className="form-control" placeholder="Email Address" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                            <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                            <div className='starMandotoryEnquiryEmail'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Occupation</label>
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                            <option value="">Select Occupation</option>
-                            <option value="Agency">Agency</option>
+                            <option value="">Interesting As</option>
+                            <option value="Agency">Real Estate agent</option>
                             <option value="Developer">Developer</option>
                             <option value="Others">Others</option>
                         </select>
@@ -169,26 +188,33 @@ function EnquireAboutThisPropertyComponent(props) {
                             : null}
                     </div>
                     <div className="mb-3">
-                        <label className="form-label">Mobile</label>
-                        <div className="input-group">
-                            <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                            <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={()=>simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                        <div className='position-relative'>
+                            <label className="form-label">Mobile</label>
+                            <div className="input-group">
+                                <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
+                                <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                            </div>
+                            <div className='starMandotoryEnquiryMobile'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                </svg>
+                            </div>
                         </div>
                         <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                     </div>
                     <div className="row">
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Date</label>
-                              
-                                <DatePicker className="form-control" placeholder="Appointment Date" name="appointment_date" value ={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required />
-                             
+
+                            <DatePicker className="form-control" placeholder="Appointment Date" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required />
+
 
                             {/* <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} /> */}
                         </div>
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Time</label>
                             {/* <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} /> */}
-                            <TimePicker className="form-control"  value ={toTime} onChange={setToTime} required/>
+                            <TimePicker className="form-control" value={toTime} onChange={setToTime} required />
                         </div>
                     </div>
                     <div className="row">

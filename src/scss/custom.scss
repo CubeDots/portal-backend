@@ -2326,7 +2326,9 @@ span.FolderChooser-icon-14 {
     text-decoration: underline;
     font-size: 13px;
 }
-
+.ContactformRightImg img{
+    height: 500px;
+}
 .ProjectDetailContent {
     background: #fff;
     padding: 9px;
@@ -2646,6 +2648,14 @@ span.FolderChooser-icon-14 {
     background-repeat: no-repeat;
     background-position: center;
 }
+.passwordType{
+    position: relative;
+}
+.showPasswordType{
+    position: absolute;
+    top: 5px;
+    right: 8px;
+}
 
 /*tutorial box*/
 
@@ -2672,12 +2682,25 @@ span.FolderChooser-icon-14 {
 .tutorialSection {
     padding: 50px 0;
 }
-
 .tutorialSection h4 {
     text-align: center;
     color: #e65400;
 }
 
+/*
+.required:after {
+    content:" *";
+    color: red;
+  }
+*/
+.required input{
+    position: relative;
+}
+.required::-webkit-input-placeholder::after{
+    position: absolute;
+    content:" *";
+    color: red;
+}
 .tutorialHeading {
     padding: 50px 0;
     color: #e65400;

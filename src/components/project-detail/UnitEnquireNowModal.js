@@ -43,9 +43,9 @@ function UnitEnquireNowModal(props) {
             setFormData(formData => ({ ...formData, project_interest: props.project.title }));
         }
 
-        if (user) {
+        if(user){
             //console.log("user",user)
-            setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1], email: user.email }));
+            setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1],email: user.email  }));
         }
 
     }, [props.unit, props.project, user]);
@@ -171,26 +171,24 @@ function UnitEnquireNowModal(props) {
                             <div className="enrollmentContent">
 
                                 <form id="form1" onSubmit={onSubmit}>
-                                    <div className="row mb-3">
-                                        <div className="col-md-6">
-                                            <input type="text" className="form-control w-100" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} placeholder="First Name" name="first_name" value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                                            <div className='text-danger'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
+                                    <div className="row">
+                                        <div className="col mb-3">
+                                            <input className="form-control" type="text" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
                                         </div>
-                                        <div className="col-md-6">
-                                            <input type="text" className="form-control w-100" placeholder="Last Name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} name="last_name" value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                                            <div className='text-danger'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha')}</div>
+                                        <div className="col mb-3">
+                                            <input className="form-control" type="text" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col">
-                                            <input className="form-control" type="email" placeholder="Email" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                                            <input className="form-control" type="email" placeholder="Email" name="email" onKeyUp={()=>simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                                         </div>
                                         <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                     </div>
                                     <div className="mb-3">
                                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                                            <option value="">Select Occupation</option>
-                                            <option value="Agency">Agency</option>
+                                            <option value="">Interesting As</option>
+                                            <option value="Agency">Real Estate agent</option>
                                             <option value="Developer">Developer</option>
                                             <option value="Others">Others</option>
                                         </select>
@@ -214,7 +212,7 @@ function UnitEnquireNowModal(props) {
                                             <div className="input-group">
                                                 <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
                                                 <input className="form-control" type="text" placeholder="Mobile No."
-                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                                                    name="mobile" onKeyUp={()=>simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                                             </div>
                                             <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                         </div>
@@ -274,7 +272,7 @@ function UnitEnquireNowModal(props) {
 
                                 <SocialSharingComponent />
 
-
+                              
                             </div>
                         </div>
                     </div>
