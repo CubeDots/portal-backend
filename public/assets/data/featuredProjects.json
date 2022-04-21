@@ -1,0 +1,50 @@
+[
+    {
+        "title":"Alya 4 Mevsim",
+        "slug":"alya4mevsim",
+        "description":"A modern residence with utmost comfort and convenience.",
+        "bedrooms":["1","2","3","4"],
+        "location":"lorem",
+        "price_min":"45000",
+        "price_max":"9000",
+        "currency":"$", 
+        "area": "1500",
+        "amenities":["gym"]
+    },
+    {
+        "title":"Nişantaşı Koru",
+        "slug":"nisantasi",
+        "description":"Ultra-luxurious lifestyle at the most prestigious district.",
+        "bedrooms":["1","2","3","4"],
+        "location":"lorem",
+        "price_min":"45000",
+        "price_max":"9000",
+        "currency":"$", 
+        "area": "1500",
+        "amenities":["gym"]
+    },
+    {
+        "title":"AcarBlu",
+        "slug":"acar-blu",
+        "description":"Sophisticated apartments with captivating Bosphorus views",
+        "bedrooms":["1","2","3","4"],
+        "location":"lorem",
+        "price_min":"45000",
+        "price_max":"9000",
+        "currency":"$", 
+        "area": "1500",
+        "amenities":["gym"]
+    },
+    {
+        "title":"Avrupa Konutları Yamanevler",
+        "slug":"yamanevler",
+        "description":"Premium finishing with state-of-the-art facilities.",
+        "bedrooms":["1","2","3","4"],
+        "location":"lorem",
+        "price_min":"45000",
+        "price_max":"9000",
+        "currency":"$", 
+        "area": "1500",
+        "amenities":["gym"]
+    }
+]

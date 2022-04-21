@@ -1,0 +1,112 @@
+[
+    {
+        "id":"01",
+        "airport":[
+            {
+                "id":"1",
+                "name":"Ataturk",
+                "distance":"34.4 km",
+                "time":"31 min"
+            },
+            {
+                "id":"2",
+                "name":"Istanbul Airport",
+                "distance":"49.3 km",
+                "time":"37 min"
+            },
+            {
+                "id":"3",
+                "name":"Sabiha Gokcen",
+                "distance":"28.1 km",
+                "time":"21 min"
+            }  
+        ]
+    },
+    {
+        "id":"02",
+        "publictransport":[
+            {
+                "id":"1",
+                "name":"Metrobus Altunizade",
+                "distance":"8.0 km",
+                "time":"10 min"
+            },
+            {
+                "id":"2",
+                "name":"Marmaray Uskudar MetroTrain",
+                "distance":"10.1 km",
+                "time":"14 min"
+            }
+        ]
+    },
+    {
+        "id":"03",
+        "mall":[
+            {
+                "id":"1",
+                "name":"Akasya",
+                "distance":"8.5 km",
+                "time":"13 min"
+            },
+            {
+                "id":"2",
+                "name":"Canpark Mall",
+                "distance":"500 m",
+                "time":"1 min"
+            },
+            {
+                "id":"3",
+                "name":"Buyaka Shopping Center",
+                "distance":"3.9 km",
+                "time":"7 min"
+            },
+            {
+                "id":"4",
+                "name":"Meydan Avm",
+                "distance":"2.5 km",
+                "time":"5 min"
+            },
+            {
+                "id":"5",
+                "name":"IKEA Umraniye Store",
+                "distance":"4.5 km",
+                "time":"9 min"
+            }
+        ]
+    },
+    {
+        "id":"04",
+        "hospital":[
+            {
+                "id":"1",
+                "name":"Umraniye Egitim ve Arastirma Hastanesi",
+                "distance":"2.6 km",
+                "time":"8 min"
+            },
+            {
+                "id":"2",
+                "name":"NPISTANBUL Brain Hospital",
+                "distance":"2.4 km",
+                "time":"8 min"
+            },
+            {
+                "id":"3",
+                "name":"Erdem Hastanesi",
+                "distance":"1.3 km",
+                "time":"7 min"
+            },
+            {
+                "id":"4",
+                "name":"Hisar Hospital Intercontinental",
+                "distance":"7.0 km",
+                "time":"2 min"
+            },
+            {
+                "id":"5",
+                "name":"MEDICANA Camlica Hospital",
+                "distance":"4.1 km",
+                "time":"11 min"
+            }
+        ]
+    }
+]

@@ -1,0 +1,124 @@
+[
+    {
+        "id":"01",
+        "airport":[
+            {
+                "id":"1",
+                "name":"Ataturk",
+                "distance":"20.4 km",
+                "time":"31 min"
+            },
+            {
+                "id":"2",
+                "name":"Istanbul Airport",
+                "distance":"54.7 km",
+                "time":"41 min"
+            }
+        ]
+    },
+    {
+        "id":"02",
+        "publictransport":[
+            {
+                "id":"1",
+                "name":"Kucukcekmece Metro train",
+                "distance":"15.6 km",
+                "time":"29 min"
+            },
+            {
+                "id":"2",
+                "name":"Florya Train Station",
+                "distance":"16.5 km",
+                "time":"27 min"
+            },
+            {
+                "id":"3",
+                "name":"Beykent Metro Station",
+                "distance":"2.6 km",
+                "time":"6 min"
+            },
+            {
+                "id":"4",
+                "name":"Beylikduzu Municipality Metrobus Station",
+                "distance":"3.1 km",
+                "time":"8 min"
+            },
+            {
+                "id":"5",
+                "name":"Beykent Metrobus Station",
+                "distance":"2.6 km",
+                "time":"6 min"
+            }
+        ]
+    },
+    {
+        "id":"03",
+        "mall":[
+            {
+                "id":"1",
+                "name":"Istanbul Outlet Park",
+                "distance":"3.3 km",
+                "time":"7 min"
+            },
+            {
+                "id":"2",
+                "name":"Atrium Shopping Center",
+                "distance":"2.8 km",
+                "time":"8 min"
+            },
+            {
+                "id":"3",
+                "name":"Beylicium Alisveris Merkezi",
+                "distance":"2.3 km",
+                "time":"6 min"
+            },
+            {
+                "id":"4",
+                "name":"Mall of Istanbul",
+                "distance":"21.8 km",
+                "time":"49 min"
+            },
+            {
+                "id":"5",
+                "name":"Beyaz City",
+                "distance":"4.4 km",
+                "time":"11 min"
+            }
+        ]
+    },
+    {
+        "id":"04",
+        "hospital":[
+            {
+                "id":"1",
+                "name":"Medicana International Istanbul",
+                "distance":"2.0 km",
+                "time":"6 min"
+            },
+            {
+                "id":"2",
+                "name":"Beylikduzu Kolan Hospital",
+                "distance":"3.8 km",
+                "time":"9 min"
+            },
+            {
+                "id":"3",
+                "name":"Medilife Beylikduzu Hospital",
+                "distance":"4.1 km",
+                "time":"11 min"
+            },
+            {
+                "id":"4",
+                "name":"Acibadem International Hospital",
+                "distance":"22.3 km",
+                "time":"49 min"
+            },
+            {
+                "id":"5",
+                "name":"Ozel Medilife Beylikduzu Hastanesi",
+                "distance":"8.1 km",
+                "time":"16 min"
+            }
+        ]
+    }
+]

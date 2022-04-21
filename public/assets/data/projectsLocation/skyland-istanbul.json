@@ -1,0 +1,112 @@
+[
+    {
+        "id":"01",
+        "airport":[
+            {
+                "id":"1",
+                "name":"Ataturk",
+                "distance":"3.3 km",
+                "time":"6 min"
+            },
+            {
+                "id":"2",
+                "name":"Istanbul Airport",
+                "distance":"29.9 km",
+                "time":"22 min"
+            },
+            {
+                "id":"3",
+                "name":"Sabiha Gokcen",
+                "distance":"45.5 km",
+                "time":"54 min"
+            }
+        ]
+    },
+    {
+        "id":"02",
+        "publictransport":[
+            {
+                "id":"1",
+                "name":"Seyrantepe Metro Train",
+                "distance":"4.3 km",
+                "time":"8 min"
+            },
+            {
+                "id":"2",
+                "name":"Sanayi Metro Train",
+                "distance":"3.7 km",
+                "time":"7 min"
+            },
+            {
+                "id":"3",
+                "name":"Itu Ayazaga Istasyonu Metro Train",
+                "distance":"5.6 km",
+                "time":"7 min"
+            },
+            {
+                "id":"4",
+                "name":"Seyrantepe Yolu Metrobus Station",
+                "distance":"3.4 km",
+                "time":"4 min"
+            },
+            {
+                "id":"5",
+                "name":"Maslak Metrobus Station",
+                "distance":"6.0 km",
+                "time":"9 min"
+            }
+        ]
+    },
+    {
+        "id":"03",
+        "mall":[
+            {
+                "id":"1",
+                "name":"Istanbul Outlet Park",
+                "distance":"42.1 km",
+                "time":"1hr 24min"
+            },
+            {
+                "id":"2",
+                "name":"Atrium Shopping Center",
+                "distance":"20.6 km",
+                "time":"25 min"
+            },
+            {
+                "id":"3",
+                "name":"Beylicium Alisveris Merkezi",
+                "distance":"43.1 km",
+                "time":"56 min"
+            },
+            {
+                "id":"4",
+                "name":"Mall of Istanbul",
+                "distance":"18 km",
+                "time":"18 min"
+            },
+            {
+                "id":"5",
+                "name":"Beyaz City",
+                "distance":"40.3 km",
+                "time":"54 min"
+            }
+        ]
+    },
+    {
+        "id":"04",
+        "hospital":[
+            {
+                "id":"1",
+                "name":"Sisli Etfal Hamidiye Hastanesi",
+                "distance":"11.0 km",
+                "time":"20 min"
+            },
+            {
+                "id":"2",
+                "name":"Liv Hastanesi",
+                "distance":"9.8 km",
+                "time":"26 min"
+            }
+        ]
+    }
+]

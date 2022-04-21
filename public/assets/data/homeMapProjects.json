@@ -1,0 +1,42 @@
+[
+    {
+        "id":"1",
+        "img":"/assets/images/home/01.jpg",
+        "title":"Yamanevler",
+        "category":"yaman",
+        "slug":"yamanevler",
+        "subtitle":"The ideal family-friendly residence"
+    },
+    {
+        "id":"2",
+        "img":"/assets/images/home/02.jpg",
+        "title":"Skyland",
+        "category":"Skyland",
+        "slug":"skyland",
+        "subtitle":"Lorem ipsum dolor sit amet"
+    },
+    {
+        "id":"3",
+        "img":"/assets/images/home/04.jpg",
+        "title":"Alya 4 Mevsim",
+        "slug":"alya4mevsim",
+        "category":"alya",
+        "subtitle":"Affordable luxury at its finest"
+    },
+    {
+        "id":"4",
+        "img":"/assets/images/home/01.jpg",
+        "title":"Acar Blu",
+        "slug":"acar-blu",
+        "category":"blu",
+        "subtitle":"A life of prestige with unlimited privileges "
+    },
+    {
+        "id":"5",
+        "img":"/assets/images/home/02.jpg",
+        "title":"Nisantasi",
+        "slug":"nisantasi",
+        "category":"Nisantasi",
+        "subtitle":"The icon of luxurious living"
+    }
+  ]
