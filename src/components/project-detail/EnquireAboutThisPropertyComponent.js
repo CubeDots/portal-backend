@@ -132,15 +132,17 @@ function EnquireAboutThisPropertyComponent(props) {
             <div className="enquireForm sticky-top">
                 <h3 className="">Enquire about this Property</h3>
                 <form id="form2" onSubmit={onSubmit}>
-
                     <div className="mb-3">
                         <label className="form-label">First Name</label>
-                        <input type="text" className="form-control" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                        <input type="text" className="form-control" onKeyUp={()=>simpleValidator.current.showMessageFor('first_name')} placeholder="First Name" name="first_name" value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                        <div className='text-danger'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Last Name</label>
-                        <input type="text" className="form-control" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                        <input type="text" className="form-control" placeholder="Last Name" onKeyUp={()=>simpleValidator.current.showMessageFor('last_name')} name="last_name" value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                        <div className='text-danger'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha')}</div>
                     </div>
+                
                     <div className="mb-3">
                         <label className="form-label">Email Address</label>
                         <input type="email" className="form-control" placeholder="Email Address" name="email" onKeyUp={()=>simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />

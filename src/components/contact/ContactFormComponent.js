@@ -146,14 +146,16 @@ function ContactFormComponent() {
         <>
             <form id="form2" onSubmit={onSubmit}>
 
-                <div className="row">
-                    <div className="col-md-6 mb-3">
+                <div className="row mb-3">
+                    <div className="col-md-6">
                         <label className="form-label">First Name</label>
-                        <input type="text" className="form-control w-100" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                        <input type="text" className="form-control w-100" onKeyUp={()=>simpleValidator.current.showMessageFor('first_name')} placeholder="First Name" name="first_name" value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                        <div className='text-danger'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
                     </div>
-                    <div className="col-md-6 mb-3">
+                    <div className="col-md-6">
                         <label className="form-label">Last Name</label>
-                        <input type="text" className="form-control w-100" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                        <input type="text" className="form-control w-100" placeholder="Last Name" onKeyUp={()=>simpleValidator.current.showMessageFor('last_name')} name="last_name" value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                        <div className='text-danger'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha')}</div>
                     </div>
                 </div>
                 <div className="row mb-3">
