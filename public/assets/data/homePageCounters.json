@@ -1,0 +1,7 @@
+{
+    "value_of_sales": {"numbers":"250", "text":"Sales in 2021"},
+    "value_of_online_sales": {"numbers":"1.5", "text":"Project Value"},
+    "international_agents": {"numbers":"2500", "text":"Agents Across 20+ Countries"},
+    "branches": {"numbers":"4", "text":"Branches"},
+    "employees": {"numbers":"200", "text":"Employees"}
+}

@@ -1,0 +1,42 @@
+[
+    {
+        "country_name":"London, England ",
+        "country_flag":"/assets/images/country_flag/gb.svg",
+        "address_logo":"/assets/images/thumbnail.png",
+        "google_map_embed":"https://goo.gl/maps/SESzjmm3RPhr5hvj9",
+        "country_address":"57 Berkeley Square Mayfair London, W1J 6ER United Kingdom",
+        "contact_logo":"/assets/images/thumbnail.png",
+        "contact_number":"+44 020 7993 5080",
+        "email_id":"info@cubedots.com"
+    },
+    {
+        "country_name":"Istanbul, Turkey ",
+        "address_logo":"/assets/images/thumbnail.png",
+        "country_flag":"/assets/images/country_flag/tr.svg",
+        "google_map_embed":"https://goo.gl/maps/pM2qKSTDdWmPc66x6",
+        "country_address":"Maslak Mah. Maslak Meydan Sk. No:3, Veko Giz Plaza, Kat 5, 34396 Sarıyer/İstanbul",
+        "contact_logo":"/assets/images/thumbnail.png",
+        "contact_number":"+90 544 382 51 21",
+        "email_id":"info@cubedots.com"
+    },
+    {
+        "country_name":"Dubai, UAE ",
+        "address_logo":"/assets/images/thumbnail.png",
+        "country_flag":"/assets/images/country_flag/ae.svg",
+        "country_address":"30th Floor Single Business Tower Business Bay, Sheikh Zayed Road Dubai UAE",
+        "google_map_embed":"https://goo.gl/maps/tuRGHrMdREDKiKsy5",
+        "contact_logo":"/assets/images/thumbnail.png",
+        "contact_number":"+971 4 507 2067",
+        "email_id":"info@cubedots.com"
+    },
+    {
+        "country_name":"Indore, India ",
+        "address_logo":"/assets/images/thumbnail.png",
+        "country_flag":"/assets/images/country_flag/in.svg",
+        "country_address":"3rd Floor, Sajan Prabha, Janjeerwala Square New Palasia, Indore, Madhya, Pradesh 452001, India",
+        "google_map_embed":"https://goo.gl/maps/9Ux1xriYA3UzzGNt7",
+        "contact_logo":"/assets/images/thumbnail.png",
+        "contact_number":"+91 6325 879456",
+        "email_id":"info@cubedots.com"
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "id":"1",
+        "img":"",
+        "title":"Yamanevler",
+        "category":"YAMAN"
+    },
+    {
+        "id":"2",
+        "img":"",
+        "title":"Palm hills",
+        "category":"Palm_hills"
+    },
+    {
+        "id":"3",
+        "img":"",
+        "title":"Taksim",
+        "category":"TAKSIM"
+    },
+    {
+        "id":"4",
+        "img":"",
+        "title":"Beylikduzu",
+        "category":"Beylikduzu"
+    },
+    {
+        "id":"5",
+        "img":"",
+        "title":"Acar Blu",
+        "category":"Acar_Blu"
+    },
+    {
+        "id":"6",
+        "img":"",
+        "title":"Nisantasi",
+        "category":"Nisantasi"
+    },
+    {
+        "id":"7",
+        "img":"",
+        "title":"Acar Vadi",
+        "category":"Vadi"
+    }
+]
