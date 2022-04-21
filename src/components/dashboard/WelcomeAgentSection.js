@@ -40,6 +40,7 @@ function WelcomeAgentSection() {
                             <p>Last Login : 25 Feb 2022</p>
                         </div>
                     </div>
+                    
                 </div>
                 <div className="row">
                     <div className="col-lg-6 appointmentDiv">
