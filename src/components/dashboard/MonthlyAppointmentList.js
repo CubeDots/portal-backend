@@ -65,7 +65,7 @@ function MonthlyAppointmentList() {
                 <div className="row">
                     <div className="col-md-4">
                         <div>
-                            <h2 className="agentDashboardHeading">Appointments List</h2>
+                            <h2 className="agentDashboardHeading">Appointments</h2>
                         </div>
                     </div>
                     <div className="col-md-8">

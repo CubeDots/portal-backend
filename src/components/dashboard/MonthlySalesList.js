@@ -60,7 +60,7 @@ function MonthlySalesList() {
                 <div className="row">
                     <div className="col-md-4">
                         <div>
-                            <h2 className="agentDashboardHeading">Monthly Sales List</h2>
+                            <h2 className="agentDashboardHeading">Sales</h2>
                         </div>
                     </div>
                     <div className="col-md-8">
@@ -125,7 +125,7 @@ function MonthlySalesList() {
                 <Modal.Header className='p-2' closeButton>
                     <Modal.Title>
                         {activeRow ?
-                            <>{'Sales Detail of '}<strong>{activeRow.agent_name}</strong></>
+                            <>{'Sales Detail of '}<strong> {activeRow.ProjectName}</strong> - <strong>{activeRow.SalesID}</strong></>
                             : ''}
                     </Modal.Title>
                 </Modal.Header>
@@ -137,7 +137,7 @@ function MonthlySalesList() {
                                 <tbody>
                                     <tr>
                                         <th width="50%">ID</th>
-                                        <td  >#{activeRow.id}</td>
+                                        <td  >{activeRow.SalesID}</td>
                                     </tr>
                                     <tr>
                                         <th>Sold On Date</th>
