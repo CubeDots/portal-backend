@@ -137,7 +137,7 @@ function MonthlySalesList() {
                                 <tbody>
                                     <tr>
                                         <th width="50%">ID</th>
-                                        <td  >#{activeRow.id}</td>
+                                        <td  >#{activeRow.SalesID}</td>
                                     </tr>
                                     <tr>
                                         <th>Sold On Date</th>
