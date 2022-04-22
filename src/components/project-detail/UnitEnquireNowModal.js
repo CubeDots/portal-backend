@@ -189,7 +189,7 @@ function UnitEnquireNowModal(props) {
                                     </div>
                                     <div className="mb-3">
                                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                                            <option value="">Interesting As</option>
+                                            <option value="">Interested As</option>
                                             <option value="Agency">Real Estate agent</option>
                                             <option value="Developer">Developer</option>
                                             <option value="Others">Others</option>
