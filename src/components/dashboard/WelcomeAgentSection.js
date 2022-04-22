@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import { useAuthHeader } from 'react-auth-kit';
 import Spinner from 'react-bootstrap/Spinner';
 import { API_ENDPOINT } from "../../common/Constants";
-
+import moment from 'moment';
 
 function WelcomeAgentSection() {
     const authHeader = useAuthHeader();
     const [dashboardStatsLoader, setDashboardStatsLoader] = useState(false);
     const [dashboardStats, setDashboardStats] = useState([]);
+    const startOfMonth = moment().format("DD MMM YYYY");//moment().startOf('month').format('DD-MM-YYYY');    
 
     useEffect(() => {
         fetchAppointmentDatStats();
@@ -37,7 +38,7 @@ function WelcomeAgentSection() {
                     <div className="col">
                         <div>
                             <h2>Welcome Agent</h2>
-                            <p>Last Login : 25 Feb 2022</p>
+                            <p>Last Login : {startOfMonth}</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +66,7 @@ function WelcomeAgentSection() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 appointmentDiv">
+                    {/*<div className="col-lg-6 appointmentDiv">
                         <div className="followUpsBox appoinmentsBox">
                             <h6 className="appoinmentHeading">Follow Up</h6>
                             <div className="followUpsBoxContent">
@@ -87,7 +88,7 @@ function WelcomeAgentSection() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                                    </div>*/}
                 </div>
             </div>
         </>
