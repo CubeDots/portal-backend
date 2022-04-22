@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function HelpSupport() {
+    useEffect(()=>{
+        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+    },[])
     return (
         <div className='mt-70'>
             <div className="helpAndSupportOffCanvas">

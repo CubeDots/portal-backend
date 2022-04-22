@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import BecomeOurPartnerModal from "./home/BecomeOurPartnerModal";
-
+import SimpleReactValidator from 'simple-react-validator';
 import { API_ENDPOINT } from '../common/Constants';
 
 import ForgotPasswordModal from './ForgotPasswordModal';
@@ -18,7 +18,7 @@ function LoginModal(props) {
     let publicPath = process.env.PUBLIC_URL;
 
     const [isBecomeOurPartnerModalShow, setIsBecomeOurPartnerModalShow] = useState(false);
-
+    const simpleValidator = useRef(new SimpleReactValidator());
     const [passwordType, setPasswordType] = useState("password");
     const [passwordInput, setPasswordInput] = useState("");
     const handlePasswordChange = (evnt) => {
@@ -206,7 +206,8 @@ function LoginModal(props) {
                                     </ul>
                                 </div>
                                 <div className="mb-3">
-                                    <input type="email" className="form-control" name="email" placeholder="Email Address" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                                    <input type="email" className="form-control" name="email" placeholder="Email Address" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                                    <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                 </div>
                                 <div className="mb-3 passwordType">
                                     <input type={passwordType} className="form-control" name="password" placeholder='Password' onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
