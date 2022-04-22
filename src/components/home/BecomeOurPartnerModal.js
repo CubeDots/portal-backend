@@ -177,15 +177,15 @@ function BecomeOurPartnerModal(props) {
                                 <form id="form1" onSubmit={onSubmit}>
                                     <div className="row">
                                         <div className="col-md-6 mb-3">
-                                            <input className="form-control" type="text" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                                            <input className="form-control" type="text" placeholder="First Name *" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
                                         </div>
                                         <div className="col-md-6 mb-3">
-                                            <input className="form-control" type="text" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                                            <input className="form-control" type="text" placeholder="Last Name *" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col">
-                                            <input className="form-control" type="text" placeholder="Email" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                                            <input className="form-control" type="text" placeholder="Email *" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                                         </div>
                                         <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                     </div>
@@ -204,7 +204,7 @@ function BecomeOurPartnerModal(props) {
                                             {countries.length > 0 ?
                                                 <>
                                                     <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
-                                                        <option value="">Select Country</option>
+                                                        <option value="">Select Country *</option>
                                                         {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                                     </select>
                                                 </>
@@ -215,7 +215,7 @@ function BecomeOurPartnerModal(props) {
                                         <div className="col">
                                             <div className="input-group">
                                                 <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                                                <input className="form-control" type="text" placeholder="Mobile No."
+                                                <input className="form-control" type="text" placeholder="Mobile No. *"
                                                     name="mobile" value={formData.mobile} onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                                             </div>
                                             <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>

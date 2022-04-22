@@ -9,7 +9,7 @@ import BecomeOurPartnerModal from "../components/home/BecomeOurPartnerModal";
 function WhyUsPage() {
     let publicPath = process.env.PUBLIC_URL;
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, []);
     const [isBecomeOurPartnerModalShow, setIsBecomeOurPartnerModalShow] = useState(false);
     const showBecomeOurPartnerModal = () => {
@@ -301,68 +301,59 @@ function WhyUsPage() {
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship1">
                                                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship1" aria-expanded="true" aria-controls="collapseCitizenship1">
-                                                    <strong> How to get Turkish citizenship?</strong>
+                                                    <strong>How to get Turkish citizenship?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapseCitizenship1" className="accordion-collapse collapse show" aria-labelledby="Citizenship1" data-bs-parent="#Citizenship">
-                                                <div className="accordion-body">
-                                                    Turkish citizenship can be obtained in many ways. However, the quickest and the easiest
-                                                    method is to purchase property worth over $250 thousand in Turkey, along with a pledge not
-                                                    to sell the property for 3 years.
+                                                <div className="accordion-body">Turkish citizenship can be obtained in many ways. However, the quickest and the easiest method is to purchase property worth over $400 thousand in Turkey, along with a pledge not to sell the property for 3 years.
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship2">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship2" aria-expanded="false" aria-controls="collapseCitizenship2">
-                                                    <strong>  How long does it take to get Turkish citizenship in exchange for purchasing a property?</strong>
+                                                    <strong>How long does it take to get Turkish citizenship in exchange for purchasing a property?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapseCitizenship2" className="accordion-collapse collapse" aria-labelledby="Citizenship2" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    The Turkish government has established a specialized office that handles the citizenship
-                                                    procedures of investors. This office helps speed up the process for foreign investors who
-                                                    wish to get Turkish citizenship. After the files are submitted, the process takes up to 45 days.
+                                                    The Turkish government has established a specialized office that handles the citizenship procedures of investors. This office helps speed up the process for foreign investors who wish to get Turkish citizenship. After the files are submitted, the process takes up to 45 days.
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship3">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship3" aria-expanded="false" aria-controls="collapseCitizenship3">
-                                                    <strong>  Is it possible to keep dual citizenship?</strong>
+                                                    <strong> Is it possible to keep dual citizenship?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapseCitizenship3" className="accordion-collapse collapse" aria-labelledby="Citizenship3" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    While obtaining Turkish Citizenship, you are NOT required to waiver your original citizenship.
-                                                    It is allowed by Turkish law to have more than one nationality.
+                                                    While obtaining Turkish Citizenship, you are NOT required to waiver your original citizenship. It is allowed by Turkish law to have more than one nationality.
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship4">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship4" aria-expanded="false" aria-controls="collapseCitizenship4">
-                                                    <strong> Is it necessary to live in Turkey to obtain Turkish citizenship?</strong>
+                                                    <strong>Is it necessary to live in Turkey to obtain Turkish citizenship?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapseCitizenship4" className="accordion-collapse collapse" aria-labelledby="Citizenship4" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    No, you do not have to reside in Turkey to obtain Turkish citizenship. Investors may obtain
-                                                    citizenship in Turkey while residing elsewhere in the world.
+                                                    No, you do not have to reside in Turkey to obtain Turkish citizenship. Investors may obtain citizenship in Turkey while residing elsewhere in the world.
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship5">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship5" aria-expanded="false" aria-controls="collapseCitizenship5">
-                                                    <strong>  Do other family members obtain Citizenship as well?</strong>
+                                                    <strong>Do other family members obtain Citizenship as well?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapseCitizenship5" className="accordion-collapse collapse" aria-labelledby="Citizenship5" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    One of the essential advantages of the Citizenship by Investment Program is the fact that all
-                                                    dependent family members (spouse &amp; children) will automatically obtain citizenship as well,
-                                                    without any additional fees.
+                                                    One of the essential advantages of the Citizenship by Investment Program is the fact that all dependent family members (spouse & children) will automatically obtain citizenship as well, without any additional fees.
                                                 </div>
                                             </div>
                                         </div>
@@ -376,8 +367,7 @@ function WhyUsPage() {
                                             <div id="collapseCitizenship6" className="accordion-collapse collapse" aria-labelledby="Citizenship6" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
                                                     The Citizenship by Investment Programs requires you to keep the property for 3 years
-                                                    post-purchase date. You will be asked to submit a pledge stating that you will keep the
-                                                    property for at least 3 years.
+                                                    post-purchase date. You will be asked to submit a pledge stating that you will keep the property for at least 3 years.
                                                 </div>
                                             </div>
                                         </div>
@@ -385,13 +375,12 @@ function WhyUsPage() {
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship7">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship7" aria-expanded="false" aria-controls="collapseCitizenship7">
-                                                    <strong>   What nationalities are entitled to apply?</strong>
+                                                    <strong>What nationalities are entitled to apply?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapseCitizenship7" className="accordion-collapse collapse" aria-labelledby="Citizenship7" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    All nationalities that have purchased a property worth a minimum of $250,000, are entitled to
-                                                    acquire Turkish citizenship.
+                                                    All nationalities that have purchased a property worth a minimum of $400,000, are entitled to acquire Turkish citizenship.
                                                 </div>
                                             </div>
                                         </div>
@@ -399,15 +388,13 @@ function WhyUsPage() {
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship8">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship8" aria-expanded="false" aria-controls="collapseCitizenship8">
-                                                    <strong>   Do all property partners receive citizenship?</strong>
+                                                    <strong>Do all property partners receive citizenship?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapseCitizenship8" className="accordion-collapse collapse" aria-labelledby="Citizenship8" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    Non-related family members (spouse/children) must have a share worth $250,000.
-                                                    For example, two partners must own a property with a value of $500,000 therefore each of
-                                                    these partners will have a share worth $250,000 and will then be eligible for the Citizenship
-                                                    by Investment Program.
+                                                    Non-related family members (spouse/children) must have a share worth $400,000.
+                                                    For example, two partners must own a property with a value of $800,000 therefore each of these partners will have a share worth $400,000 and will then be eligible for the Citizenship by Investment Program.
                                                 </div>
                                             </div>
                                         </div>
@@ -420,10 +407,8 @@ function WhyUsPage() {
                                             <div id="collapseCitizenship9" className="accordion-collapse collapse" aria-labelledby="Citizenship9" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
                                                     <ul>
-                                                        <li>A Turkish passport allows visa-free travel (or visa on arrival) to 125 countries
-                                                            worldwide.</li>
-                                                        <li>You are not required to reside in Turkey for any period of time, you can get
-                                                            Citizenship without your physical presence being required.</li>
+                                                        <li>A Turkish passport allows visa-free travel (or visa on arrival) to 125 countries worldwide.</li>
+                                                        <li>You are not required to reside in Turkey for any period of time, you can get Citizenship without your physical presence being required.</li>
                                                         <li>Permanent right of Citizenship ownership.</li>
                                                         <li>Investors can benefit from rental income and have the right to resell after 3 years.</li>
                                                         <li>You can keep dual Citizenship</li>
@@ -434,25 +419,24 @@ function WhyUsPage() {
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship10">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship10" aria-expanded="false" aria-controls="collapseCitizenship10">
-                                                    <strong>  Is learning the Turkish language required to obtain Turkish citizenship?</strong>
+                                                    <strong>Is learning the Turkish language required to obtain Turkish citizenship?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapseCitizenship10" className="accordion-collapse collapse" aria-labelledby="Citizenship10" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    No, you do not need any level of proficiency in Turkish to obtain Turkish citizenship.
+                                                No, you do not need any level of proficiency in Turkish to obtain Turkish citizenship.
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship11">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship11" aria-expanded="false" aria-controls="collapseCitizenship11">
-                                                    <strong>  Is it enough to buy one property to obtain Turkish citizenship?</strong>
+                                                    <strong>Is it enough to buy one property to obtain Turkish citizenship?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapseCitizenship11" className="accordion-collapse collapse" aria-labelledby="Citizenship11" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    Yes, as long as the investment in total is over $250 thousand, you can purchase any number
-                                                    of properties.
+                                                Yes, as long as the investment in total is over $400 thousand, you can purchase any number of properties.
                                                 </div>
                                             </div>
                                         </div>

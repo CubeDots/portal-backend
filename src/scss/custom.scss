@@ -1127,9 +1127,13 @@ ul.agentdashboard {
 
 .serviceTabs .tab-content {
     background: #fff;
-    padding: 30px;
+    overflow: hidden;
 }
-
+.serviceTabs .tab-content .tab-pane {
+    padding: 30px;
+    height: 350px;
+    overflow-y: auto;
+  }
 .serviceTabs .nav {
     padding-left: 2rem;
     border-bottom: 0;
@@ -4793,8 +4797,23 @@ h5 {
 .enrollmentContent input.form-control {
     border: 1px solid #ced4da;
 }
-
-
+.enrollmentContent .col-md-6, .enrollmentContent .col {
+    position: relative;
+  }
+.enrollmentContent .input__label {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 25px;
+    margin: auto;
+    display: flex;
+    font-size: 14px;
+    color: #767f86;
+    align-items: center;
+  }
+  input:focus ~ .input__label {
+    z-index: -1;
+  }
 /*footer*/
 footer {
     background-color: #e5e5e5;
@@ -6059,6 +6078,11 @@ footer h6 {
     border-radius: 5px;
     background: #e65400;
     transition: 0.4s all ease-in-out;
+    width: 26px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cusocialBackBtn svg {
