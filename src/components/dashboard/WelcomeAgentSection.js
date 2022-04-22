@@ -35,14 +35,14 @@ function WelcomeAgentSection() {
         <>
             <div className="welcomeSection">
                 <div className="row">
-                    <div className="col">
+                    <div className="col-lg-6">
                         <div>
                             <h2>Welcome Agent</h2>
                             <p>Last Login : {startOfMonth}</p>
                         </div>
                     </div>
-                </div>
-                <div className="row">
+                {/*</div>
+                <div className="row">*/}
                     <div className="col-lg-6 appointmentDiv">
                         <div className="appoinmentsBox">
                             <h6 className="appoinmentHeading">Appointments</h6>
