@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from "axios";
 import { useAuthUser, useAuthHeader } from 'react-auth-kit';
 import Spinner from 'react-bootstrap/Spinner';
 import { API_ENDPOINT } from "../../common/Constants";
 import Modal from 'react-bootstrap/Modal';
+import SimpleReactValidator from 'simple-react-validator';
 
 
 function CreateAppointment(props) {
     const authHeader = useAuthHeader();
     const auth = useAuthUser();
     let publicPath = process.env.PUBLIC_URL;
-
+    const simpleValidator = useRef(new SimpleReactValidator());
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
 
@@ -184,21 +185,23 @@ function CreateAppointment(props) {
 
                                     <div className="row">
                                         <div className="col mb-3">
-                                            <input value={auth().user.name} className="form-control" type="text" placeholder="Full Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} />
+                                            <input value={auth().user.name} className="form-control" type="text" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} placeholder="Full Name *" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                                            <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
                                         </div>                                        
                                     </div>
 
                                     <div className="row">
                                         <div className="col mb-3">
-                                            <input value={auth().user.email} className="form-control" type="text" placeholder="Email Address" name="email" defaultValue={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                                            <input value={auth().user.email} onKeyUp={() => simpleValidator.current.showMessageFor('email')} className="form-control" type="text" placeholder="Email *" name="email" defaultValue={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                                         </div>
+                                        <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                     </div>
 
                                     <div className="row">
                                         <div className="col mb-3">
                                             {countries.length > 0 ?
                                                 <>
-                                                    <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name}>
+                                                    <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
                                                         <option value="">Select Country</option>
                                                         {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                                     </select>
@@ -212,9 +215,10 @@ function CreateAppointment(props) {
                                         <div className="col mb-3">
                                             <div className="input-group">
                                                 <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                                                <input className="form-control" type="text" placeholder="Mobile No."
-                                                    name="mobile" defaultValue={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} />
+                                                <input className="form-control" type="text" placeholder="Mobile *"
+                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} defaultValue={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                                             </div>
+                                            <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                         </div>
                                     </div>
 
@@ -222,14 +226,14 @@ function CreateAppointment(props) {
                                     <div className="row">
                                         <div className="col mb-3">
                                             <label className='mb-1'>Appointment Date</label>
-                                            <input className="form-control" type="date" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} />
+                                            <input className="form-control" type="date" placeholder="Appointment Date *" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required/>
                                         </div>
                                     </div>
 
                                     <div className="row">
                                         <div className="col mb-3">
                                             <label className='mb-1'>Appointment Time</label>
-                                            <input className="form-control" type="time" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} />
+                                            <input className="form-control" type="time" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required/>
                                         </div>
                                     </div>
 
@@ -237,8 +241,8 @@ function CreateAppointment(props) {
                                         <div className="col mb-3">
                                             {locations.length > 0 ?
                                                 <>
-                                                    <select className="form-select" placeholder="Location" name="location" onChange={handleChangeLocation} defaultValue={formData.location_name}>
-                                                        <option value="">Select Location</option>
+                                                    <select className="form-select" placeholder="Location" name="location" onChange={handleChangeLocation} defaultValue={formData.location_name} required>
+                                                        <option value="">Select Location *</option>
                                                         {locations.length > 0 && locations.map((row, index) => <option value={row.OrgzitRecordId} key={index} >{row.ProjectName}</option>)}
                                                     </select>
                                                 </>

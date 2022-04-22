@@ -110,10 +110,11 @@ function ProjectList(props) {
                                         <div className="projectdetailss">
                                             <div className="row">
                                                 <div className="col-md-6">
-                                                    <h5 className="projectDetailsHeading"><Link className={row.project_status ? 'disabled-link notranslate' : 'notranslate'} to={`/projects/${row.slug}`}>{row.title} {row.project_status ? <span className="text-uppercase text-danger fs-6">( {row.project_status} )</span> : ''}</Link></h5>
+                                                    <h5 className="projectDetailsHeading"><Link className={row.project_status ? 'disabled-link notranslate' : 'notranslate'} to={`/projects/${row.slug}`}>{row.title}</Link></h5>
 
                                                 </div>
                                                 <div className="col-md-6">
+                                                    {!row.project_status ? 
                                                     <div className="pricing">
                                                         <h5>
                                                             <CurrencyFormat value={row.min_price} displayType={'text'} thousandSeparator={true} prefix={row.currency_symbol} /> - <CurrencyFormat value={row.max_price} displayType={'text'} thousandSeparator={true} />
@@ -121,6 +122,7 @@ function ProjectList(props) {
                                                         </h5>
 
                                                     </div>
+                                                    : ''}
                                                 </div>
                                             </div>
                                             <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B8532E" className="bi bi-geo-alt" viewBox="0 0 16 16">
