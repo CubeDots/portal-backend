@@ -52,7 +52,7 @@ function WelcomeAgentSection() {
                                     <div>{dashboardStats.totalAppointmentOfWeek ? dashboardStats.totalAppointmentOfWeek : 0} </div>
                                     : <div style={{ fontSize: '12px', text: 'center' }}><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> Loading...</div>}                                    
                                     </h6>
-                                    <p>This Weeks</p>
+                                    <p>This Week</p>
                                 </div>
                                 <div className="followMonths">
                                     <h6>
@@ -60,7 +60,7 @@ function WelcomeAgentSection() {
                                     <div>{dashboardStats.totalAppointmentOfMonth ? dashboardStats.totalAppointmentOfMonth : 0} </div>
                                     : <div style={{ fontSize: '12px', text: 'center' }}><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> Loading...</div>}                                    
                                     </h6>
-                                    <p>This Monthly</p>
+                                    <p>This Month</p>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ function WelcomeAgentSection() {
                                     <div>{(dashboardStats.TotalMeetingsOfThisMonth) ? (dashboardStats.TotalMeetingsOfThisMonth) : '0'} </div>
                                     : <div style={{ fontSize: '12px', text: 'center' }}><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> Loading...</div>}
                                     </h6>
-                                    <p>Weeks</p>
+                                    <p>This Week</p>
                                 </div>
                                 <div className="followMonths">
                                     <h6>
@@ -83,7 +83,7 @@ function WelcomeAgentSection() {
                                     <div>{ (dashboardStats.TotalMeetingsOfMonth) ? (dashboardStats.TotalMeetingsOfMonth) : '0'} </div>
                                     : <div style={{ fontSize: '12px', text: 'center' }}><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> Loading...</div>}
                                     </h6>
-                                    <p>Monthly</p>
+                                    <p>This Month</p>
                                 </div>
                             </div>
                         </div>

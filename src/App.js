@@ -101,7 +101,7 @@ function App() {
       {/* <StarterLogo /> */}
         <Suspense fallback={<Loader />}>
 
-          <Router basename="/cuengine-portal-theme/">
+          <Router basename="/">
 
             <AuthProvider authType={'cookie'}
               authName={'_cuauth'}
