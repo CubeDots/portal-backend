@@ -59,7 +59,7 @@ function MonthlyPaymentPlanList() {
                 <div className="row">
                     <div className="col-md-4">
                         <div>
-                            <h2 className="agentDashboardHeading">Monthly Payment Plans List</h2>
+                            <h2 className="agentDashboardHeading">Payment Plans</h2>
                         </div>
                     </div>
                     <div className="col-md-8">

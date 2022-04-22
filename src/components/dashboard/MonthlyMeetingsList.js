@@ -62,7 +62,7 @@ function MonthlyMeetingsList() {
                 <div className="row">
                     <div className="col-md-4">
                         <div>
-                            <h2 className="agentDashboardHeading">Monthly Meetings List</h2>
+                            <h2 className="agentDashboardHeading">Meetings</h2>
                         </div>
                     </div>
                     <div className="col-md-8">

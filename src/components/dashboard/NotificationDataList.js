@@ -71,6 +71,7 @@ function NotificationDataList() {
                     </div>
                     <div className="col-6 text-end">
                             <select name="dfilter" id="dfilter" onChange={handleChange}>
+                                <option key='0' value='' > Select  </option>
                                 {fitems.map(item => (
                                     <option key={item.value} value={item.value} > {item.lable} </option>
                                 ))}
