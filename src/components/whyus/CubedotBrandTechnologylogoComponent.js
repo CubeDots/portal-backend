@@ -76,7 +76,7 @@ function CubedotBrandTechnologylogoComponent(props) {
 
                     {!ourPartnerComponentLoading ?
                         (<div className='technologyMarquee'>
-                             <Marquee play={parnerLogoMarqueePlay} pauseOnHover={true} gradient={true}>
+                             <Marquee play={parnerLogoMarqueePlay} pauseOnHover={false} gradient={true}>
                                 {ourPartnerComponent && ourPartnerComponent.map((row, index) => {
                                     return (
                                         <div className={"technologyLogo " + row.title} key={index}>

@@ -390,7 +390,8 @@ function UnitsPage() {
                             <li>
                                 <div className="input-group select-group">
                                     <span className="input-group-addon">
-                                        <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 480 480">
+                                    <img src={publicPath + "/assets/images/icons/block.svg"} width={20} />
+                                        {/* <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 480 480">
                                             <g>
                                                 <g>
                                                     <path className="st0" d="M440,464v-41.4c15.4-6.5,25-21.9,24-38.6c0-22.1-14.4-40-32-40s-32,17.9-32,40c-1,16.6,8.6,32.1,24,38.6V464
@@ -402,7 +403,7 @@ function UnitsPage() {
                                                         V404.6z"/>
                                                 </g>
                                             </g>
-                                        </svg>
+                                        </svg> */}
                                     </span>
 
                                     <select className="form-select" id="block" placeholder="Block" name="block" onChange={handleChangeBlock} defaultValue={''}>
@@ -416,7 +417,8 @@ function UnitsPage() {
                             <li>
                                 <div className="input-group select-group">
                                     <span className="input-group-addon">
-                                    <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512">
+                                    <img src={publicPath + "/assets/images/icons/floor.svg"} width={20} />
+                                    {/* <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512">
                                         <g transform="translate(1 1)">
                                             <g>
                                                 <g>
@@ -433,7 +435,7 @@ function UnitsPage() {
                                                 </g>
                                             </g>
                                         </g>
-                                    </svg>
+                                    </svg> */}
                                     </span>
                                     <select className="form-select" id="floor" placeholder="Floor" name="floor" onChange={handleChangeFloor} defaultValue={''}>
                                         <option value="">Floor</option>
@@ -446,7 +448,7 @@ function UnitsPage() {
                             <li>
                                 <div className="input-group select-group">
                                     <span className="input-group-addon">
-                                        <img src={publicPath + "/assets/images/unittype.svg"} width={16} />
+                                        <img src={publicPath + "/assets/images/icons/unittype.svg"} width={20} />
                                     </span>
                                     <select className="form-select" id="unitType" placeholder="unitType" name="unitType" onChange={handleChangeUnitType} defaultValue={''}>
                                         <option value="">Unit Type</option>
@@ -460,7 +462,7 @@ function UnitsPage() {
                             <li>
                                 <div className="input-group select-group">
                                     <span className="input-group-addon">
-                                        <img src={publicPath + "/assets/images/area.svg"} width={16} />
+                                        <img src={publicPath + "/assets/images/icons/area.svg"} width={20} />
                                     </span>
 
                                     <select className="form-select" id="area" placeholder="Area" name="area" onChange={handleChangeArea} defaultValue={''}>
@@ -474,7 +476,7 @@ function UnitsPage() {
                             <li>
                                 <div className="input-group select-group">
                                     <span className="input-group-addon">
-                                        <img src={publicPath + "/assets/images/dollar.svg"} width={16} />
+                                        <img src={publicPath + "/assets/images/icons/price.svg"} width={20} />
                                     </span>
                                     <select className="form-select" id="price" placeholder="Price" name="price" onChange={handleChangePrice} defaultValue={''}>
                                         <option value="">Price</option>
