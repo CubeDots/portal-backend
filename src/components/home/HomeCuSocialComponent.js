@@ -67,7 +67,7 @@ function HomeCuSocialComponent() {
                                         <Link to="" onClick={showBecomeOurPartnerModal} ><h2> Offers </h2></Link>
                                     }
                                     <p>
-                                        Check out the latest offers and exclusive deals provided by Cubedots!
+                                    Check Out the Latest Offers and Exclusive Deals
                                     </p>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@ function HomeCuSocialComponent() {
                                     Blog
                                 </h2></Link>
                                 <p>
-                                    Click here to read more about real estate and market-related topics!
+                                Read More About Real Estate
                                 </p>
                             </div>
                         </div>

@@ -16,7 +16,7 @@ function HelpSupport() {
                 <div className="offcanvas-body">
                     <div className='helpAndSupportBody'>
                         <div className='container'>
-                            <div className='row bgcol'>
+                            <div className='row bgcol m-auto'>
                                 <div className='col-md-3'></div>
                                 <div className='col-md-6'>
                                     <form>

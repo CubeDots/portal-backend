@@ -3107,7 +3107,15 @@ span.FolderChooser-icon-14 {
     width: 180px;
     padding: 23px;
 }
-
+.technologyLogo.tekfen {
+    width: 122px;
+}
+.technologyLogo.sinpas {
+    width: 134px;
+}
+.technologyLogo.acarlar {
+    width: 208px;
+}
 .technologyLogo.abdullatif {
     width: 220px;
 }
@@ -6595,12 +6603,24 @@ footer h6 {
     background-color: #fff;
     padding: 100px 0;
 }
-
+.vissionBox{
+    background-color: #0f2232;
+    color: #fff;
+    padding-bottom: 80px;
+}
+.vissionBox h2{
+    margin-bottom: 30px;
+}
 .goalAndValueBox {
     box-shadow: 0px 3px 8px rgb(0 0 0 / 30%);
     padding: 1.2rem;
 }
-
+.qouteAfter{
+    width: 40px !important;
+    height: 46px !important;
+    color: #e65400 !important;
+    transform: rotate(180deg)!important;
+}
 .goalValuecontentbox {
     margin-bottom: 20px;
 }

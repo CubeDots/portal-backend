@@ -72,12 +72,13 @@ function HomePage(props) {
                 <div className="banner">
                     <div className="container">
                         <div className="row align-items-center">
-                            <div className="col-md-6">
+                            <div className="col-md-7">
                                 <div className="bannerContent our-partner-content">
                                     {/* <AnimationOnScroll animateIn="animate__fadeInDown"> */}
-                                    <h2>The most innovative approach to make real estate sales easier and more efficient.</h2>
+                                    {/* <h2>The most innovative approach to make real estate sales easier and more efficient.</h2> */}
+                                    <h2>The Future of International Real Estate Brokerage by Empowering Agents and Developers to Sell Anywhere at Anytime</h2>
                                     {/* </AnimationOnScroll> */}
-                                    <p>Join our global network to work with the top developers in the Turkish real estate market. </p>
+                                    <p>Join our global network to access the top projects worldwide and have the most innovative approach to sales.</p>
                                     <a href="#" onClick={showBecomeOurPartnerModal} className="btn btntheme">Become Our Partner</a>
                                     {isBecomeOurPartnerModalShow}
 
@@ -267,8 +268,9 @@ function HomePage(props) {
                                     </div>
 
                                     {/* <p>With CuLibrary you can get access to insights by experts in the field and in-depth tutorials regarding a smooth experience of Cubedots app.</p> */}
-                                    <p>CuVerse is the library that provides all materials needed for you. By accessing CuVerse, you’ll be getting a variety of content that will help you with your sales process from A-Z. With CuVerse you’ll also get insights from experts in the field and in-depth tutorials regarding a smooth experience of Cubedots app.
-                                    </p>
+                                    {/* <p>CuVerse is the library that provides all materials needed for you. By accessing CuVerse, you’ll be getting a variety of content that will help you with your sales process from A-Z. With CuVerse you’ll also get insights from experts in the field and in-depth tutorials regarding a smooth experience of Cubedots app.
+                                    </p> */}
+                                    <p>CuVerse is where you will find all the necessary materials you need to increase your real estate sales including project videos, catalogues, prices, and plans. CuVerse will be your personal assistant with market-related insights, data, training and tutorials.</p>
                                     <Link to="/cuverse" className="btn btntheme">Explore More</Link>
                                     {/* <button className="btn">Button</button> */}
 
@@ -335,12 +337,11 @@ function HomePage(props) {
                                 </div>
                                 <div className="col-lg-4 col-12">
                                     <div className="aboutContent ">
-                                        <small>who we are</small>
+                                        {/* <small>who we are</small> */}
                                         <h2 className="wobble vegonHeading" data-wow-offset="0" data-wow-delay="0.4s">About Us</h2>
 
-                                        <p>Cubedots is a proptech company based in Turkey, the UK and India.
-                                            We are here to revolutionize real estate sales, marketing and management.</p><p>
-                                            With state-of-the-art technologies and innovative interactive 3D tools, we are writing a new chapter in realty sales. We are creating Turkey’s first community of real estate agents and empowering them as our partners in this evolutionary shift. We hope to be the efficient bridge between the best-in-class projects worldwide and our partners.</p>
+                                        <p>Cubedots is a proptech company with branches in the UK, Turkey, UAE and India. We are here to revolutionise real estate sales, marketing and management.</p>
+                                        <p> With state-of-the-art technologies and innovative interactive 3D tools, we are writing a new chapter in realty sales. We are creating a global network of agents and empowering them as our partners in this evolutionary shift. We hope to be the efficient bridge between the best-in-class projects worldwide and our partners.</p>
                                         <p>Let us create this history together. Let us move shoulder to shoulder in this exciting journey.</p>
                                         <Link to="/about" className="btn btntheme">Read More
                                             {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">

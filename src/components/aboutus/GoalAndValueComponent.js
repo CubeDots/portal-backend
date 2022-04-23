@@ -32,7 +32,7 @@ function GoalAndValueComponent() {
                 <div className="container">
                     <div className="goalValuesHeading">
                         {/* <p>Lorem ipsum dolor sit amet</p> */}
-                        <h2 className="vegonHeading">Goals &amp; Values</h2>
+                        <h2 className="vegonHeading">Our Values</h2>
                     </div>
                     <div className="goalValueContentDiv">
                         <div className="row justify-content-center">

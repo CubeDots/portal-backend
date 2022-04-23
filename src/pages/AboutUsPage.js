@@ -14,7 +14,7 @@ function AboutUsPage(props) {
     let publicPath = process.env.PUBLIC_URL;
 
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, []);
 
     return (
@@ -38,10 +38,7 @@ function AboutUsPage(props) {
                                 </div>
                                 <div className="col-md-9">
                                     <div className="whatWeContent">
-                                        <p>Cubedots is a prop-tech company that aims to revolutionize real estate sales,
-                                            marketing and management. By building a bridge between our partners and the top
-                                            developers, we have created a safer, faster and more reliable way to increase real
-                                            estate sales.</p>
+                                        <p>Cubedots is a proptech company that aims to revolutionise real estate sales, marketing and management. By building a bridge between our partners and the top developers, we have created a safer, faster and more reliable way to increase real estate sales.</p>
                                     </div>
                                 </div>
                             </div>
@@ -50,12 +47,12 @@ function AboutUsPage(props) {
                 </div>
 
                 <div className="missionvisionimageBox section">
-                        <div className="buyerSellerLandlord text-center">
-                            <div className="container">
-                                <img alt="" src={publicPath + "/assets/images/aboutus/aboutus.jpg"} className="img-fluid w-100" />
-                            </div>
+                    <div className="buyerSellerLandlord text-center">
+                        <div className="container">
+                            <img alt="" src={publicPath + "/assets/images/aboutus/aboutus.jpg"} className="img-fluid w-100" />
                         </div>
-                        {/* <div className="missionVisionBox">
+                    </div>
+                    {/* <div className="missionVisionBox">
                             <div className="container">
                                 <div className="row justify-content-center align-items-center">
                                     <div className="col-md-5">
@@ -76,7 +73,23 @@ function AboutUsPage(props) {
                                 </div>
                             </div>
                         </div> */}
+                </div>
+                {/* <div className="vissionBox">
+                    <div className="container">
+                        <div className="row text-center">
+                            <div className="col-md-12">
+                                <div className="">
+                                    <h2 className="vegonHeading">Our Vision</h2>
+                                </div>
+                            </div>
+                            <div className="col-md-12">
+                                <div className="">
+                                    <p>The future of international real estate brokerage by empowering agents and developers to sell anywhere at anytime</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div> */}
 
                 <GoalAndValueComponent />
 

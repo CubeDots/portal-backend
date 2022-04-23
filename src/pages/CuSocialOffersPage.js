@@ -124,7 +124,7 @@ function CuSocialOffersPage(props) {
                                                         <>
                                                             <div className="row">
                                                                 {cuSocials.map((row, index) =>
-                                                                    <div className="col-md-3 col-sm-6" key={row.id}>
+                                                                    <div className="col-md-4 col-sm-6" key={row.id}>
                                                                         <div className={'text-light categoryBox ' + category}>
                                                                             <div className="categoryBoxImage">
                                                                                 <Link to={`/cusocials/${category}/${row.slug}`}>

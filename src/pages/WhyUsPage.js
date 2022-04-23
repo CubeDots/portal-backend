@@ -36,17 +36,17 @@ function WhyUsPage() {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6">
-                                <h1>Why Join Cubedots?</h1>
+                                <h1 className="text-center">Why Join Cubedots?</h1>
                             </div>
                             <div className="col-md-6">
-                                <p>To benefit from the most innovative approach to make real estate sales easier, quicker, and more efficient.</p>
+                                <p>To benefit from the most innovative approach to make real estate sales easier, quicker and efficient.</p>
                                 <button className="btn btntheme" onClick={showBecomeOurPartnerModal}>Become our partner</button>
                             </div>
                         </div>
                     </div>
                     <BecomeOurPartnerModal show={isBecomeOurPartnerModalShow} onHide={closeBecomeOurPartnerModalModal} />
                 </div>
-                <div className="rankingSection">
+                {/* <div className="rankingSection">
                     <div className="container">
                         <div className="row justify-content-center">
                             <div className="col-lg-6">
@@ -57,12 +57,12 @@ function WhyUsPage() {
 
                                     <p>Since its establishment in 2019, Cubedots has revolutionized the way real estate sales are made. With over (ex:200 million dollars) generated in revenue from the projects that Cubedots has been managing, within such short time frame.</p>
 
-                                    {/* <button className="btn btntheme">Further details</button> */}
+                                    <button className="btn btntheme">Further details</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="alternetSection">
                     <div className="container">
                         <div className="row">
@@ -90,7 +90,7 @@ function WhyUsPage() {
                                 <div className="alternetSectionImgContent">
                                     <h3>Take your portfolio to the next level with Cubedots</h3>
                                     <div className="pe-lg-5">
-                                        <p>Sell Turkey’s best projects, work with the top developers, and guarantee the highest commissions.</p>
+                                        <p>Sell the top projects worldwide and get the best commission rates.</p>
                                     </div>
                                     <div className="read_more_cont d-flex">
                                         <button className="btn btntheme" onClick={showBecomeOurPartnerModal}>Join our agent network</button>
@@ -166,29 +166,32 @@ function WhyUsPage() {
                             <div className="tab-content" id="myTabContent">
                                 <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <h3>Sales Service</h3>
-                                    <h4>Promotion :</h4>
+                                    <h4>Events :</h4>
                                     <ul>
-                                        <li>Promotion of projects with events and exhibitions</li>
+                                        {/* <li>Promotion of projects with events and exhibitions</li>
                                         <li>International events (Cityscape, MIPIM, etc)</li>
                                         <li>Local events</li>
-                                        <li>Presentations</li>
+                                        <li>Presentations</li> */}
+                                        <li>Open house events and exhibitions</li>
+                                        <li>International real estate events</li>
                                     </ul>
                                     <h4>Marketing:</h4>
                                     <ul>
                                         <li>Marketing on social media platforms such as Instagram, YouTube, Facebook, LinkedIn and Twitter</li>
-                                        <li>Providing marketing support to agents</li>
+                                        <li>Several formats of content including videos, infographics, and carousels</li>
+                                        <li>Marketing support specific to agents</li>
                                     </ul>
 
                                     <h4>Networking:</h4>
                                     <ul>
-                                        <li>Access to Cubedots International Agents Network</li>
-                                        <li>Over 2000 agents from 20+ countries</li>
+                                        <li>Access to Cubedots international agent network</li>
+                                        <li>Over 2500 agents from 20+ countries</li>
                                     </ul>
                                     <h4>Back Office Support:</h4>
                                     <ul>
-                                        <li>Agent training on how to sell properties remotely via Cubedots</li>
-                                        <li>Multilingual team to raise brand awareness</li>
-                                        <li>Online reservation support for international off-site sales</li>
+                                        <li>Our agents receive comprehensive training on Cubedots’ remote sales system</li>
+                                        <li>Our multilingual team provides branding activities in different languages</li>
+                                        <li>Online reservation support for remote sales</li>
                                     </ul>
                                 </div>
                                 <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -274,7 +277,7 @@ function WhyUsPage() {
                             </div>
                         </div>
                         <div className="col-md-8">
-                            <h2 className="mb-5 faqsHeading vegonHeading">FAQ's</h2>
+                            <h2 className="mb-5 faqsHeading vegonHeading">FAQ</h2>
                             <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
                                 <li className="nav-item" role="presentation">
                                     <button className="nav-link active" id="Citizenship-tab" data-bs-toggle="tab" data-bs-target="#Citizenship" type="button" role="tab" aria-controls="Citizenship" aria-selected="true">Citizenship</button>
