@@ -88,7 +88,7 @@ function InvitationsDashPage() {
         </div>
       </div> */}
       <DataTable
-        title="Appointments"
+        title="Payment Plans"
         columns={columns}
         data={data.filter((item) => {
           if (searchTerm === "") {
