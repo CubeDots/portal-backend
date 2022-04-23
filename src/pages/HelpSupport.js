@@ -92,7 +92,7 @@ function HelpSupport() {
                                     <div className='helpAndSupportInput'>
                                         <div className='helpAndSupporttitleDiv'>
                                             <input type="text" onChange={(e) => setFormData({ ...formData, name: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor('name')} value={formData.name} className='form-control inputOffCanvas' placeholder='Enter Name *' name="name" required />
-                                            <div className='text-danger fs-6'>{simpleValidator.current.message('name', formData.name, 'alpha')}</div>
+                                            <div className='text-danger fs-6'>{simpleValidator.current.message('name', formData.name, 'alpha_space')}</div>
                                         </div>
                                         <div className='helpAndSupporttitleDiv'>
                                             <input type="text" className='form-control' name="email" placeholder='Enter Email *' onChange={(e) => setFormData({ ...formData, email: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} required />
