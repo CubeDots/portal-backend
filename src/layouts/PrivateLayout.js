@@ -60,7 +60,7 @@ function PrivateLayout() {
                 </li>*/}
 
                 <li className="nav-item" role="presentation">
-                  <NavLink className="nav-link " to="/dash/invitations">Appointments</NavLink>
+                  <NavLink className="nav-link " to="/dash/invitations">Payment Plans</NavLink>
                 </li>
                 <li className="nav-item" role="presentation">
                   <NavLink className="nav-link "to="/dash/profile">Profile</NavLink>
