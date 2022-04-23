@@ -10,13 +10,13 @@ function HelpSupport() {
             <div className="helpAndSupportOffCanvas">
                 <div className="offcanvas-header">
                     <div className='generateTicket'>
-                        <h2>Generate Ticket</h2>
+                        <h2 className="vegonHeading ">Generate Ticket</h2>
                     </div>
                 </div>
                 <div className="offcanvas-body">
                     <div className='helpAndSupportBody'>
                         <div className='container'>
-                            <div className='row'>
+                            <div className='row bgcol'>
                                 <div className='col-md-3'></div>
                                 <div className='col-md-6'>
                                     <form>

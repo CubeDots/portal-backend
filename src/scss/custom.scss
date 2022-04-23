@@ -2480,9 +2480,15 @@ span.FolderChooser-icon-14 {
     transition: .5s all ease-in-out;
 }
 .helpAndSupportOffCanvas {
-    background: #efefef;
+    background: #0F2132;
     padding: 35px 0;
-  }  
+}  
+.bgcol {
+    background: #EFEFEF;
+    width: 60%;
+    border-radius: 12px;
+    padding-bottom: 35px;
+}
 
 .smallImg {
     height: 107px !important;
