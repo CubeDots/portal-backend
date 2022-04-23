@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useAuthHeader, useIsAuthenticated } from 'react-auth-kit';
 import Platform from 'react-platform-js';
 import axios from "axios";
@@ -123,11 +123,11 @@ function ThreeDSystemPage() {
               {projectStream.project.is_3d_enabled ?
                 <>
                   <div className="col-auto twoDbackBtn">
-                    <button title="Back" className="cusocialBackBtn" onClick={() => navigate(-1)}>
+                    <Link title="Back" className="cusocialBackBtn" to={"/projects/" + id}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
                       </svg>
-                    </button>
+                    </Link>
                     &nbsp;
                     <button title="FullScreen" className="cusocialBackBtn" onClick={() => openFullscreen()}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-fullscreen" viewBox="0 0 16 16">
