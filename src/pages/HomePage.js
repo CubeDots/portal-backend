@@ -271,7 +271,7 @@ function HomePage(props) {
                                     {/* <p>CuVerse is the library that provides all materials needed for you. By accessing CuVerse, you’ll be getting a variety of content that will help you with your sales process from A-Z. With CuVerse you’ll also get insights from experts in the field and in-depth tutorials regarding a smooth experience of Cubedots app.
                                     </p> */}
                                     <p>CuVerse is where you will find all the necessary materials you need to increase your real estate sales including project videos, catalogues, prices, and plans. CuVerse will be your personal assistant with market-related insights, data, training and tutorials.</p>
-                                    <Link to="/cuverse" className="btn btntheme">Explore More</Link>
+                                    <Link to="/cuverse" className="btn btntheme">Explore</Link>
                                     {/* <button className="btn">Button</button> */}
 
                                 </div>

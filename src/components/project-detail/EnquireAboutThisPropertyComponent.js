@@ -158,7 +158,7 @@ function EnquireAboutThisPropertyComponent(props) {
                         <label className="form-label">Occupation</label>
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
                             <option value="">Interested As</option>
-                            <option value="Agency">Real Estate agent</option>
+                            <option value="Agency">Real Estate Agency</option>
                             <option value="Developer">Developer</option>
                             <option value="Others">Others</option>
                         </select>
