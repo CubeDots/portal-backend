@@ -80,7 +80,7 @@ function HomeProjectsComponent() {
                                 <div className="projectcard ">
                                     {/* <AnimationOnScroll animateIn="animate__zoomIn"> */}
                                     <div className="imgproject">
-                                        <Link to={`/projects/${row.slug}`} >
+                                        <Link to={`/projects/${row.slug}`} className={row.project_status ? 'disabled-link' : ''}>
                                             {row.banners.length > 0 ?
                                                 <LazyLoadImage
                                                     effect="blur"
@@ -104,13 +104,15 @@ function HomeProjectsComponent() {
                                     <div className="projectcardContent">
                                         <div className="row justify-content-between">
                                             <div className="col-lg-6 pe-0">
-                                                <h4 className="projectCardTitle"><Link className="notranslate" to={`/projects/${row.slug}`}>{row.title}</Link></h4>
+                                                <h4 className="projectCardTitle"><Link className={row.project_status ? 'disabled-link notranslate' : 'notranslate'} to={`/projects/${row.slug}`}>{row.title}</Link></h4>
 
                                             </div>
                                             <div className="col-lg-6 text-lg-end">
+                                                {!row.project_status ? 
                                                 <h4 className="projectCardPrice">
                                                     <CurrencyFormat value={row.min_price} displayType={'text'} thousandSeparator={true} prefix={row.currency_symbol} /> - <CurrencyFormat value={row.max_price} displayType={'text'} thousandSeparator={true} />
                                                 </h4>
+                                                : ''}
                                             </div>
                                         </div>
                                         <div className="d-flex justify-content-between align-items-center">

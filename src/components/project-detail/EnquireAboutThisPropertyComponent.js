@@ -136,41 +136,28 @@ function EnquireAboutThisPropertyComponent(props) {
                     <div className="mb-3">
                         <div className='position-relative'>
                             <label className="form-label">First Name</label>
-                            <input type="text" className="form-control" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                            <div className='starMandotoryEnquiryName'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16">
-                                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
-                                </svg>
-                            </div>
+                            <input className="form-control" type="text" placeholder="First Name *" name="first_name" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                            <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
                         </div>
                     </div>
                     <div className="mb-3">
                         <div className='position-relative'>
                             <label className="form-label">Last Name</label>
-                            <input type="text" className="form-control" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                            <div className='starMandotoryEnquiryName'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16">
-                                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
-                                </svg>
-                            </div>
+                            <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                            <div className='text-danger fs-6'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha')}</div>
                         </div>
                     </div>
                     <div className="mb-3">
                         <div className='position-relative'>
                             <label className="form-label">Email Address</label>
-                            <input type="email" className="form-control" placeholder="Email Address" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                            <input type="email" className="form-control" placeholder="Email *" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                             <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
-                            <div className='starMandotoryEnquiryEmail'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16">
-                                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
-                                </svg>
-                            </div>
                         </div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Occupation</label>
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                            <option value="">Interesting As</option>
+                            <option value="">Interested As</option>
                             <option value="Agency">Real Estate agent</option>
                             <option value="Developer">Developer</option>
                             <option value="Others">Others</option>
@@ -181,7 +168,7 @@ function EnquireAboutThisPropertyComponent(props) {
                         {countries.length > 0 ?
                             <>
                                 <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
-                                    <option value="">Select Country</option>
+                                    <option value="">Select Country *</option>
                                     {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                 </select>
                             </>
@@ -192,12 +179,7 @@ function EnquireAboutThisPropertyComponent(props) {
                             <label className="form-label">Mobile</label>
                             <div className="input-group">
                                 <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                                <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
-                            </div>
-                            <div className='starMandotoryEnquiryMobile'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16">
-                                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
-                                </svg>
+                                <input type="text" className="form-control" placeholder="Mobile *" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                             </div>
                         </div>
                         <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
@@ -206,7 +188,7 @@ function EnquireAboutThisPropertyComponent(props) {
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Date</label>
 
-                            <DatePicker className="form-control" placeholder="Appointment Date" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required />
+                            <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required />
 
 
                             {/* <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} /> */}

@@ -1,4 +1,4 @@
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
@@ -33,13 +33,13 @@ function ProjectEnquireNowModal(props) {
             setProject(props.project);
             setFormData(formColumns);
             setFormData(formData => ({ ...formData, project_interest: props.project }));
-            if(user){
+            if (user) {
                 //console.log("user",user)
-                setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1],email: user.email  }));
+                setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1], email: user.email }));
             }
         }
 
-    }, [props.project,user]);
+    }, [props.project, user]);
 
     async function fetchCountries() {
         genRandomString();
@@ -148,21 +148,23 @@ function ProjectEnquireNowModal(props) {
                                 <form id="form1" onSubmit={onSubmit}>
                                     <div className="row">
                                         <div className="col mb-3">
-                                            <input className="form-control" type="text" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                                            <input className="form-control" type="text" placeholder="First Name *" name="first_name" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                                            <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
                                         </div>
                                         <div className="col mb-3">
-                                            <input className="form-control" type="text" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                                            <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                                            <div className='text-danger fs-6'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha')}</div>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col">
-                                            <input className="form-control" type="text" placeholder="Email" name="email" onKeyUp={()=>simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                                            <input className="form-control" type="text" placeholder="Email *" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                                         </div>
                                         <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                     </div>
                                     <div className="mb-3">
                                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                                            <option value="">Interesting As</option>
+                                            <option value="">Interested As</option>
                                             <option value="Agency">Real Estate agent</option>
                                             <option value="Developer">Developer</option>
                                             <option value="Others">Others</option>
@@ -174,7 +176,7 @@ function ProjectEnquireNowModal(props) {
                                             {countries.length > 0 ?
                                                 <>
                                                     <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
-                                                        <option value="">Select Country</option>
+                                                        <option value="">Select Country *</option>
                                                         {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                                     </select>
                                                 </>
@@ -186,8 +188,8 @@ function ProjectEnquireNowModal(props) {
                                         <div className="col">
                                             <div className="input-group">
                                                 <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                                                <input className="form-control" type="text" placeholder="Mobile No."
-                                                    name="mobile" onKeyUp={()=>simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                                                <input className="form-control" type="text" placeholder="Mobile *"
+                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                                             </div>
                                             <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                         </div>
@@ -195,13 +197,13 @@ function ProjectEnquireNowModal(props) {
                                     <div className="row">
                                         <div className="col mb-3">
                                             <label className="form-label">Appointment Date</label>
-                                            <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required />
+                                            <input type="date" className="form-control" placeholder="Appointment Date *" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required />
 
                                         </div>
                                         <div className="col mb-3">
                                             <label className="form-label">Appointment Time</label>
 
-                                            <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required />
+                                            <input type="time" className="form-control" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required />
 
 
                                         </div>

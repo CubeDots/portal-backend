@@ -47,6 +47,7 @@ function HomePage(props) {
 
     useEffect(() => {
         //genRandomString();
+        window.scrollTo({ top:0,left:0,behavior:'smooth'});
     }, []);
 
     const showBecomeOurPartnerModal = () => {
@@ -268,7 +269,7 @@ function HomePage(props) {
                                     {/* <p>With CuLibrary you can get access to insights by experts in the field and in-depth tutorials regarding a smooth experience of Cubedots app.</p> */}
                                     <p>CuVerse is the library that provides all materials needed for you. By accessing CuVerse, you’ll be getting a variety of content that will help you with your sales process from A-Z. With CuVerse you’ll also get insights from experts in the field and in-depth tutorials regarding a smooth experience of Cubedots app.
                                     </p>
-                                    <Link to="/cuverse" className="btn">Explore More</Link>
+                                    <Link to="/cuverse" className="btn btntheme">Explore More</Link>
                                     {/* <button className="btn">Button</button> */}
 
                                 </div>
@@ -284,7 +285,7 @@ function HomePage(props) {
                     <div className="container">
                         <div className="aboutus" ref={(node) => {
                             if (node) {
-                                node.style.setProperty("background", `url(${publicPath + aboutBg})`, "important");
+                                node.style.setProperty("background", `url(${publicPath + aboutBg})`, "");
                                 node.style.setProperty("background-repeat", `no-repeat`, "important");
                                 node.style.setProperty("background-size", `10%`, "important");
                                 node.style.setProperty("background-position", `5% 95%`, "important");
@@ -341,7 +342,7 @@ function HomePage(props) {
                                             We are here to revolutionize real estate sales, marketing and management.</p><p>
                                             With state-of-the-art technologies and innovative interactive 3D tools, we are writing a new chapter in realty sales. We are creating Turkey’s first community of real estate agents and empowering them as our partners in this evolutionary shift. We hope to be the efficient bridge between the best-in-class projects worldwide and our partners.</p>
                                         <p>Let us create this history together. Let us move shoulder to shoulder in this exciting journey.</p>
-                                        <Link to="/about">Read More
+                                        <Link to="/about" className="btn btntheme">Read More
                                             {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
 
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />

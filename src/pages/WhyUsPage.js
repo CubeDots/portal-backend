@@ -93,7 +93,7 @@ function WhyUsPage() {
                                         <p>Sell Turkey’s best projects, work with the top developers, and guarantee the highest commissions.</p>
                                     </div>
                                     <div className="read_more_cont d-flex">
-                                        <a href="#" onClick={showBecomeOurPartnerModal}>Join our agent network</a>
+                                        <button className="btn btntheme" onClick={showBecomeOurPartnerModal}>Join our agent network</button>
                                     </div>
                                 </div>
                                 {/* */}
@@ -424,7 +424,7 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapseCitizenship10" className="accordion-collapse collapse" aria-labelledby="Citizenship10" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                No, you do not need any level of proficiency in Turkish to obtain Turkish citizenship.
+                                                    No, you do not need any level of proficiency in Turkish to obtain Turkish citizenship.
                                                 </div>
                                             </div>
                                         </div>
@@ -436,7 +436,7 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapseCitizenship11" className="accordion-collapse collapse" aria-labelledby="Citizenship11" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                Yes, as long as the investment in total is over $400 thousand, you can purchase any number of properties.
+                                                    Yes, as long as the investment in total is over $400 thousand, you can purchase any number of properties.
                                                 </div>
                                             </div>
                                         </div>
@@ -788,7 +788,7 @@ function WhyUsPage() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="accordion-item">
+                                        {/* <div className="accordion-item">
                                             <h2 className="accordion-header" id="Projects4">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects4" aria-expanded="false" aria-controls="collapseProjects4">
                                                     <strong>AcarBlu</strong>
@@ -833,7 +833,7 @@ function WhyUsPage() {
                                                         that, you can benefit from the exemption from the government.</p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Projects5">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects5" aria-expanded="false" aria-controls="collapseProjects5">

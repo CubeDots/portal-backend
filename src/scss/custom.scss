@@ -2003,13 +2003,6 @@ span.FolderChooser-icon-14 {
     color: #fff;
 }
 
-.aboutus .aboutContent a {
-    color: #e65400;
-    transition: .3s ease;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-}
 
 .aboutVideo .carousel-control-next-icon,
 .aboutVideo .carousel-control-prev-icon {
@@ -2027,35 +2020,6 @@ span.FolderChooser-icon-14 {
     justify-content: center;
 }
 
-.aboutus .aboutContent a::before {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    content: "";
-    width: 100%;
-    height: 2px;
-    background-color: #e65400;
-    transition: .3s ease;
-}
-
-.aboutus .aboutContent a:hover::before {
-    left: 173%;
-}
-
-.aboutus .aboutContent a:hover::after {
-    left: 0;
-}
-
-.aboutus .aboutContent a::after {
-    position: absolute;
-    bottom: 0;
-    left: -173%;
-    content: "";
-    width: 100%;
-    height: 2px;
-    background-color: #e65400;
-    transition: .3s ease;
-}
 
 .aboutVideo .carousel-control-next-icon {
     display: flex;
@@ -2516,9 +2480,15 @@ span.FolderChooser-icon-14 {
     transition: .5s all ease-in-out;
 }
 .helpAndSupportOffCanvas {
-    background: #efefef;
+    background: #0F2132;
     padding: 35px 0;
-  }  
+}  
+.bgcol {
+    background: #EFEFEF;
+    width: 60%;
+    border-radius: 12px;
+    padding-bottom: 35px;
+}
 
 .smallImg {
     height: 107px !important;
@@ -6078,8 +6048,7 @@ footer h6 {
     border-radius: 5px;
     background: #e65400;
     transition: 0.4s all ease-in-out;
-    width: 26px;
-    height: 28px;
+    padding: 1px 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7172,6 +7141,14 @@ footer h6 {
         flex-direction: row !important;
         border-bottom: 1px solid #dde6e6;
         margin-bottom: 25px;
+    }
+    .aboutUsBackground .aboutus
+    {
+        background: none !important;
+    }
+    .totalAgentContent
+    {
+        justify-content: space-evenly;
     }
     .modal-dialog .modal-content .modal-header h4{
         font-size: 16px;
