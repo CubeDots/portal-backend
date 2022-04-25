@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import CurrencyFormat from 'react-currency-format';
+import ProgressBar from "@ramonak/react-progress-bar";
 
 import CharactersLimitComponent from "../CharactersLimitComponent";
 import ProjectEnquireNowModal from "./ProjectEnquireNowModal";
@@ -154,12 +155,12 @@ function ProjectList(props) {
                                                                     Inventory
                                                                 </button>
                                                             </div> */}
-                                                    <div className="col-4 m-auto">
+                                                    <div className="col-3 m-auto">
                                                         <div className="d-flex justify-content-between">
-                                                            <p className="progressStage"> <img src={publicPath + "/assets/images/progess.svg"} width={40} alt="" /> {row.property_stage}%</p>
+                                                        <ProgressBar isLabelVisible={false} animateOnRender={true} completed={row.property_stage} labelSize="10px" bgColor="#e65400" className="projectProgress" /> <span className="projectProgressText">{row.property_stage}%</span>
                                                         </div>
                                                     </div>
-                                                    <div className="col-8">
+                                                    <div className="col-9">
                                                         <div className="text-end">
                                                             {/* <button type="button" className="btn me-1 ratingBtn">
                                                                 <img src={publicPath + "/assets/images/projectlist/heart.svg"} width="20" alt="" className="img-fluid" />

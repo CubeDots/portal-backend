@@ -6,6 +6,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import CurrencyFormat from 'react-currency-format';
 import Carousel from 'react-grid-carousel'
 import { API_ENDPOINT } from "../../common/Constants";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 
 function HomeProjectsComponent() {
@@ -71,7 +72,7 @@ function HomeProjectsComponent() {
         return ("Please wait...");
     return (
         <>
-        
+
             <div className="projectCardSection">
                 <div className="row">
                     {projects && projects.map((row, i) => {
@@ -108,19 +109,25 @@ function HomeProjectsComponent() {
 
                                             </div>
                                             <div className="col-lg-6 text-lg-end">
-                                                {!row.project_status ? 
-                                                <h4 className="projectCardPrice">
-                                                    <CurrencyFormat value={row.min_price} displayType={'text'} thousandSeparator={true} prefix={row.currency_symbol} /> - <CurrencyFormat value={row.max_price} displayType={'text'} thousandSeparator={true} />
-                                                </h4>
-                                                : ''}
+                                                {!row.project_status ?
+                                                    <h4 className="projectCardPrice">
+                                                        <CurrencyFormat value={row.min_price} displayType={'text'} thousandSeparator={true} prefix={row.currency_symbol} /> - <CurrencyFormat value={row.max_price} displayType={'text'} thousandSeparator={true} />
+                                                    </h4>
+                                                    : ''}
                                             </div>
                                         </div>
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B8532E" className="bi bi-geo-alt" viewBox="0 0 16 16">
-                                                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                            </svg>{row.city}, {row.country}</p>
-                                            <p className="progressStage"> <img src={publicPath + "/assets/images/progess.svg"} width={40} alt="" /> {row.property_stage}%</p>
+                                        <div className="row">
+                                            <div className="col-lg-8 pe-0">
+                                                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#B8532E" className="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                                </svg>{row.city}, {row.country}</p>
+                                            </div>
+                                            <div className="col-lg-4">
+                                                <div className="d-flex justify-content-between">
+                                                    <ProgressBar isLabelVisible={false} animateOnRender={true} completed={row.property_stage} labelSize="10px" bgColor="#e65400" className="projectProgress" /> <span className="projectProgressText">{row.property_stage}%</span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <p className="projectCardPara">{row.small_description}</p>
                                     </div>

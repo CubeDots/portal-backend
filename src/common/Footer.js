@@ -282,6 +282,8 @@ function Footer() {
             <CookieConsent
                 location="bottom"
                 buttonText="Accept"
+                buttonClasses="acceptBtn"
+                declineButtonClasses="cancelBtn"
                 declineButtonText="Cancel"
                 cookieName="myAwesomeCookieName2"
                 style={{ background: "#FFFF", color: "#444", fontSize: "13px", position: "sticky", }}
