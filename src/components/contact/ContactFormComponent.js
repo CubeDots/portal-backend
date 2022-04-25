@@ -9,7 +9,7 @@ import { API_ENDPOINT } from "../../common/Constants";
 import SocialSharingComponent from "../contact/SocialSharingComponent"
 import Multiselect from "multiselect-react-dropdown";
 
-function ContactFormComponent() {
+function ContactFormComponent(props) {
     const simpleValidator = useRef(new SimpleReactValidator())
     let publicPath = process.env.PUBLIC_URL;
     const isAuthenticated = useIsAuthenticated();
@@ -17,11 +17,11 @@ function ContactFormComponent() {
     const user = isAuthenticated() ? auth().user : null;
     const [projectList, setProjectList] = useState([]);
     const [age, setAge] = useState();
-
+    const [selectedValue, setSelectedValue] = useState([]);
     const [footersocialLoading, setFooterSocialLoading] = useState(false);
     const [footerSocialLinks, setFooterSocialLinks] = useState(null);
 
-
+    
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
 
@@ -30,7 +30,7 @@ function ContactFormComponent() {
 
 
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', terms: false });
+    const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', country: '', occupation: '',project_interest:[], dial_code: '', mobile: '', message: '', terms: false });
 
     useEffect(() => {
         fetchFooterSocial();
@@ -57,6 +57,7 @@ function ContactFormComponent() {
             setFooterSocialLoading(false);
         }
     }
+    
     async function fetchProjects() {
         setCountriesLoading(true);
         try {
@@ -111,8 +112,14 @@ function ContactFormComponent() {
     }
 
     const resetFrom = () => {
-        setFormData({ first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', terms: false });
+        setFormData({ first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '',project_interest:[], message: '', terms: false });
         document.getElementById("form2").reset();
+    }
+    const handleChange = (e) => {
+        //console.log("isClearable", e);
+        let selectedProject = e;
+        console.log("projectList", selectedProject);
+        setFormData(formData => ({ ...formData, project_interest: selectedProject }));
     }
 
     const onSubmit = (e) => {
@@ -216,10 +223,13 @@ function ContactFormComponent() {
                                     onKeyPressFn={function noRefCheck() { }}
                                     onRemove={function noRefCheck() { }}
                                     onSearch={function noRefCheck() { }}
-                                    onSelect={function noRefCheck() { }}
+                                    onSelect={handleChange}
+                                    value={projectList.filter(obj => selectedValue.includes(obj.value))}
                                     options={projectList}
+                                    required
+                                    isClearable
                                 />
-
+                                <p>{selectedValue}</p>
                                 {/* <select className="form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
                                     <option value="">Project Interest</option>
                                     {projects.length > 0 && projects.map((row, index) => <option value={row.title} key={index} >{row.title}</option>)}
