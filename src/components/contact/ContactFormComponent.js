@@ -159,12 +159,12 @@ function ContactFormComponent() {
                     <div className="col-md-6 mb-3 ">
                         {/* <label className="form-label required">First Name</label> */}
                         <input className="form-control" type="text" placeholder="First Name *" name="first_name" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                        <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
+                        <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha_space')}</div>
                     </div>
                     <div className="col-md-6 mb-3">
                         {/* <label className="form-label required">Last Name</label> */}
                         <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                        <div className='text-danger fs-6'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha')}</div>
+                        <div className='text-danger fs-6'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
                     </div>
                 </div>
                 <div className="row mb-3">
@@ -200,7 +200,7 @@ function ContactFormComponent() {
                         {/* <label className="form-label">Occupation</label> */}
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
                             <option value="">Interested As</option>
-                            <option value="Agency">Real Estate agent</option>
+                            <option value="Agency">Real Estate Agency</option>
                             <option value="Developer">Developer</option>
                             <option value="Others">Others</option>
                         </select>

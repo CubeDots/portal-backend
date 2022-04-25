@@ -97,7 +97,29 @@ textarea {
     -webkit-transition: .4s ease;
     transition: .4s ease;
 }
-
+.cancelBtn {
+    background: #000080 !important;
+    border-radius: 20px !important;
+    padding: 5px 15px !important;
+  }
+.acceptBtn
+{
+    background: #e65400 !important;
+    border-radius: 20px !important;
+    padding: 5px 15px !important;
+    color: #fff !important;
+}
+.projectProgress {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .projectProgressText {
+    padding-left: 5px;
+    font-size: 14px;
+  }
+  .projectcardContent .projectProgressText {
+    color: #fff;
+  }  
 .apartmentDetails {
     color: #fff;
 }
