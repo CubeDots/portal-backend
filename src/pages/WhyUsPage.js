@@ -675,7 +675,7 @@ function WhyUsPage() {
                                         </div> */}
                                 <div className="tab-pane fade" id="Projects" role="tabpanel" aria-labelledby="Projects-tab">
                                     <div className="accordion mainAccordionWhyus" id="Projects">
-                                        <div className="accordion-item">
+                                        {/*<div className="accordion-item">
                                             <h2 className="accordion-header" id="Projects1">
                                                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects1" aria-expanded="true" aria-controls="collapseProjects1">
                                                     <strong>General</strong>
@@ -690,14 +690,14 @@ function WhyUsPage() {
                                                         Mevsim is 7%.</p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>*/}
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Projects2">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects2" aria-expanded="false" aria-controls="collapseProjects2">
                                                     <strong> Avrupa Konutları Yamanevler</strong>
                                                 </button>
                                             </h2>
-                                            <div id="collapseProjects2" className="accordion-collapse collapse" aria-labelledby="Projects2" data-bs-parent="#Projects">
+                                            <div id="collapseProjects2" className="accordion-collapse collapse show" aria-labelledby="Projects2" data-bs-parent="#Projects">
                                                 <div className="accordion-body ">
                                                     <strong> Where is this project located?</strong>
                                                     <p> It is located in Ümraniye, Yamanevler district, next to Yamanevler metro station.</p>
