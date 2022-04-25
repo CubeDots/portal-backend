@@ -9,7 +9,6 @@ import "animate.css/animate.min.css";
 import 'animate.css';
 // import { AnimationOnScroll } from 'react-animation-on-scroll';
 
-import HomeCuSocialComponent from "../components/home/HomeCuSocialComponent";
 import BecomeOurPartnerModal from "../components/home/BecomeOurPartnerModal";
 //import HomePageCounters from  "../components/HomePageCounters";
 import HomeProjectsMapComponent from "../components/home/HomeProjectsMapComponent";
@@ -18,6 +17,7 @@ import OurPartnerComponent from "../components/home/OurPartnerComponent";
 const HomePageCounters = React.lazy(() => import("../components/home/HomePageCounters"));
 const HomeProjectsComponent = React.lazy(() => import("../components/home/HomeProjectsComponent"));
 const TestimonialsComponent = React.lazy(() => import("../components/home/TestimonialsComponent"));
+const HomeCuSocialComponent = React.lazy(() => import("../components/home/HomeCuSocialComponent"));
 
 const projects = '/assets/images/bg/Projects.png';
 
