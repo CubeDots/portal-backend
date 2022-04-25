@@ -5,7 +5,6 @@ function PolicyOnProtection() {
         <>
             <div>
                 <h5 className="policyProtectionHeading vegonHeading">Policy on Protection and Process of Personal Data</h5>
-                <p>Content</p>
                 <ul>
                     <li>1 Purpose</li>
                     <li>2 Scope and Implementation</li>
@@ -38,8 +37,8 @@ function PolicyOnProtection() {
                     <div>
                         <p>1. Purpose</p>
                         <div className="policyOnProtectionPara">
-                            <p>The main purpose of this Policy of Protection and Processing of Personal Data ("Policy") is to make explanations about the activities of personal data processing carried out by CUBEDOTS TURKEY GAYRİMENKUL TEKNOLOJİLERİ LİMİTED  ŞİRKETİ ("the Company") in accordance with the law and the systems adopted for the protection of personal data and to determine the procedures and principles to be followed by data controllers due to their relationship with the Company and to ensure transparency towards the persons whose data is processed.</p>
-                            <p>The Company maintains its activities in accordance with the provisions related to the protection and privacy of personal data laid down in particular in the Constitution of Republic of Turkey and the international conventions to which we are a party, as well as the Law on Protection of Personal Data ("KVKK") and the relevant legislation. The Company approaches with maximum sensitivity to the protection of personal data and fundamental rights and freedoms, it focuses on fundamental human rights such as right to privacy and freedom of expession in all of its activities.</p>
+                            <p>The main purpose of this Policy of Protection and Processing of Personal Data ("Policy") is to make explanations about the activities of personal data processing carried out by CUENGINE TURKEY GAYRİMENKUL TEKNOLOJİLERİ LİMİTED  ŞİRKETİ ("the Company") in accordance with the law and the systems adopted for the protection of personal data and to determine the procedures and principles to be followed by data controllers due to their relationship with the Company and to ensure transparency towards the persons whose data is processed.</p>
+                            <p>The Company maintains its activities in accordance with the provisions related to the protection and privacy of personal data laid down in particular in the Constitution of Republic of Turkey and the international conventions to which we are a party, as well as the Law on Protection of Personal Data ("KVKK"), GDPR and the relevant legislation. The Company approaches with maximum sensitivity to the protection of personal data and fundamental rights and freedoms, it focuses on fundamental human rights such as right to privacy and freedom of expression in all of its activities.</p>
                         </div>
                         <p>2. Scope and Implementation</p>
                         <div className="policyOnProtectionPara">
@@ -57,7 +56,7 @@ function PolicyOnProtection() {
                             <p><b>Data Controller:</b> The natural or legal person who determines the purposes and means of processing personal data and manages the data filing system (the place where the data is kept systematically).</p>
                             <p><b>Explicit Consent:  </b> Freely given, specific and informed consent.</p>
                             <p><b>Personal Data:  </b> Any information relating to an identified or identifiable natural person.</p>
-                            <p><b>Special Categories of Personal Data:  </b>Data relating to race, ethnic origin, political opinions, philosophical beliefs, religion, sect or other beliefs, appearance and dressing, membership of associations, foundations or trade unions, health, sexual life, criminal conviction and security measuresand biometrics and genetics.</p>
+                            <p><b>Special Categories of Personal Data:</b>Data relating to race, ethnic origin, political opinions, philosophical beliefs, religion, sect or other beliefs, appearance and dressing, membership of associations, foundations or trade unions, health, sexual life, criminal conviction and security measuresand biometrics and genetics.</p>
                             <p><b>Processing of Personal Data: </b> Any operation which is performed on personal data, wholly or partially by automated means or non-automated means which provided that form part of a data filing system, such as collection, recording, storage, protection, alteration, adaptation, disclosure, transfer, retrieval, making available for collection, categorization, preventing the use thereof.</p>
                             <p><b>Anonymization of Personal Data:  </b>Rendering personal data impossible to link with an identified or identifiable natural person, even through matching them with other data.</p>
                             <p><b>Deletion of Personal Data:  </b> Making personal data inaccessible and unfit for re-use for relevant users.</p>
@@ -303,12 +302,12 @@ function PolicyOnProtection() {
                             <li>To claim the compensation for the damage if he/she incurs any damage due to unlawful processing of personal data.</li>
                         </ul>
                         <p className="policyParaHeading">b. Exercise of the Rights</p>
-                        <p className="policyOnProtectionPara">Applications and requests regarding personal data may be transmitted to Cubedots through the Data Subject Application Form:</p>
+                        <p className="policyOnProtectionPara">Applications and requests regarding personal data may be transmitted to Cuengine through the Data Subject Application Form:</p>
                         <ul className="policyParaHeading">
                             <li>1. By sending it with your wet signature and copy of your identity card to the address: Cumhuriyet Mah., Silahşör Cd., Bomonti Business Center, D:No:8/23-24, Şişli/İstanbul, or</li>
-                            <li>2. By signing it with secure electronic signature or mobile signature and sending to e-mail address info@cubedots.com, or,</li>
+                            <li>2. By signing it with secure electronic signature or mobile signature and sending to e-mail address info@Cuengine.com, or,</li>
                             <li>3. By signing it with secure electronic signature or mobile signature and sending to the address xyz.xyz.vom via registered electronic mail (KEP), or</li>
-                            <li>4. By applying in person to Cubedots Office with a valid identity document.</li>
+                            <li>4. By applying in person to Cuengine Office with a valid identity document.</li>
                         </ul>
                         <div className="policyOnProtectionPara">
                             <p>The data subject, within the scope of legal obligations regarding the procedures and principles of application to the data controller, must include in his/her application his/her name, surname, signature if the application is in written form, the Republic of Turkey Identity Number if the data subject is a Turkish citizen, the nationality, passport (identity card, if any) number if the data subject is a foreigner, the place of residence or business address, e-mail address and fax number, if any, to be based on notificationsand lastly the subject of request. In addition, the documents confirming the identity, as well as information and documents regarding the subject of the request must be attached to the application</p>

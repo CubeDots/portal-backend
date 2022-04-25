@@ -74,22 +74,20 @@ function AboutUsPage(props) {
                             </div>
                         </div> */}
                 </div>
-                {/* <div className="vissionBox">
+                <div className="vissionBox">
                     <div className="container">
                         <div className="row text-center">
                             <div className="col-md-12">
                                 <div className="">
-                                    <h2 className="vegonHeading">Our Vision</h2>
-                                </div>
-                            </div>
-                            <div className="col-md-12">
-                                <div className="">
-                                    <p>The future of international real estate brokerage by empowering agents and developers to sell anywhere at anytime</p>
+                                    <img src={publicPath + "/assets/images/aboutus/eye.png"} className="img-fluid" alt="" />
+                                    <h2 className="vegonHeading mt-3">Our Vision</h2>
+                                    <p>Empowering agents and developers to sell anywhere at any time by bringing them into
+                                        the future of international real estate brokerage</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
 
                 <GoalAndValueComponent />
 

@@ -22,7 +22,7 @@ function Clarification() {
                     <div>
                         <p>This Clarification Text has been prepared pursuant to Article 10 of the Turkish Protection of Personal Data Law no. 6698 (“KVKK”), GDPR and the Communiqué on Principles and Procedures to be Followed to Fulfill the Obligation to Inform.</p>
                         <h5>Who is the Data Controller?</h5>
-                        <p className="clarificationAcnhor">CUENGINE TURKEY GAYRİMENKUL TEKNOLOJİLERİ LİMİTED ŞİRKETİ (“Cuengine”, “we”, “us”, or “our”) located at the address Veko Giz Plaza, Meydan Sokak, No:20 34396, Maslak, İstanbul who carries out its services via the Site www.cubedots.com (“Site”).</p>
+                        <p className="clarificationAcnhor">CUENGINE TURKEY GAYRİMENKUL TEKNOLOJİLERİ LİMİTED ŞİRKETİ (“Cuengine”, “we”, “us”, or “our”) located at the address Veko Giz Plaza, Meydan Sokak, No:20 34396, Maslak, İstanbul who carries out its services via the Site www.cuengine.com (“Site”).</p>
                         <p>What is the Purpose and Legal Grounds for Processing Your Personal Data?</p>
                         <p>Your personal data (“Data Subject”, “yours”, “your”, “you”) may be processed for different purposes and for different legal reasons, depending on your relationship with CuEngine. After you have determined your relevant data subject category, you can find in detail which of your personal data is processed and on which legal grounds from the table below.</p>
                         <p>Such information has been written in much detail as possible and we would like to remind you that you may fall into more than one data subject category.</p>
