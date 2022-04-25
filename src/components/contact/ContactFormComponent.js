@@ -218,6 +218,7 @@ function ContactFormComponent() {
                                     onSearch={function noRefCheck() { }}
                                     onSelect={function noRefCheck() { }}
                                     options={projectList}
+                                    placeholder={"Select Projects"}
                                 />
 
                                 {/* <select className="form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
