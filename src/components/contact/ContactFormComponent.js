@@ -228,6 +228,7 @@ function ContactFormComponent(props) {
                                     options={projectList}
                                     required
                                     isClearable
+                                    placeholder={"Select Projects"}
                                 />
                                 <p>{selectedValue}</p>
                                 {/* <select className="form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
