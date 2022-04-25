@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+// import Select from 'react-select';
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
@@ -7,7 +7,7 @@ import { useAuthUser, useIsAuthenticated, } from 'react-auth-kit';
 import SimpleReactValidator from 'simple-react-validator';
 import { API_ENDPOINT } from "../../common/Constants";
 import SocialSharingComponent from "../contact/SocialSharingComponent"
-
+import Multiselect from "multiselect-react-dropdown";
 
 function ContactFormComponent() {
     const simpleValidator = useRef(new SimpleReactValidator())
@@ -15,7 +15,7 @@ function ContactFormComponent() {
     const isAuthenticated = useIsAuthenticated();
     const auth = useAuthUser();
     const user = isAuthenticated() ? auth().user : null;
-
+    const [projectList, setProjectList] = useState([]);
     const [age, setAge] = useState();
 
     const [footersocialLoading, setFooterSocialLoading] = useState(false);
@@ -64,6 +64,13 @@ function ContactFormComponent() {
             if (res.data.data) {
                 setCountriesLoading(false);
                 setProjects(res.data.data.projects);
+                let projects = res.data.data.projects;
+                let projectTitle = projects.map((x) => {
+                    //console.log("project title", x.title);
+                    return x.title
+                });
+                setProjectList(projectTitle);
+                console.log("project list", projectTitle, projectList)
             }
         } catch (error) {
             console.error("error ", error);
@@ -202,10 +209,27 @@ function ContactFormComponent() {
                         {/* <label className="form-label">Project Interest</label> */}
                         {projects.length > 0 ?
                             <>
-                                <select className="form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
+
+                                {/* <Select options="" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} /> */}
+                                <Multiselect
+                                    isObject={false}
+                                    onKeyPressFn={function noRefCheck() { }}
+                                    onRemove={function noRefCheck() { }}
+                                    onSearch={function noRefCheck() { }}
+                                    onSelect={function noRefCheck() { }}
+                                    options={projectList}
+                                />
+
+                                {/* <select className="form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
                                     <option value="">Project Interest</option>
                                     {projects.length > 0 && projects.map((row, index) => <option value={row.title} key={index} >{row.title}</option>)}
-                                </select>
+                                </select> */}
+                                {/* <Select
+                                    onChange = {(e) => setFormData({ ...formData, project_interest: e.target.value })}
+                                    value={formData.project_interest}
+                                    options={projectList}
+                                />
+                                {projectList} */}
                             </>
                             : ''}
                     </div>

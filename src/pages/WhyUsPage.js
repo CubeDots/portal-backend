@@ -151,7 +151,7 @@ function WhyUsPage() {
                         <div className="serviceTabs">
                             <ul className="nav nav-tabs" id="myTab" role="tablist">
                                 <li className="nav-item" role="presentation">
-                                    <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Sales Service</button>
+                                    <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Sales Services</button>
                                 </li>
                                 <li className="nav-item" role="presentation">
                                     <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">After Sales Services</button>
@@ -165,7 +165,7 @@ function WhyUsPage() {
                             </ul>
                             <div className="tab-content" id="myTabContent">
                                 <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                    <h3>Sales Service</h3>
+                                    <h3>Sales Services</h3>
                                     <h4>Events :</h4>
                                     <ul>
                                         {/* <li>Promotion of projects with events and exhibitions</li>
@@ -178,7 +178,7 @@ function WhyUsPage() {
                                     <h4>Marketing:</h4>
                                     <ul>
                                         <li>Marketing on social media platforms such as Instagram, YouTube, Facebook, LinkedIn and Twitter</li>
-                                        <li>Several formats of content including videos, infographics, and carousels</li>
+                                        <li>Several formats of content including videos, infographics and carousels</li>
                                         <li>Marketing support specific to agents</li>
                                     </ul>
 

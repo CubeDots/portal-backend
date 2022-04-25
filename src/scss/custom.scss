@@ -530,7 +530,7 @@ ul.agentdashboard {
 }
 
 .bannerContent h2 {
-    text-transform: capitalize;
+    // text-transform: capitalize;
     font-weight: 700;
     font-size: 32px;
     width: 85%;
@@ -627,7 +627,9 @@ ul.agentdashboard {
     left: -3px;
     // background-color: #e65400;
 }
-
+.multiSelectContainer .search-wrapper .chip{
+    background-color: #e65400;
+}
 .carousel-control-next-icon:hover.carousel-control-next-icon img {
     left: 3px;
     // background-color: #e65400;
@@ -1598,6 +1600,7 @@ img.bgImageUpdates {
     margin-bottom: 20px;
     /*font-size: 2rem;*/
     color: #e75e1c;
+    text-transform: capitalize;
 }
 
 .technology .react-multi-carousel-list ul li {
@@ -1656,7 +1659,7 @@ img.bgImageUpdates {
 
 .newsfeedcard .newsfeedDetail p {
     margin-bottom: 0;
-    text-transform: capitalize;
+    // text-transform: capitalize;
     font-size: 18px;
     color: #fff;
     text-overflow: ellipsis;
@@ -3236,6 +3239,7 @@ span.FolderChooser-icon-14 {
 
 .alternetSectionImgContent h3 {
     color: #fff;
+    text-transform: capitalize;
 }
 
 .alternetSectionImgContent p {
@@ -5193,6 +5197,20 @@ footer h6 {
     align-items: center;
     justify-content: space-between;
     padding-bottom: 2rem;
+}
+.search-wrapper.searchWrapper {
+    background: #fff;
+}
+.multiSelectContainer .optionListContainer .optionContainer .option:hover{
+    background-color: #e65400;
+    color: #fff;
+}
+.multiSelectContainer .optionListContainer .optionContainer .option{
+    padding: 5px;
+}
+.multiSelectContainer .optionListContainer .highlightOption{
+    background-color: #fff;
+    color: #000;
 }
 
 .seachInputBox {
