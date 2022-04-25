@@ -123,9 +123,9 @@ function HomeProjectsComponent() {
                                                     <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                                 </svg>{row.city}, {row.country}</p>
                                             </div>
-                                            <div className="col-lg-4">
-                                                <div className="d-flex justify-content-between">
-                                                    <ProgressBar isLabelVisible={false} animateOnRender={true} completed={row.property_stage} labelSize="10px" bgColor="#e65400" className="projectProgress" /> <span className="projectProgressText">{row.property_stage}%</span>
+                                            <div className="col-4">
+                                                <div className="d-flex justify-content-between align-items-baseline">
+                                                    <ProgressBar height="10px" isLabelVisible={false} animateOnRender={true} completed={row.property_stage} labelSize="10px" bgColor="#e65400" className="projectProgress" /> <span className="projectProgressText">{row.property_stage}%</span>
                                                 </div>
                                             </div>
                                         </div>

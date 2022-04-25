@@ -156,8 +156,8 @@ function ProjectList(props) {
                                                                 </button>
                                                             </div> */}
                                                     <div className="col-3 m-auto">
-                                                        <div className="d-flex justify-content-between">
-                                                        <ProgressBar isLabelVisible={false} animateOnRender={true} completed={row.property_stage} labelSize="10px" bgColor="#e65400" className="projectProgress" /> <span className="projectProgressText">{row.property_stage}%</span>
+                                                        <div className="d-flex justify-content-between align-items-baseline">
+                                                        <ProgressBar isLabelVisible={false} animateOnRender={true} completed={row.property_stage} height="10px" labelSize="10px" bgColor="#e65400" className="projectProgress" /> <span className="projectProgressText">{row.property_stage}%</span>
                                                         </div>
                                                     </div>
                                                     <div className="col-9">
