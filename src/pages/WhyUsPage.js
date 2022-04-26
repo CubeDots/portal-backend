@@ -356,7 +356,7 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapseCitizenship5" className="accordion-collapse collapse" aria-labelledby="Citizenship5" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    One of the essential advantages of the Citizenship by Investment Program is the fact that all dependent family members (spouse & children) will automatically obtain citizenship as well, without any additional fees.
+                                                    One of the essential advantages of the Citizenship by Investment Program is the fact that all dependent family members (spouse and children) will automatically obtain citizenship as well, without any additional fees.
                                                 </div>
                                             </div>
                                         </div>
@@ -369,8 +369,7 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapseCitizenship6" className="accordion-collapse collapse" aria-labelledby="Citizenship6" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    The Citizenship by Investment Programs requires you to keep the property for 3 years
-                                                    post-purchase date. You will be asked to submit a pledge stating that you will keep the property for at least 3 years.
+                                                    The Citizenship by Investment Programs requires you to keep the property for 3 years post-purchase. You will be asked to submit a pledge stating that you will keep the property for at least 3 years.
                                                 </div>
                                             </div>
                                         </div>
@@ -383,7 +382,7 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapseCitizenship7" className="accordion-collapse collapse" aria-labelledby="Citizenship7" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    All nationalities that have purchased a property worth a minimum of $400,000, are entitled to acquire Turkish citizenship.
+                                                    All nationalities that have purchased a property worth a minimum of $400,000 are entitled to acquire Turkish citizenship.
                                                 </div>
                                             </div>
                                         </div>
@@ -396,7 +395,7 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapseCitizenship8" className="accordion-collapse collapse" aria-labelledby="Citizenship8" data-bs-parent="#Citizenship">
                                                 <div className="accordion-body">
-                                                    Non-related family members (spouse/children) must have a share worth $400,000.
+                                                    Non-related family members (spouse and children) must have a share worth a minimum of $400,000.
                                                     For example, two partners must own a property with a value of $800,000 therefore each of these partners will have a share worth $400,000 and will then be eligible for the Citizenship by Investment Program.
                                                 </div>
                                             </div>
@@ -450,54 +449,48 @@ function WhyUsPage() {
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="finance1">
                                                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefinance1" aria-expanded="true" aria-controls="collapsefinance1">
-                                                    <strong> How does the payment process work for International buyers?</strong>
+                                                    <strong>How does the payment process work for international buyers?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapsefinance1" className="accordion-collapse collapse show" aria-labelledby="finance1" data-bs-parent="#finance">
                                                 <div className="accordion-body">
-                                                    Payment can be done by cash or bank transfer. Since there is no escrow account system in
-                                                    Turkey, all the payments must be made to developers, Cubedots is the observer of the
-                                                    payment processes.
+                                                    The payment can be done by cash or bank transfer. Since there is no escrow account system in Turkey, all the payments must be made to developers, Cubedots will follow up on the payment process.
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="finance2">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefinance2" aria-expanded="false" aria-controls="collapsefinance2">
-                                                    <strong> Is there an option to have a Mortgage with a bank?</strong>
+                                                    <strong>Is there an option to get a mortgage with a bank?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapsefinance2" className="accordion-collapse collapse" aria-labelledby="finance2" data-bs-parent="#finance">
                                                 <div className="accordion-body">
-                                                    They can get a mortgage up to %50 of the amount in their currency (USD, EUR) The
-                                                    purpose must be investment other than citizenship purposes, with the mortgage they won’t
-                                                    qualify for citizenship application. (Citizens of Iran are not allowed for mortgages.)
+                                                    Investors can get a mortgage of up to %50 of the amount in their currency (USD, EUR) The purpose must be investment other than citizenship purposes, with the mortgage they won’t qualify for citizenship application. (Citizens of Iran are not eligible for mortgages.)
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="finance3">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefinance3" aria-expanded="false" aria-controls="collapsefinance3">
-                                                    <strong> What taxes and hidden costs are there when purchasing real estate in Turkey?</strong>
+                                                    <strong>What taxes and hidden costs are there when purchasing real estate in Turkey?</strong>
                                                 </button>
                                             </h2>
                                             <div id="collapsefinance3" className="accordion-collapse collapse" aria-labelledby="finance3" data-bs-parent="#finance">
                                                 <div className="accordion-body">
                                                     <ul>
                                                         <li>%4 Title Deed Transfer, %2 for the buyer; %2 for the seller</li>
-                                                        <li>%1-18 VAT depends on project size &amp; location</li>
-                                                        <li>Offices &amp; Shops %18</li>
-                                                        <li>Big apartment %18 (+150sq net size)</li>
-                                                        <li>Small Apartment %1 (-150sq net size)</li>
+                                                        <li>%1-18 VAT depends on project size & location</li>
+                                                        <li>Offices & Shops %18</li>
+                                                        <li>Large apartment %18 (+150sq net size)</li>
+                                                        <li> Small Apartment %1 (-150sq net size)</li>
                                                     </ul>
-                                                    <p>The VAT is always paid by the client except for when the client gets a VAT exemption paper
-                                                        from the Turkish Government. (The payment should be transferred in other currency to
-                                                        developers’ accounts from abroad)
+                                                    <p>The VAT is always paid by the client except for when the client gets a VAT exemption paper from the Turkish Government. (The payment should be transferred in other currency to developers’ accounts from abroad)
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="accordion-item">
+                                        {/* <div className="accordion-item">
                                             <h2 className="accordion-header" id="finance4">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefinance4" aria-expanded="false" aria-controls="collapsefinance4">
                                                     <strong> What are the conditions for the VAT Exemption Paper?</strong>
@@ -514,7 +507,7 @@ function WhyUsPage() {
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 {/* <div className="tab-pane fade" id="General" role="tabpanel" aria-labelledby="General-tab">
@@ -699,47 +692,30 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapseProjects2" className="accordion-collapse collapse show" aria-labelledby="Projects2" data-bs-parent="#Projects">
                                                 <div className="accordion-body ">
-                                                    <strong> Where is this project located?</strong>
-                                                    <p> It is located in Ümraniye, Yamanevler district, next to Yamanevler metro station.</p>
-                                                    <strong> How big is the project area?</strong>
-                                                    <p>  The plot itself is 75,000 sqm. and 60% of the project is green area.</p>
-                                                    <strong>  How many units are there?</strong>
-                                                    <p>  There are 2 phases, 13 blocks in total and almost 1600 units including 1+1, 2+1, 3+1 and
-                                                        4+1 types. They start from 71,73 sqm and go to 209,59 sqm. The low-rise buildings on the
-                                                        front side have 16 and 17 floors. In the second phase, the first and the second blocks are
-                                                        residential blocks; these two residence blocks are 34-floors. Other blocks are 29 floors.</p>
-                                                    <strong>  Which shopping malls are near the project?</strong>
-                                                    <p> Canpark Mall, IKEA, BuYaka Mall, Meydan Mall and Akyaka Park Avm are near the project.</p>
-                                                    <p><strong> Which educational institutions are near the project?</strong>
-                                                        <p> Yeditepe University, Doğuş University, Fenerbahçe University, Medeniyet University,
-                                                            Istanbul 29 Mayıs University, Bahçeşehir College and Fenerbahçe College are nearby.</p>
-                                                        <strong> How many financial centers are there?</strong>
-                                                        <p>There are 2 financial centers located near the project. One of these centers which was
-                                                            established over an area of 300.000 sqm located in Ataşehir is a state-funded financial
-                                                            center and also the largest financial center in İstanbul. The other financial center is situated
-                                                            just 400 meters away from the project.</p>
-                                                        <strong> What kind of amenities does this project have?</strong>
-                                                        <p></p> - Cafe, supermarket, walking tracks, football &amp; basketball courts, swimming pool, fitness
-                                                        center, sauna and kids playing area. Besides, there will be a private sports center in the
-                                                        commercial area under Block 1 &amp; Block 2.</p>
+                                                    <strong>Where is the project located?</strong>
+                                                    <p>It is located in Ümraniye, the Yamanevler district, next to Yamanevler metro station.</p>
+                                                    <strong>How big is the project area?</strong>
+                                                    <p>The plot itself is 75,000 sqm and 60% of the project is made up of green areas.</p>
+                                                    <strong>How many units are there?</strong>
+                                                    <p>There are 2 phases, 13 blocks in total and almost 1600 units including 1+1, 2+1, 3+1 and 4+1 types. They start from 71,73 sqm and go up to 209,59 sqm. The low-rise buildings on the front side have 16 and 17 floors. In the second phase, the first and the second blocks are residential blocks; these two residence blocks are 34-floors whereas the other blocks are 29 floors.</p>
+                                                    <strong>Which shopping malls are near the project?</strong>
+                                                    <p>Canpark Mall, IKEA, Buyaka Mall, Meydan Mall and Akyaka Park Mall are near the project.</p>
+                                                    <strong>Which educational institutions are near the project?</strong>
+                                                    <p>Yeditepe University, Doğuş University, Fenerbahçe University, Medeniyet University, Istanbul 29 Mayıs University, Bahçeşehir College and Fenerbahçe College are nearby.</p>
+                                                    <strong>How many financial centers are there in the area?</strong>
+                                                    <p>There are 2 financial centers located near the project. One of these centers was established over an area of 300.000 sqm located in Ataşehir, a state-funded financial center. It is also the largest financial center in Istanbul. The other financial center is situated just 250 meters away from the project.</p>
+                                                    <strong>What kind of amenities does this project have?</strong>
+                                                    <p>Cafe, supermarket, walking tracks, football and basketball courts, swimming pools, fitness center, sauna and kids' playing area. Besides, there will be a private sports center in the commercial area under Block 1 and Block 2.</p>
                                                     <strong>When will the project be delivered?</strong>
-                                                    <ul>
-                                                        <li>Phase has already been delivered, ready to move.</li>
-                                                        <li>Phase delivery is considered in July 2022. But based on the developer’s (Artaş
-                                                            Group) former projects, the delivery of Yamanevler’s 2nd phase is expected to be in
-                                                            May 2022.</li>
-                                                    </ul>
-                                                    <strong> Which appliances are included in the units?</strong>
-                                                    <p> Interior fittings, wall cabinets, microwave, dishwasher, stove, oven and AC are included in
-                                                        one bedroom and living rooms.</p>
-                                                    <strong>What will be the expected rental income for the project?</strong>
-                                                    <p> The rental price expected will be between 25-35 TL/sqm.</p>
-                                                    <strong> What is the expected Facility Management Fee for the project?</strong>
-                                                    <p>The expected FM Fee is 4 TL/sqm.</p>
-                                                    <strong> What is the payment plan?</strong>
-                                                    <p>Payment plans are cash and in installments.
-                                                        The installment plan is; %40 down payment + installments until the delivery in May 2022.</p>
-                                                    <strong> Is the project suitable for Turkish citizenship?</strong>
+                                                    <p>
+                                                        <ul>
+                                                            <li>1st phase has already been delivered and is ready-to-move</li>
+                                                            <li>2nd phase delivery is set to be during July 2022</li>
+                                                        </ul>
+                                                    </p>
+                                                    <strong>Which appliances are included in the units?</strong>
+                                                    <p>Interior fittings, wall cabinets, microwave, dishwasher, stove, oven and AC are included in the bedroom and living rooms.</p>
+                                                    <strong>Is the project suitable for Turkish citizenship?</strong>
                                                     <p>Yes.</p>
                                                 </div>
                                             </div>
@@ -752,91 +728,23 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapseProjects3" className="accordion-collapse collapse" aria-labelledby="Projects3" data-bs-parent="#Projects">
                                                 <div className="accordion-body ">
-                                                    <strong>Where is this project located?</strong>
-                                                    <p>It is located in Nişantaşı, Şişli at the heart of the city. Nişantaşı is an elite shopping district
-                                                        and an affluent, secular residential area. The project is right behind American Hospital which
-                                                        is the most prestigious and well-known hospital in the city.</p>
-                                                    <strong> How many units are there?</strong>
-                                                    <p> There are 5 residential and 1 commercial block. The total number of units is 160. Blocks are
-                                                        9 floors + ground (because of the location of the land plot, there can be up to -2nd Floor).</p>
-                                                    <strong>  How many unit types are there?</strong>
-                                                    <p> Unit types range from 1+1 to 6+1. Total 45 units have private pools that are 25 sqm. Duplex
-                                                        units are loft villas that have 8m ceilings. The ceiling height is 4m in this project, while the
-                                                        average ceiling height is 2,3 m in Turkey. All units have different floor plans starting from
-                                                        105,89 and going up to 581,53 sqm.</p>
-                                                    <strong> What kind of amenities does this project have?</strong>
-                                                    <p>There is a swimming pool, gym, pilates studio, entertainment room, sauna, hammam, steam
-                                                        bath, lounge, golf cart and kids playing area. All apartments have storage areas up to 60m2
-                                                        and parking slots up to 5.</p>
-                                                    <strong>  When will it be delivered?</strong>
-                                                    <p>It is considered to be at the end of 2023.</p>
-
-                                                    <strong>  What are the attractions near the project?</strong>
-                                                    <p>Maçka Parkı, Ihlamur Kasrı, Harbiye Open-Air Theatre, Lütfi Kırdar Congress &amp; Exhibit
-                                                        Center and Dolmabahçe Palace are nearby attractions. It’s also 5 min walk away from Abdi
-                                                        İpekçi Street which is famous for high-end stores like LV, Gucci, Prada, Hermes etc. and 10
-                                                        minutes away from Beşiktaş, Taksim and Levent.</p>
-                                                    <strong>What will be the expected rental income for the project?</strong>
-                                                    <p>Since there are more than 2 years to deliver this project, as of October 2021 expected rental
-                                                        price can be considered between 300-350 TL/sqm.</p>
-                                                    <strong>What is the expected Facility Management Fee for the project?</strong>
-                                                    <p> The expected FM Fee is 15-18 TL/sqm.</p>
-                                                    <strong>  What is the payment plan for this project?</strong>
-                                                    <p> Payment plans are cash and in installments. Installment plans are;
-                                                        1. 50% down payment and 24 months installment,
-                                                        2. 40% down payment, 10% interim payment after a year and 24 months installment.</p>
-                                                    <strong>  How is the contract process going?</strong>
-                                                    <p> The sales agreement is made directly with Emlak Konut and all payments go directly to
-                                                        them. You will be given a month after deposit to transfer the full amount.</p>
+                                                    <strong>Where is the project located?</strong>
+                                                    <p>It is located in Nişantaşı, Şişli at the heart of the city. Nişantaşı is an elite shopping district and an affluent, secular residential area. The project is right behind the American Hospital which is the most prestigious and well-known hospital in the city.</p>
+                                                    <strong>How many units are there?</strong>
+                                                    <p>There are 5 residential blocks and 1 commercial block. The total number of units is 160. Blocks are 9 floors + the ground floor.</p>
+                                                    <strong>How many unit types are there?</strong>
+                                                    <p>Unit types range from 1+1 to 6+1. A total of 45 units have private pools that are 25 sqm. Duplex units are loft villas that have 8-meter ceilings. The ceiling height is 4 meters in this project, while the average ceiling height is 2,3 meters in Turkey. All units have different floor plans starting from 105,89 and going up to 581,53 sqm.</p>
+                                                    <strong>What kind of amenities does this project have?</strong>
+                                                    <p>There is a swimming pool, gym, pilates studio, entertainment room, sauna, hammam, steam bath, lounge, golf cart and kids' playing area. All apartments have storage areas up to 60 sqm and parking slots up to 5 sqm.</p>
+                                                    <strong>When will it be delivered?</strong>
+                                                    <p>It is projected to be at the end of 2023.</p>
+                                                    <strong>What are the attractions near the project?</strong>
+                                                    <p>Maçka Park, Ihlamur Kasrı, Harbiye Open-Air Theatre, Lütfi Kırdar Congress & Exhibition Center and Dolmabahçe Palace are nearby attractions.  It’s also 5 min walk from Abdi İpekçi Street which is famous for high-end stores like LV, Gucci, Prada, Hermes, etc. and 10 minutes from Beşiktaş, Taksim and Levent.</p>
+                                                    <strong>How is the contract process going?</strong>
+                                                    <p>The sales agreement is made directly with Emlak Konut and all payments go directly to them. You will be given a month after the deposit to transfer the full amount.</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* <div className="accordion-item">
-                                            <h2 className="accordion-header" id="Projects4">
-                                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects4" aria-expanded="false" aria-controls="collapseProjects4">
-                                                    <strong>AcarBlu</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapseProjects4" className="accordion-collapse collapse" aria-labelledby="Projects4" data-bs-parent="#Projects">
-                                                <div className="accordion-body ">
-                                                    <strong>  Where is this project located?</strong>
-                                                    <p> It is located in Acarkent, Beykoz. Acarkent is the most famous and most luxurious project in
-                                                        Turkey. Most celebrities, singers, ambassadors, athletes and many famous people live in
-                                                        this complex.</p>
-                                                    <strong>  How many units are there?</strong>
-                                                    <p>There are 2 blocks and almost 250 units which include 3+1, 3,5+1 and 4+1 types. The
-                                                        project was built on 17.000 sqm of land. The apartment sizes range from 120 to 310 sqm.</p>
-                                                    <strong> What kind of amenities does this project have?</strong>
-                                                    <p> There are social spaces that span 3 floors and consist of an open area of 4000 sqm of
-                                                        landscaping. Social facilities include running track, pet park, indoor swimming pool, spa,
-                                                        sauna, gym, table tennis, game room, cinema hall, TV room, party room, children playroom
-                                                        and playground. Also in the Acarkent complex, there is Coliseum fitness and gym with
-                                                        75.000 sqm indoor and outdoor area which is the largest sports and social life center in
-                                                        Turkey which contains gyms, swimming pools, tennis court, basketball court, mini-golf
-                                                        courses, shooting area and many banks, kindergarten, colleges, veterinary, drug stores, car
-                                                        services like Rolls-Royce service, etc.</p>
-                                                    <strong>  Is this project ready to move?</strong>
-                                                    <p>  Yes, it is.</p>
-
-                                                    <strong> Which appliances are included in the units?</strong>
-                                                    <p> Fridge, microwave, dishwasher, washing machine, dryer, stove, oven, underfloor heating
-                                                        system, smart home system and AC are included. All units have 2 car parking lots and 5
-                                                        sqm storage area.</p>
-                                                    <strong> What are nearby attractions?</strong>
-                                                    <p> There is a mall named BluShop which includes stores like 3M Migros, Chakra etc.</p>
-                                                    <strong>  What will be the expected rental income for the project?</strong>
-                                                    <p>  The rental price expected will be between 100-150 TL/sqm.</p>
-                                                    <strong>What is the expected Facility Management Fee for the project?</strong>
-                                                    <p>The expected FM Fee is 6,5 TL/sqm.</p>
-                                                    <strong>  What is the payment plan?</strong>
-                                                    <p>18% VAT + 2% title deeds excluded. All previous buyers were Turkish and bought for half
-                                                        price. That’s why we can show 50% price in title deeds and thanks to that you will pay only
-                                                        10% VAT and also you can take exemption from the government because you will be paying
-                                                        in cash. This payment should be transferred from foreign bank accounts with SWIFT. After
-                                                        that, you can benefit from the exemption from the government.</p>
-                                                </div>
-                                            </div>
-                                        </div> */}
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Projects5">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects5" aria-expanded="false" aria-controls="collapseProjects5">
@@ -845,46 +753,66 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapseProjects5" className="accordion-collapse collapse" aria-labelledby="Projects5" data-bs-parent="#Projects">
                                                 <div className="accordion-body ">
-                                                    <strong>  Where is this project located?</strong>
-                                                    <p> Alya 4 Mevsim is located on the European side of Istanbul, Esenyurt which is a developing
-                                                        district and has a diverse population. The project is 10 min away from Beykent metrobus
-                                                        station.</p>
-                                                    <strong> How big is the project area?</strong>
-                                                    <p>The project consists of 217 apartments and 6 shops from a total of 4 blocks. A,B,C,D Blocks
-                                                        in an area of 39.695 sqm.</p>
-                                                    <strong> How many units are there?</strong>
-                                                    <p> Alya 4 Mevsim is made up of 4 blocks with 217 apartments. The A and B blocks are 15
-                                                        floors in total, 3 of which are basement floors and 1 ground floor. The C and D blocks are a
-                                                        total of 13 floors with 1 basement floor and 1 ground floor. The project also includes a car
-                                                        park with a capacity of 157 cars.</p>
+                                                    <strong>Where is the project located?</strong>
+                                                    <p>Alya 4 Mevsim is located on the European side of Istanbul, Esenyurt which is a developing district and has a diverse population. The project is 10 min away from Beykent metrobus station.</p>
+                                                    <strong>How big is the project area?</strong>
+                                                    <p>The project consists of 217 apartments and 6 shops from a total of 4 blocks. A,B,C,D Blocks in an area of 39.695 sqm.</p>
+                                                    <strong>How many units are there?</strong>
+                                                    <p>Alya 4 Mevsim is made up of 4 blocks with 217 apartments. The A and B blocks are 15 floors in total, 3 of which are basement floors and 1 ground floor. The C and D blocks are a total of 13 floors with 1 basement floor and 1 ground floor. The project also includes a car park with a capacity of 157 cars.</p>
                                                     <strong>Which shopping malls are near the project?</strong>
-                                                    <p> Istanbul Outlet Park, Perlavista Mall, Beylicium Mall, Marmara Park, City Center Outlet Mall
-                                                        and Torium Mall are nearby malls to the project.</p>
-                                                    <strong> Which educational institutions are near the project?</strong>
-                                                    <p> Okyanus College, Mektebim Schools, Bahçeşehir College, Beykent University, Istanbul
-                                                        Gelişim University, Istanbul Esenyurt University and Istanbul Aydın University.</p>
-
-                                                    <strong>  What kind of amenities does this project have?</strong>
-                                                    <p> Gym, indoor pool, steam bath, traditional Turkish bath. There are 700 m2 of green and social
-                                                        areas in Alya 4 Mevsim.</p>
+                                                    <p>Istanbul Outlet Park, Perlavista Mall, Beylicium Mall, Marmara Park, City Center Outlet Mall and Torium Mall are nearby malls to the project.</p>
+                                                    <strong>Which educational institutions are near the project?</strong>
+                                                    <p>Okyanus College, Mektebim Schools, Bahçeşehir College, Beykent University, Istanbul Gelişim University, Istanbul Esenyurt University and Istanbul Aydın University.</p>
+                                                    <strong>What kind of amenities does this project have?</strong>
+                                                    <p>Gym, indoor pool, steam bath, traditional Turkish bath. There are 700 m2 of green and social areas in Alya 4 Mevsim.</p>
                                                     <strong>When will the project be delivered?</strong>
-                                                    <p> It is scheduled for 2023.</p>
-                                                    <strong>  Which appliances are included in the units?</strong>
-                                                    <p> AC and white appliances are included in the units.</p>
-                                                    <strong>What will be the expected rental income for the project?</strong>
-                                                    <p> The rental price expected will be between 25-35 TL/sqm.</p>
-                                                    <strong>What is the expected Facility Management Fee for the project?</strong>
-                                                    <p> The expected FM Fee is 4 TL/sqm.</p>
-                                                    <strong> What is the payment plan?</strong>
-                                                    <p>Payment plans are cash and in installments.
-                                                        The installment plan is; 40% down payment + installments until May 2022.</p>
-                                                    <strong> Is the project suitable for Turkish citizenship?</strong>
-                                                    <p> Yes.</p>
+                                                    <p>It is scheduled for 2023.</p>
+                                                    <strong>Which appliances are included in the units?</strong>
+                                                    <p>AC and white appliances are included in the units.</p>
+                                                    <strong>Is the project suitable for Turkish citizenship?</strong>
+                                                    <p>Yes.</p>
                                                     <strong>How many unit types are there in the project?</strong>
-                                                    <p> There are 1+1, 2+1 and 3+1 types of units. They start from 60 sqm and go up to 180 sqm.</p>
+                                                    <p>There are 1+1, 2+1 and 3+1 types of units. They start from 60 sqm and go up to 180 sqm.</p>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        
+                                        <div className="accordion-item">
+                                            <h2 className="accordion-header" id="Projects4">
+                                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects4" aria-expanded="false" aria-controls="collapseProjects4">
+                                                    <strong>Skyland Istanbul</strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseProjects4" className="accordion-collapse collapse" aria-labelledby="Projects4" data-bs-parent="#Projects">
+                                                <div className="accordion-body ">
+                                                    <strong>Where is this project located?</strong>
+                                                    <p>Skyland Istanbul is located on the European side of Istanbul, on the Sariyer district. Near Ayazaga and Maslak neighborhood. The project is next to TEM Highway, Nef Stadium.</p>
+                                                    <strong>How big is the project area?</strong>
+                                                    <p>The project consists of 3 blocks in an area of 44064,24 sqm. 25% of the project is made up of green areas. Block A has 44 floors, Block B has 45 floors and Block C has 18 floors from the ground but with an elevation difference. Block A has 67 floors, Block B has 68 floors, and Block C has 36 floors. Skyland is the tallest residential project in Turkey and the 3rd tallest building overall in Europe.</p>
+                                                    <strong>How many units are there?</strong>
+                                                    <p>There are a total of 2000 units.1400 of them are residential and 600 of them are offices.</p>
+                                                    <strong>How many unit types are there in the project?</strong>
+                                                    <p>There are 1+1, 2+1, 3+1 and 4+1 units. Starting from 100 sqm and going up to 370 sqm</p>
+                                                    <strong>Which shopping malls are near the project?</strong>
+                                                    <p>The project has its own shopping mall called HOM Design Center which has luxury furniture brands and other shops. Vadi Istanbul is just a minute’s walk away from the project.Sapphire, Istinye Park, Kanyon, Ozdilek Park, Metrocity and Axis Mall are also near the project.</p>
+                                                    <strong>Which places of education are near the project?</strong>
+                                                    <p>Nişantaşı University, FMV Isik Schools, ENKA College, Istanbul Technical University, Beykent University, Ugur College, Istanbul Atlas University, Istinye University, Isik University, Boğaziçi University and Tarabya British Schools are nearby educational institutions.</p>
+                                                    <strong>How is transportation around the project?</strong>
+                                                    <p>There are 3 highways in Istanbul, E5, E6 and O5 all of which are near the area. The TEM highway even has a direct exit to the project. Istanbul Airport is 25 min away and Sabiha Gökçen Airport is 40 min away. There are also public transportation options near the project. Vadi Istanbul bus stop and Havaray subway station are the nearest ones. Nef (Galatasaray) Stadium is also within 10 min of walking distance.</p>
+                                                    <strong>Which hospitals are near the project?</strong>
+                                                    <p>Liv Hospital is within 2 min of walking distance as well as Şişli Etfal Hospital, Acıbadem Maslak Hospital, Istinye Public Hospital and Baltalimanı Public Hospital which are other nearby health centers.</p>
+                                                    <strong>What kind of amenities does the project have?</strong>
+                                                    <p>An indoor pool, two outdoor pools, green areas and a fully-equipped indoor and outdoor gym are available in the project. Only residents will be able to use the Turkish bath, sauna and spa for a fee.</p>
+                                                    <strong>Is the project ready-to-move?</strong>
+                                                    <p>Yes, the project was completed in 2018.</p>
+                                                    <strong>Is the project suitable for Turkish citizenship?</strong>
+                                                    <p>Yes.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
