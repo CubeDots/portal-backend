@@ -6,6 +6,25 @@ import axios from "axios";
 import UnauthenticatedPage from "../errors/Unauthorized";
 import { API_ENDPOINT } from '../common/Constants';
 
+
+/* SET TIME-OUT FUCNTION FOR PROMPT USER TO CONTINUE CURRENT SESSION OR NOT */
+let timeoutHandler = null;
+function mm(){        
+    var cc = window.confirm("Are you continue with current session?");   
+    console.log("result", cc);     
+    if(cc === true ){
+        clearTimeout(timeoutHandler);
+        timeoutHandler = setTimeout(mm, 20000);
+        return false;
+    }else{
+        window.location.href = "https://www.google.com";//document.write(document.referrer);//
+    }
+}
+
+/* Wait for 10 seconds */
+timeoutHandler = setTimeout(mm, 10000);
+
+
 function ThreeDSystemPage() {
   let { id, sdk } = useParams();
   const authHeader = useAuthHeader();
@@ -66,6 +85,7 @@ function ThreeDSystemPage() {
 
     }
   }
+
 
 
   const mobileCheck = () => {
