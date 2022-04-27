@@ -559,18 +559,7 @@ ul.agentdashboard {
     line-height: 41px;
 }
 
-@media (max-width:1200px) {
-    .bannerContent h2 {
-        width: 100%;
-    }
-}
 
-@media (max-width: 992px) {
-    .bannerContent h2 {
-        font-size: 24px;
-        line-height: 32px;
-    }
-}
 
 .banner::before {
     content: '';
@@ -6909,7 +6898,7 @@ footer h6 {
     opacity: 0;
 }
 
-@media (max-width:1400px) {
+@media (max-width:1366px) {
     .banner {
         height: auto;
     }
@@ -7004,6 +6993,14 @@ footer h6 {
         right: 2%;
     }
 }
+@media (max-width:1200px) {
+    .bannerContent h2 {
+        width: 100%;
+    }
+    .bannerServices{
+        margin-right: 50px;
+    }
+}
 
 @media (max-width:1200px) {
     .our-partner-content p {
@@ -7014,6 +7011,7 @@ footer h6 {
         left: 45% !important
     }
 }
+
 
 @media (max-width:1024px) {
     .banner {
@@ -7054,6 +7052,7 @@ footer h6 {
     .videoThumbnailBtn img {
         height: 50px;
     }
+    
 }
 
 @media(max-width:1000px) {
@@ -7064,6 +7063,13 @@ footer h6 {
     }
 }
 
+
+@media (max-width: 992px) {
+    .bannerContent h2 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
 @media (max-width:992px) {
     .indiaCountry .indiaCountryOverylay {
         display: none;
@@ -7162,6 +7168,12 @@ footer h6 {
     .projectArrowRight {
         left: 50%;
     }
+    .banner::before {
+        height: calc(100vh + 117px);
+    }
+    .bannerServices{
+        margin-right: 50px;
+    }
 }
 
 @media(max-width:900px) {
@@ -7169,9 +7181,7 @@ footer h6 {
         height: auto;
     }
 
-    .banner::before {
-        height: calc(100vh - 50px);
-    }
+    
 
     .bannerContent h2 {
         font-size: 24px;
