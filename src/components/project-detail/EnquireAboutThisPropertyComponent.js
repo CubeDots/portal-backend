@@ -137,21 +137,21 @@ function EnquireAboutThisPropertyComponent(props) {
                         <div className='position-relative'>
                             <label className="form-label">First Name</label>
                             <input className="form-control" type="text" placeholder="First Name *" name="first_name" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                            <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha_space')}</div>
+                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha_space')}</div>
                         </div>
                     </div>
                     <div className="mb-3">
                         <div className='position-relative'>
                             <label className="form-label">Last Name</label>
                             <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                            <div className='text-danger fs-6'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
+                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
                         </div>
                     </div>
                     <div className="mb-3">
                         <div className='position-relative'>
                             <label className="form-label">Email Address</label>
                             <input type="email" className="form-control" placeholder="Email *" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
-                            <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                         </div>
                     </div>
                     <div className="mb-3">
@@ -182,7 +182,7 @@ function EnquireAboutThisPropertyComponent(props) {
                                 <input type="text" className="form-control" placeholder="Mobile *" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                             </div>
                         </div>
-                        <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                     </div>
                     <div className="row">
                         <div className="col-12 mb-3">

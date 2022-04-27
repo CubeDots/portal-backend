@@ -185,14 +185,14 @@ function CreateAppointment(props) {
 
                                     <div className="row">
                                         <div className="col mb-3">
-                                            <input value={auth().user.name} className="form-control" type="text" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} placeholder="Full Name *" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                                            <input value={auth().user.name} readOnly={auth().user.name ? true : false} className="form-control" type="text" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} placeholder="Full Name *" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
                                             <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
                                         </div>                                        
                                     </div>
 
                                     <div className="row">
                                         <div className="col mb-3">
-                                            <input value={auth().user.email} onKeyUp={() => simpleValidator.current.showMessageFor('email')} className="form-control" type="text" placeholder="Email *" name="email" defaultValue={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                                            <input readOnly={auth().user.email ? true : false} value={auth().user.email} onKeyUp={() => simpleValidator.current.showMessageFor('email')} className="form-control" type="text" placeholder="Email *" name="email" defaultValue={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                                         </div>
                                         <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                     </div>

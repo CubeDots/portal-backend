@@ -225,11 +225,11 @@ function ProjectDetail(props) {
                                                                     Browse in 2D
                                                                 </PopoverButton>
                                                                 : null}
-                                                            {/* {threeDbutton && project.is_3d_enabled ?
+                                                            {threeDbutton && project.is_3d_enabled ?
                                                                 <PopoverButton to={`/projects/3dSystem/${project.slug}`}>
                                                                     Browse in 3D
                                                                 </PopoverButton>
-                                                                : null} */}
+                                                                : null}
 
                                                             <PopoverButton to={`/projects/${project.slug}/units`}>
                                                                 Inventory

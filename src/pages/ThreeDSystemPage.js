@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Link, Navigate } from "react-router-dom";
 import { useAuthHeader, useIsAuthenticated } from 'react-auth-kit';
 import Platform from 'react-platform-js';
 import axios from "axios";
@@ -17,8 +17,18 @@ function ThreeDSystemPage() {
   useEffect(() => {
     fetchProjectStream();
     console.log("Platform ", Platform);
+    
   }, []);
 
+//   function mm(){
+//     var cc = window.confirm("Are you continue with current session?");
+//     if(cc === true ){            
+//         //setTimeout(mm, 10000);        
+//     }else{
+//       window.location.href = 'http://localhost:3000/projects/';
+//     }
+// }
+// setTimeout(mm, 10000);
 
   if (!isAuthenticated()) {
     // Redirect to login
