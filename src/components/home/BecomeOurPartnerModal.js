@@ -39,7 +39,7 @@ function BecomeOurPartnerModal(props) {
             //console.log("user",user)
             setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1], email: user.email }));
         }
-
+        console.log("props", props.show);
     }, [user]);
 
 
@@ -178,18 +178,18 @@ function BecomeOurPartnerModal(props) {
                                     <div className="row">
                                         <div className="col-md-6 mb-3">
                                             <input className="form-control" type="text" placeholder="First Name *" name="first_name" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                                            <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha_space')}</div>
+                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha_space')}</div>
                                         </div>
                                         <div className="col-md-6 mb-3">
                                             <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                                            <div className='text-danger fs-6'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
+                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col">
                                             <input className="form-control" type="text" placeholder="Email *" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                                         </div>
-                                        <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                     </div>
                                     <div className="row">
                                         <div className="col mb-3">
@@ -220,7 +220,7 @@ function BecomeOurPartnerModal(props) {
                                                 <input className="form-control" type="text" placeholder="Mobile No. *"
                                                     name="mobile" value={formData.mobile} onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                                             </div>
-                                            <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                         </div>
                                     </div>
 

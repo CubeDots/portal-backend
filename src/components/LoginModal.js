@@ -207,7 +207,7 @@ function LoginModal(props) {
                                 </div>
                                 <div className="mb-3">
                                     <input type="email" className="form-control" name="email" placeholder="Email Address" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-                                    <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                                    <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                 </div>
                                 <div className="mb-3 passwordType">
                                     <input type={passwordType} className="form-control" name="password" placeholder='Password' onChange={(e) => setFormData({ ...formData, password: e.target.value })} />

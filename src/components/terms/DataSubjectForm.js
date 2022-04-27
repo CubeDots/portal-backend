@@ -8,12 +8,11 @@ function DataSubjectForm() {
             <div>
                 <h3 className="vegonHeading">Data Subject Application Form :</h3>
                 <div>
-                    <h5>You may transmit this form to us, Cubedots:</h5>
+                    <h5>You may transmit this form to us, Cuengine:</h5>
                     <ul>
-                        <li>By sending it with your wet signature and copy of identity card to the address: Cumhuriyet Mah., Silahşör Cd., Bomonti Business Center, D:No:8/23-24, Şişli/İstanbul, or</li>
-                        <li>By signing it with secure electronic signature or mobile signature and sending to e-mail address info@cubedots.com, or, </li>
-                        <li>By signing it with secure electronic signature or mobile signature and sending to the address xys.@.ke p via registered electronic mail (KEP), or </li>
-                        <li>By applying in person to Cubedots with a valid identity document.</li>
+                        <li> By sending it with your wet signature and copy of identity card to the address: Viko Giz Plaza Ayazağa, Maslak Meydan Sk. No:3, 34396 Şişli/İstanbul, or</li>
+                        <li>By signing it with secure electronic signature or mobile signature and sending to e-mail address info@cuengine.com, or,</li>
+                        <li>By applying in person to Cuengine with a valid identity document.</li>
                     </ul>
                 </div>
                 <a className="dataSubjectDownloadBtn" href={publicPath + "/assets/data/DATA-SUBJECT-APPLICATION-FORM.docx"} download >

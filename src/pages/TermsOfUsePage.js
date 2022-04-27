@@ -7,6 +7,8 @@ import Clarification from "../components/terms/Clarification"
 import PolicyOnProtection from "../components/terms/PolicyOnProtection"
 import DeclarationExplict from "../components/terms/DeclarationExplict"
 import DataSubjectForm from "../components/terms/DataSubjectForm"
+import Information from "../components/terms/Information" 
+import Employee from "../components/terms/Employee";
 
 function TermsOfUsePage() {
     let publicPath = process.env.PUBLIC_URL;
@@ -50,6 +52,10 @@ function TermsOfUsePage() {
                                 <h5>Data Subject Application Form</h5> </button>
                             <button className="nav-link" id="v-pills-Declaration-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Declaration" type="button" role="tab" aria-controls="v-pills-Declaration" aria-selected="false">
                                 <h5>Declaration of Explicit Consent for Processing of Personal Data via WebsiteMobile App</h5> </button>
+                                <button className="nav-link" id="v-pills-information-tab" data-bs-toggle="pill" data-bs-target="#v-pills-information" type="button" role="tab" aria-controls="v-pills-information" aria-selected="false">
+                                <h5>Information Security Policy Of Cuengine</h5> </button>
+                                <button className="nav-link" id="v-pills-Employee-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Employee" type="button" role="tab" aria-controls="v-pills-Employee" aria-selected="false">
+                                <h5>Employee Candidate Clarification Text</h5> </button>
                         </div>
                         <div className="termsPolicyData">
                             <div className="tab-content" id="v-pills-tabContent">
@@ -72,6 +78,16 @@ function TermsOfUsePage() {
                                 <div className="tab-pane fade" id="v-pills-Declaration" role="tabpanel" aria-labelledby="v-pills-Declaration-tab">
                                     <div>
                                         <DeclarationExplict />
+                                    </div>
+                                </div>
+                                <div className="tab-pane fade" id="v-pills-information" role="tabpanel" aria-labelledby="v-pills-information-tab">
+                                    <div>
+                                        <Information />
+                                    </div>
+                                </div>
+                                <div className="tab-pane fade" id="v-pills-Employee" role="tabpanel" aria-labelledby="v-pills-Employee-tab">
+                                    <div>
+                                        <Employee />
                                     </div>
                                 </div>
                             </div>

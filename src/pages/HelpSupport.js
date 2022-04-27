@@ -92,11 +92,11 @@ function HelpSupport() {
                                     <div className='helpAndSupportInput'>
                                         <div className='helpAndSupporttitleDiv'>
                                             <input type="text" onChange={(e) => setFormData({ ...formData, name: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor('name')} value={formData.name} className='form-control inputOffCanvas' placeholder='Enter Name *' name="name" required />
-                                            <div className='text-danger fs-6'>{simpleValidator.current.message('name', formData.name, 'alpha_space')}</div>
+                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('name', formData.name, 'alpha_space')}</div>
                                         </div>
                                         <div className='helpAndSupporttitleDiv'>
                                             <input type="text" className='form-control' name="email" placeholder='Enter Email *' onChange={(e) => setFormData({ ...formData, email: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} required />
-                                            <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                         </div>
                                         <div className='helpAndSupporttitleDiv'>
                                             {countries.length > 0 ?
@@ -114,7 +114,7 @@ function HelpSupport() {
                                                 <input className="form-control" type="text" placeholder="Mobile No. *"
                                                     name="mobile" value={formData.mobile} onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                                             </div>
-                                            <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                         </div>
                                         <div className='helpAndSupporttitleDiv'>
                                             <textarea className="form-control" id="exampleFormControlTextarea1" onChange={(e) => setFormData({ ...formData, message: e.target.value })} defaultValue={formData.message} name="message" rows="5" placeholder='Message *' required />
