@@ -11,18 +11,18 @@ import { API_ENDPOINT } from '../common/Constants';
 let timeoutHandler = null;
 function mm(){        
     var cc = window.confirm("Are you continue with current session?");   
-    console.log("result", cc);     
+    //console.log("result", cc);     
     if(cc === true ){
         clearTimeout(timeoutHandler);
-        timeoutHandler = setTimeout(mm, 20000);
+        timeoutHandler = setTimeout(mm, 1800000);
         return false;
     }else{
-        window.location.href = "https://www.google.com";//document.write(document.referrer);//
+        window.location.href = "https://cubedots.com/projects/";//document.write(document.referrer);//
     }
 }
 
 /* Wait for 10 seconds */
-timeoutHandler = setTimeout(mm, 10000);
+timeoutHandler = setTimeout(mm, 1800000);
 
 
 function ThreeDSystemPage() {
