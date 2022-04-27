@@ -34,7 +34,7 @@ function ProjectDetail(props) {
     let navigate = useNavigate();
     let { id } = useParams();
     const [open, setOpen] = useState(false);
-
+    const [threeDbutton, setThreeDButton] = useState(true);
     const [projectLoading, setProjectLoading] = useState(true);
     const [locationAirport, setlocationAirport] = useState([]);
     const [locationPublic, setlocationPublic] = useState([]);
@@ -85,6 +85,15 @@ function ProjectDetail(props) {
         });
         fetchProject();
         fetchLocation();
+        if (
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
+              navigator.userAgent
+            )
+          ) {
+            setThreeDButton(false);
+          } else {
+            setThreeDButton(true);
+          }
     }, []);
 
     // if(!project){
@@ -216,11 +225,11 @@ function ProjectDetail(props) {
                                                                     Browse in 2D
                                                                 </PopoverButton>
                                                                 : null}
-                                                            {project.is_3d_enabled ?
+                                                            {/* {threeDbutton && project.is_3d_enabled ?
                                                                 <PopoverButton to={`/projects/3dSystem/${project.slug}`}>
                                                                     Browse in 3D
                                                                 </PopoverButton>
-                                                                : null}
+                                                                : null} */}
 
                                                             <PopoverButton to={`/projects/${project.slug}/units`}>
                                                                 Inventory
