@@ -17,12 +17,12 @@ function mm(){
         timeoutHandler = setTimeout(mm, 10*60*1000);
         return false;
     }else{
-        window.location.href = "https://cubedots.com/projects/";//document.write(document.referrer);//
+        window.location.href = "https://www.cubedots.com/projects/";//document.write(document.referrer);//
     }
 }
 
 /* Wait for 10 seconds */
-timeoutHandler = setTimeout(mm, 1800000);
+timeoutHandler = setTimeout(mm, 10*60*1000);
 
 
 function ThreeDSystemPage() {
