@@ -136,6 +136,7 @@ idleLogout();
         setProjectStreamLoading(false);
         setProjectStream(res.data.data);
       }
+      console.log("streming",res.data.data);
     } catch (error) {
       console.error("error ", error);
       setProjectStreamLoading(false);
@@ -229,7 +230,7 @@ idleLogout();
                       </svg>
                     </button>
                   </div>
-                  <iframe title="3Dstream" src={`${projectStream.stream.vagon_stream_url}?launchFlags=${simpleToken}%20-platform%20${devicePlatform}`} width="100%" height="100%" style={{ border: 0, margin:0, height: 'calc(100vh - 8px)' }} allowFullScreen={true} ></iframe>
+                  <iframe title="3Dstream" src={`${projectStream.stream.note}?launchFlags=${simpleToken}%20-platform%20${devicePlatform}`} width="100%" height="100%" style={{ border: 0, margin:0, height: 'calc(100vh - 8px)' }} allowFullScreen={true} ></iframe>
                 </>
                 :
                 <><div className="text-center">3d system is not available.</div></>
