@@ -105,6 +105,25 @@ textarea {
   .formErrorMsg {
     font-size: 12px;
   }
+  #ideldiv1
+  {
+      display: none;
+  }
+  .idelModal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(225,225,225,.8);
+    margin: auto;
+    width: 25%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    box-shadow: 0 0 20px rgba(230, 84, 0, 0.2);
+  }
 .acceptBtn
 {
     background: #e65400 !important;

@@ -6,22 +6,32 @@ import axios from "axios";
 import UnauthenticatedPage from "../errors/Unauthorized";
 import { API_ENDPOINT } from '../common/Constants';
 
-let inactivityTime = function () {
-  let time;
-  window.onload = resetTimer;
-  document.onmousemove = resetTimer;
-  document.onkeypress = resetTimer;
-  function logout() {
-    console.log("You are now logged out.");
-    window.location.href = "https://www.cubedots.com/projects";
-  }
-  function resetTimer() {
-    clearTimeout(time);
-    time = setTimeout(logout, 10000)
-  }
-};
-inactivityTime();
-console.log('Please wait...');
+
+// function idleLogout() {
+//   var t;
+//   window.onload = resetTimer;
+//   window.onmousemove = resetTimer;
+//   window.onmousedown = resetTimer;  // catches touchscreen presses as well      
+//   window.ontouchstart = resetTimer; // catches touchscreen swipes as well      
+//   window.ontouchmove = resetTimer;  // required by some devices 
+//   window.onclick = resetTimer;      // catches touchpad clicks as well
+//   window.onkeydown = resetTimer;   
+//   document.onkeypress = resetTimer;
+//   window.addEventListener('scroll', resetTimer, true); // improved; see comments
+
+//   function yourFunction() {
+//       // your function for too long inactivity goes here
+//       // e.g. window.location.href = 'logout.php';
+//       window.location.href = "https://www.cubedots.com/projects";
+//   }
+
+//   function resetTimer() {
+//       clearTimeout(t);
+//       t = setTimeout(yourFunction, 10000);  // time is in milliseconds
+//   }
+// }
+// idleLogout();
+
 /* SET TIME-OUT FUCNTION FOR PROMPT USER TO CONTINUE CURRENT SESSION OR NOT */
 // let timeoutHandler = null;
 // function mm(){        
@@ -37,6 +47,9 @@ console.log('Please wait...');
 // }
 // timeoutHandler = setTimeout(mm, 10*60*1000);
 
+function redfun(){
+  window.location.href = "https://staging.cubedots.com/projects/";//document.write(document.referrer);//
+}
 
 function ThreeDSystemPage() {
   let { id, sdk } = useParams();
@@ -45,6 +58,42 @@ function ThreeDSystemPage() {
   let navigate = useNavigate();
   const [projectStreamLoading, setProjectStreamLoading] = useState(false);
   const [projectStream, setProjectStream] = useState(null);
+  const [idealMsg, setIdealMsg]=useState("");
+
+     
+function showDiv1() {
+  document.getElementById("ideldiv1").style.display = "grid";
+  setTimeout(redfun, 6*60*1000);
+}
+
+function hideDiv1() {
+  document.getElementById("ideldiv1").style.display = "none";
+}
+
+//SET TIME-OUT FUCNTION FOR PROMPT USER TO CONTINUE CURRENT SESSION OR NOT
+function idleLogout() {
+    var t;
+    window.onload = resetTimer;
+    window.onmousemove = resetTimer;
+    window.onmousedown = resetTimer;  // catches touchscreen presses as well      
+    window.ontouchstart = resetTimer; // catches touchscreen swipes as well      
+    window.ontouchmove = resetTimer;  // required by some devices 
+    window.onclick = resetTimer;      // catches touchpad clicks as well
+    window.onkeydown = resetTimer;   
+    window.addEventListener('scroll', resetTimer, true); // improved; see comments
+
+    function yourFunction() {
+        
+        setTimeout(showDiv1(), 5000); // after 15 sec
+    }
+
+    function resetTimer() {
+        hideDiv1();
+        clearTimeout(t);
+        t = setTimeout(yourFunction, 10000);  // time is in milliseconds
+    }
+}
+idleLogout();
 
   useEffect(() => {
     fetchProjectStream();
@@ -154,7 +203,9 @@ function ThreeDSystemPage() {
     }
   return (
     <>
-
+    <div id="ideldiv1" className="text-center fw-bold idelModal">
+     Are you continue with current session?
+    </div>
       {projectStreamLoading ?
         <>
           <div className="text-center">Loading...</div>
@@ -162,10 +213,10 @@ function ThreeDSystemPage() {
         :
         <>
           {projectStream ?
-            <div>
+            <div id="parentDiv">
               {projectStream.project.is_3d_enabled ?
                 <>
-                  <div className="col-auto twoDbackBtn">
+                  <div className="col-auto twoDbackBtn" id="childDiv">
                     <Link title="Back" className="cusocialBackBtn" to={"/projects/" + id}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
