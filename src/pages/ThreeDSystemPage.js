@@ -6,23 +6,36 @@ import axios from "axios";
 import UnauthenticatedPage from "../errors/Unauthorized";
 import { API_ENDPOINT } from '../common/Constants';
 
-
+let inactivityTime = function () {
+  let time;
+  window.onload = resetTimer;
+  document.onmousemove = resetTimer;
+  document.onkeypress = resetTimer;
+  function logout() {
+    console.log("You are now logged out.");
+    window.location.href = "https://www.cubedots.com/projects";
+  }
+  function resetTimer() {
+    clearTimeout(time);
+    time = setTimeout(logout, 10000)
+  }
+};
+inactivityTime();
+console.log('Please wait...');
 /* SET TIME-OUT FUCNTION FOR PROMPT USER TO CONTINUE CURRENT SESSION OR NOT */
-let timeoutHandler = null;
-function mm(){        
-    var cc = window.confirm("Are you continue with current session?");   
-    //console.log("result", cc);     
-    if(cc === true ){
-        clearTimeout(timeoutHandler);
-        timeoutHandler = setTimeout(mm, 10*60*1000);
-        return false;
-    }else{
-        window.location.href = "https://www.cubedots.com/projects/";//document.write(document.referrer);//
-    }
-}
-
-/* Wait for 10 seconds */
-timeoutHandler = setTimeout(mm, 10*60*1000);
+// let timeoutHandler = null;
+// function mm(){        
+//     var cc = window.confirm("Are you continue with current session?");   
+//     //console.log("result", cc);     
+//     if(cc === true ){
+//         clearTimeout(timeoutHandler);
+//         timeoutHandler = setTimeout(mm, 10*60*1000);
+//         return false;
+//     }else{
+//         window.location.href = "https://www.cubedots.com/projects/";//document.write(document.referrer);//
+//     }
+// }
+// timeoutHandler = setTimeout(mm, 10*60*1000);
 
 
 function ThreeDSystemPage() {
