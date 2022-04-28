@@ -48,7 +48,7 @@ import { API_ENDPOINT } from '../common/Constants';
 // timeoutHandler = setTimeout(mm, 10*60*1000);
 
 function redfun(){
-  window.location.href = "https://www.cubedots.com/projects/";//document.write(document.referrer);//
+  window.location.href = "https://staging.cubedots.com/projects/";//document.write(document.referrer);//
 }
 
 function ThreeDSystemPage() {
