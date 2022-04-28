@@ -14,7 +14,7 @@ function mm(){
     //console.log("result", cc);     
     if(cc === true ){
         clearTimeout(timeoutHandler);
-        timeoutHandler = setTimeout(mm, 1800000);
+        timeoutHandler = setTimeout(mm, 10*60*1000);
         return false;
     }else{
         window.location.href = "https://cubedots.com/projects/";//document.write(document.referrer);//
