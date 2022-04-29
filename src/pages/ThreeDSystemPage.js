@@ -205,7 +205,9 @@ idleLogout();
   return (
     <>
     <div id="ideldiv1" className="text-center fw-bold idelModal">
+      <div className="idelText">
      Are you continue with current session?
+     </div>
     </div>
       {projectStreamLoading ?
         <>
