@@ -36,7 +36,7 @@ function ThreeDSystemPage() {
 
   function killSession() {
     // TODO: Redirect Your Page
-    window.location.href = 'https://www.cubedots.com/projects/';
+    window.location.href = 'https://staging.cubedots.com/projects/';
   };
 
   function hideDiv1() {
