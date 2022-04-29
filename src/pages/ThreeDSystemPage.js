@@ -84,22 +84,22 @@ function idleLogout() {
 
     function yourFunction() {
         
-        setTimeout(showDiv1(), 6*60*1000); // after 15 sec
+        setTimeout(showDiv1(), 10000); // after 15 sec
     }
 
     function resetTimer() {
         hideDiv1();
         clearTimeout(t);
-        t = setTimeout(yourFunction, 6*60*1000);  // time is in milliseconds
+        t = setTimeout(yourFunction, 10000);  // time is in milliseconds
     }
 }
-idleLogout();
+setTimeout(idleLogout, 10000);
 
-  useEffect(() => {
-    fetchProjectStream();
-    console.log("Platform ", Platform);
-    
-  }, []);
+useEffect(() => {
+  fetchProjectStream();
+  console.log("Platform ", Platform);
+  
+}, []);
 
 //   function mm(){
 //     var cc = window.confirm("Are you continue with current session?");
