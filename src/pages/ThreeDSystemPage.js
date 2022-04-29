@@ -90,10 +90,10 @@ function idleLogout() {
     function resetTimer() {
         hideDiv1();
         clearTimeout(t);
-        t = setTimeout(yourFunction, 10000);  // time is in milliseconds
+        t = setTimeout(yourFunction, 6*60*1000);  // time is in milliseconds
     }
 }
-setTimeout(idleLogout, 10000);
+setTimeout(idleLogout, 6*60*1000);
 
 useEffect(() => {
   fetchProjectStream();
