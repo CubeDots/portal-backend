@@ -1,17 +1,35 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, Navigate } from "react-router-dom";
 import { useAuthHeader, useIsAuthenticated } from 'react-auth-kit';
 import Platform from 'react-platform-js';
 import axios from "axios";
 import UnauthenticatedPage from "../errors/Unauthorized";
 import { API_ENDPOINT } from '../common/Constants';
+import { useIdleTimer } from 'react-idle-timer';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import { useTimer } from 'react-timer-hook';
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 500,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 // function redfun(){
 //   window.location.href = "https://www.cubedots.com/projects/";//document.write(document.referrer);//
 // }
 
 function ThreeDSystemPage() {
+
   let { id, sdk } = useParams();
   const authHeader = useAuthHeader();
   const isAuthenticated = useIsAuthenticated();
@@ -19,70 +37,111 @@ function ThreeDSystemPage() {
   const [projectStreamLoading, setProjectStreamLoading] = useState(false);
   const [projectStream, setProjectStream] = useState(null);
   const [idealMsg, setIdealMsg] = useState("");
-
-
-  let timeoutHandler;
   
-  const approve=()=> {
-    //alert("text");
-    clearTimeout(timeoutHandler);
-    hideDiv1();
-  };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-  function showDiv1() {
-    document.getElementById("ideldiv1").style.display = "grid";
-    timeoutHandler = setTimeout(killSession, 1 * 60 * 1000);
-  };
+  const [timer, setTimer] = useState(45);
+  const timestamp = new Date()
+  timestamp.setSeconds(timestamp.getSeconds()+45)
+  const {
+    seconds,
+    minutes,
+    hours,
+    days,
+    isRunning,
+    start: startTimer,
+    pause: pauseTimer,
+    resume: resumeTimer,
+    restart: restartTimer,
+  } = useTimer({ expiryTimestamp: timestamp, onExpire: () => {
+    window.location.href='https://stating.cubedots.com/projects/';
+  } 
+});
 
-  function killSession() {
-    // TODO: Redirect Your Page
-    window.location.href = 'https://staging.cubedots.com/projects/';
-  };
-
-  function hideDiv1() {
-    document.getElementById("ideldiv1").style.display = "none";
-    setTimeout(showDiv1, 6 * 60 * 1000);
-  };
-
-  /* Once iframe load below method call */
-  setTimeout(showDiv1, 6 * 60 * 1000);
-  /* End Here */
+  useEffect(() => {
+    pauseTimer()
+  }, []);
 
 
-  // function showDiv1() {
-  //   document.getElementById("ideldiv1").style.display = "grid";
-  //   setTimeout(redfun, 1*60*1000);
-  // }
+  const onPrompt = () => {
+    // Fire a Modal Prompt
+    handleOpen();
+  }
 
-  // function hideDiv1() {
-  //   document.getElementById("ideldiv1").style.display = "none";
-  // }
+  const onIdle = () => {
+    // Close Modal Prompt
+    // Do some idle action like log out your user
+    // alert("yyyyou are idle")
+    
+    handleOpen();
+    const time = new Date()
+    time.setSeconds(time.getSeconds() + 45)
+    restartTimer(time);
+  }
 
-  // //SET TIME-OUT FUCNTION FOR PROMPT USER TO CONTINUE CURRENT SESSION OR NOT
-  // function idleLogout() {
-  //     var t;
-  //     window.onload = resetTimer;
-  //     window.onmousemove = resetTimer;
-  //     window.onmousedown = resetTimer;  // catches touchscreen presses as well      
-  //     window.ontouchstart = resetTimer; // catches touchscreen swipes as well      
-  //     window.ontouchmove = resetTimer;  // required by some devices 
-  //     window.onclick = resetTimer;      // catches touchpad clicks as well
-  //     window.onkeydown = resetTimer;
-  //     window.onmouseover = resetTimer;   
-  //     window.addEventListener('scroll', resetTimer, true); // improved; see comments
+  const onActive = (event) => {
+    // Close Modal Prompt
+    // Do some active action
+    console.log('Active Modelo');
+    setTimer(45);
+    pauseTimer();
+    //restartTimer()
+    handleClose();
+  }
 
-  //     function yourFunction() {
+  const onAction = (event) => {
+    // Do something when a user triggers a watched event
+    console.log('Waiting for popup')
+  }
 
-  //         setTimeout(showDiv1(), 10000); // after 15 sec
-  //     }
+  const {
+    start,
+    reset,
+    pause,
+    resume,
+    isIdle,
+    isPrompted,
+    getRemainingTime,
+    getElapsedTime,
+    getLastIdleTime,
+    getLastActiveTime,
+    getTotalIdleTime,
+    getTotalActiveTime
+  } = useIdleTimer({
+    onPrompt,
+    onIdle,
+    onActive,
+    onAction,
+    timeout: 360000,
+    promptTimeout: 45,
+    events: [
+      'mousemove',
+      'keydown',
+      'wheel',
+      'DOMMouseScroll',
+      'mousewheel',
+      'mousedown',
+      'touchstart',
+      'touchmove',
+      'MSPointerDown',
+      'MSPointerMove',
+      'visibilitychange'
+    ],
+    immediateEvents: [],
+    debounce: 0,
+    throttle: 0,
+    eventsThrottle: 200,
+    element: document,
+    startOnMount: true,
+    startManually: false,
+    stopOnIdle: false,
+    crossTab: false,
+    syncTimers: 0
+  })
 
-  //     function resetTimer() {
-  //         hideDiv1();
-  //         clearTimeout(t);
-  //         t = setTimeout(yourFunction, 10000);  // time is in milliseconds
-  //     }
-  // }
-  // idleLogout();
+  //  startTimer();
 
   useEffect(() => {
     fetchProjectStream();
@@ -181,17 +240,26 @@ function ThreeDSystemPage() {
       alert('The requested browser does not support full-screen mode.');
     }
   }
+
+  
+
   return (
     <>
-      <div id="ideldiv1" className="text-center fw-bold idelModal">
-        <div className="idelText">
+    <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+      <Box sx={style}>
+        <Typography id="modal-modal-title" variant="h6" component="h2">
           Are you continue with current session?
-          <button onClick={()=>approve()}>
-            OK
-          </button>
-        </div>
-
-      </div>
+        </Typography>
+        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          {seconds}
+        </Typography>
+      </Box>
+    </Modal>
       {projectStreamLoading ?
         <>
           <div className="text-center">Loading...</div>
@@ -227,7 +295,7 @@ function ThreeDSystemPage() {
         </>
       }
 
-      {/* <iframe title="3Dstream" src={`https://furioos.cubedots.com/?playerId=${sdk}&token=${simpleToken}`} width="100%" height="100%" frameBorder="0" style={{ border: 0 , height:'calc(100vh - 50px)'}} loading="lazy" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe> */}
+      {/* <iframe title="3Dstream" src={`https://www.cubedots.com/`} width="100%" height="100%" frameBorder="0" style={{ border: 0 , height:'calc(100vh - 50px)'}} loading="lazy" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe> */}
     </>
   );
 }
