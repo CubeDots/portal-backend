@@ -241,8 +241,6 @@ function ThreeDSystemPage() {
     }
   }
 
-  
-
   return (
     <>
     <Modal

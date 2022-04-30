@@ -1,0 +1,88 @@
+[
+    {
+        "id":"01",
+        "airport":[
+            {
+                "id":"1",
+                "name":"Dubai International Airport",
+                "distance":"30.8 km",
+                "time":"25 min"
+            },
+            {
+                "id":"2",
+                "name":"Al Maktoum International Airport",
+                "distance":" 35.9 km",
+                "time":"29 min"
+            }
+        ]
+    },
+    {
+        "id":"02",
+        "publictransport":[
+            {
+                "id":"1",
+                "name":"Sheikh Mohammed Bin Zayed Road",
+                "distance":"8 km",
+                "time":"5 min"
+            },
+            {
+                "id":"2",
+                "name":"Sheikh Zayed Road",
+                "distance":"13.2 km",
+                "time":"20 min"
+            }
+        ]
+    },
+    {
+        "id":"03",
+        "mall":[
+            {
+                "id":"1",
+                "name":"First Avenue Mal",
+                "distance":"6.5 km",
+                "time":"10 min"
+            },
+            {
+                "id":"2",
+                "name":"Mall of the Emirates",
+                "distance":"11.8 km",
+                "time":"14 min"
+            },
+            {
+                "id":"3",
+                "name":"The Dubai Mall",
+                "distance":" 20.5 km",
+                "time":"19 min"
+            },
+            {
+                "id":"4",
+                "name":"Global Village",
+                "distance":"13 km",
+                "time":"18 min"
+            }
+        ]
+    },
+    {
+        "id":"04",
+        "hospital":[
+            {
+                "id":"1",
+                "name":"Al Zahra Hospital Dubai",
+                "distance":" 9.9 km",
+                "time":"12 min"
+            },
+            {
+                "id":"2",
+                "name":"King's College Hospital London",
+                "distance":"7.4 km",
+                "time":"12 min"
+            },
+            {
+                "id":"3",
+                "name":"Hospital Rashid",
+                "distance":" 27.8 km",
+                "time":"27 min"
+            }
+        ]
+    }
+]
