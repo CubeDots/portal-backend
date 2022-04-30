@@ -8,49 +8,9 @@ import { API_ENDPOINT } from '../common/Constants';
 import ReactTimeout from 'react-timeout'
 
 
-// function idleLogout() {
-//   var t;
-//   window.onload = resetTimer;
-//   window.onmousemove = resetTimer;
-//   window.onmousedown = resetTimer;  // catches touchscreen presses as well      
-//   window.ontouchstart = resetTimer; // catches touchscreen swipes as well      
-//   window.ontouchmove = resetTimer;  // required by some devices 
-//   window.onclick = resetTimer;      // catches touchpad clicks as well
-//   window.onkeydown = resetTimer;   
-//   document.onkeypress = resetTimer;
-//   window.addEventListener('scroll', resetTimer, true); // improved; see comments
-
-//   function yourFunction() {
-//       // your function for too long inactivity goes here
-//       // e.g. window.location.href = 'logout.php';
-//       window.location.href = "https://www.cubedots.com/projects";
-//   }
-
-//   function resetTimer() {
-//       clearTimeout(t);
-//       t = setTimeout(yourFunction, 10000);  // time is in milliseconds
-//   }
+// function redfun(){
+//   window.location.href = "https://www.cubedots.com/projects/";//document.write(document.referrer);//
 // }
-// idleLogout();
-
-/* SET TIME-OUT FUCNTION FOR PROMPT USER TO CONTINUE CURRENT SESSION OR NOT */
-// let timeoutHandler = null;
-// function mm(){        
-//     var cc = window.confirm("Are you continue with current session?");   
-//     //console.log("result", cc);     
-//     if(cc === true ){
-//         clearTimeout(timeoutHandler);
-//         timeoutHandler = setTimeout(mm, 10*60*1000);
-//         return false;
-//     }else{
-//         window.location.href = "https://www.cubedots.com/projects/";//document.write(document.referrer);//
-//     }
-// }
-// timeoutHandler = setTimeout(mm, 10*60*1000);
-
-function redfun(){
-  window.location.href = "https://staging.cubedots.com/projects/";//document.write(document.referrer);//
-}
 
 function ThreeDSystemPage() {
   let { id, sdk } = useParams();
@@ -59,58 +19,77 @@ function ThreeDSystemPage() {
   let navigate = useNavigate();
   const [projectStreamLoading, setProjectStreamLoading] = useState(false);
   const [projectStream, setProjectStream] = useState(null);
-  const [idealMsg, setIdealMsg]=useState("");
+  const [idealMsg, setIdealMsg] = useState("");
 
-     
-function showDiv1() {
-  document.getElementById("ideldiv1").style.display = "grid";
-  setTimeout(redfun, 1*60*1000);
-}
 
-function hideDiv1() {
-  document.getElementById("ideldiv1").style.display = "none";
-}
+  let timeoutHandler;
+  
+  const approve=()=> {
+    //alert("text");
+    clearTimeout(timeoutHandler);
+    hideDiv1();
+  };
 
-//SET TIME-OUT FUCNTION FOR PROMPT USER TO CONTINUE CURRENT SESSION OR NOT
-function idleLogout() {
-    var t;
-    window.onload = resetTimer;
-    window.onmousemove = resetTimer;
-    window.onmousedown = resetTimer;  // catches touchscreen presses as well      
-    window.ontouchstart = resetTimer; // catches touchscreen swipes as well      
-    window.ontouchmove = resetTimer;  // required by some devices 
-    window.onclick = resetTimer;      // catches touchpad clicks as well
-    window.onkeydown = resetTimer;   
-    window.addEventListener('scroll', resetTimer, true); // improved; see comments
+  function showDiv1() {
+    document.getElementById("ideldiv1").style.display = "grid";
+    timeoutHandler = setTimeout(killSession, 1 * 60 * 1000);
+  };
 
-    function yourFunction() {
-        
-        setTimeout(showDiv1(), 6*60*1000); // after 15 sec
-    }
+  function killSession() {
+    // TODO: Redirect Your Page
+    window.location.href = 'https://staging.cubedots.com/projects/';
+  };
 
-    function resetTimer() {
-        hideDiv1();
-        clearTimeout(t);
-        t = setTimeout(yourFunction, 6*60*1000);  // time is in milliseconds
-    }
-}
-idleLogout();
+  function hideDiv1() {
+    document.getElementById("ideldiv1").style.display = "none";
+    setTimeout(showDiv1, 6 * 60 * 1000);
+  };
+
+  /* Once iframe load below method call */
+  setTimeout(showDiv1, 6 * 60 * 1000);
+  /* End Here */
+
+
+  // function showDiv1() {
+  //   document.getElementById("ideldiv1").style.display = "grid";
+  //   setTimeout(redfun, 1*60*1000);
+  // }
+
+  // function hideDiv1() {
+  //   document.getElementById("ideldiv1").style.display = "none";
+  // }
+
+  // //SET TIME-OUT FUCNTION FOR PROMPT USER TO CONTINUE CURRENT SESSION OR NOT
+  // function idleLogout() {
+  //     var t;
+  //     window.onload = resetTimer;
+  //     window.onmousemove = resetTimer;
+  //     window.onmousedown = resetTimer;  // catches touchscreen presses as well      
+  //     window.ontouchstart = resetTimer; // catches touchscreen swipes as well      
+  //     window.ontouchmove = resetTimer;  // required by some devices 
+  //     window.onclick = resetTimer;      // catches touchpad clicks as well
+  //     window.onkeydown = resetTimer;
+  //     window.onmouseover = resetTimer;   
+  //     window.addEventListener('scroll', resetTimer, true); // improved; see comments
+
+  //     function yourFunction() {
+
+  //         setTimeout(showDiv1(), 10000); // after 15 sec
+  //     }
+
+  //     function resetTimer() {
+  //         hideDiv1();
+  //         clearTimeout(t);
+  //         t = setTimeout(yourFunction, 10000);  // time is in milliseconds
+  //     }
+  // }
+  // idleLogout();
 
   useEffect(() => {
     fetchProjectStream();
     console.log("Platform ", Platform);
-    
-  }, []);
 
-//   function mm(){
-//     var cc = window.confirm("Are you continue with current session?");
-//     if(cc === true ){            
-//         //setTimeout(mm, 10000);        
-//     }else{
-//       window.location.href = 'http://localhost:3000/projects/';
-//     }
-// }
-// setTimeout(mm, 10000);
+  }, []);
 
   if (!isAuthenticated()) {
     // Redirect to login
@@ -137,7 +116,7 @@ idleLogout();
         setProjectStreamLoading(false);
         setProjectStream(res.data.data);
       }
-      console.log("streming",res.data.data);
+      console.log("streming", res.data.data);
     } catch (error) {
       console.error("error ", error);
       setProjectStreamLoading(false);
@@ -185,29 +164,35 @@ idleLogout();
   else
     devicePlatform = 'Desktop';
 
-    function openFullscreen() {
-      var elem = document.getElementsByTagName("iframe")[0];//document.getElementById("twoDSales");
-  
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-      } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
-      } else if (elem.mozRequestFullScreen) { /* moz */
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitEnterFullScreen) {
-        elem.webkitEnterFullScreen();
-      } else {
-        //elem.webkitEnterFullscreen();
-        alert('The requested browser does not support full-screen mode.');
-      }
+  function openFullscreen() {
+    var elem = document.getElementsByTagName("iframe")[0];//document.getElementById("twoDSales");
+
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+      elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* moz */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitEnterFullScreen) {
+      elem.webkitEnterFullScreen();
+    } else {
+      //elem.webkitEnterFullscreen();
+      alert('The requested browser does not support full-screen mode.');
     }
+  }
   return (
     <>
-    <div id="ideldiv1" className="text-center fw-bold idelModal">
-     Are you continue with current session?
-    </div>
+      <div id="ideldiv1" className="text-center fw-bold idelModal">
+        <div className="idelText">
+          Are you continue with current session?
+          <button onClick={()=>approve()}>
+            OK
+          </button>
+        </div>
+
+      </div>
       {projectStreamLoading ?
         <>
           <div className="text-center">Loading...</div>
@@ -231,7 +216,7 @@ idleLogout();
                       </svg>
                     </button>
                   </div>
-                  <iframe title="3Dstream" src={`${projectStream.stream.note}?launchFlags=${simpleToken}%20-platform%20${devicePlatform}`} width="100%" height="100%" style={{ border: 0, margin:0, height: 'calc(100vh - 8px)' }} allowFullScreen={true} ></iframe>
+                  <iframe title="3Dstream" src={`${projectStream.stream.note}?launchFlags=${simpleToken}%20-platform%20${devicePlatform}`} width="100%" height="100%" style={{ border: 0, margin: 0, height: 'calc(100vh - 8px)' }} allowFullScreen={true} ></iframe>
                 </>
                 :
                 <><div className="text-center">3d system is not available.</div></>

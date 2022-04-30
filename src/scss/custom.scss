@@ -115,15 +115,21 @@ textarea {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(225,225,225,.8);
+    background: rgba(0,0,0,.6);
     margin: auto;
-    width: 25%;
-    height: 10%;
+    width:100%;
+    height: 100%;
     justify-content: center;
     align-items: center;
     align-content: center;
     box-shadow: 0 0 20px rgba(230, 84, 0, 0.2);
   }
+.idelText
+{
+    padding: 10px;
+    width: max-content;
+    background: #fff;
+}
 .acceptBtn
 {
     background: #e65400 !important;
