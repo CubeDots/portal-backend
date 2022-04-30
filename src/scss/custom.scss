@@ -6407,7 +6407,7 @@ footer h6 {
 .missionvisionimageBox {
     background-color: #0f2232;
     padding-top: 1.5rem;
-    padding-bottom: 2rem;
+    // padding-bottom: 2rem;
 }
 
 /*.missionVissionImage{
@@ -7238,6 +7238,9 @@ footer h6 {
         flex-direction: row !important;
         border-bottom: 1px solid #dde6e6;
         margin-bottom: 25px;
+    }
+    .bannerServices{
+        margin-right: 0;
     }
     .aboutUsBackground .aboutus
     {

@@ -5,6 +5,7 @@ import Platform from 'react-platform-js';
 import axios from "axios";
 import UnauthenticatedPage from "../errors/Unauthorized";
 import { API_ENDPOINT } from '../common/Constants';
+import ReactTimeout from 'react-timeout'
 
 
 // function idleLogout() {
