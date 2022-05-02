@@ -52,7 +52,7 @@ function ThreeDSystemPage() {
     resume: resumeTimer,
     restart: restartTimer,
   } = useTimer({ expiryTimestamp: timestamp, onExpire: () => {
-    window.location.href='https://staging.cubedots.com/projects/';
+    window.location.href='https://www.cubedots.com/projects/';
   } 
 });
 
