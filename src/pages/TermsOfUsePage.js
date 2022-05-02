@@ -51,7 +51,7 @@ function TermsOfUsePage() {
                             <button className="nav-link" id="v-pills-Data-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Data" type="button" role="tab" aria-controls="v-pills-Data" aria-selected="false">
                                 <h5>Data Subject Application Form</h5> </button>
                             <button className="nav-link" id="v-pills-Declaration-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Declaration" type="button" role="tab" aria-controls="v-pills-Declaration" aria-selected="false">
-                                <h5>Declaration of Explicit Consent for Processing of Personal Data via WebsiteMobile App</h5> </button>
+                                <h5>Declaration of Explicit Consent for Processing of Personal Data via Website or Mobile App</h5> </button>
                                 <button className="nav-link" id="v-pills-information-tab" data-bs-toggle="pill" data-bs-target="#v-pills-information" type="button" role="tab" aria-controls="v-pills-information" aria-selected="false">
                                 <h5>Information Security Policy Of Cuengine</h5> </button>
                                 <button className="nav-link" id="v-pills-Employee-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Employee" type="button" role="tab" aria-controls="v-pills-Employee" aria-selected="false">
