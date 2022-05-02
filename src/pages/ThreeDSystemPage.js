@@ -244,13 +244,14 @@ function ThreeDSystemPage() {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className="timerCounter"
       >
       <Box sx={style}>
+      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          {seconds}
+        </Typography>
         <Typography id="modal-modal-title" variant="h6" component="h2">
           Do you wish to continue with the current session?
-        </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {seconds}
         </Typography>
       </Box>
     </Modal>
@@ -261,7 +262,7 @@ function ThreeDSystemPage() {
         :
         <>
           {projectStream ?
-            <div id="parentDiv">
+            <div id="parentDiv" className="parentDiv">
               {projectStream.project.is_3d_enabled ?
                 <>
                   <div className="col-auto twoDbackBtn" id="childDiv">

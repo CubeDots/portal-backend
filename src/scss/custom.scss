@@ -130,6 +130,26 @@ textarea {
     width: max-content;
     background: #fff;
 }
+.timerCounter p
+{
+    color: #e65400;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 0;
+}
+.timerCounter h2
+{
+    font-size: 16px;
+}
+.timerCounter
+{
+    text-align: center;
+}
+.parentDiv
+{
+    height: 100vh;
+    overflow: hidden;
+}
 .acceptBtn
 {
     background: #e65400 !important;
@@ -2479,7 +2499,8 @@ span.FolderChooser-icon-14 {
     background: transparent;
     padding: 5px;
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
+    right: 5px;
     width: 100%;
     display: flex;
     justify-content: end;
