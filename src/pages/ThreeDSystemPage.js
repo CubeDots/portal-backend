@@ -24,10 +24,6 @@ const style = {
   p: 4,
 };
 
-// function redfun(){
-//   window.location.href = "https://www.cubedots.com/projects/";//document.write(document.referrer);//
-// }
-
 function ThreeDSystemPage() {
 
   let { id, sdk } = useParams();
@@ -56,7 +52,7 @@ function ThreeDSystemPage() {
     resume: resumeTimer,
     restart: restartTimer,
   } = useTimer({ expiryTimestamp: timestamp, onExpire: () => {
-    window.location.href='https://stating.cubedots.com/projects/';
+    window.location.href='https://staging.cubedots.com/projects/';
   } 
 });
 
@@ -251,7 +247,7 @@ function ThreeDSystemPage() {
       >
       <Box sx={style}>
         <Typography id="modal-modal-title" variant="h6" component="h2">
-          Are you continue with current session?
+          Do you wish to continue with the current session?
         </Typography>
         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           {seconds}
@@ -281,7 +277,7 @@ function ThreeDSystemPage() {
                       </svg>
                     </button>
                   </div>
-                  <iframe title="3Dstream" src={`${projectStream.stream.note}?launchFlags=${simpleToken}%20-platform%20${devicePlatform}`} width="100%" height="100%" style={{ border: 0, margin: 0, height: 'calc(100vh - 8px)' }} allowFullScreen={true} ></iframe>
+                  <iframe title="3Dstream" src={`${projectStream.stream.note}?launchFlags=${simpleToken}%20-platform%20${devicePlatform}`} width="100%" height="100%" style={{ border: 0, margin: 0, height: '100vh' }} allowFullScreen={true} ></iframe>
                 </>
                 :
                 <><div className="text-center">3d system is not available.</div></>
