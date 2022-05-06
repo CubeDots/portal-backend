@@ -237,7 +237,7 @@ function WhyUsPage() {
 
             <div className="technology section">
                 <div className="headingSection text-center">
-                    <h2 className="text-center vegonHeading">Cubedots' interactive technology has been used by</h2>
+                    <h2 className="text-center vegonHeading">Cubedots interactive technology has been used by</h2>
                 </div>
                 <CubedotBrandTechnologylogoComponent />
             </div>

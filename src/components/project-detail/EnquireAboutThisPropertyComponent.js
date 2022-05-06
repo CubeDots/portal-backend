@@ -9,7 +9,6 @@ import SocialSharingComponent from "../contact/SocialSharingComponent"
 import moment from 'moment';
 import SimpleReactValidator from 'simple-react-validator';
 
-
 import { API_ENDPOINT } from "../../common/Constants";
 
 function EnquireAboutThisPropertyComponent(props) {

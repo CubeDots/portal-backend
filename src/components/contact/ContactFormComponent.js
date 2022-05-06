@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 // import Select from 'react-select';
-import React,{ useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import { useAuthUser, useIsAuthenticated, } from 'react-auth-kit';
@@ -23,7 +23,7 @@ function ContactFormComponent(props) {
     const [footersocialLoading, setFooterSocialLoading] = useState(false);
     const [footerSocialLinks, setFooterSocialLinks] = useState(null);
 
-    
+
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
 
@@ -32,7 +32,7 @@ function ContactFormComponent(props) {
 
 
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', country: '', occupation: '',project_interest:[], dial_code: '', mobile: '', message: '', terms: false });
+    const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', country: '', occupation: '', project_interest: [], dial_code: '', mobile: '', message: '', terms: false });
 
     useEffect(() => {
         fetchFooterSocial();
@@ -59,7 +59,7 @@ function ContactFormComponent(props) {
             setFooterSocialLoading(false);
         }
     }
-    
+
     async function fetchProjects() {
         setCountriesLoading(true);
         try {
@@ -69,15 +69,15 @@ function ContactFormComponent(props) {
                 setProjects(res.data.data.projects);
                 let projects = res.data.data.projects;
                 let filtered_array = _.filter(
-                    projects, function(o) {
-                       return o.title !== 'AcarBlu';
+                    projects, function (o) {
+                        return o.title !== 'AcarBlu';
                     }
                 );
                 console.log("filtered_array", filtered_array);
                 let projectTitle = filtered_array.map((x) => {
-                   return x.title
+                    return x.title
                 });
-                
+
                 setProjectList(projectTitle);
                 console.log("project list", projectTitle, projectList)
             }
@@ -120,9 +120,9 @@ function ContactFormComponent(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '',project_interest:[], message: '', terms: false });
+        setFormData({ first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', project_interest: [], message: '', terms: false });
         document.getElementById("form2").reset();
-       // multiselectRef.current.resetSelectedValues();
+        // multiselectRef.current.resetSelectedValues();
     }
     const handleChange = (e) => {
         //console.log("isClearable", e);
@@ -184,11 +184,20 @@ function ContactFormComponent(props) {
                     </div>
                 </div>
                 <div className="row mb-3">
-                    <div className="col">
+                    <div className="col-md-6">
                         {/* <label  className="form-label required">Email Address</label> */}
                         <input type="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} className="form-control required w-100" placeholder="Email *" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                     </div>
+                    <div className="col-md-6 mb-3 mobileInputSection">
+                        {/* <label className="form-label required">Mobile</label> */}
+                        <div className="input-group">
+                            <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
+                            <input type="text" className="form-control " placeholder="Mobile *" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
+                        </div>
+                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                    </div>
                     <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+
                 </div>
                 <div className="row">
                     <div className="col-md-6 mb-3">
@@ -202,16 +211,6 @@ function ContactFormComponent(props) {
                             </>
                             : ''}
                     </div>
-                    <div className="col-md-6 mb-3 mobileInputSection">
-                        {/* <label className="form-label required">Mobile</label> */}
-                        <div className="input-group">
-                            <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                            <input type="text" className="form-control " placeholder="Mobile *" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
-                        </div>
-                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
-                    </div>
-                </div>
-                <div className="row">
                     <div className="col-md-6 mb-3">
                         {/* <label className="form-label">Occupation</label> */}
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
@@ -221,7 +220,25 @@ function ContactFormComponent(props) {
                             <option value="Others">Others</option>
                         </select>
                     </div>
-                    <div className="col-md-6 mb-3">
+                    {/* <div className="col-md-6 mb-3 mobileInputSection">
+                        <div className="input-group">
+                            <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
+                            <input type="text" className="form-control " placeholder="Mobile *" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
+                        </div>
+                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                    </div> */}
+                    
+                </div>
+                <div className="row">
+                    {/* <div className="col-md-6 mb-3">
+                        <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
+                            <option value="">Interested As</option>
+                            <option value="Agency">Real Estate Agency</option>
+                            <option value="Developer">Developer</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div> */}
+                    <div className="col-12 mb-3">
                         {/* <label className="form-label">Project Interest</label> */}
                         {projects.length > 0 ?
                             <>
