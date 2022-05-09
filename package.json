@@ -31,6 +31,7 @@
     "multiselect-react-dropdown": "^2.0.21",
     "next-share": "^0.13.0",
     "radium": "^0.26.1",
+    "rc-time-picker": "^3.7.3",
     "react": "^17.0.2",
     "react-animated-css": "^1.2.1",
     "react-animation-on-scroll": "^2.1.0",

@@ -2730,7 +2730,24 @@ span.FolderChooser-icon-14 {
     text-align: center;
     color: #e65400;
 }
-
+.rc-time-picker input.rc-time-picker-input {
+    font-size: 17px;
+    color: #000;
+}
+.rc-time-picker .rc-time-picker-clear{
+    height: 31px;
+    top: 7px;
+    width: 30px;
+}
+.rc-time-picker-clear .rc-time-picker-clear-icon:after {
+    position: absolute;
+    color: #000;
+    left: 2px;
+    font-size: 24px;
+}
+.rc-time-picker input.rc-time-picker-input:focus-visible{
+    outline:none;
+}
 /*
 .required:after {
     content:" *";
@@ -6805,7 +6822,7 @@ footer h6 {
 }
 
 .projectsCuverse {
-    margin-top: 70px;
+    margin-top: 30px;
     padding-bottom: 70px;
 }
 
