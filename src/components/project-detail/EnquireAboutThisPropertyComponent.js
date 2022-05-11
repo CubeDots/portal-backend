@@ -32,6 +32,8 @@ function EnquireAboutThisPropertyComponent(props) {
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
 
+    const [project_interest, setProjectInterest] = useState(props.data.title);
+    const [terms, setTerms] = useState(false);
     const [loading, setLoading] = useState(false);
     const formColumns = { project_interest: '', first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false };
     const [formData, setFormData] = useState(formColumns);
@@ -86,7 +88,7 @@ function EnquireAboutThisPropertyComponent(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ project_interest: '', first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
+        setFormData({ project_interest: project_interest,first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
         document.getElementById("form2").reset();
     }
 
@@ -95,7 +97,7 @@ function EnquireAboutThisPropertyComponent(props) {
         e.preventDefault(); formData.appointment_time = toTime
 
         console.log("formData ", formData);
-
+        
         if (formData.terms === false) {
             alert("Please accept our Terms & Condition.");
             return false;
@@ -108,6 +110,7 @@ function EnquireAboutThisPropertyComponent(props) {
                 console.log('res ### ', res.status, res.data)
                 if (res.status === 200) {
                     setLoading(false);
+                    setTerms(terms, true);
                     resetFrom();
                     setTimeout(() => {
                         alert(res.data.message);
@@ -126,7 +129,7 @@ function EnquireAboutThisPropertyComponent(props) {
                         alert(msg);
                     }
                 }
-            })
+            })        
     }
 
     const addZero = (i) => {
@@ -169,9 +172,11 @@ function EnquireAboutThisPropertyComponent(props) {
                         <div className='position-relative'>
                             <label className="form-label">Last Name</label>
                             <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                            <input type="hidden" name="project_interest" value={formData.project_interest} onChange={(e) => setFormData({ ...formData, email: e.target.value })}/>
                             <div className='text-danger formErrorMsg'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
                         </div>
                     </div>
+                    
                     <div className="mb-3">
                         <div className='position-relative'>
                             <label className="form-label">Email Address</label>

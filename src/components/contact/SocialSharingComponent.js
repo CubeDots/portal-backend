@@ -72,12 +72,8 @@ function SocialSharingComponent() {
     }
     return (
         <>
-            <div className="row mb-2 mt-4">
-                <div className="col text-center">
-                    <h5 className="contactWithUsHeading"><strong>Contact Us</strong></h5>
-                </div>
-            </div>
-            <div className="row text-center justify-content-center">
+            
+            <div className="row socialIconsCompo">
                 {footerSocialLinks ?
                     <>
                         <div className="col-auto ">
