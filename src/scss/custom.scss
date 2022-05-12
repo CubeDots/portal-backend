@@ -6125,7 +6125,11 @@ footer h6 {
 .cusocialBackBtn:hover svg {
     color: #e65400;
 }
-
+.enquirySocialBtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 
 /*privacy policy*/
 .termAndConditionCheckbox .form-check-input:checked {
