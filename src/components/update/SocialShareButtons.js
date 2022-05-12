@@ -1,17 +1,43 @@
 import { Link } from 'react-router-dom';
-
 import {
     FacebookShareButton,
-    FacebookIcon,
-    WhatsappShareButton,
-    WhatsappIcon,
+    GooglePlusShareButton,
     LinkedinShareButton,
-    LinkedinIcon,
+    TwitterShareButton,
     TelegramShareButton,
-    TelegramIcon,
+    WhatsappShareButton,
+    PinterestShareButton,
+    VKShareButton,
+    OKShareButton,
+    RedditShareButton,
+    TumblrShareButton,
+    LivejournalShareButton,
+    MailruShareButton,
+    ViberShareButton,
+    WorkplaceShareButton,
+    LineShareButton,
     EmailShareButton,
+  } from 'react-share';
+  import {
+    FacebookIcon,
+    TwitterIcon,
+    TelegramIcon,
+    WhatsappIcon,
+    GooglePlusIcon,
+    LinkedinIcon,
+    PinterestIcon,
+    VKIcon,
+    OKIcon,
+    RedditIcon,
+    TumblrIcon,
+    LivejournalIcon,
+    MailruIcon,
+    ViberIcon,
+    WorkplaceIcon,
+    LineIcon,
     EmailIcon,
-} from 'next-share';
+  } from 'react-share';
+  
 
 function SocialShareButtons(props) {
     let publicPath = process.env.PUBLIC_URL;
@@ -21,7 +47,7 @@ function SocialShareButtons(props) {
 
     return (
         <>
-            <div className="my-2">
+            {/*<div className="my-2">
                 Share it
                 &nbsp;
                 <FacebookShareButton
@@ -62,7 +88,7 @@ function SocialShareButtons(props) {
                     <EmailIcon size={32} round />
                 </EmailShareButton>
 
-            </div>
+            </div>*/}
         </>
     );
 

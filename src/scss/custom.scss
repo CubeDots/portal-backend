@@ -29,6 +29,26 @@ textarea {
     border: 1px solid blue;
 }
 
+.srv-validation-message{
+    background: #cf3030;
+    color: #fff;
+    padding: 4px;
+    box-shadow: 2px 2px 10px rgb(0 0 0 / 50%);
+    margin-top: 11px;
+    border-radius: 5px;
+    position: relative;
+}
+.srv-validation-message::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #cf3030;
+    top: -5px;
+    transform: rotate(45deg);
+    left: 12px;
+}
+
 @-webkit-keyframes rotationOne {
     0% {
         -webkit-transform: rotate(0deg);

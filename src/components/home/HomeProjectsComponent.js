@@ -130,6 +130,7 @@ function HomeProjectsComponent() {
                                             </div>
                                         </div>
                                         <p className="projectCardPara">{row.small_description}</p>
+                                        <p className="mb-0" style={{'font-size':'11px'}}>{row.slogan}</p>
                                     </div>
                                 </div>
                             </div>
