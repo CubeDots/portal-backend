@@ -45,12 +45,12 @@ function Footer() {
             setProjectsLoading(false);
         }
     }
-    function refreshPage(){ 
+    function refreshPage() {
         setTimeout(() => {
-            window.location.reload(); 
+            window.location.reload();
         }, 300);
     }
-    
+
     useEffect(() => {
         fetchFooterSocial();
         fetchProject();
@@ -58,7 +58,7 @@ function Footer() {
 
 
     function scrollToTop() {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         //$('html, body').animate({scrollTop:0}, '300');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -134,7 +134,9 @@ function Footer() {
                                     </svg>
                                 </a>
                             </div> */}
-                            <SocialSharingComponent />
+                            <div className="mb-3">
+                                <SocialSharingComponent />
+                            </div>
                             <div className="d-flex">
                                 <div className="me-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-telephone" viewBox="0 0 16 16">
@@ -170,16 +172,16 @@ function Footer() {
                             <div className="">
                                 <h4 className="loremHeading">Projects</h4>
                                 <div className="d-flex flex-column">
-                                {projects && projects.map((row, i) => {
-                                    return(
-                                        <>
-                                            {row.slug != 'acarblu' ? 
-                                                <Link to={`/projects/${row.slug}`} onClick={ refreshPage } key={i} className="footer_link">{row.title}</Link>
-                                            : ''} 
-                                        </>
-                                )
-                                })
-                                }
+                                    {projects && projects.map((row, i) => {
+                                        return (
+                                            <>
+                                                {row.slug != 'acarblu' ?
+                                                    <Link to={`/projects/${row.slug}`} onClick={refreshPage} key={i} className="footer_link">{row.title}</Link>
+                                                    : ''}
+                                            </>
+                                        )
+                                    })
+                                    }
                                 </div>
                             </div>
                         </div>

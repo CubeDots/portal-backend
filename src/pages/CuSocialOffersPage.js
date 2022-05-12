@@ -72,7 +72,7 @@ function CuSocialOffersPage(props) {
     if (!isAuthenticated()) {
         return (
             <>
-                <div className="toOfferpageErrorPage">
+                <div className="mt-70 toOfferpageErrorPage">
                     <div className="container">
                         <div className="row my-5 py-5">
                             <div className="col my-5 text-center">

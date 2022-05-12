@@ -338,7 +338,7 @@ a:hover {
 }
 
 .backBtn:hover {
-    background-color: #fff;
+    background-color: transparent;
     color: #e65400;
     border-color: #e65400;
 }
@@ -835,121 +835,10 @@ ul.agentdashboard {
 
 /*contact*/
 
-.watsupHeading {
-    position: absolute;
-    background: #2cd248;
-    padding: 5px;
-    border-radius: 12px;
-    color: #fff;
-    top: -35px;
-    left: -21px;
-    opacity: 0;
-    transition: 0.4s all ease-in-out;
-    font-size: 12px;
-}
-
-.watsupHeading::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background-color: #2cd248;
-    bottom: -5px;
-    left: 42%;
-    transform: rotate(45deg);
-}
-
-.watsup:hover .watsupHeading {
-    opacity: 1;
-}
 
 .watsup svg {
     width: 26px;
     height: 26px;
-}
-
-.linkedInHeading {
-    position: absolute;
-    background: #006599;
-    padding: 5px;
-    border-radius: 12px;
-    color: #fff;
-    top: -35px;
-    left: -21px;
-    opacity: 0;
-    transition: 0.4s all ease-in-out;
-    font-size: 12px;
-}
-
-.linkedInHeading::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background-color: #006599;
-    bottom: -5px;
-    left: 42%;
-    transform: rotate(45deg);
-}
-
-.watsup:hover .linkedInHeading {
-    opacity: 1;
-}
-
-.facebookHeading {
-    position: absolute;
-    background: #3b5a9b;
-    padding: 5px;
-    border-radius: 12px;
-    color: #fff;
-    top: -35px;
-    left: -21px;
-    opacity: 0;
-    transition: 0.4s all ease-in-out;
-    font-size: 12px;
-}
-
-.facebookHeading::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background-color: #3b5a9b;
-    bottom: -5px;
-    left: 42%;
-    transform: rotate(45deg);
-}
-
-.watsup:hover .facebookHeading {
-    opacity: 1;
-}
-
-.instagramHeading {
-    position: absolute;
-    background: #eb4b4e;
-    padding: 5px;
-    border-radius: 12px;
-    color: #fff;
-    top: -35px;
-    left: -21px;
-    opacity: 0;
-    transition: 0.4s all ease-in-out;
-    font-size: 12px;
-}
-
-.instagramHeading::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background-color: #eb4b4e;
-    bottom: -5px;
-    left: 42%;
-    transform: rotate(45deg);
-}
-
-.watsup:hover .instagramHeading {
-    opacity: 1;
 }
 
 .contactWithUsHeading {
@@ -2636,6 +2525,9 @@ span.FolderChooser-icon-14 {
     align-items: center;
 }
 
+.amenties .amentiesHeadingSecion ul.mb-3.nav.nav-tabs li.nav-item button#noanim-tab-example-tab-home {
+    cursor: default;
+}
 .amenties {
     padding: 4rem 0;
 }
@@ -4981,8 +4873,8 @@ footer {
     height: 1px;
     background-color: #b0b0b0;
     opacity: 1;
-    margin: 25px 0;
-    width: 97.5%;
+    margin: 25px 10px;
+    width: 98%;
 }
 
 .footerLogo {
@@ -5020,18 +4912,21 @@ footer .email_input {
 .socialIconsDiv .socialIconsCompo{
     text-align: center;
 }
-.socialIconsCompo{
-    margin-bottom: 20px;
+.socialIconsDiv{
+    display: flex;
+    justify-content: center;
 }
-// .row.socialIconsCompo {
-//     justify-content: center;
-// }
 .enroll_info {
     font-size: 12px;
     margin-top: 10px;
 }
-.toOfferpageErrorPage{
+.toOfferpageErrorPage {
     min-height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f2132;
+    color: #fff;
 }
 footer h6 {
     font-size: 14px;
@@ -6223,7 +6118,7 @@ footer h6 {
 
 .cusocialBackBtn:hover {
     color: #e65400;
-    background-color: #fff;
+    background-color: transparent;
     border-color: #e65400;
 }
 
@@ -7027,11 +6922,17 @@ footer h6 {
     .bannerSlider {
         bottom: -8px;
     }
+    .toOfferpageErrorPage{
+        min-height: 63vh;
+    }
 }
 
 @media (max-width:1200px) {
     header .nav-item {
         margin: 0 10px;
+    }
+    .toOfferpageErrorPage{
+        min-height: 60vh;
     }
 }
 
@@ -7211,7 +7112,7 @@ footer h6 {
     .our-partner-content p {
         width: 100%;
     }
-
+   
     .indiaCountry {
         // height: auto;
         padding: 30px 25px;
@@ -7337,6 +7238,9 @@ footer h6 {
         flex-direction: row !important;
         border-bottom: 1px solid #dde6e6;
         margin-bottom: 25px;
+    }
+    .toOfferpageErrorPage{
+        min-height: 51vh;
     }
     .bannerServices{
         margin-right: 0;
@@ -7533,7 +7437,7 @@ footer h6 {
     }
 
     .UpdatesSection {
-        padding: 30px 0;
+        padding-bottom: 30px;
     }
 
     .cusocialDetailPara {

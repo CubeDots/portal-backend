@@ -4,12 +4,17 @@ import { useIsAuthenticated, useAuthUser, useSignOut } from 'react-auth-kit';
 import $ from "jquery";
 import LoginModal from '../components/LoginModal';
 import UpdatePasswordModal from '../components/UpdatePasswordModal';
-
+import { useTranslation, Trans } from "react-i18next";
+import Dropdown from 'react-bootstrap/Dropdown'
 //import GoogleTranslate from "../components/GoogleTranslate";
 
 function NavBar() {
     let publicPath = process.env.PUBLIC_URL;
     //const navigate = useNavigate();
+    const { t, i18n } = useTranslation();
+    const changeLanguage = lng => {
+        i18n.changeLanguage(lng);
+    };
     const auth = useAuthUser();
     const isAuthenticated = useIsAuthenticated();
     const signOut = useSignOut();
@@ -128,6 +133,22 @@ function NavBar() {
                             <li className="nav-item">
                                 <NavLink className="nav-link navbarMenu" to="/contact">Contact Us</NavLink>
                             </li>
+                            {/* <li>
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                        Lan
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <div className="App-header text-center">
+                                            <p onClick={() => changeLanguage("de")}>De</p>
+                                            <p onClick={() => changeLanguage("en")}>En</p>
+                                            <p onClick={() => changeLanguage("pr")}>Pr</p>
+                                            <p onClick={() => changeLanguage("tr")}>Tr</p>
+                                            <p onClick={() => changeLanguage("ar")}>Ar</p>
+                                        </div>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </li> */}
                             {/* <li className="nav-item">
                                 <NavLink className="nav-button" to="" >Dashboard</NavLink>
                             </li> */}

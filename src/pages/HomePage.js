@@ -191,7 +191,7 @@ function HomePage(props) {
                 <div className="newsFeed">
                     <div className="container">
                         <div className="row mainnewscontent justify-content-center">
-                            <div className="col-lg-1 col-md-1 image">
+                            <div className="col-lg-1 col-md-1 m-auto image">
                                 <img src={publicPath + "/assets/images/bg/Cusocial.png"} className="img-fluid" alt="" />
                             </div>
                             <div className="col-lg-11 col-md-12">
