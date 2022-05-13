@@ -187,6 +187,7 @@ function ContactFormComponent(props) {
                     <div className="col-md-6">
                         {/* <label  className="form-label required">Email Address</label> */}
                         <input type="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} className="form-control required w-100" placeholder="Email *" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                     </div>
                     <div className="col-md-6 mb-3 mobileInputSection">
                         {/* <label className="form-label required">Mobile</label> */}
@@ -196,8 +197,6 @@ function ContactFormComponent(props) {
                         </div>
                         <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                     </div>
-                    <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
-
                 </div>
                 <div className="row">
                     <div className="col-md-6 mb-3">
