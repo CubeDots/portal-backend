@@ -1866,7 +1866,9 @@ img.bgImageUpdates {
     background-color: #373743;
     -webkit-animation: showSlowlyElement 700ms;
 }
-
+.projectCardSection:nth-child(6) {
+    display: none;
+  }
 .culibraryNewContent .FolderChooser-filemanager-2 .FolderChooser-nothingfound-6 .nofiles {
     width: 4rem;
     height: 4rem;
@@ -4913,6 +4915,7 @@ footer .email_input {
     text-align: center;
 }
 .socialIconsDiv{
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }

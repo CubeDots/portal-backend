@@ -378,7 +378,7 @@ class FolderChooser extends React.Component {
                                     <a className="files">
                                         <div className="row align-items-center">
                                             <div className="col-4 text-center  position-relative">
-                                                {[''].includes(fileType) || fileType.toLowerCase() === 'jpg'|| fileType.toLowerCase() === 'jpeg' ?
+                                                {[''].includes(fileType) || fileType.toLowerCase() === 'jpg'|| fileType.toLowerCase() === 'jpeg'|| fileType.toLowerCase() === 'png' ?
                                                 <>
                                                 <img src={f.path} width={100} alt={f.name} className="img-fluid" />
                                                 </>
