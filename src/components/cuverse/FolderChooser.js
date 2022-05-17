@@ -348,7 +348,7 @@ class FolderChooser extends React.Component {
                                                 <div className="fileFolderContent">
                                                     <div className="name">{name}</div>
                                                     <div className="details">
-                                                        {itemsLength +
+                                                    {itemsLength +
                                                             (itemsLength === 1
                                                                 ? " item"
                                                                 : itemsLength > 1

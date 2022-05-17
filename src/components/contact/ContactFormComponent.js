@@ -23,13 +23,11 @@ function ContactFormComponent(props) {
     const [footersocialLoading, setFooterSocialLoading] = useState(false);
     const [footerSocialLinks, setFooterSocialLinks] = useState(null);
 
-
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
 
     const [projectsLoading, setProjectsLoading] = useState(false);
     const [projects, setProjects] = useState([]);
-
 
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', country: '', occupation: '', project_interest: [], dial_code: '', mobile: '', message: '', terms: false });
@@ -44,7 +42,6 @@ function ContactFormComponent(props) {
             setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1], email: user.email }));
         }
     }, [user]);
-
 
     async function fetchFooterSocial() {
         setFooterSocialLoading(true);
@@ -144,11 +141,14 @@ function ContactFormComponent(props) {
             .then((res) => {
                 console.log('res ### ', res.status, res.data)
                 if (res.status === 200) {
+                    setSelectedValue(['']);
+                    setSelectedValue([]);
                     setLoading(false);
                     resetFrom();
                     setTimeout(() => {
                         alert(res.data.message);
                     }, 1000);
+                    //window.location.href = window.location.href;
                 }
             }).catch((error) => {
                 setLoading(false);
@@ -187,6 +187,7 @@ function ContactFormComponent(props) {
                     <div className="col-md-6">
                         {/* <label  className="form-label required">Email Address</label> */}
                         <input type="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} className="form-control required w-100" placeholder="Email *" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                     </div>
                     <div className="col-md-6 mb-3 mobileInputSection">
                         {/* <label className="form-label required">Mobile</label> */}
@@ -196,8 +197,6 @@ function ContactFormComponent(props) {
                         </div>
                         <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                     </div>
-                    <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
-
                 </div>
                 <div className="row">
                     <div className="col-md-6 mb-3">
@@ -252,8 +251,9 @@ function ContactFormComponent(props) {
                                     onSearch={function noRefCheck() { }}
                                     onSelect={handleChange}
                                     selectedValues={selectedValue}
-                                    options={projectList}
-                                    placeholder={"Select Projects"}
+                                    options={projectList}             
+                                    hidePlaceholder={true}                      
+                                    placeholder={"Select Projects *"}
                                 />
                                 {/* <select className="form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
                                     <option value="">Project Interest</option>

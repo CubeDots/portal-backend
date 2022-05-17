@@ -32,6 +32,8 @@ function EnquireAboutThisPropertyComponent(props) {
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
 
+    const [project_interest, setProjectInterest] = useState(props.data.title);
+    const [terms, setTerms] = useState(false);
     const [loading, setLoading] = useState(false);
     const formColumns = { project_interest: '', first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false };
     const [formData, setFormData] = useState(formColumns);
@@ -86,7 +88,7 @@ function EnquireAboutThisPropertyComponent(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ project_interest: '', first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
+        setFormData({ project_interest: project_interest, first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
         document.getElementById("form2").reset();
     }
 
@@ -108,6 +110,7 @@ function EnquireAboutThisPropertyComponent(props) {
                 console.log('res ### ', res.status, res.data)
                 if (res.status === 200) {
                     setLoading(false);
+                    setTerms(terms, true);
                     resetFrom();
                     setTimeout(() => {
                         alert(res.data.message);
@@ -142,7 +145,7 @@ function EnquireAboutThisPropertyComponent(props) {
         let m = addZero(date.getMinutes());
         // let ampm = h >= 12? 'PM':'AM';
         console.log("@@@ APPOINTMENT TIMEEEE ======", h)
-        return h + ':' + m ;
+        return h + ':' + m;
     }
 
     const setFormatedTime = (time) => {
@@ -169,9 +172,11 @@ function EnquireAboutThisPropertyComponent(props) {
                         <div className='position-relative'>
                             <label className="form-label">Last Name</label>
                             <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                            <input type="hidden" name="project_interest" value={formData.project_interest} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                             <div className='text-danger formErrorMsg'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
                         </div>
                     </div>
+
                     <div className="mb-3">
                         <div className='position-relative'>
                             <label className="form-label">Email Address</label>
@@ -213,7 +218,7 @@ function EnquireAboutThisPropertyComponent(props) {
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Date</label>
 
-                            <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required />
+                            <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required minDate={moment().toDate()} />
 
 
                             {/* <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} /> */}
@@ -230,7 +235,7 @@ function EnquireAboutThisPropertyComponent(props) {
                                     className="form-control"
                                 />
                             </div>
-                            
+
                             {/* <TimePicker className="form-control" value={toTime} onChange={setToTime} required /> */}
                         </div>
                     </div>
@@ -260,9 +265,9 @@ function EnquireAboutThisPropertyComponent(props) {
 
 
                 </form>
-
-                <SocialSharingComponent />
-
+                <div className='enquirySocialBtn'>
+                    <SocialSharingComponent />
+                </div>
             </div>
         </>
     );

@@ -7,6 +7,7 @@ import "react-multi-carousel/lib/styles.css";
 import "video-react/dist/video-react.css";
 import "animate.css/animate.min.css";
 import 'animate.css';
+import MapChanging from "./MapChanging"
 // import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 import BecomeOurPartnerModal from "../components/home/BecomeOurPartnerModal";
@@ -158,7 +159,8 @@ function HomePage(props) {
                             </div>
                         </div>
                     </div>
-                    <HomeProjectsMapComponent />
+                    {/* <HomeProjectsMapComponent /> */}
+                    <MapChanging/>
                     <div className="projectsCardSection">
                         <div className="container">
                             <div className="headingSection">
@@ -189,7 +191,7 @@ function HomePage(props) {
                 <div className="newsFeed">
                     <div className="container">
                         <div className="row mainnewscontent justify-content-center">
-                            <div className="col-lg-1 col-md-1 image">
+                            <div className="col-lg-1 col-md-1 m-auto image">
                                 <img src={publicPath + "/assets/images/bg/Cusocial.png"} className="img-fluid" alt="" />
                             </div>
                             <div className="col-lg-11 col-md-12">

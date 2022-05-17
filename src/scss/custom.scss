@@ -177,6 +177,9 @@ textarea {
     padding: 5px 15px !important;
     color: #fff !important;
 }
+.dubaiMap{
+    color: #e65400;
+}
 .projectProgress {
     width: 100%;
     margin-bottom: 10px;
@@ -269,6 +272,40 @@ textarea {
 /**/
 
 
+.becomeeee{
+    position: relative;
+}
+/*
+.becomeeee::before{
+    content: "this messge for you";
+    position: absolute;
+    width: 313px;
+    height: 125p;
+    background-color: #fff;
+    top: -44px;
+    right: -195px;
+    color: #000;
+    box-shadow: 2px 2px 10px rgb(0 0 0 / 50%);
+    border-radius: 8px;
+    padding: 5px;
+}
+.becomeeee::after{
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 15px;
+    background-color: #fff;
+    top: -19px;
+    transform: rotate(45deg);
+    left: 65px;
+}
+*/
+.navbar-collapse .dropdown-menu.show {
+    min-width: 4rem;
+}
+.App-header p{
+    cursor: pointer;
+}
 a:hover {
     color: #e65400;
 }
@@ -321,7 +358,7 @@ a:hover {
 }
 
 .backBtn:hover {
-    background-color: #fff;
+    background-color: transparent;
     color: #e65400;
     border-color: #e65400;
 }
@@ -818,121 +855,10 @@ ul.agentdashboard {
 
 /*contact*/
 
-.watsupHeading {
-    position: absolute;
-    background: #2cd248;
-    padding: 5px;
-    border-radius: 12px;
-    color: #fff;
-    top: -35px;
-    left: -21px;
-    opacity: 0;
-    transition: 0.4s all ease-in-out;
-    font-size: 12px;
-}
-
-.watsupHeading::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background-color: #2cd248;
-    bottom: -5px;
-    left: 42%;
-    transform: rotate(45deg);
-}
-
-.watsup:hover .watsupHeading {
-    opacity: 1;
-}
 
 .watsup svg {
     width: 26px;
     height: 26px;
-}
-
-.linkedInHeading {
-    position: absolute;
-    background: #006599;
-    padding: 5px;
-    border-radius: 12px;
-    color: #fff;
-    top: -35px;
-    left: -21px;
-    opacity: 0;
-    transition: 0.4s all ease-in-out;
-    font-size: 12px;
-}
-
-.linkedInHeading::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background-color: #006599;
-    bottom: -5px;
-    left: 42%;
-    transform: rotate(45deg);
-}
-
-.watsup:hover .linkedInHeading {
-    opacity: 1;
-}
-
-.facebookHeading {
-    position: absolute;
-    background: #3b5a9b;
-    padding: 5px;
-    border-radius: 12px;
-    color: #fff;
-    top: -35px;
-    left: -21px;
-    opacity: 0;
-    transition: 0.4s all ease-in-out;
-    font-size: 12px;
-}
-
-.facebookHeading::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background-color: #3b5a9b;
-    bottom: -5px;
-    left: 42%;
-    transform: rotate(45deg);
-}
-
-.watsup:hover .facebookHeading {
-    opacity: 1;
-}
-
-.instagramHeading {
-    position: absolute;
-    background: #eb4b4e;
-    padding: 5px;
-    border-radius: 12px;
-    color: #fff;
-    top: -35px;
-    left: -21px;
-    opacity: 0;
-    transition: 0.4s all ease-in-out;
-    font-size: 12px;
-}
-
-.instagramHeading::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background-color: #eb4b4e;
-    bottom: -5px;
-    left: 42%;
-    transform: rotate(45deg);
-}
-
-.watsup:hover .instagramHeading {
-    opacity: 1;
 }
 
 .contactWithUsHeading {
@@ -1960,7 +1886,9 @@ img.bgImageUpdates {
     background-color: #373743;
     -webkit-animation: showSlowlyElement 700ms;
 }
-
+.projectCardSection:nth-child(6) {
+    display: none;
+  }
 .culibraryNewContent .FolderChooser-filemanager-2 .FolderChooser-nothingfound-6 .nofiles {
     width: 4rem;
     height: 4rem;
@@ -2619,6 +2547,9 @@ span.FolderChooser-icon-14 {
     align-items: center;
 }
 
+.amenties .amentiesHeadingSecion ul.mb-3.nav.nav-tabs li.nav-item button#noanim-tab-example-tab-home {
+    cursor: default;
+}
 .amenties {
     padding: 4rem 0;
 }
@@ -4918,6 +4849,7 @@ footer {
     font-weight: 400;
 }
 
+/*
 .social_btn {
     display: flex;
     justify-content: center;
@@ -4933,37 +4865,38 @@ footer {
     transition: .4s all ease-in-out;
 }
 
-.facebook:hover {
+.facebook {
     background-color: #1877f2;
     color: #fff;
 }
 
-.twitter:hover {
+.twitter{
     background-color: #1d9bf0;
     color: #fff;
 }
 
-.instagram:hover {
+.instagram {
     background-color: #f75443;
     color: #fff;
 }
 
-.linkedin:hover {
+.linkedin {
     background-color: #0a66c2;
     color: #fff;
 }
 
-.whatsApp:hover {
+.whatsApp {
     background-color: #00a884;
     color: #fff;
 }
+*/
 
 .horizontal {
     height: 1px;
     background-color: #b0b0b0;
     opacity: 1;
-    margin: 25px 0;
-    width: 97.5%;
+    margin: 25px 10px;
+    width: 98%;
 }
 
 .footerLogo {
@@ -4998,11 +4931,26 @@ footer .email_input {
     color: #e65400;
 }
 
+.socialIconsDiv .socialIconsCompo{
+    text-align: center;
+}
+.socialIconsDiv{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
 .enroll_info {
     font-size: 12px;
     margin-top: 10px;
 }
-
+.toOfferpageErrorPage {
+    min-height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f2132;
+    color: #fff;
+}
 footer h6 {
     font-size: 14px;
 }
@@ -5058,9 +5006,9 @@ footer h6 {
     margin-bottom: 1rem;
 }
 
-.social_btn {
-    color: #e75e1c;
-}
+// .social_btn {
+//     color: #e75e1c;
+// }
 
 .dislaimerSection a {
     color: #e65400;
@@ -6193,14 +6141,18 @@ footer h6 {
 
 .cusocialBackBtn:hover {
     color: #e65400;
-    background-color: #fff;
+    background-color: transparent;
     border-color: #e65400;
 }
 
 .cusocialBackBtn:hover svg {
     color: #e65400;
 }
-
+.enquirySocialBtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 
 /*privacy policy*/
 .termAndConditionCheckbox .form-check-input:checked {
@@ -6997,11 +6949,17 @@ footer h6 {
     .bannerSlider {
         bottom: -8px;
     }
+    .toOfferpageErrorPage{
+        min-height: 63vh;
+    }
 }
 
 @media (max-width:1200px) {
     header .nav-item {
         margin: 0 10px;
+    }
+    .toOfferpageErrorPage{
+        min-height: 60vh;
     }
 }
 
@@ -7181,7 +7139,7 @@ footer h6 {
     .our-partner-content p {
         width: 100%;
     }
-
+   
     .indiaCountry {
         // height: auto;
         padding: 30px 25px;
@@ -7307,6 +7265,9 @@ footer h6 {
         flex-direction: row !important;
         border-bottom: 1px solid #dde6e6;
         margin-bottom: 25px;
+    }
+    .toOfferpageErrorPage{
+        min-height: 51vh;
     }
     .bannerServices{
         margin-right: 0;
@@ -7503,7 +7464,7 @@ footer h6 {
     }
 
     .UpdatesSection {
-        padding: 30px 0;
+        padding-bottom: 30px;
     }
 
     .cusocialDetailPara {
@@ -7893,7 +7854,9 @@ footer h6 {
         font-size: 72px;
         bottom: -20px;
     }
-
+    .testimonial-block .testimonial-block_user_info.testimonialContent .testimonial-block_content p {
+        height: 99px;
+    }
     .pageIcon {
         width: 50px;
     }

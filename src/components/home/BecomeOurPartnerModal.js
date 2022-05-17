@@ -270,9 +270,16 @@ function BecomeOurPartnerModal(props) {
                                     Already Enrolled? <Link to="" onClick={() => openLogin()} >Sign In</Link>
                                 </div>
                                 : '' } */}
-
-                                <SocialSharingComponent />
-
+                                <div>
+                                    <div className="row mb-2 mt-4">
+                                        <div className="col text-center">
+                                            <h5 className="contactWithUsHeading"><strong>Contact Us</strong></h5>
+                                        </div>
+                                    </div>
+                                    <div className='socialIconsDiv'>
+                                        <SocialSharingComponent />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

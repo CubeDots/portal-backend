@@ -13,12 +13,12 @@ import UnauthenticatedPage from "../errors/Unauthorized";
 import { API_ENDPOINT } from "../common/Constants";
 import CharactersLimitComponent from "../components/CharactersLimitComponent";
 import VideoPopUp from "../components/update/VideoPopUp";
-import SocialShareButtons from "../components/update/SocialShareButtons";
+// import SocialShareButtons from "../components/update/SocialShareButtons";
 
 
 function CuSocialOffersPage(props) {
     let publicPath = process.env.PUBLIC_URL;
-    let  category  = 'offers'; //useParams();
+    let category = 'offers'; //useParams();
     const navigate = useNavigate();
     const isAuthenticated = useIsAuthenticated();
 
@@ -58,7 +58,7 @@ function CuSocialOffersPage(props) {
     }
 
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         fetchUpdates(category);
     }, [category]);
 
@@ -72,19 +72,19 @@ function CuSocialOffersPage(props) {
     if (!isAuthenticated()) {
         return (
             <>
+                <div className="mt-70 toOfferpageErrorPage">
+                    <div className="container">
+                        <div className="row my-5 py-5">
+                            <div className="col my-5 text-center">
+                                <h4>To view Offers please <button className="btntheme" onClick={() => openLogin()}>Login here</button></h4>
+                                <div><br /></div>
 
-                <div className="container">
-                    <div className="row my-5 py-5">
-                        <div className="col my-5 text-center">
-                            <h4>To view Offers please <button className="btntheme" onClick={() => openLogin()}>Login here</button></h4>
-                            <div><br /></div>
-
-                            &nbsp;
-                            <button className="btn btn-primary" onClick={() => navigate(-1)}>Go back</button>
+                                &nbsp;
+                                <button className="btntheme" onClick={() => navigate(-1)}>Go back</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
 
             </>
         );
@@ -150,7 +150,7 @@ function CuSocialOffersPage(props) {
 
                                                                                 <Link to={`/cusocials/${category}/${row.slug}`} className="blogBtn">Read More</Link>
 
-                                                                                <SocialShareButtons data={row} />
+                                                                                {/* <SocialShareButtons data={row} /> */}
 
                                                                             </div>
                                                                         </div>
@@ -161,7 +161,7 @@ function CuSocialOffersPage(props) {
                                                         :
                                                         <><div className="text-center">No offer found.</div></>
                                                     }
-                                                   
+
                                                 </div>
                                             </>
                                         }

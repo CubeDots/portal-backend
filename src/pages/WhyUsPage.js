@@ -466,7 +466,7 @@ function WhyUsPage() {
                                             </h2>
                                             <div id="collapsefinance2" className="accordion-collapse collapse" aria-labelledby="finance2" data-bs-parent="#finance">
                                                 <div className="accordion-body">
-                                                    Investors can get a mortgage of up to %50 of the amount in their currency (USD, EUR) The purpose must be investment other than citizenship purposes, with the mortgage they won’t qualify for citizenship application. (Citizens of Iran are not eligible for mortgages.)
+                                                    Investors can get a mortgage of up to 50% of the amount in their currency (USD, EUR) The purpose must be investment other than citizenship purposes, with the mortgage they won’t qualify for citizenship application. (Citizens of Iran are not eligible for mortgages.)
                                                 </div>
                                             </div>
                                         </div>
@@ -479,11 +479,11 @@ function WhyUsPage() {
                                             <div id="collapsefinance3" className="accordion-collapse collapse" aria-labelledby="finance3" data-bs-parent="#finance">
                                                 <div className="accordion-body">
                                                     <ul>
-                                                        <li>%4 Title Deed Transfer, %2 for the buyer; %2 for the seller</li>
-                                                        <li>%1-18 VAT depends on project size & location</li>
-                                                        <li>Offices & Shops %18</li>
-                                                        <li>Large apartment %18 (+150sq net size)</li>
-                                                        <li> Small Apartment %1 (-150sq net size)</li>
+                                                        <li>4% Title Deed Transfer, 2% for the buyer; 2% for the seller</li>
+                                                        <li>1-18% VAT depends on project size & location</li>
+                                                        <li>Offices & Shops 18%</li>
+                                                        <li>Large apartment 18% (+150sq net size)</li>
+                                                        <li> Small Apartment 1% (-150sq net size)</li>
                                                     </ul>
                                                     <p>The VAT is always paid by the client except for when the client gets a VAT exemption paper from the Turkish Government. (The payment should be transferred in other currency to developers’ accounts from abroad)
                                                     </p>

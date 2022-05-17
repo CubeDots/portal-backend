@@ -248,7 +248,9 @@ function ProjectEnquireNowModal(props) {
                                     </div>
                                 </form>
 
-                                <SocialSharingComponent />
+                                <div className='socialIconsDiv'>
+                                        <SocialSharingComponent />
+                                    </div>
                             </div>
                         </div>
                     </div>
