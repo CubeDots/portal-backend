@@ -7,20 +7,23 @@ import { useNavigate } from "react-router-dom";
 import { useIsAuthenticated } from 'react-auth-kit';
 import BecomeOurPartnerModal from "./home/BecomeOurPartnerModal";
 
-// const UpdatingPopover = React.forwardRef(
-//   ({ popper, children, show: _, ...props }, ref) => {
-//     useEffect(() => {
-//       console.log('updating!');
-//       popper.scheduleUpdate();
-//     }, [children, popper]);
 
-//     return (
-//       <Popover ref={ref} body {...props}>
-//         {children}
-//       </Popover>
-//     );
-//   },
-// );
+/*
+const UpdatingPopover = React.forwardRef(
+  ({ popper, children, show: _, ...props }, ref) => {
+    useEffect(() => {
+      console.log('updating!');
+      popper.scheduleUpdate();
+    }, [children, popper]);
+
+    return (
+      <Popover ref={ref} body {...props}>
+        {children}
+      </Popover>
+    );
+  },
+);
+*/
 
 
 function PopoverButton(props) {

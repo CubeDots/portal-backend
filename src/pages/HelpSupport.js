@@ -68,6 +68,9 @@ function HelpSupport() {
         setFormData({ first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', message: '' });
         document.getElementById("form2").reset();
     }
+    useEffect(() => {
+        window.history.scrollRestoration = 'manual'
+      }, []);
     useEffect(()=>{
         window.scrollTo({ top:0,left:0,behavior:'smooth'});
         fetchCountries();

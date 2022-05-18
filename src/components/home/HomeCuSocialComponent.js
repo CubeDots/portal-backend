@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useIsAuthenticated } from 'react-auth-kit';
@@ -43,6 +43,11 @@ function HomeCuSocialComponent() {
             }
         }
     */
+
+        useEffect(() => {
+            //genRandomString();
+            window.scrollTo({top:0 , behavior:'smooth'});
+        }, []);
     return (
         <>
             <div className="cusocialSectionBox">

@@ -9,6 +9,9 @@ import ProjectList from '../components/project/ProjectList';
 function ProjectsPage() {
 
     let publicPath = process.env.PUBLIC_URL;
+    window.onload = function () {
+        window.scrollTo({ top:0,behavior:'smooth'});
+      }
 
     const [projectsLoading, setProjectsLoading] = useState(false);
 

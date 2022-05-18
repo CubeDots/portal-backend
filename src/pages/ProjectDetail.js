@@ -76,6 +76,9 @@ function ProjectDetail(props) {
             setProjectLoading(false);
         }
     }
+    useEffect(() => {
+        window.history.scrollRestoration = 'manual'
+      }, []);
 
     useEffect(() => {
         window.scrollTo({

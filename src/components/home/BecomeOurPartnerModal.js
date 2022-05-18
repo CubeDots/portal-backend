@@ -26,7 +26,7 @@ function BecomeOurPartnerModal(props) {
     const [countries, setCountries] = useState([]);
 
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', occupation: '', message: '', security_code: '', terms: false });
+    const [formData, setFormData] = useState({ project_interest: '',first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', occupation: '', message: '', security_code: '', terms: false });
     const [securityCode, setSecurityCode] = useState(null);
 
     useEffect(() => {
@@ -103,8 +103,14 @@ function BecomeOurPartnerModal(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', occupation: '', message: '', security_code: '', terms: false });
+        setFormData({ project_interest: '', first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', occupation: '', message: '', security_code: '', terms: false });
         document.getElementById("form1").reset();
+    }
+    const handleChange = (e) => {
+        //console.log("isClearable", e);
+        let selectedProject = e;
+        console.log("projectList", selectedProject);
+        setFormData(formData => ({ ...formData, project_interest: '----' }));
     }
 
     const onSubmit = (e) => {
@@ -232,6 +238,8 @@ function BecomeOurPartnerModal(props) {
 
                                     <div className="row">
                                         <div className="captchInput">
+                            <input type="hidden" name="project_interest" value={'======'} onChange={(e) => setFormData({ ...formData, project_interest: '======'})} />
+                                           
                                             <input type="text" placeholder="Security Code" name="security_code" autoComplete="off" defaultValue={formData.security_code} onChange={(e) => setFormData({ ...formData, security_code: e.target.value })} />
                                             <span className="captha_code mr-sm-2" id="notcp">{securityCode}</span>
                                             <button type="button" onClick={() => genRandomString()} className="btn btn-default">

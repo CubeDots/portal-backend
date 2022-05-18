@@ -5,8 +5,11 @@ import React, { useEffect } from "react";
 function PdfPage() {
     let publicPath = process.env.PUBLIC_URL;
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
-    }, []);
+        window.history.scrollRestoration = 'manual'
+      }, []);
+      useEffect(() => {
+        window.scrollTo({top:0})
+    }, [])
 
     return (
         <>

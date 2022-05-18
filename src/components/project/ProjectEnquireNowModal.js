@@ -229,7 +229,7 @@ function ProjectEnquireNowModal(props) {
                                     <div className="row">
                                         <div className="col">
                                             <div className="form-check termAndConditionCheckbox">
-                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onChange={() => handleChangeTerms(!formData.terms)} />
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onClick={() => handleChangeTerms(!formData.terms)} />
                                                 <label className="form-check-label" >
                                                     <div className="termsAndConditionSection">
                                                         <small>By clicking the submit button below, I hereby agree to and accept the following terms and conditions policy.</small>
