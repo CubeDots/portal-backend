@@ -102,7 +102,6 @@ function EnquireAboutThisPropertyComponent(props) {
             alert("Please accept our Terms & Condition.");
             return false;
         }
-
         setLoading(true);
 
         axios.post(API_ENDPOINT + 'orgzit/projectEnquireRequest', formData)
@@ -202,6 +201,7 @@ function EnquireAboutThisPropertyComponent(props) {
                                     {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                 </select>
                             </>
+                            
                             : null}
                     </div>
                     <div className="mb-3">

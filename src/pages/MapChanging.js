@@ -52,7 +52,7 @@ function MapChanging() {
                             Select Country
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            <Dropdown.Item ><a class="dropdown-item" href="#"> <h6 onClick={() => setActive("FirstCard")}>Tukeky</h6></a></Dropdown.Item>
+                            <Dropdown.Item ><a class="dropdown-item" href="#"> <h6 onClick={() => setActive("FirstCard")}>Turkey</h6></a></Dropdown.Item>
                             <Dropdown.Item > <a class="dropdown-item " href="#"> <h6 onClick={() => setActive("SecondCard")}>Dubai</h6></a></Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>

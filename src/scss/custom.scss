@@ -2151,10 +2151,8 @@ span.FolderChooser-icon-14 {
 
 .dataSubjectDownloadBtn {
     padding: 5px;
-    background-color: #e65400;
     border-radius: 5px;
     color: #fff;
-    border: 1px solid transparent;
 }
 
 .dataSubjectDownloadBtn {
@@ -2559,7 +2557,9 @@ span.FolderChooser-icon-14 {
 .amenties {
     padding: 4rem 0;
 }
-
+.amentiesHeadingSecion .nav-tabs .nav-link.active{
+    border-color:transparent;
+}
 .amenties .nav-tabs .nav-link.active,
 .amenties .nav-tabs .nav-item.show .nav-link {
     /*color: #e65400;*/
