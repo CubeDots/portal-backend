@@ -136,7 +136,7 @@ function ProjectList(props) {
                                                 <p><CharactersLimitComponent isShowbutton={false} content={row.medium_description} limit={350} /></p>
                                             </div>
 
-                                            {/* <p className="mb-0"><span>Status : </span> Lorem ipsum dolor sit amet, consectetur adipiscing</p> */}
+                                            <p className="mb-0" style={{'font-size':'11px'}}>{row.slogan}</p>
 
                                             <div className="shareButtonSection">
                                                 <div className="row">

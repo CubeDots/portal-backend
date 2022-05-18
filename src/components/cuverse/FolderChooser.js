@@ -52,6 +52,7 @@ class FolderChooser extends React.Component {
         })
 
     }
+    
     componentWillUnmount() { }
 
     toggleSearch = toggle => {
@@ -182,6 +183,7 @@ class FolderChooser extends React.Component {
 
 
     render() {
+        
         if (!this.state.data) {
             return "Loading...";
         }
@@ -346,7 +348,7 @@ class FolderChooser extends React.Component {
                                                 <div className="fileFolderContent">
                                                     <div className="name">{name}</div>
                                                     <div className="details">
-                                                        {itemsLength +
+                                                    {itemsLength +
                                                             (itemsLength === 1
                                                                 ? " item"
                                                                 : itemsLength > 1
@@ -377,10 +379,11 @@ class FolderChooser extends React.Component {
                                 >
                                     <a className="files">
                                         <div className="row align-items-center">
-                                            <div className="col-4 text-center  position-relative">
-                                                {[''].includes(fileType) || fileType.toLowerCase() === 'jpg'|| fileType.toLowerCase() === 'jpeg'|| fileType.toLowerCase() === 'png' ?
+                                            <div className="col-4 text-center  position-relative">                                                
+                                                {[''].includes(fileType) || fileType.toLowerCase() === 'jpg'|| fileType.toLowerCase() === 'jpeg' ?
                                                 <>
-                                                <img src={f.path} width={100} alt={f.name} className="img-fluid" />
+                                                    <p>Name = {f.path}</p>
+                                                    <img src={f.path} width={80} height={80} alt={f.name} className="img-fluid" />
                                                 </>
                                                 :
                                                 <>
@@ -422,8 +425,7 @@ class FolderChooser extends React.Component {
                         })}
                     </div>
 
-                    {
-                        !scannedFolders.length && !scannedFiles.length && (
+                    {scannedFolders.length === '' && (
                             <div className={classes.nothingfound}>
                                 <div className="nofiles" />
                                 <div className="noFilesDiv">No files here.</div>
