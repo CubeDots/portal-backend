@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TutorialModal from '../cuverseinsight/TutorialModal';
 
@@ -21,7 +21,6 @@ function Knowlegdepage() {
         setIsVideoModalShow(false);
         setActiveVideoData(null);
     }
-
 
     return (
         <>

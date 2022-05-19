@@ -24,7 +24,12 @@ function TwoDSystemPage() {
     }
   }
 
-
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+  }, []);
+  useEffect(() => {
+    window.scrollTo({top:0})
+}, [])
 
   function openFullscreen() {
     var elem = document.getElementsByTagName("iframe")[0];//document.getElementById("twoDSales");

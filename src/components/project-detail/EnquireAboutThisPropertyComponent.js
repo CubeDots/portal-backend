@@ -33,7 +33,7 @@ function EnquireAboutThisPropertyComponent(props) {
     const [countries, setCountries] = useState([]);
 
     const [project_interest, setProjectInterest] = useState(props.data.title);
-    const [terms, setTerms] = useState(false);
+    // const [terms, setTerms] = useState(false);
     const [loading, setLoading] = useState(false);
     const formColumns = { project_interest: '', first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false };
     const [formData, setFormData] = useState(formColumns);
@@ -88,7 +88,7 @@ function EnquireAboutThisPropertyComponent(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ project_interest: project_interest, first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
+        setFormData({ project_interest: '', first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
         document.getElementById("form2").reset();
     }
 
@@ -102,7 +102,6 @@ function EnquireAboutThisPropertyComponent(props) {
             alert("Please accept our Terms & Condition.");
             return false;
         }
-
         setLoading(true);
 
         axios.post(API_ENDPOINT + 'orgzit/projectEnquireRequest', formData)
@@ -110,7 +109,7 @@ function EnquireAboutThisPropertyComponent(props) {
                 console.log('res ### ', res.status, res.data)
                 if (res.status === 200) {
                     setLoading(false);
-                    setTerms(terms, true);
+                    // setTerms(terms, true);
                     resetFrom();
                     setTimeout(() => {
                         alert(res.data.message);
@@ -172,7 +171,7 @@ function EnquireAboutThisPropertyComponent(props) {
                         <div className='position-relative'>
                             <label className="form-label">Last Name</label>
                             <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                            <input type="hidden" name="project_interest" value={formData.project_interest} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                            <input type="hidden" name="project_interest" value={""}  />
                             <div className='text-danger formErrorMsg'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
                         </div>
                     </div>
@@ -202,6 +201,7 @@ function EnquireAboutThisPropertyComponent(props) {
                                     {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                 </select>
                             </>
+                            
                             : null}
                     </div>
                     <div className="mb-3">
@@ -247,7 +247,7 @@ function EnquireAboutThisPropertyComponent(props) {
                     </div>
 
                     <div className="form-check termAndConditionCheckbox">
-                        <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onChange={() => handleChangeTerms(!formData.terms)} />
+                        <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onClick={() => handleChangeTerms(!formData.terms)} />
                         <label className="form-check-label" >
                             <div className="termsAndConditionSection">
                                 <small>By clicking the submit button below, I hereby agree to and accept the following terms and conditions policy.</small>

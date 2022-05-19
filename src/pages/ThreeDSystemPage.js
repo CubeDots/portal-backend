@@ -55,7 +55,9 @@ function ThreeDSystemPage() {
     window.location.href='https://www.cubedots.com/projects/';
   } 
 });
-
+window.onload = function () {
+  window.scrollTo({ top:0,behavior:'smooth'});
+}
   useEffect(() => {
     pauseTimer()
   }, []);

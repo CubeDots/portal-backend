@@ -3,8 +3,11 @@ import { useEffect } from "react";
 function OfferPage() {
 
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
-    }, []);
+        window.history.scrollRestoration = 'manual'
+      }, []);
+      useEffect(() => {
+        window.scrollTo({top:0})
+    }, [])
 
     return (
         <>

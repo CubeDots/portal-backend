@@ -6,8 +6,13 @@ import Modal from 'react-bootstrap/Modal';
 import SimpleReactValidator from 'simple-react-validator';
 import { useAuthUser, useIsAuthenticated, } from 'react-auth-kit';
 import SocialSharingComponent from "../contact/SocialSharingComponent"
-
+import DatePicker from 'react-date-picker';
+import TimePicker from 'rc-time-picker';
+import 'rc-time-picker/assets/index.css';
 import { API_ENDPOINT } from "../../common/Constants";
+import moment from 'moment';
+
+
 
 function ProjectEnquireNowModal(props) {
     const simpleValidator = useRef(new SimpleReactValidator());
@@ -15,7 +20,8 @@ function ProjectEnquireNowModal(props) {
     const isAuthenticated = useIsAuthenticated();
     const auth = useAuthUser();
     const user = isAuthenticated() ? auth().user : null;
-
+    const [toDayDate, setToDayDate] = useState(new Date());
+    const [toTime, setToTime] = useState('00:00');
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
     const formColumns = { project_interest: '', first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', security_code: '', appointment_date: '', appointment_time: '', message: '', terms: false };
@@ -87,11 +93,13 @@ function ProjectEnquireNowModal(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', security_code: '', appointment_date: '', appointment_time: '', message: '', terms: false });
+        setFormData({ project_interest: '', first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', security_code: '', appointment_date: '', appointment_time: '', message: '', terms: false });
         document.getElementById("form1").reset();
     }
 
     const onSubmit = (e) => {
+        e.preventDefault(); formData.appointment_date = toDayDate
+        e.preventDefault(); formData.appointment_time = toTime
         e.preventDefault();
         console.log("formData ", formData);
         if (formData.security_code !== securityCode) {
@@ -130,7 +138,27 @@ function ProjectEnquireNowModal(props) {
                 }
             })
     }
+    const addZero = (i) => {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
 
+    const convertTime = (str) => {
+        let date = new Date(str);
+        let h = addZero(date.getHours());
+        let m = addZero(date.getMinutes());
+        // let ampm = h >= 12? 'PM':'AM';
+        console.log("@@@ APPOINTMENT TIMEEEE ======", h)
+        return h + ':' + m;
+    }
+
+    const setFormatedTime = (time) => {
+        // let time= '2022-05-06T09:47:26.735Z'
+        let value = convertTime(time)
+        setToTime(value)
+    }
 
     return (
         <>
@@ -197,15 +225,21 @@ function ProjectEnquireNowModal(props) {
                                     <div className="row">
                                         <div className="col mb-3">
                                             <label className="form-label">Appointment Date</label>
-                                            <input type="date" className="form-control" placeholder="Appointment Date *" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required />
+                                            {/* <input type="date" className="form-control" placeholder="Appointment Date *" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required /> */}
+                                            <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required minDate={moment().toDate()} />
 
                                         </div>
                                         <div className="col mb-3">
                                             <label className="form-label">Appointment Time</label>
-
-                                            <input type="time" className="form-control" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required />
-
-
+                                            <div>
+                                                <TimePicker
+                                                    onChange={setFormatedTime}
+                                                    placeholder="00:00"
+                                                    showSecond={false}
+                                                    className="form-control"
+                                                />
+                                            </div>
+                                            {/* <input type="time" className="form-control" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required /> */}
                                         </div>
                                     </div>
                                     <div className="row">
@@ -229,7 +263,9 @@ function ProjectEnquireNowModal(props) {
                                     <div className="row">
                                         <div className="col">
                                             <div className="form-check termAndConditionCheckbox">
-                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onChange={() => handleChangeTerms(!formData.terms)} />
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onClick={() => handleChangeTerms(!formData.terms)} />
+                                                <input type="hidden" name="project_interest" value={""} />
+
                                                 <label className="form-check-label" >
                                                     <div className="termsAndConditionSection">
                                                         <small>By clicking the submit button below, I hereby agree to and accept the following terms and conditions policy.</small>
@@ -249,8 +285,8 @@ function ProjectEnquireNowModal(props) {
                                 </form>
 
                                 <div className='socialIconsDiv'>
-                                        <SocialSharingComponent />
-                                    </div>
+                                    <SocialSharingComponent />
+                                </div>
                             </div>
                         </div>
                     </div>

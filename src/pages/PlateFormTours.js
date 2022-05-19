@@ -3,9 +3,12 @@ import React, { useEffect } from 'react';
 function PlateFormTours(props) {
     let publicPath = process.env.PUBLIC_URL;
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
-    }, []);
-
+        window.history.scrollRestoration = 'manual'
+      }, []);
+      useEffect(() => {
+        window.scrollTo({top:0})
+    }, [])
+    
     return (
         <div className='PlateFormTours mt-70'>
             <div className='platefromtourBanner'>

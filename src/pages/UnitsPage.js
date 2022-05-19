@@ -44,7 +44,9 @@ function UnitsPage() {
 
     const [priceMin, setPriceMin] = useState(0);
     const [priceMax, setPriceMax] = useState(0);
-
+    useEffect(() => {
+        window.history.scrollRestoration = 'manual'
+      }, []);
     useEffect(() => {
         window.scrollTo({ top:0,left:0,behavior:'smooth'});
         //console.log('unit page loaded')

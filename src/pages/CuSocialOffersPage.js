@@ -56,12 +56,13 @@ function CuSocialOffersPage(props) {
             setCuSocialsLoading(false);
         }
     }
-
+    window.onload = function () {
+        window.scrollTo({ top:0,behavior:'smooth'});
+      }
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         fetchUpdates(category);
     }, [category]);
-
 
 
     const openLogin = () => {

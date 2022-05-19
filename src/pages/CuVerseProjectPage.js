@@ -30,13 +30,15 @@ function CuVerseProjectPage() {
             setProjectsLoading(false);
         }
     }
-
+   useEffect(() => {
+        window.history.scrollRestoration = 'manual'
+      }, []);
     useEffect(() => {
         window.scrollTo({ top:0,left:0,behavior:'smooth'});
         fetchProjects();
     }, []);
 
-
+  
     useEffect(() => {
         if (location.hash) {
             let elem = document.getElementById(location.hash.slice(1))
@@ -53,7 +55,7 @@ function CuVerseProjectPage() {
     return (
         <>
             <Helmet>
-                <title>CuVerse – Virtual Tours And More</title>
+                <title>CuVerse</title>
                 <meta name="description" content="Get to see more about our 3D virtual tour system and learn how to virtually visit the real estate projects in our inventory." />
                 <meta name="Keywords" content="Cubedots, Cubedots 3d, virtual tour, real estate, investment, Turkey, Turkey house, Istanbul House, turkish citizenship" />
             </Helmet>

@@ -26,7 +26,7 @@ function BecomeOurPartnerModal(props) {
     const [countries, setCountries] = useState([]);
 
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', occupation: '', message: '', security_code: '', terms: false });
+    const [formData, setFormData] = useState({ project_interest: '-',first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', occupation: '', message: '', security_code: '', terms: false });
     const [securityCode, setSecurityCode] = useState(null);
 
     useEffect(() => {
@@ -103,7 +103,7 @@ function BecomeOurPartnerModal(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', occupation: '', message: '', security_code: '', terms: false });
+        setFormData({ project_interest: '-', first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', occupation: '', message: '', security_code: '', terms: false });
         document.getElementById("form1").reset();
     }
 
@@ -232,6 +232,8 @@ function BecomeOurPartnerModal(props) {
 
                                     <div className="row">
                                         <div className="captchInput">
+                                        <input type="hidden" name="project_interest" value={"-"}  />
+                                           
                                             <input type="text" placeholder="Security Code" name="security_code" autoComplete="off" defaultValue={formData.security_code} onChange={(e) => setFormData({ ...formData, security_code: e.target.value })} />
                                             <span className="captha_code mr-sm-2" id="notcp">{securityCode}</span>
                                             <button type="button" onClick={() => genRandomString()} className="btn btn-default">
@@ -245,7 +247,7 @@ function BecomeOurPartnerModal(props) {
                                     <div className="row">
                                         <div className="col">
                                             <div className="form-check termAndConditionCheckbox">
-                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onChange={() => handleChangeTerms(!formData.terms)} />
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onClick={() => handleChangeTerms(!formData.terms)} />
                                                 <label className="form-check-label">
                                                     <div className="termsAndConditionSection">
                                                         <small>By clicking the submit button below, I hereby agree to and accept the following terms and conditions policy.</small>

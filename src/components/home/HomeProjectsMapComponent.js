@@ -103,11 +103,12 @@ export default function ProjectsMapComponent(props) {
         p.addEventListener('touchstart', handlePlaceClick)
         else
         p.addEventListener('mouseover', handlePlaceClick)
-      });
+      });      
 
     });
     // },2000)
   }
+
   const handlePlaceClick = (ev) => {
     let t = ev.target;
     let currentId = t.getAttribute('id');

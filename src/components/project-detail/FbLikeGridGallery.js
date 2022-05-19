@@ -47,6 +47,8 @@ const FbLikeGridGallery = (props) => {
     const [title, setTitle] = useState('');
     const [images, setImages] = useState([]);
     const [imagesToShow, setImagesToShow] = useState(5);
+    const [firstIndex, setFirstIndex] = useState(0);
+
     useEffect(() => {
         if (props.images.length > 0) {
             let newImages = props.images.length && props.images.map((r) => {
@@ -58,6 +60,11 @@ const FbLikeGridGallery = (props) => {
         setImagesToShow(props.countFrom);
         setTitle(props.title);
     }, [props]);
+
+    const setYourIndex = (i) => {
+        setFirstIndex(i)
+        handleShow()
+    }
 
     return (
         <>
@@ -71,7 +78,7 @@ const FbLikeGridGallery = (props) => {
                                     {index < imagesToShow && (
                                         <>
                                             <div key={index} className="col-3 mb-2">
-                                                <button className="galleryThumb" onClick={() => handleShow()}>
+                                                <button className="galleryThumb" onClick={() => setYourIndex(index)}>
                                                     <img className="img-fluid" src={row.original} alt="" />
                                                 </button>
                                             </div>
@@ -107,7 +114,7 @@ const FbLikeGridGallery = (props) => {
                             <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                             <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
                         </svg> {title ? title : 'Gallery'}</>}> */}
-                    <ImageGallery thumbnailPosition={'left'} showFullscreenButton={false} showPlayButton={false} items={images} />
+                    <ImageGallery thumbnailPosition={'bottom'} showFullscreenButton={false} startIndex={firstIndex} showPlayButton={false} items={images} />
                     {/* </Tab> */}
                     {/* <Tab eventKey="view" title={<><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512">
                             <g>

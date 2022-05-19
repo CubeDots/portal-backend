@@ -30,6 +30,30 @@
 		<i:aipgfRef  xlink:href="#adobe_illustrator_pgf">
 		</i:aipgfRef>
 	</foreignObject>
+	<style>
+      .cls-1 {
+        clip-path: url(#torino-by-oro24_v2);
+      }
+      .cls-2 {
+        fill: url(#pattern);
+      }
+      .cls-3 {
+        fill: url(#pattern-2);
+      }
+      .cls-4 {
+        fill: #fff;
+      }
+    </style>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 1000 432">
+	<clipPath id="clip-DUBAI_Map_v2">
+      <rect width="1280" height="548.57"/>
+    </clipPath>
+  </defs>
+ 
+ 
+  <g id="torino-by-oro24_v2" data-name="torino by oro24 v2" class="cls-1">
+    <rect class="cls-4" width="1280" height="548.57" />
+    <rect id="Map" class="cls-2 " width="1280" height="550" transform="translate(0 -1)"/>    
 	<g i:extraneous="self">
 		<g id="parent_00000063607411065115240710000010770050886594947750_">
 			
@@ -20811,5 +20835,6 @@ xQQAYggcHHCJc8Bb118iEsZ0C2sGPuiY7O4mMuAp/uu1PxTJEAwCSimVjMN+Fs4BOh6dCHqEx2E/
 jzpymqaPKxqCyYhPIDoWDpugFoUts9i2W5f6lHMNrOSy+tnakb8hr+1jCdPWdfMpwrlYlUzumGTd
 dcwYIAkARlUB6GHa7kCA87HA9MCHajOhAkxbhSQwbQJAfKg2FGwCD64=
 	]]>
+	<rect id="torino-by-oro24"  data-name="Torino by ORO24" class="cls-2 location" width="140" height="60" transform="translate(457 215)"/>
 </i:aipgf>
 </svg>

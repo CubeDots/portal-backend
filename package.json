@@ -69,6 +69,7 @@
     "react-scroll": "^1.8.4",
     "react-scroll-paged-view": "^2.2.6",
     "react-scrollpage": "^1.0.2",
+    "react-share": "^4.4.0",
     "react-simple-captcha": "^3.2.4",
     "react-simple-chatbot": "^0.6.1",
     "react-table": "^7.7.0",

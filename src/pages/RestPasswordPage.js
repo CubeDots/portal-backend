@@ -9,7 +9,12 @@ function RestPasswordPage() {
 
     const navigate = useNavigate();
     const { token, email } = useParams();
-
+    useEffect(() => {
+        window.history.scrollRestoration = 'manual'
+      }, []);
+     useEffect(() => {
+        window.scrollTo({top:0})
+    }, [])
     const [loading, setLoading] = React.useState(false);
     const [formData, setFormData] = React.useState({ email: '', password: '', password_confirmation: '' });
     const [formErrors, setFormErrors] = React.useState('');

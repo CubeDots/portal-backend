@@ -14,6 +14,10 @@ function AboutUsPage(props) {
     let publicPath = process.env.PUBLIC_URL;
 
     useEffect(() => {
+        window.history.scrollRestoration = 'manual'
+      }, []);
+      
+    useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, []);
 

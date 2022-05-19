@@ -46,11 +46,18 @@ function HomePage(props) {
     //     return text;
     // }
 
+    /*  useEffect(() => {
+          //genRandomString();
+          window.scrollTo({ top:0,left:0,behavior:'smooth'});
+      }, []);
+  */
+      useEffect(() => {
+        window.history.scrollRestoration = 'manual'
+      }, []);
+      
     useEffect(() => {
-        //genRandomString();
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
-    }, []);
-
+        window.scrollTo({top:0})
+    }, [])
     const showBecomeOurPartnerModal = () => {
         console.log("showBecomeOurPartnerModal clicked");
         setIsBecomeOurPartnerModalShow(true);
@@ -160,7 +167,7 @@ function HomePage(props) {
                         </div>
                     </div>
                     {/* <HomeProjectsMapComponent /> */}
-                    <MapChanging/>
+                    <MapChanging />
                     <div className="projectsCardSection">
                         <div className="container">
                             <div className="headingSection">
