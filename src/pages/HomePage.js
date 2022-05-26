@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import EventComponent from "../components/home/EventComponent"
@@ -8,6 +8,8 @@ import "video-react/dist/video-react.css";
 import "animate.css/animate.min.css";
 import 'animate.css';
 import MapChanging from "./MapChanging"
+import { useIsAuthenticated, useAuthUser, useSignOut } from 'react-auth-kit';
+import { Overlay, Tooltip } from 'react-bootstrap'
 // import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 import BecomeOurPartnerModal from "../components/home/BecomeOurPartnerModal";
@@ -26,37 +28,42 @@ const projects = '/assets/images/bg/Projects.png';
 const aboutBg = '/assets/images/bg/Aboutus.png';
 const testimonialBg = '/assets/images/bg/Lorem.png';
 
-
 function HomePage(props) {
     let publicPath = process.env.PUBLIC_URL;
 
     // const [securityCode, setSecurityCode] = useState(null);
     const [isBecomeOurPartnerModalShow, setIsBecomeOurPartnerModalShow] = useState(false);
+    const auth = useAuthUser();
+    const isAuthenticated = useIsAuthenticated();
+    const [show, setShow] = useState(false);
+    const target = useRef(null);
 
-    // const genRandomString = () => {
-    //     console.log("genRandomString");
-    //     var text = "";
-    //     var length = 6;
-    //     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    //     for (var i = 0; i < length; i++) {
-    //         text += possible.charAt(Math.floor(Math.random() * possible.length));
-    //     }
+    /*
+    const genRandomString = () => {
+        console.log("genRandomString");
+        var text = "";
+        var length = 6;
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < length; i++) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
 
-    //     setSecurityCode(text);
-    //     return text;
-    // }
+        setSecurityCode(text);
+        return text;
+    }
+    */
 
     /*  useEffect(() => {
           //genRandomString();
           window.scrollTo({ top:0,left:0,behavior:'smooth'});
       }, []);
   */
-      useEffect(() => {
-        window.history.scrollRestoration = 'manual'
-      }, []);
-      
     useEffect(() => {
-        window.scrollTo({top:0})
+        window.history.scrollRestoration = 'manual'
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0 })
     }, [])
     const showBecomeOurPartnerModal = () => {
         console.log("showBecomeOurPartnerModal clicked");
@@ -87,8 +94,27 @@ function HomePage(props) {
                                     <h2>The Future of International Real Estate Brokerage by Empowering Agents and Developers to Sell Anywhere at Anytime</h2>
                                     {/* </AnimationOnScroll> */}
                                     <p>Join our global network to access the top projects worldwide and have the most innovative approach to sales.</p>
-                                    <a href="#" onClick={showBecomeOurPartnerModal} className="btn btntheme">Become Our Partner</a>
-                                    {isBecomeOurPartnerModalShow}
+                                    < a href="#" onClick={showBecomeOurPartnerModal} className="btntheme">Become Our Partner</a>
+                                    {/* {isAuthenticated() ?
+                                        <>
+                                            {auth().user.name}
+                                            < a href="#" onClick={showBecomeOurPartnerModal} className="btntheme">Become Our Partner</a>
+                                            {isBecomeOurPartnerModalShow}
+                                        </>
+                                        :
+                                        <>
+                                            <button ref={target} className="btntheme mb-3" onClick={() => setShow(!show)}>
+                                                Become Our Partner
+                                            </button>
+                                            <Overlay target={target.current} show={show} onHide="1000" placement="top">
+                                                {(props) => (
+                                                    <Tooltip id="overlay-example" {...props}>
+                                                        Please Login
+                                                    </Tooltip>
+                                                )}
+                                            </Overlay>
+                                        </>
+                                    } */}
 
                                     <div className="bannerServices">
                                         <div className="row">
@@ -441,7 +467,7 @@ function HomePage(props) {
                 </div>
             </div> */}
             </div>
-        </React.Fragment>
+        </React.Fragment >
     );
 }
 

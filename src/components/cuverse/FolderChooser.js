@@ -39,7 +39,7 @@ class FolderChooser extends React.Component {
     componentDidMount() {
         const { projectID } = this.props;
         console.log("projectID #", projectID, ' @ ', this.state.projectID);
-        axios.get(API_ENDPOINT + 'cuverse/mediaFiles/' + projectID).then((response) => {
+        axios.get(API_ENDPOINT + 'cuverse/mediaFiles/' + projectID,{ crossdomain: true }).then((response) => {
             console.log("response.data.data", response.data.data);
             this.setState({
                 data: response.data.data
@@ -256,7 +256,9 @@ class FolderChooser extends React.Component {
                         this.state.isSearching && "searching"
                     )}
                 >
-                    {/* <div
+                    {/* 
+
+                    <div
                         className={classes.search}
                         onClick={() => {
                             this.toggleSearch(true);
@@ -280,7 +282,9 @@ class FolderChooser extends React.Component {
                                 }}
                             />
                         )}
-                    </div> */}
+                    </div> 
+                    
+                    */}
 
                     <div className={classes.breadcrumbs}>
                         {this.state.isSearching ? (

@@ -3,7 +3,44 @@ import React, { useEffect, useRef, useState } from 'react';
 import axios from "axios";
 
 import { API_ENDPOINT } from "../../common/Constants";
-
+import {
+    FacebookShareButton,
+    GooglePlusShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+    TelegramShareButton,
+    WhatsappShareButton,
+    PinterestShareButton,
+    VKShareButton,
+    OKShareButton,
+    RedditShareButton,
+    TumblrShareButton,
+    LivejournalShareButton,
+    MailruShareButton,
+    ViberShareButton,
+    WorkplaceShareButton,
+    LineShareButton,
+    EmailShareButton,
+  } from 'react-share';
+  import {
+    FacebookIcon,
+    TwitterIcon,
+    TelegramIcon,
+    WhatsappIcon,
+    GooglePlusIcon,
+    LinkedinIcon,
+    PinterestIcon,
+    VKIcon,
+    OKIcon,
+    RedditIcon,
+    TumblrIcon,
+    LivejournalIcon,
+    MailruIcon,
+    ViberIcon,
+    WorkplaceIcon,
+    LineIcon,
+    EmailIcon,
+  } from 'react-share';
 
 function OfferPage() {
     let publicPath = process.env.PUBLIC_URL;

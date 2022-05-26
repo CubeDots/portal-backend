@@ -5,7 +5,10 @@ import Spinner from 'react-bootstrap/Spinner';
 import { API_ENDPOINT } from "../../common/Constants";
 import Modal from 'react-bootstrap/Modal';
 import SimpleReactValidator from 'simple-react-validator';
-
+import DatePicker from 'react-date-picker';
+import moment from 'moment';
+import TimePicker from 'rc-time-picker';
+import 'rc-time-picker/assets/index.css';
 
 function CreateAppointment(props) {
     const authHeader = useAuthHeader();
@@ -19,8 +22,10 @@ function CreateAppointment(props) {
     const [locations, setLocations] = useState([]);
 
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({ first_name: null, last_name: null, email: null, country: null, mobile: null, appointment_date: null, appointment_time: null,location: null });
+    const [formData, setFormData] = useState({ first_name: null, last_name: null, email: null, country: null, mobile: null, appointment_date: null, appointment_time: null, location: null });
     const [securityCode, setSecurityCode] = useState(null);
+    const [toDayDate, setToDayDate] = useState(new Date());
+    const [toTime, setToTime] = useState('10:00:00');
 
     useEffect(() => {
 
@@ -56,7 +61,7 @@ function CreateAppointment(props) {
             return locationsList[x].location_name === selectedCountryName;
         }).map((x) => {
             return locationsList[x].dial_code;
-        });*/        
+        });*/
     }
 
     async function fetchCountries() {
@@ -84,14 +89,14 @@ function CreateAppointment(props) {
         }).map((x) => {
             return countriesList[x].dial_code;
         });
-        let dial_code = newDialCode.length ? newDialCode[0] : '';        
-        setFormData(formData => ({ ...formData, dial_code: dial_code }));        
+        let dial_code = newDialCode.length ? newDialCode[0] : '';
+        setFormData(formData => ({ ...formData, dial_code: dial_code }));
     }
 
     const handleChangeTerms = (status) => {
         //console.log("terms ",status);
         setFormData(formData => ({ ...formData, terms: status }));
-    }  
+    }
 
     const genRandomString = () => {
         var text = "";
@@ -105,18 +110,20 @@ function CreateAppointment(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ first_name: null, last_name: null, email: null, country: null, mobile: null, appointment_date: null, appointment_time: null,location: null });
+        setFormData({ first_name: null, last_name: null, email: null, country: null, mobile: null, appointment_date: null, appointment_time: null, location: null });
 
         document.getElementById("form1").reset();
     }
 
     const onSubmit = (e) => {
+        e.preventDefault(); formData.appointment_date = toDayDate
+        e.preventDefault(); formData.appointment_time = toTime
         e.preventDefault();
         //console.log("formData ", formData);        
         if (formData.country === null) {
             alert("Please select country name.");
             return false;
-        }        
+        }
         if (formData.mobile === null) {
             alert("Please enter mobile number.");
             return false;
@@ -133,13 +140,13 @@ function CreateAppointment(props) {
             alert("Please select Location name.");
             return false;
         }
-        
+
         setLoading(true);
 
         axios.post(API_ENDPOINT + 'orgzit/create_appointment', formData, { headers: { Authorization: authHeader() } })
             .then((res) => {
                 //console.log('res ### ', res.status, res.data)                
-                
+
                 if (res.status === 200) {
                     setLoading(false);
                     genRandomString();
@@ -155,10 +162,10 @@ function CreateAppointment(props) {
                 if (error) {
                     //alert(error.response.status);
                     if (error.response.status === 422) {
-                        let errors = error.response.data.errors.errors;                        
+                        let errors = error.response.data.errors.errors;
                         let msg = error.response.data.message + "\n";
-                        Object.keys(errors).map((row, index) => {                            
-                            msg += "\n" +errors[row].error + "\n"
+                        Object.keys(errors).map((row, index) => {
+                            msg += "\n" + errors[row].error + "\n"
                         });
                         alert(msg);
                     }
@@ -166,7 +173,27 @@ function CreateAppointment(props) {
 
             })
     }
+    const addZero = (i) => {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
 
+    const convertTime = (str) => {
+        let date = new Date(str);
+        let h = addZero(date.getHours());
+        let m = addZero(date.getMinutes());
+        // let ampm = h >= 12? 'PM':'AM';
+        console.log("@@@ APPOINTMENT TIMEEEE ======", h)
+        return h + ':' + m;
+    }
+
+    const setFormatedTime = (time) => {
+        // let time= '2022-05-06T09:47:26.735Z'
+        let value = convertTime(time)
+        setToTime(value)
+    }
     return (
         <>
             <Modal {...props} className="enrollmentModal" backdrop="static" keyboard={false} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -175,10 +202,10 @@ function CreateAppointment(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="p-3 enrollmentModal">
-                    <div className="row align-items-center">                        
+                    <div className="row align-items-center">
                         <div className="col-md-12">
                             <div className="enrollmentContent">
-                                
+
                                 <h4>Create Appointment</h4>
 
                                 <form id="form1" onSubmit={onSubmit}>
@@ -187,7 +214,7 @@ function CreateAppointment(props) {
                                         <div className="col mb-3">
                                             <input value={auth().user.name} readOnly={auth().user.name ? true : false} className="form-control" type="text" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} placeholder="Full Name *" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
                                             <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
-                                        </div>                                        
+                                        </div>
                                     </div>
 
                                     <div className="row">
@@ -222,18 +249,26 @@ function CreateAppointment(props) {
                                         </div>
                                     </div>
 
-                                    
+
                                     <div className="row">
                                         <div className="col mb-3">
                                             <label className='mb-1'>Appointment Date</label>
-                                            <input className="form-control" type="date" placeholder="Appointment Date *" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required/>
+                                            <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required minDate={moment().toDate()} />
+
+                                            {/* <input className="form-control" type="date" placeholder="Appointment Date *" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required/> */}
                                         </div>
                                     </div>
 
                                     <div className="row">
                                         <div className="col mb-3">
                                             <label className='mb-1'>Appointment Time</label>
-                                            <input className="form-control" type="time" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required/>
+                                            <TimePicker
+                                    onChange={setFormatedTime}
+                                    placeholder="00:00"
+                                    showSecond={false}
+                                    className="form-control"
+                                />
+                                            {/* <input className="form-control" type="time" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required /> */}
                                         </div>
                                     </div>
 
@@ -252,7 +287,7 @@ function CreateAppointment(props) {
                                     </div>
 
                                     <div className="row">
-                                        <div className="col">                                            
+                                        <div className="col">
                                             {loading ?
                                                 <button className="btntheme" type="button" disabled >
                                                     <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />  Submitting...

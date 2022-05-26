@@ -4,12 +4,21 @@ import SecondMap from '../components/mapchanging/SecondMap';
 import Dropdown from 'react-bootstrap/Dropdown'
 import axios from 'axios';
 import userEvent from '@testing-library/user-event';
-import { Tabs, Tab } from 'react-bootstrap'
+import { Tabs, Tab, SplitButton } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 
 function MapChanging() {
     const [active, setActive] = useState("FirstCard");
-
+    // const [key, setKey] = useState('home');
+    const [currentVal, setCurrentVal] = useState("");
+    const onClick = (value) => {
+        if (value === 1) {
+            setCurrentVal("Turkey");
+        } else if (value === 2) {
+            setCurrentVal("Dubai");
+        }
+    };
+    
     const [state, setState] = useState({
         ip: "",
         countryName: "",
@@ -47,14 +56,20 @@ function MapChanging() {
         <>
             <div>
                 <div>
+
                     <Dropdown>
-                        <Dropdown.Toggle className='btntheme' variant="success" id="dropdown-basic">
-                            Select Country
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        {currentVal === "" ? "Select Country" : currentVal}
                         </Dropdown.Toggle>
+                        {/* <SplitButton
+                            menuAlign={{ lg: "left" }}
+                            title={currentVal === "" ? "Dropdown" : currentVal}
+                        > */}
                         <Dropdown.Menu>
-                            <Dropdown.Item ><a class="dropdown-item" href="#"> <h6 onClick={() => setActive("FirstCard")}>Turkey</h6></a></Dropdown.Item>
-                            <Dropdown.Item > <a class="dropdown-item " href="#"> <h6 onClick={() => setActive("SecondCard")}>Dubai</h6></a></Dropdown.Item>
+                            <Dropdown.Item onClick={() => onClick(1)} eventKey={1}> <a class="dropdown-item" href="#"> <h6 onClick={() => setActive("FirstCard")}>Turkey</h6></a></Dropdown.Item>
+                            <Dropdown.Item onClick={() => onClick(2)} eventKey={2}> <a class="dropdown-item " href="#"> <h6 onClick={() => setActive("SecondCard")}>Dubai</h6></a></Dropdown.Item>
                         </Dropdown.Menu>
+                        {/* </SplitButton> */}
                     </Dropdown>
                     {/* 
                     <Tabs
