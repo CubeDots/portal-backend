@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, Navigate } from "react-router-dom";
-import { useAuthHeader, useIsAuthenticated } from 'react-auth-kit';
+import { useAuthHeader, useAuthUser,useIsAuthenticated } from 'react-auth-kit';
 import Platform from 'react-platform-js';
 import axios from "axios";
 import UnauthenticatedPage from "../errors/Unauthorized";
@@ -37,7 +37,7 @@ function ThreeDSystemPage() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const auth = useAuthUser();
   const [timer, setTimer] = useState(45);
   const timestamp = new Date()
   timestamp.setSeconds(timestamp.getSeconds()+45)
@@ -265,6 +265,7 @@ window.onload = function () {
         <>
           {projectStream ?
             <div id="parentDiv" className="parentDiv">
+              {/*auth().user.email*/}
               {projectStream.project.is_3d_enabled ?
                 <>
                   <div className="col-auto twoDbackBtn" id="childDiv">
@@ -280,7 +281,7 @@ window.onload = function () {
                       </svg>
                     </button>
                   </div>
-                  <iframe title="3Dstream" src={`${projectStream.stream.note}?launchFlags=${simpleToken}%20-platform%20${devicePlatform}`} width="100%" height="100%" style={{ border: 0, margin: 0, height: '100vh' }} allowFullScreen={true} ></iframe>
+                  <iframe title="3Dstream" src={`${projectStream.stream.note}?visitor_email=${auth().user.email}&launchFlags=${simpleToken}%20-platform%20${devicePlatform}`} width="100%" height="100%" style={{ border: 0, margin: 0, height: '100vh' }} allowFullScreen={true} ></iframe>
                 </>
                 :
                 <><div className="text-center">3d system is not available.</div></>
