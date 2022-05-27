@@ -59,7 +59,7 @@ function MapChanging() {
 
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        {currentVal === "" ? "Select Country" : currentVal}
+                        {currentVal === "" ? "Turkey" : currentVal}
                         </Dropdown.Toggle>
                         {/* <SplitButton
                             menuAlign={{ lg: "left" }}

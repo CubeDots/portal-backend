@@ -49,8 +49,8 @@ function DashboardPage() {
     
     return (
         <>
-            <p className="dashboardLinks"><a href="#" onClick={showBecomeOurPartnerModal}>Create Appointment</a>
-            <NavLink to="/cuverse">CuVerse</NavLink></p>
+            <p className="dashboardLinks"><a href="#" className=" btntheme dashBtn" onClick={showBecomeOurPartnerModal}>Create Appointment</a>
+            <NavLink className=" btntheme dashBtn" to="/cuverse">CuVerse</NavLink></p>
             {isCreateAppointmentModalShow}
 
             <BecomeOurPartnerModal show={isCreateAppointmentModalShow} onHide={closeBecomeOurPartnerModalModal} />
