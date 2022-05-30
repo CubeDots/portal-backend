@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import {
     FacebookShareButton,
@@ -17,8 +18,8 @@ import {
     WorkplaceShareButton,
     LineShareButton,
     EmailShareButton,
-  } from 'react-share';
-  import {
+} from 'react-share';
+import {
     FacebookIcon,
     TwitterIcon,
     TelegramIcon,
@@ -36,8 +37,8 @@ import {
     WorkplaceIcon,
     LineIcon,
     EmailIcon,
-  } from 'react-share';
-  
+} from 'react-share';
+
 
 function SocialShareButtons(props) {
     let publicPath = process.env.PUBLIC_URL;
@@ -47,13 +48,20 @@ function SocialShareButtons(props) {
 
     return (
         <>
+            <Helmet>
+                <meta property="og:image" content="https://staging.cubedots.com/" />
+                <meta property="og:image:type" content="image/png" />
+                <meta property="og:image:width" content="300" />
+                <meta property="og:image:height" content="300" />
+                <meta property="og:image:alt" content="The Open Graph logo"></meta>
+            </Helmet>
             <div className="my-2">
                 Share it
                 &nbsp;
                 <FacebookShareButton
-                url={'https://www.cubedots.com/cusocials/offers'}
-                    // url={publicPath + '/cusocials/' + props.data.category + '/' + props.data.slug}
-                    // quote={props.data.title}
+                    url={'https://www.cubedots.com/cusocials/offers'}
+                // url={publicPath + '/cusocials/' + props.data.category + '/' + props.data.slug}
+                // quote={props.data.title}
                 >
                     <FacebookIcon size={32} round />
                 </FacebookShareButton>
@@ -66,14 +74,14 @@ function SocialShareButtons(props) {
                 </LinkedinShareButton>
                 &nbsp;
                 <WhatsappShareButton
-                url={publicPath + 'https://www.cubedots.com/cusocials/' + props.data.category + '/' + props.data.featured_image }
-                    // url={'imageUrl,whatsapp:https://www.cubedots.com/cusocials/offers'}
+                    url={publicPath + 'https://www.cubedots.com/cusocials/' + props.data.category + '/' + props.data.slug}
+                // url={'imageUrl,whatsapp:https://www.cubedots.com/cusocials/offers'}
                 >
                     <WhatsappIcon size={32} round />
                 </WhatsappShareButton>
                 &nbsp;
                 <TelegramShareButton
-                    url={publicPath + 'https://www.cubedots.com/cusocials/' + props.data.category + '/' + props.data.slug + props.data.featured_image}
+                    url={publicPath + 'https://www.cubedots.com/cusocials/' + props.data.category + '/' + props.data.slug }
                     title={props.data.title}
                 >
                     <TelegramIcon size={32} round />
@@ -90,6 +98,7 @@ function SocialShareButtons(props) {
             </div>
         </>
     );
+
 
 }
 

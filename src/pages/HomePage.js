@@ -82,6 +82,11 @@ function HomePage(props) {
                     <title>CubeDots | The Innovative Solution For Real Estate Sales</title>
                     <meta name="description" content="CubeDots is an online real estate sales platform that enables your clients to get a 3D virtual tour of the best residential projects in all over the world." />
                     <meta name="Keywords" content="Real estate, real estate sales, Turkey real estate, Istanbul real estate, Citizenship, Citizenship, real estate investment" />
+                    <meta property="og:image" content="https://www.cubedots.com/rimg01.jpg" />
+                    <meta property="og:image:type" content="image/jpg" />
+                    <meta property="og:image:width" content="300" />
+                    <meta property="og:image:height" content="300" />
+                    <meta property="og:image:alt" content="The Open Graph logo"></meta>
                 </Helmet>
                 {/* <!------------------banner--------------------> */}
                 <div className="banner">
