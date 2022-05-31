@@ -31,7 +31,7 @@ function CookiePolicyPage() {
                         </div>
                         <div className="cookieGeneralInfo">
                             <h4>General Information</h4>
-                            <p> Various cookies are used on our Site <a href="https:/www.cuengine.com/" target="_blank"> www.cuengine.com</a> belonging to CUENGINE TURKEY GAYRİMENKUL TEKNOLOJİLERİ LİMİTED  ŞİRKETİ  (hereinafter referred to as the "Company"). This policy is related to the cookies we use on our Site and is intended to explain to you what cookies we use and the purposes of our use during your visit to our Site.</p>
+                            <p> Various cookies are used on our Site <a href="https:/www.cubedots.com/" target="_blank"> www.cuengine.com</a> belonging to CUENGINE TURKEY GAYRİMENKUL TEKNOLOJİLERİ LİMİTED  ŞİRKETİ  (hereinafter referred to as the "Company"). This policy is related to the cookies we use on our Site and is intended to explain to you what cookies we use and the purposes of our use during your visit to our Site.</p>
                             <p>A cookie is a small text file obtained through the Site you visit, allowing the person who placed the cookie to obtain information about you. Cookies are generally used for purposes such as functionality, performance, marketing activities, such as to make Sites work or work better, to create general usage reports or to ensure that users are remembered.</p>
                             <p>Our Purpose of Use with Cookies We Use</p>
                             <p>Some cookies we use are mandatory within the scope of the services we provide to you. Some cookies we use are only used as long as you give your consent. The cookies we use as a basis in this context are:</p>
