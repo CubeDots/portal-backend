@@ -66,8 +66,8 @@ function MapChanging() {
                             title={currentVal === "" ? "Dropdown" : currentVal}
                         > */}
                         <Dropdown.Menu>
-                            <Dropdown.Item onClick={() => onClick(1)} eventKey={1}> <a class="dropdown-item" href="#"> <h6 onClick={() => setActive("FirstCard")}>Turkey</h6></a></Dropdown.Item>
-                            <Dropdown.Item onClick={() => onClick(2)} eventKey={2}> <a class="dropdown-item " href="#"> <h6 onClick={() => setActive("SecondCard")}>Dubai</h6></a></Dropdown.Item>
+                            <Dropdown.Item onClick={() => onClick(1)} onClick={() => setActive("FirstCard")} eventKey={1}> <a class="dropdown-item" href="#"> <h6 >Turkey</h6></a></Dropdown.Item>
+                            <Dropdown.Item onClick={() => onClick(2)} onClick={() => setActive("SecondCard")} eventKey={2}> <a class="dropdown-item " href="#"> <h6 >Dubai</h6></a></Dropdown.Item>
                         </Dropdown.Menu>
                         {/* </SplitButton> */}
                     </Dropdown>
