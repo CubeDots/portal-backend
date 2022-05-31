@@ -49,11 +49,17 @@ function SocialShareButtons(props) {
     return (
         <>
             <Helmet>
-                <meta property="og:image" content="https://staging.cubedots.com/" />
+                {/* <meta property="og:image" content="https://staging.cubedots.com/" />
                 <meta property="og:image:type" content="image/png" />
                 <meta property="og:image:width" content="300" />
                 <meta property="og:image:height" content="300" />
-                <meta property="og:image:alt" content="The Open Graph logo"></meta>
+                <meta property="og:image:alt" content="The Open Graph logo"></meta> */}
+                <meta property="og:title" content="The Rock" />
+                <meta property="og:type" content="video.movie" />
+                <meta property="og:url" content="https://staging.cubedots.com/assets/images/aboutus/" />
+                <meta property="og:image" content="aboutus.jpg" />
+                <meta property="og:image:width" content="140" />
+                <meta property="og:image:height" content="140" />
             </Helmet>
             <div className="my-2">
                 Share it
@@ -81,7 +87,7 @@ function SocialShareButtons(props) {
                 </WhatsappShareButton>
                 &nbsp;
                 <TelegramShareButton
-                    url={publicPath + 'https://www.cubedots.com/cusocials/' + props.data.category + '/' + props.data.slug }
+                    url={publicPath + 'https://www.cubedots.com/cusocials/' + props.data.category + '/' + props.data.slug}
                     title={props.data.title}
                 >
                     <TelegramIcon size={32} round />
