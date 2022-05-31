@@ -3735,7 +3735,18 @@ svg.bi.bi-quote.testimonialQuote {
 .location {
     padding: 25px 0;
 }
-
+.mapDrowpdown .show.dropdown .dropdown-menu.show .dropdown-item {
+    padding: 0;
+}
+.mapDrowpdown .show.dropdown .dropdown-menu.show{
+    min-width: 8px;
+    padding: 0;
+}
+.dropDownMap{
+    padding: 12px 20px;
+    text-align: center;
+    margin-bottom: 0;
+}
 .inventory {
     padding: 25px 0;
 }
