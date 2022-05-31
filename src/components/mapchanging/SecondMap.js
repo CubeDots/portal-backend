@@ -120,7 +120,7 @@ export default function SecondMap(props) {
     if (currentId.toLowerCase() === 'map')
       setFilterData(null);
     else
-      setFilterData({ slug: currentId, title: currentIdTitle, clientY: ev.clientY, clientX: ev.clientX });
+      setFilterData({ slug: currentId, clientY: ev.clientY, clientX: ev.clientX });
   }
 
   useEffect(() => {
