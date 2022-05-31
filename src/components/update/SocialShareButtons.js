@@ -54,9 +54,9 @@ function SocialShareButtons(props) {
                 <meta property="og:image:width" content="300" />
                 <meta property="og:image:height" content="300" />
                 <meta property="og:image:alt" content="The Open Graph logo"></meta> */}
-                <meta property="og:title" content="The Rock" />
-                <meta property="og:type" content="video.movie" />
-                <meta property="og:url" content="https://staging.cubedots.com/assets/images/aboutus/" />
+                <meta property="og:title" content="About us" />
+                <meta property="og:image" content="https://staging.cubedots.com/assets/images/aboutus/aboutus.jpg" />
+                <meta property="og:image:secure_url" content="https://staging.cubedots.com/assets/images/aboutus/aboutus.jpg" />
                 <meta property="og:image" content="aboutus.jpg" />
                 <meta property="og:image:width" content="140" />
                 <meta property="og:image:height" content="140" />
@@ -65,7 +65,7 @@ function SocialShareButtons(props) {
                 Share it
                 &nbsp;
                 <FacebookShareButton
-                    url={'https://www.cubedots.com/cusocials/offers'}
+                    url='https://staging.cubedots.com'
                 // url={publicPath + '/cusocials/' + props.data.category + '/' + props.data.slug}
                 // quote={props.data.title}
                 >
