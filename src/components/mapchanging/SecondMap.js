@@ -126,9 +126,10 @@ export default function SecondMap(props) {
     let currentIdTitle = t.getAttribute('data-name');
     //alert(currentIdTitle);
     console.log("projects", currentId, currentIdTitle, ev);
-    //if (currentId.toLowerCase() === 'map')
-    //setFilterData(null);
-    //else
+    console.log(currentId)
+    if (currentId.toLowerCase() === 'map')
+    setFilterData(null);
+    else
     setFilterData({ slug: currentId, title: currentIdTitle, clientY: ev.clientY, clientX: ev.clientX });
   }
 
@@ -145,7 +146,7 @@ export default function SecondMap(props) {
         aria-label="block view" />
       {console.log("filterData ", filterData)}
       {filterData && !projects[filterData.slug][0].project_status ?
-      <Link to={`/projects/${projects[filterData.slug][0].slug}`} className={projects[filterData.slug][0].project_status}  onMouseLeave={boxMouseOutHandler} onMouseEnter={boxMouseOverHandler}>
+      <Link to={`/projects/${projects[filterData.slug][0].slug}`} className={projects[filterData.slug][0].project_status}>
           <div className="col-md-2 projectDetailBox"  style={mobileCheck()? { top:100 , left:100 } :{    top: filterData.clientY, left: filterData.clientX }}>
             <img alt="" className='img-fluid' src={`${projects[filterData.slug][0].banner}`} />
             <h2>{projects[filterData.slug][0].title} {projects[filterData.slug][0].project_status ? <span className="text-uppercase text-danger fs-6">( {projects[filterData.slug][0].project_status} )</span> : ''}</h2>
