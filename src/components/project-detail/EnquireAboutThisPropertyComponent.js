@@ -35,7 +35,7 @@ function EnquireAboutThisPropertyComponent(props) {
     const [project_interest, setProjectInterest] = useState(props.data.title);
     // const [terms, setTerms] = useState(false);
     const [loading, setLoading] = useState(false);
-    const formColumns = { project_interest: "", first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false };
+    const formColumns = { project_interest: '', first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false };
     const [formData, setFormData] = useState(formColumns);
 
     useEffect(() => {
@@ -88,7 +88,7 @@ function EnquireAboutThisPropertyComponent(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ project_interest: "", first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
+        setFormData({ project_interest: '', first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
         document.getElementById("form2").reset();
     }
 
