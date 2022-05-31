@@ -113,7 +113,7 @@ export default function ProjectsMapComponent(props) {
     let t = ev.target;
     let currentId = t.getAttribute('id');
     let currentIdTitle = t.getAttribute('data-name');
-    //console.log("projects" ,currentId,currentIdTitle, ev);
+    console.log('@@@ Current Id Second Map =========', currentId);
     if (currentId.toLowerCase() === 'map')
       setFilterData(null);
     else

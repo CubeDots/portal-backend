@@ -54,7 +54,7 @@ const apidatass = [
 
 
 export default function SecondMap(props) {
-  const [filterData1, setFilterData1] = useState(null);
+  const [filterData, setFilterData] = useState(null);
 
   const [projectsLoading, setProjectsLoading] = useState(false);
   const [projects, setProjects] = useState([]);
@@ -116,11 +116,12 @@ export default function SecondMap(props) {
     let currentId = t.getAttribute('id');
     let currentIdTitle = t.getAttribute('data-name');
     //console.log("projects" ,currentId,currentIdTitle, ev);
-    console.log(currentId);
+    console.log('@@@ Current Id Second Map =========', currentId);
+
     if (currentId.toLowerCase() === 'map')
-      setFilterData1(null);
+      setFilterData(null);
     else
-      setFilterData1({ slug: currentId, title: currentIdTitle, clientY: ev.clientY, clientX: ev.clientX });
+      setFilterData({ slug: currentId, title: currentIdTitle, clientY: ev.clientY, clientX: ev.clientX });
   }
 
   useEffect(() => {
@@ -132,13 +133,13 @@ export default function SecondMap(props) {
       <object
         data={publicPath + "/assets/images/map/dubai_map.svg"}
         aria-label="block view" />
-      {console.log("filterData1 ", filterData1)}
-      {filterData1 && !projects[filterData1.slug][0].project_status ?
-      <Link to={`/projects/${projects[filterData1.slug][0].slug}`} className={projects[filterData1.slug][0].project_status}>
-          <div className="col-md-2 projectDetailBox"  style={mobileCheck()? { top:100 , left:100 } :{    top: filterData1.clientY, left: filterData1.clientX }}>
-            <img alt="" className='img-fluid' src={`${projects[filterData1.slug][0].banner}`} />
-            <h2>{projects[filterData1.slug][0].title} {projects[filterData1.slug][0].project_status ? <span className="text-uppercase text-danger fs-6">( {projects[filterData1.slug][0].project_status} )</span> : ''}</h2>
-            <p>{projects[filterData1.slug][0].small_description}</p>
+      {console.log("filterData ", filterData)}
+      {filterData && !projects[filterData.slug][0].project_status ?
+      <Link to={`/projects/${projects[filterData.slug][0].slug}`} className={projects[filterData.slug][0].project_status}>
+          <div className="col-md-2 projectDetailBox"  style={mobileCheck()? { top:100 , left:100 } :{    top: filterData.clientY, left: filterData.clientX }}>
+            <img alt="" className='img-fluid' src={`${projects[filterData.slug][0].banner}`} />
+            <h2>{projects[filterData.slug][0].title} {projects[filterData.slug][0].project_status ? <span className="text-uppercase text-danger fs-6">( {projects[filterData.slug][0].project_status} )</span> : ''}</h2>
+            <p>{projects[filterData.slug][0].small_description}</p>
           </div>
       </Link>
         :
