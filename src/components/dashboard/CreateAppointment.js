@@ -22,7 +22,7 @@ function CreateAppointment(props) {
     const [locations, setLocations] = useState([]);
 
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({ first_name: null, last_name: null, email: null, country: null, mobile: null, appointment_date: null, appointment_time: null, location: null });
+    const [formData, setFormData] = useState({ first_name: null, last_name: null, email: null, country: null, mobile: null, appointment_date: null, appointment_time: null, location: null, message:null });
     const [securityCode, setSecurityCode] = useState(null);
     const [toDayDate, setToDayDate] = useState(new Date());
     const [toTime, setToTime] = useState('10:00:00');
@@ -110,7 +110,7 @@ function CreateAppointment(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ first_name: null, last_name: null, email: null, country: null, mobile: null, appointment_date: null, appointment_time: null, location: null });
+        setFormData({ first_name: null, last_name: null, email: null, country: null, mobile: null, appointment_date: null, appointment_time: null, location: null, message: null, });
 
         document.getElementById("form1").reset();
     }
@@ -263,15 +263,20 @@ function CreateAppointment(props) {
                                         <div className="col mb-3">
                                             <label className='mb-1'>Appointment Time</label>
                                             <TimePicker
-                                    onChange={setFormatedTime}
-                                    placeholder="00:00"
-                                    showSecond={false}
-                                    className="form-control"
-                                />
+                                                onChange={setFormatedTime}
+                                                placeholder="00:00"
+                                                showSecond={false}
+                                                className="form-control"
+                                            />
                                             {/* <input className="form-control" type="time" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required /> */}
                                         </div>
                                     </div>
-
+                                    <div className="row">
+                                        <div className="col mb-4">
+                                            <label className="form-label">Notes</label>
+                                            <textarea className="form-control" placeholder="Write Your Notes" name="message" defaultValue={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
+                                        </div>
+                                    </div>
                                     <div className="row">
                                         <div className="col mb-3">
                                             {locations.length > 0 ?
@@ -285,7 +290,7 @@ function CreateAppointment(props) {
 
                                         </div>
                                     </div>
-
+                                   
                                     <div className="row">
                                         <div className="col">
                                             {loading ?

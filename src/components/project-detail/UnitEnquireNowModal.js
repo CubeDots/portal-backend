@@ -7,10 +7,6 @@ import Modal from 'react-bootstrap/Modal';
 import { useAuthUser, useIsAuthenticated, } from 'react-auth-kit';
 import SocialSharingComponent from "../contact/SocialSharingComponent"
 import SimpleReactValidator from 'simple-react-validator';
-import DatePicker from 'react-date-picker';
-import TimePicker from 'rc-time-picker';
-import 'rc-time-picker/assets/index.css';
-import moment from 'moment';
 import { API_ENDPOINT } from "../../common/Constants";
 
 function UnitEnquireNowModal(props) {
@@ -20,12 +16,9 @@ function UnitEnquireNowModal(props) {
     const auth = useAuthUser();
     const user = isAuthenticated() ? auth().user : null;
 
-    // const [project_interest, setProjectInterest] = useState(props.data.title);
-
     // const [footersocialLoading, setFooterSocialLoading] = useState(false);
     // const [footerSocialLinks, setFooterSocialLinks] = useState(null);
-    const [toDayDate, setToDayDate] = useState(new Date());
-    const [toTime, setToTime] = useState('00:00');
+
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
 
@@ -50,9 +43,9 @@ function UnitEnquireNowModal(props) {
             setFormData(formData => ({ ...formData, project_interest: props.project.title }));
         }
 
-        if (user) {
+        if(user){
             //console.log("user",user)
-            setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1], email: user.email }));
+            setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1],email: user.email  }));
         }
 
     }, [props.unit, props.project, user]);
@@ -123,8 +116,6 @@ function UnitEnquireNowModal(props) {
     }
 
     const onSubmit = (e) => {
-        e.preventDefault(); formData.appointment_date = toDayDate
-        e.preventDefault(); formData.appointment_time = toTime
         e.preventDefault();
         console.log("formData ", formData);
 
@@ -164,27 +155,7 @@ function UnitEnquireNowModal(props) {
                 }
             })
     }
-    const addZero = (i) => {
-        if (i < 10) {
-            i = "0" + i;
-        }
-        return i;
-    }
 
-    const convertTime = (str) => {
-        let date = new Date(str);
-        let h = addZero(date.getHours());
-        let m = addZero(date.getMinutes());
-        // let ampm = h >= 12? 'PM':'AM';
-        console.log("@@@ APPOINTMENT TIMEEEE ======", h)
-        return h + ':' + m;
-    }
-
-    const setFormatedTime = (time) => {
-        // let time= '2022-05-06T09:47:26.735Z'
-        let value = convertTime(time)
-        setToTime(value)
-    }
 
     return (
         <>
@@ -202,24 +173,22 @@ function UnitEnquireNowModal(props) {
                                 <form id="form1" onSubmit={onSubmit}>
                                     <div className="row">
                                         <div className="col mb-3">
-                                            <input className="form-control" type="text" placeholder="First Name *" name="first_name" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha_space')}</div>
+                                            <input className="form-control" type="text" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
                                         </div>
                                         <div className="col mb-3">
-                                            <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
+                                            <input className="form-control" type="text" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col">
-                                            <input className="form-control" type="email" placeholder="Email *" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                                            <input className="form-control" type="email" placeholder="Email" name="email" onKeyUp={()=>simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                                         </div>
-                                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                                        <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                     </div>
                                     <div className="mb-3">
                                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                                            <option value="">Interested As</option>
-                                            <option value="Agency">Real Estate Agency</option>
+                                            <option value="">Select Occupation</option>
+                                            <option value="Agency">Agency</option>
                                             <option value="Developer">Developer</option>
                                             <option value="Others">Others</option>
                                         </select>
@@ -230,7 +199,7 @@ function UnitEnquireNowModal(props) {
                                             {countries.length > 0 ?
                                                 <>
                                                     <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
-                                                        <option value="">Select Country *</option>
+                                                        <option value="">Select Country</option>
                                                         {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                                     </select>
                                                 </>
@@ -241,35 +210,22 @@ function UnitEnquireNowModal(props) {
                                     <div className="row mb-3">
                                         <div className="col">
                                             <div className="input-group">
-                                              
                                                 <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                                        <input type="hidden" name="project_interest" value={""}  />
-                                        <input type="hidden" name="apartment_id" value={""}  />
-                                                <input className="form-control" type="text" placeholder="Mobile *"
-                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                                                <input className="form-control" type="text" placeholder="Mobile No."
+                                                    name="mobile" onKeyUp={()=>simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                                             </div>
-                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                            <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col mb-3">
                                             <label className="form-label">Appointment Date</label>
-                                            <input type="hidden" name="apartment_id" value={""}  />
-                                            {/* <input type="date" className="form-control" placeholder="Appointment Date *" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required /> */}
-                                            <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required minDate={moment().toDate()} />
+                                            <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required />
 
                                         </div>
                                         <div className="col mb-3">
                                             <label className="form-label">Appointment Time</label>
-                                            <div>
-                                                <TimePicker
-                                                    onChange={setFormatedTime}
-                                                    placeholder="00:00"
-                                                    showSecond={false}
-                                                    className="form-control"
-                                                />
-                                            </div>
-                                            {/* <input type="time" className="form-control" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required /> */}
+                                            <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required />
                                         </div>
                                     </div>
 
@@ -295,7 +251,7 @@ function UnitEnquireNowModal(props) {
                                     <div className="row">
                                         <div className="col">
                                             <div className="form-check termAndConditionCheckbox">
-                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onClick={() => handleChangeTerms(!formData.terms)} />
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onChange={() => handleChangeTerms(!formData.terms)} />
                                                 <label className="form-check-label" >
                                                     <div className="termsAndConditionSection">
                                                         <small>By clicking the submit button below, I hereby agree to and accept the following terms and conditions policy.</small>
@@ -314,10 +270,9 @@ function UnitEnquireNowModal(props) {
                                     </div>
                                 </form>
 
-                                <div className='socialIconsDiv'>
-                                        <SocialSharingComponent />
-                                    </div>
+                                <SocialSharingComponent />
 
+                              
                             </div>
                         </div>
                     </div>

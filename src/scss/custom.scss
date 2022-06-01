@@ -2716,6 +2716,9 @@ div#overlay-example .tooltip-inner{
     top: 7px;
     width: 30px;
 }
+input.rc-time-picker-input {
+    height: auto;
+}
 .rc-time-picker-clear .rc-time-picker-clear-icon:after {
     position: absolute;
     color: #000;
@@ -3709,7 +3712,21 @@ svg.bi.bi-quote.testimonialQuote {
 .locationData button {
     color: #fff;
 }
-
+span.rc-time-picker.form-control {
+    padding: 0;
+    border-bottom: none;
+}
+.react-date-picker.react-date-picker--closed.react-date-picker--enabled.form-control {
+    padding: 0;
+    border-radius: 5px;
+}
+.react-date-picker.react-date-picker--closed.react-date-picker--enabled.form-control .react-date-picker__wrapper {
+    /* border: red; */
+    border-color: #ced4da;
+    padding: 2px 6px;
+    border-radius: 5px;
+    border: none;
+}
 .locationData a {
     color: #949494;
 }
@@ -3731,7 +3748,10 @@ svg.bi.bi-quote.testimonialQuote {
 .galleryFloorplan {
     padding: 25px 0;
 }
-
+.aboutusSocialshareImage{
+    width: 140px;
+    height: 140px;
+}
 .location {
     padding: 25px 0;
 }
@@ -4802,8 +4822,6 @@ h5 {
 
 /*enrollmentModal*/
 .enrollmentContent .form-control {
-    border: 0;
-    border-bottom: 1px solid #d9d9d9;
     border-radius: 0;
     font-size: 14px;
     /* margin-bottom: 25px;*/
