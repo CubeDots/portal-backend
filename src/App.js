@@ -108,13 +108,10 @@ function App() {
               cookieDomain={window.location.hostname}
               cookieSecure={window.location.protocol === "https:"}>
 
-
               <Routes>
                 <Route path="/" element={<PublicLayout />}>
                   <Route index element={<HomePage />} />
                   <Route path="/home" element={<HomePage />} />
-                 
-                
                   <Route path="/findagents" element={<React.Suspense fallback={<Loader />}> <FindAgentsPage /> </React.Suspense>} />
                   <Route path="/whyus" element={<React.Suspense fallback={<Loader />}> <WhyUsPage /> </React.Suspense>} />
                   <Route path="/about" element={<React.Suspense fallback={<Loader />}> <AboutUsPage /> </React.Suspense>} />

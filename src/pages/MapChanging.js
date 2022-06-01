@@ -56,7 +56,6 @@ function MapChanging() {
         <>
             <div>
                 <div className='mapDrowpdown'>
-
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
                         {currentVal === "" ? "Turkey" : currentVal}
