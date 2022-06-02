@@ -19,8 +19,8 @@ function EnquireAboutThisPropertyComponent(props) {
     const isAuthenticated = useIsAuthenticated();
     const auth = useAuthUser();
     const user = isAuthenticated() ? auth().user : null;
-   // const toDayDate = new Date();
-   const startOfMonth = moment().format('YYYY-MM-DD');
+    // const toDayDate = new Date();
+    const startOfMonth = moment().format('YYYY-MM-DD');
     const [toDayDate, setToDayDate] = useState(new Date());
     const [toTime, setToTime] = useState('10:00:00');
 
@@ -32,6 +32,7 @@ function EnquireAboutThisPropertyComponent(props) {
     const [loading, setLoading] = useState(false);
     const formColumns = { project_interest: '', first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false };
     const [formData, setFormData] = useState(formColumns);
+    const [project_interest, setProjectInterest] = useState(props.data.title);
 
     useEffect(() => {
         setLoading(false);
@@ -45,7 +46,10 @@ function EnquireAboutThisPropertyComponent(props) {
             //console.log("user",user)
             setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1], email: user.email }));
         }
-
+        setProjectInterest(props.data.title);
+        if (props.project) {
+            setFormData(formData => ({ ...formData, project_interest: project_interest }));
+        }
     }, [props.data, user]);
 
     async function fetchCountries() {
@@ -83,7 +87,7 @@ function EnquireAboutThisPropertyComponent(props) {
     }
 
     const resetFrom = () => {
-        setFormData({ project_interest: '', first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
+        setFormData({ project_interest: project_interest, first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false });
         document.getElementById("form2").reset();
     }
 
@@ -136,6 +140,8 @@ function EnquireAboutThisPropertyComponent(props) {
                     <div className="mb-3">
                         <label className="form-label">First Name</label>
                         <input type="text" className="form-control" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                        <input className="form-control" type="hidden" placeholder="Project Interest" name="project_interest" defaultValue={project_interest} />
+
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Last Name</label>
@@ -143,7 +149,7 @@ function EnquireAboutThisPropertyComponent(props) {
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Email Address</label>
-                        <input type="email" className="form-control" placeholder="Email Address" name="email" onKeyUp={()=>simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                        <input type="email" className="form-control" placeholder="Email Address" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
                         <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                     </div>
                     <div className="mb-3">
@@ -170,23 +176,23 @@ function EnquireAboutThisPropertyComponent(props) {
                         <label className="form-label">Mobile</label>
                         <div className="input-group">
                             <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                            <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={()=>simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                            <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
                         </div>
                         <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                     </div>
                     <div className="row">
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Date</label>
-                              
-                                <DatePicker className="form-control" placeholder="Appointment Date" name="appointment_date" value ={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required />
-                             
 
-                            {/* <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} /> */}
+                            {/* <DatePicker className="form-control" placeholder="Appointment Date" name="appointment_date" value ={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required /> */}
+
+
+                            <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} />
                         </div>
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Time</label>
                             {/* <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} /> */}
-                            <TimePicker className="form-control"  value ={toTime} onChange={setToTime} required/>
+                            <TimePicker className="form-control" value={toTime} onChange={setToTime} required />
                         </div>
                     </div>
                     <div className="row">
@@ -197,7 +203,7 @@ function EnquireAboutThisPropertyComponent(props) {
                     </div>
 
                     <div className="form-check termAndConditionCheckbox">
-                        <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onChange={() => handleChangeTerms(!formData.terms)} />
+                        <input className="form-check-input" type="checkbox" id="flexCheckDefault" defaultValue={formData.terms} onClick={() => handleChangeTerms(!formData.terms)} />
                         <label className="form-check-label" >
                             <div className="termsAndConditionSection">
                                 <small>By clicking the submit button below, I hereby agree to and accept the following terms and conditions policy.</small>
@@ -216,7 +222,9 @@ function EnquireAboutThisPropertyComponent(props) {
 
                 </form>
 
-                <SocialSharingComponent />
+                <div className='socialIconsDiv'>
+                    <SocialSharingComponent />
+                </div>
 
             </div>
         </>
