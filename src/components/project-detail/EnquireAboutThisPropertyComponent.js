@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import TimePicker from 'react-time-picker';
-import DatePicker from 'react-date-picker';
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import { useAuthUser, useIsAuthenticated, } from 'react-auth-kit';
 import SocialSharingComponent from "../contact/SocialSharingComponent"
-import moment from 'moment';
 import SimpleReactValidator from 'simple-react-validator';
-
+import DatePicker from 'react-date-picker';
+import TimePicker from 'rc-time-picker';
+import 'rc-time-picker/assets/index.css';
+import moment from 'moment';
 
 import { API_ENDPOINT } from "../../common/Constants";
 
@@ -28,7 +28,6 @@ function EnquireAboutThisPropertyComponent(props) {
 
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
-
     const [loading, setLoading] = useState(false);
     const formColumns = { project_interest: '', first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false };
     const [formData, setFormData] = useState(formColumns);
@@ -130,6 +129,27 @@ function EnquireAboutThisPropertyComponent(props) {
             })
     }
 
+    const addZero = (i) => {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+    const convertTime = (str) => {
+        let date = new Date(str);
+        let h = addZero(date.getHours());
+        let m = addZero(date.getMinutes());
+        // let ampm = h >= 12? 'PM':'AM';
+        console.log("@@@ APPOINTMENT TIMEEEE ======", h)
+        return h + ':' + m;
+    }
+
+    const setFormatedTime = (time) => {
+        // let time= '2022-05-06T09:47:26.735Z'
+        let value = convertTime(time)
+        setToTime(value)
+    }
     return (
 
         <>
@@ -186,13 +206,19 @@ function EnquireAboutThisPropertyComponent(props) {
 
                             {/* <DatePicker className="form-control" placeholder="Appointment Date" name="appointment_date" value ={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required /> */}
 
-
-                            <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} />
+                            <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required minDate={moment().toDate()} />
+                            {/* <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} /> */}
                         </div>
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Time</label>
                             {/* <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} /> */}
-                            <TimePicker className="form-control" value={toTime} onChange={setToTime} required />
+                            <TimePicker
+                                                onChange={setFormatedTime}
+                                                placeholder="00:00"
+                                                showSecond={false}
+                                                className="form-control"
+                                            />
+                            {/* <TimePicker className="form-control" value={toTime} onChange={setToTime} required /> */}
                         </div>
                     </div>
                     <div className="row">
