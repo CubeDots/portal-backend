@@ -133,7 +133,7 @@ export default function ProjectsMapComponent(props) {
       {console.log("filterData ", filterData)}
       {filterData && !projects[filterData.slug][0].project_status ?
       <Link to={`/projects/${projects[filterData.slug][0].slug}`} className={projects[filterData.slug][0].project_status ? 'disabled-link' : ''}>
-          <div className="col-md-2 projectDetailBox" style={mobileCheck()? { top:100 , left:100 } :{    top: filterData.clientY, left: filterData.clientX }}>
+          <div className="col-md-2 projectDetailBox" style={mobileCheck()? { top:115 , left:100 } :{    top: filterData.clientY, left: filterData.clientX }}>
             <img alt="" className='img-fluid' src={`${projects[filterData.slug][0].banner}`} />
             <h2>{projects[filterData.slug][0].title} {projects[filterData.slug][0].project_status ? <span className="text-uppercase text-danger fs-6">( {projects[filterData.slug][0].project_status} )</span> : ''}</h2>
             <p>{projects[filterData.slug][0].small_description}</p>
