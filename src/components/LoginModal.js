@@ -250,7 +250,7 @@ function LoginModal(props) {
 
 
                                 <div className="my-3 text-center">
-                                    <Link to="" className="form-check-label" onClick={openForgotPasswordModal}>Forgot your password?</Link>
+                                    <Link to="" className="form-check-label" onClick={openForgotPasswordModal}>Generate / Forgot your password?</Link>
                                 </div>
 
                                 <div className="my-3 text-center">
