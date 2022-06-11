@@ -26,8 +26,8 @@ function ProjectEnquireNowModal(props) {
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState(formColumns);
     const [securityCode, setSecurityCode] = useState('');
-    const [project, setProject] = useState(null);
-    const [project_interest, setProjectInterest] = useState(props.project);
+    const [project, setProject] = useState(props.project);
+    // const [project_interest, setProjectInterest] = useState(props.project);
     //const unit = props.length ? props.unit : null;
     useEffect(() => {
         //console.log('unit model loaded')
@@ -42,10 +42,6 @@ function ProjectEnquireNowModal(props) {
                 //console.log("user",user)
                 setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1], email: user.email }));
             }
-        }
-        setProjectInterest(props.project);
-        if (props.project) {
-            setFormData(formData => ({ ...formData, project_interest: project_interest }));
         }
     }, [props.project, user]);
 
@@ -95,7 +91,7 @@ function ProjectEnquireNowModal(props) {
     }
 
     const resetFrom = () => {
-        setFormData({project_interest: project_interest, first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', security_code: '', appointment_date: '', appointment_time: '', message: '', terms: false });
+        setFormData({project_interest: project, first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', security_code: '', appointment_date: '', appointment_time: '', message: '', terms: false });
         document.getElementById("form1").reset();
     }
 
@@ -230,7 +226,7 @@ function ProjectEnquireNowModal(props) {
                                         </div>
                                         <div className="col mb-3">
                                             <label className="form-label">Appointment Time</label>
-                                            <input className="form-control" type="hidden" placeholder="Project Interest" name="project_interest" defaultValue={project_interest} />
+                                            <input className="form-control" type="hidden" placeholder="Project Interest" name="project_interest" defaultValue={project} />
 
                                             {/* <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required /> */}
                                             <TimePicker
