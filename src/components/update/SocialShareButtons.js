@@ -37,7 +37,7 @@ function SocialShareButtons(props) {
                 <meta property="og:image:width" content="140" />
                 <meta property="og:image:height" content="140" />
             </Helmet>
-
+                {/*
             <div className="my-2">
                 Share it
                 &nbsp;
@@ -82,6 +82,7 @@ function SocialShareButtons(props) {
                 </EmailShareButton>
 
             </div>
+            */}
         </>
     );
 
