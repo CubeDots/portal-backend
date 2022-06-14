@@ -15,10 +15,15 @@ import {
     EmailIcon,
 } from 'react-share';
 
-
+//alert('calling...');
+const ImageUrll = "https://cuengine-portal.s3.eu-west-2.amazonaws.com/"
 function SocialShareButtons(props) {
     let publicPath = process.env.PUBLIC_URL;
     const image_url = "https://cuengine-portal.s3.eu-west-2.amazonaws.com/"+props.data.featured_image;
+    document.querySelector('meta[property="og:title"]').setAttribute("content", props.data.title);
+    document.querySelector('meta[property="og:image"]').setAttribute("content", "https://cuengine-portal.s3.eu-west-2.amazonaws.com/" + props.data.featured_image);
+    document.querySelector('meta[property="og:title"]').setAttribute("content", props.data.title);
+    document.querySelector('meta[property="og:title"]').setAttribute("content", props.data.title);
     if (!props.data)
         return "";
 
@@ -37,7 +42,8 @@ function SocialShareButtons(props) {
                 <meta property="og:image:width" content="140" />
                 <meta property="og:image:height" content="140" />
             </Helmet>
-                {/*
+            
+            
             <div className="my-2">
                 Share it
                 &nbsp;
@@ -82,7 +88,7 @@ function SocialShareButtons(props) {
                 </EmailShareButton>
 
             </div>
-            */}
+           
         </>
     );
 
