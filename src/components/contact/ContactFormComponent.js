@@ -204,7 +204,7 @@ function ContactFormComponent(props) {
                         {countries.length > 0 ?
                             <>
                                 <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
-                                    <option value="">Select Country *</option>
+                                    <option value=""disabled selected hidden>Select Country *</option>
                                     {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                 </select>
                             </>
@@ -213,7 +213,7 @@ function ContactFormComponent(props) {
                     <div className="col-md-6 mb-3">
                         {/* <label className="form-label">Occupation</label> */}
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                            <option value="">Interested As</option>
+                            <option value="" disabled selected hidden>Interested As</option>
                             <option value="Agency">Real Estate Agency</option>
                             <option value="Developer">Developer</option>
                             <option value="Others">Others</option>

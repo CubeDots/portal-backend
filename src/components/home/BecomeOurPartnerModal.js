@@ -343,7 +343,7 @@ function BecomeOurPartnerModal(props) {
                         }
                         defaultValue={formData.occupation}
                       >
-                        <option value="">Interested As</option>
+                        <option value="" disabled selected hidden>Interested As</option>
                         <option value="Agency">Real Estate Agency</option>
                         <option value="Developer">Developer</option>
                         <option value="Others">Others</option>
@@ -362,7 +362,7 @@ function BecomeOurPartnerModal(props) {
                             defaultValue={formData.country_name}
                             required
                           >
-                            <option value="">Select Country *</option>
+                            <option value="" disabled selected hidden>Select Country *</option>
                             {countries.length > 0 &&
                               countries.map((row, index) => (
                                 <option value={row.country_name} key={index}>
