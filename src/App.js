@@ -45,7 +45,7 @@ const ThreeDSystemPage = React.lazy(() => import("./pages/ThreeDSystemPage"));
 const TwoDSystemPage = React.lazy(() => import("./pages/TwoDSystemPage"));
 const HelpSupport = React.lazy(() => import("./pages/HelpSupport"))
 const RestPasswordPage = React.lazy(() => import("./pages/RestPasswordPage"));
-
+const EnrollmentFormPage = React.lazy(()=>import("./pages/EnrollmentFormPage"));
 
 const PrivacyPolicyPage = React.lazy(() => import("./pages/PrivacyPolicyPage"));
 const TermsOfUsePage = React.lazy(() => import("./pages/TermsOfUsePage"));
@@ -131,7 +131,8 @@ function App() {
                   <Route path="/cusocials/offers" element={<React.Suspense fallback={<Loader />}> <CuSocialOffersPage /> </React.Suspense>} />
                   <Route path="/cusocials/blog" element={<React.Suspense fallback={<Loader />}> <CuSocialBlogPage /> </React.Suspense>} />
                   <Route path="/cusocials" element={<React.Suspense fallback={<Loader />}> <CuSocialPage /> </React.Suspense>} />
-                  
+                  <Route path="/enrollment-form" element={<React.Suspense fallback={<Loader />}> <EnrollmentFormPage /> </React.Suspense>} />
+
                   
                   
                   <Route path="/downloads" element={<React.Suspense fallback={<Loader />}> <DownloadsPage /> </React.Suspense>} />
