@@ -195,10 +195,10 @@ function EnrollmentFromAds(props) {
           setSelectedValue([""]);
           setSelectedValue([]);
           resetFrom();
-          
+
           setTimeout(() => {
             alert(res.data.message);
-            window.location.replace("/home")
+            window.location.replace("/home");
           }, 1000);
         }
       })
@@ -232,13 +232,13 @@ function EnrollmentFromAds(props) {
         <div className="container ">
           <div className="EnrollMentDiv">
             <div className="row">
+              <div className="col-12">
+                <h2 class="vegonHeading text-center">Enrollment Form</h2>
+              </div>
+            </div>
+            <div className="row">
               <div className="col-md-3"></div>
               <div className="col-md-6 EnrollmentFormDiv">
-                <div className="row">
-                  <div className="col-12">
-                    <h1>Enrollment Form</h1>
-                  </div>
-                </div>
                 <form id="form1" onSubmit={onSubmit}>
                   <div className="row">
                     <div className="col-md-6 mb-3">
