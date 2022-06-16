@@ -7964,3 +7964,8 @@ footer h6 {
     // width: 100% !important;
     overflow: hidden;
 }
+@media (max-width:400px) {
+    .captchInput input{
+        width: 119px;
+    }
+}
