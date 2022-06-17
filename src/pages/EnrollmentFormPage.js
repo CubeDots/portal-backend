@@ -3,15 +3,14 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
-import Modal from "react-bootstrap/Modal";
 import { useAuthUser, useIsAuthenticated } from "react-auth-kit";
 import SimpleReactValidator from "simple-react-validator";
 import { API_ENDPOINT } from "../common/Constants";
 import Multiselect from "multiselect-react-dropdown";
 import _ from "lodash";
+
 function EnrollmentFromAds(props) {
   let multiselectRef = React.createRef();
-
   const simpleValidator = useRef(new SimpleReactValidator());
   let publicPath = process.env.PUBLIC_URL;
   let mt = props.show;
@@ -236,9 +235,8 @@ function EnrollmentFromAds(props) {
                 <h2 class="vegonHeading text-center">Enrollment Form</h2>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-3"></div>
-              <div className="col-md-6 EnrollmentFormDiv">
+            <div className="row justify-content-center">
+              <div className="col-lg-7 EnrollmentFormDiv">
                 <form id="form1" onSubmit={onSubmit}>
                   <div className="row">
                     <div className="col-md-6 mb-3">

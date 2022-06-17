@@ -1747,13 +1747,6 @@ img.bgImageUpdates {
     min-height: 500px;
 }
 
-.culibrarySecondProject {
-    // position: absolute;
-    // right: 0;
-    // width: 50%;
-    // padding-left: 80px;
-}
-
 .culibrarySecondProject h2 {
     color: #e65400;
 }
@@ -1764,9 +1757,7 @@ img.bgImageUpdates {
     overflow-x: hidden;
 }
 
-.culibraryNewContent a {
-    /*text-decoration: none;*/
-}
+
 
 .culibraryNewContent img {
     color: #fff;
@@ -3497,7 +3488,6 @@ svg.bi.bi-quote.testimonialQuote {
     height: 20px;
 }
 
-.ProjectDetailSlider {}
 
 .headingWithButton .btntheme svg {
     margin-right: 7px;
@@ -3599,9 +3589,6 @@ svg.bi.bi-quote.testimonialQuote {
     color: #e65400;
 }
 
-.projectDesc ul li {
-    /*color: #fff;*/
-}
 
 .projectArea {
     margin: 2rem 0 3rem 0;
@@ -5586,7 +5573,6 @@ footer h6 {
     padding: 9px 11px;
 }
 
-.blogBtn {}
 
 .fiftyPercent {
     background: #e8eff7;
@@ -6277,7 +6263,6 @@ footer h6 {
     width: 100%;
 }
 
-.banner_box {}
 
 .box {
     padding-bottom: 2rem;
@@ -6812,9 +6797,6 @@ footer h6 {
     color: #fff;
 }
 
-.goalValueContentDiv {
-    /*margin: 4rem 0rem;*/
-}
 
 .goalValuesHeading {
     text-align: center;
@@ -6843,7 +6825,6 @@ footer h6 {
     color: #e65400;
 }
 
-.companyGrowth {}
 
 .companyGrowthCounter .counter-count {
     margin-bottom: 1rem;
@@ -7252,9 +7233,6 @@ footer h6 {
         padding: 30px 0;
     }
 
-    .culibraryContent {
-        //   padding: 30px 0;
-    }
 
     .projectsCuverse {
         padding-bottom: 30px;
@@ -7631,9 +7609,7 @@ footer h6 {
         padding: 20px 0 0;
     }
 
-    .alternetSection .row:first-child {
-        // padding-bottom: 50px;
-    }
+    
 
     .shareButtonSection {
         position: relative;
@@ -7706,9 +7682,7 @@ footer h6 {
         display: none;
     }
 
-    .newsfeedcard {
-        // margin-bottom: 35px;
-    }
+    
 
     .newsFeed {
         padding: 30px 0 10px 0;
@@ -7722,9 +7696,7 @@ footer h6 {
         width: 100%;
     }
 
-    .aboutus {
-        // padding: 30px 0;
-    }
+    
 
     .aboutContent {
         padding-left: 0;
@@ -7783,9 +7755,7 @@ footer h6 {
         margin-bottom: 5px;
     }
 
-    .location .tab-content ul {
-        // flex-direction: column;
-    }
+    
 
     .populationCount ul {
         flex-direction: column;
@@ -7816,11 +7786,7 @@ footer h6 {
         padding-left: 0;
     }
 
-    .contactformsection input,
-    .contactformsection textarea {
-        // width: 100%;
-    }
-
+  
     .ContactformRightImg {
         display: none;
     }
@@ -7964,8 +7930,14 @@ footer h6 {
     // width: 100% !important;
     overflow: hidden;
 }
-@media (max-width:400px) {
+@media (max-width:500px) {
     .captchInput input{
         width: 119px;
+    }
+    .EnrollMentDiv{
+        padding: 20px;
+    }
+    .EnrollmentFormDiv{
+        padding: 15px;
     }
 }
