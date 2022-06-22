@@ -56,7 +56,7 @@ function ProjectEnquireNowModal(props) {
                 setCountries(res.data.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setCountriesLoading(false);
         }
     }
@@ -75,7 +75,7 @@ function ProjectEnquireNowModal(props) {
         setFormData(formData => ({ ...formData, dial_code: dial_code }));
     }
     const handleChangeTerms = (status) => {
-        console.log("terms ", status);
+        // console.log("terms ", status);
         setFormData(formData => ({ ...formData, terms: status }));
     }
 
@@ -99,7 +99,7 @@ function ProjectEnquireNowModal(props) {
         e.preventDefault();
         e.preventDefault(); formData.appointment_date = toDayDate;
         e.preventDefault(); formData.appointment_time = toTime;
-        console.log("formData ", formData);
+        // console.log("formData ", formData);
         if (formData.security_code !== securityCode) {
             alert("Please enter correct security code");
             return false;
@@ -112,7 +112,7 @@ function ProjectEnquireNowModal(props) {
 
         axios.post(API_ENDPOINT + 'orgzit/projectEnquireRequest', formData)
             .then((res) => {
-                console.log('res ### ', res.status, res.data)
+                // console.log('res ### ', res.status, res.data)
                 if (res.status === 200) {
                     setLoading(false);
                     genRandomString();
@@ -123,7 +123,7 @@ function ProjectEnquireNowModal(props) {
                 }
             }).catch((error) => {
                 setLoading(false);
-                console.log("errors ### ", error);
+                // console.log("errors ### ", error);
                 if (error) {
                     if (error.response.status === 422) {
                         let errors = error.response.data.errors;
@@ -149,7 +149,7 @@ function ProjectEnquireNowModal(props) {
         let h = addZero(date.getHours());
         let m = addZero(date.getMinutes());
         // let ampm = h >= 12? 'PM':'AM';
-        console.log("@@@ APPOINTMENT TIMEEEE ======", h)
+        // console.log("@@@ APPOINTMENT TIMEEEE ======", h)
         return h + ':' + m;
     }
 

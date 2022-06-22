@@ -16,7 +16,7 @@ function GoalAndValueComponent() {
                 setGoalAndValue(res.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setGoalAndValueLoading(false);
         }
     }

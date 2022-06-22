@@ -64,15 +64,15 @@ export default function SecondMap(props) {
     try {
       const res = await axios.get(API_ENDPOINT + "projects/list");
       if (res.data) {
-        console.log("resdata",res.data);
+        // console.log("resdata",res.data);
         setProjectsLoading(false);
         let projects = res.data.data.projects;
         let projectGrouped = _.chain(projects).groupBy('slug').map((value, key) => ({ slug: key, title: value[0].title, project_status : value[0].project_status, small_description: value[0].small_description, banner: value[0].banners.length ? value[0].banners[0].media_s3_base_path + value[0].banners[0].local_path : publicPath + `/assets/images/home/01.jpg` })).groupBy('slug').value();
-        console.log("projectGrouped", projectGrouped);
+        // console.log("projectGrouped", projectGrouped);
         setProjects(projectGrouped);
       }
     } catch (error) {
-      console.error("error ", error);
+      // console.error("error ", error);
       setProjectsLoading(false);
     }
   }
@@ -84,7 +84,7 @@ export default function SecondMap(props) {
 
   const svgLoad = () => {
     const objTag = document.querySelector('object');
-    console.log("objTag", objTag);
+    // console.log("objTag", objTag);
     // wait for SVG to load
     //setTimeout(()=>{
     objTag.addEventListener('load', () => {
@@ -116,7 +116,7 @@ export default function SecondMap(props) {
     let currentId = t.getAttribute('id');
     let currentIdTitle = t.getAttribute('data-name');
     //console.log("projects" ,currentId,currentIdTitle, ev);
-    console.log('@@@ Current Id Second Map =========', currentId);
+    // console.log('@@@ Current Id Second Map =========', currentId);
 
     if (currentId.toLowerCase() === 'map')
       setFilterData(null);
@@ -133,7 +133,7 @@ export default function SecondMap(props) {
       <object
         data={publicPath + "/assets/images/map/dubai_map.svg"}
         aria-label="block view" />
-      {console.log("filterData ", filterData)}
+      {/* {console.log("filterData ", filterData)} */}
       {filterData && !projects[filterData.slug][0].project_status ?
       <Link to={`/projects/${projects[filterData.slug][0].slug}`} className={projects[filterData.slug][0].project_status}>
           <div className="col-md-2 projectDetailBox"  style={mobileCheck()? { top:100 , left:100 } :{    top: filterData.clientY, left: filterData.clientX }}>

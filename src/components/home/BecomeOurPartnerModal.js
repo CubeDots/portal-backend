@@ -61,7 +61,7 @@ function BecomeOurPartnerModal(props) {
         email: user.email,
       }));
     }
-    console.log("props", props.show);
+    // console.log("props", props.show);
   }, [user]);
 
   async function fetchFooterSocial() {
@@ -73,7 +73,7 @@ function BecomeOurPartnerModal(props) {
         setFooterSocialLinks(res.data.social_links);
       }
     } catch (error) {
-      console.error("error ", error);
+      // console.error("error ", error);
       setFooterSocialLoading(false);
     }
   }
@@ -90,16 +90,16 @@ function BecomeOurPartnerModal(props) {
                     return o.title !== 'AcarBlu';
                 }
             );
-            console.log("filtered_array", filtered_array);
+            // console.log("filtered_array", filtered_array);
             let projectTitle = filtered_array.map((x) => {
                 return x.title
             });
 
             setProjectList(projectTitle);
-            console.log("project list", projectTitle, projectList)
+            // console.log("project list", projectTitle, projectList)
         }
     } catch (error) {
-        console.error("error ", error);
+        // console.error("error ", error);
         setCountriesLoading(false);
     }
 }
@@ -136,11 +136,11 @@ function BecomeOurPartnerModal(props) {
   const handleChange = (e) => {
     //console.log("isClearable", e);
     let selectedProject = e;
-    console.log("projectList", selectedProject);
+    // console.log("projectList", selectedProject);
     setFormData(formData => ({ ...formData, project_interest: selectedProject }));
 }
   const handleChangeTerms = (status) => {
-    console.log("terms ", status);
+    // console.log("terms ", status);
     setFormData((formData) => ({ ...formData, terms: status }));
   };
 
@@ -175,7 +175,7 @@ function BecomeOurPartnerModal(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("formData ", formData);
+    // console.log("formData ", formData);
     if (formData.security_code !== securityCode) {
       alert("Please enter correct security code");
       return false;
@@ -189,7 +189,7 @@ function BecomeOurPartnerModal(props) {
     axios
       .post(API_ENDPOINT + "orgzit/requestEnrollment", formData)
       .then((res) => {
-        console.log("res ### ", res.status, res.data);
+        // console.log("res ### ", res.status, res.data);
         if (res.status === 200) {
           setLoading(false);
           genRandomString();
@@ -341,8 +341,7 @@ function BecomeOurPartnerModal(props) {
                             occupation: e.target.value,
                           })
                         }
-                        defaultValue={formData.occupation}
-                      >
+                        defaultValue={formData.occupation}>
                         <option value="" disabled selected hidden>Interested As</option>
                         <option value="Agency">Real Estate Agency</option>
                         <option value="Developer">Developer</option>

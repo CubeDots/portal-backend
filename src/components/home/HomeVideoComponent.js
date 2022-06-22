@@ -16,7 +16,7 @@ function HomeVideoComponent() {
                 setHomeVideo(res.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setHomeVideoLoading(false);
         }
     }

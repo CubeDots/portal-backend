@@ -11,12 +11,12 @@ function HomeCuSocialComponent() {
 
     const [isBecomeOurPartnerModalShow, setIsBecomeOurPartnerModalShow] = useState(false);
     const showBecomeOurPartnerModal = () => {
-        console.log("showBecomeOurPartnerModal clicked");
+        // console.log("showBecomeOurPartnerModal clicked");
         setIsBecomeOurPartnerModalShow(true);
     }
 
     const closeBecomeOurPartnerModalModal = () => {
-        console.log("closeBecomeOurPartnerModalModal trigger");
+        // console.log("closeBecomeOurPartnerModalModal trigger");
         setIsBecomeOurPartnerModalShow(false);
     }
 

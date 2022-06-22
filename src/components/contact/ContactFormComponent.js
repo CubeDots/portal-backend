@@ -38,7 +38,7 @@ function ContactFormComponent(props) {
         fetchCountries();
         setLoading(false);
         if (user) {
-            //console.log("user",user)
+            // console.log("user",user)
             setFormData(fd => ({ ...fd, first_name: user.name.split(" ")[0], last_name: user.name.split(" ")[1], email: user.email }));
         }
     }, [user]);
@@ -52,7 +52,7 @@ function ContactFormComponent(props) {
                 setFooterSocialLinks(res.data.social_links);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setFooterSocialLoading(false);
         }
     }
@@ -70,16 +70,16 @@ function ContactFormComponent(props) {
                         return o.title !== 'AcarBlu';
                     }
                 );
-                console.log("filtered_array", filtered_array);
+                // console.log("filtered_array", filtered_array);
                 let projectTitle = filtered_array.map((x) => {
                     return x.title
                 });
 
                 setProjectList(projectTitle);
-                console.log("project list", projectTitle, projectList)
+                // console.log("project list", projectTitle, projectList)
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setCountriesLoading(false);
         }
     }
@@ -89,12 +89,12 @@ function ContactFormComponent(props) {
         try {
             const res = await axios.get(publicPath + "/assets/data/countries.json");
             if (res.data) {
-                //console.log("res.data ",res.data.data);
+                console.log("res.data ",res.data.data);
                 setCountriesLoading(false);
                 setCountries(res.data.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setCountriesLoading(false);
         }
     }
@@ -112,7 +112,7 @@ function ContactFormComponent(props) {
         setFormData(formData => ({ ...formData, dial_code: dial_code }));
     }
     const handleChangeTerms = (status) => {
-        console.log("terms ", status);
+        // console.log("terms ", status);
         setFormData(formData => ({ ...formData, terms: status }));
     }
 
@@ -122,15 +122,15 @@ function ContactFormComponent(props) {
         // multiselectRef.current.resetSelectedValues();
     }
     const handleChange = (e) => {
-        //console.log("isClearable", e);
+        console.log("isClearable", e);
         let selectedProject = e;
-        console.log("projectList", selectedProject);
+        // console.log("projectList", selectedProject);
         setFormData(formData => ({ ...formData, project_interest: selectedProject }));
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log("formData ", formData);
+        // console.log("formData ", formData);
         if (formData.terms === false) {
             alert("Please accept our Terms & Condition.");
             return false;
@@ -139,7 +139,7 @@ function ContactFormComponent(props) {
 
         axios.post(API_ENDPOINT + 'orgzit/requestEnrollment', formData)
             .then((res) => {
-                console.log('res ### ', res.status, res.data)
+                // console.log('res ### ', res.status, res.data)
                 if (res.status === 200) {
                     setSelectedValue(['']);
                     setSelectedValue([]);
@@ -152,7 +152,7 @@ function ContactFormComponent(props) {
                 }
             }).catch((error) => {
                 setLoading(false);
-                console.log("errors ### ", error);
+                // console.log("errors ### ", error);
                 if (error) {
                     if (error.response.status === 422) {
                         let errors = error.response.data.errors;

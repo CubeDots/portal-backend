@@ -25,7 +25,7 @@ function CubedotBrandTechnologylogoComponent(props) {
                 setOurPartnerComponent(res.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setOurPartnerComponentLoading(false);
         }
     }

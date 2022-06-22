@@ -12,7 +12,7 @@ function HomePageCounters() {
             const res = await axios.get(publicPath + "/assets/data/homePageCounters.json");
             setCounters(res.data);
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
         }
     }
 

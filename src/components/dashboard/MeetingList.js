@@ -29,7 +29,7 @@ function MeetingList() {
       setMeetingsLoader(false);
       setMeetings(res.data.data);
     } catch (error) {
-      console.error("error ", error);
+      // console.error("error ", error);
       setMeetingsLoader(false);
     }
 
@@ -46,7 +46,7 @@ function MeetingList() {
     
   ], []);
 
-  console.log("meetings =>  ",countPerPage, meetings.length,meetings);
+  // console.log("meetings =>  ",countPerPage, meetings.length,meetings);
 
   const data = React.useMemo(() => meetings, []);
   return <DataTable

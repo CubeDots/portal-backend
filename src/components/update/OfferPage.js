@@ -41,7 +41,8 @@ import {
     LineIcon,
     EmailIcon,
   } from 'react-share';
-
+//alert('calling...');
+//document.querySelector('meta[property="og:title"]').setAttribute("content", "Example with og title meta tag");
 function OfferPage() {
     let publicPath = process.env.PUBLIC_URL;
 
@@ -50,6 +51,7 @@ function OfferPage() {
 
     useEffect(() => {
         fetchData();
+        
     }, []);
 
     async function fetchData() {
@@ -62,9 +64,12 @@ function OfferPage() {
             setCuSocialsLoading(false);
 
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setCuSocialsLoading(false);
         }
+
+        
+                
     }
 
     const onPrevClick = () => {

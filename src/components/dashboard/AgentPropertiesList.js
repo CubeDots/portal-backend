@@ -51,7 +51,7 @@ function AgentPropertiesList() {
             setDashboardSalesStats(res.data.data);
 
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setDashboardSalesStatsLoader(false);
         }
     }

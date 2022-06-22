@@ -62,15 +62,15 @@ export default function ProjectsMapComponent(props) {
     try {
       const res = await axios.get(API_ENDPOINT + "projects/list");
       if (res.data) {
-        console.log("resdata",res.data);
+        // console.log("resdata",res.data);
         setProjectsLoading(false);
         let projects = res.data.data.projects;
         let projectGrouped = _.chain(projects).groupBy('slug').map((value, key) => ({ slug: key, title: value[0].title, project_status : value[0].project_status, small_description: value[0].small_description, banner: value[0].banners.length ? value[0].banners[0].media_s3_base_path + value[0].banners[0].local_path : publicPath + `/assets/images/home/01.jpg` })).groupBy('slug').value();
-        console.log("projectGrouped", projectGrouped);
+        // console.log("projectGrouped", projectGrouped);
         setProjects(projectGrouped);
       }
     } catch (error) {
-      console.error("error ", error);
+      // console.error("error ", error);
       setProjectsLoading(false);
     }
   }
@@ -82,7 +82,7 @@ export default function ProjectsMapComponent(props) {
 
   const svgLoad = () => {
     const objTag = document.querySelector('object');
-    console.log("objTag", objTag);
+    // console.log("objTag", objTag);
     // wait for SVG to load
     //setTimeout(()=>{
     objTag.addEventListener('load', () => {

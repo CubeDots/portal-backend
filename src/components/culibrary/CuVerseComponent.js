@@ -16,7 +16,7 @@ function CuVerseComponent() {
                 setCuVerse(res.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setCuVerseLoading(false);
         }
     }

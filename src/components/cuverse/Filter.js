@@ -9,7 +9,7 @@ class Filter extends React.Component {
   handleFilterChange = event => {
     // const newValue = this.filterRef.value;
     const newValue = event.target.value;
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.props.updateFilter(event, newValue);
   };
 

@@ -10,17 +10,17 @@ function AmenitiesComponent(props) {
     useEffect(() => {
         if (props.amenities.length)
             setAmenities(props.amenities);
-            console.log("amenities", props.amenities);
+            // console.log("amenities", props.amenities);
 
     }, [props.amenities]);
 
     const showAmenitiesModal = () => {
-        console.log("showAmenitiesModal clicked");
+        // console.log("showAmenitiesModal clicked");
         // setIsAmenitiesModalShow(true);
     }
 
     const closeAmenitiesModalModal = () => {
-        console.log("closeAmenitiesModalModal trigger");
+        // console.log("closeAmenitiesModalModal trigger");
         setIsAmenitiesModalShow(false);
     }
     return (

@@ -16,7 +16,7 @@ function ContactUsInfoComponent() {
                 setContactUs(res.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setContactUsLoading(false);
         }
     }

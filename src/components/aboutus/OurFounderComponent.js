@@ -20,7 +20,7 @@ function OurFounderComponent() {
                 setOurFounder(res.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setOurFounderLoading(false);
         }
     }

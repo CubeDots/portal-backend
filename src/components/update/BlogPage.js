@@ -31,7 +31,7 @@ function BlogPage() {
             setCuSocialsLoading(false);
 
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setCuSocialsLoading(false);
         }
     }

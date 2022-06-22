@@ -21,18 +21,18 @@ function EventComponent(props) {
                 setEvents(res.data.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setEventsLoading(false);
         }
     }
     const showVideoModal = (r) => {
-        console.log("showVideoModal clicked");
+        // console.log("showVideoModal clicked");
         setActiveVideoData(r);
         setIsVideoModalShow(true);
     }
 
     const closeVideoModal = () => {
-        console.log("closeVideoModal trigger");
+        // console.log("closeVideoModal trigger");
         setIsVideoModalShow(false);
         setActiveVideoData(null);
     }

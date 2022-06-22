@@ -20,7 +20,7 @@ function WhyUsWhyUsTestimonialComponent() {
             setWhyUsTestimonialLoading(false);
 
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setWhyUsTestimonialLoading(false);
         }
     }

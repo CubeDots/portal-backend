@@ -24,7 +24,7 @@ function HomeProjectsComponent() {
                 setProjects(res.data.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setProjectsLoading(false);
         }
     }

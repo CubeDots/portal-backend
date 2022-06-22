@@ -12,7 +12,7 @@ function AboutCounterComponent() {
             const res = await axios.get(publicPath + "/assets/data/aboutPageCounters.json");
             setCounters(res.data);
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
         }
     }
 

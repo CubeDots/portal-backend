@@ -17,7 +17,7 @@ function MonthlyAppointmentList() {
 
     useEffect(() => {
         fetchDashboardAppointmentStatsData();
-        //console.log("dateRange",dateRange);
+        console.log("dateRange",dateRange);
     }, []);
 
 
@@ -41,7 +41,7 @@ function MonthlyAppointmentList() {
     /* SALES LIST */
     async function fetchDashboardAppointmentStatsData() {
         setDashboardSalesStatsLoader(true);
-        console.log("dateRange ", dateRange);
+        // console.log("dateRange ", dateRange);
         let postData = {
             test: null,
             start_date: dateRange[0],
@@ -53,7 +53,7 @@ function MonthlyAppointmentList() {
             setDashboardSalesStats(res.data.data);
 
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setDashboardSalesStatsLoader(false);
         }
     }
@@ -140,7 +140,7 @@ function MonthlyAppointmentList() {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {console.log('activeRow', activeRow)}
+                    {/* {console.log('activeRow', activeRow)} */}
                     {activeRow ?
                         <div className="table-responsive">
                             <table className="table table-sm">

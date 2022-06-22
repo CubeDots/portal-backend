@@ -66,12 +66,12 @@ function HomePage(props) {
         window.scrollTo({ top: 0 })
     }, [])
     const showBecomeOurPartnerModal = () => {
-        console.log("showBecomeOurPartnerModal clicked");
+        // console.log("showBecomeOurPartnerModal clicked");
         setIsBecomeOurPartnerModalShow(true);
     }
 
     const closeBecomeOurPartnerModalModal = () => {
-        console.log("closeBecomeOurPartnerModalModal trigger");
+        // console.log("closeBecomeOurPartnerModalModal trigger");
         setIsBecomeOurPartnerModalShow(false);
     }
 

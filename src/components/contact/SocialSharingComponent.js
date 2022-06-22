@@ -38,7 +38,7 @@ function SocialSharingComponent() {
                 setFooterSocialLinks(res.data.social_links);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setFooterSocialLoading(false);
         }
     }
@@ -51,7 +51,7 @@ function SocialSharingComponent() {
                 setProjects(res.data.data.projects);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setCountriesLoading(false);
         }
     }
@@ -61,12 +61,12 @@ function SocialSharingComponent() {
         try {
             const res = await axios.get(publicPath + "/assets/data/countries.json");
             if (res.data) {
-                //console.log("res.data ",res.data.data);
+                console.log("res.data ",res.data.data);
                 setCountriesLoading(false);
                 setCountries(res.data.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setCountriesLoading(false);
         }
     }

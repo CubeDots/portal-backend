@@ -15,7 +15,7 @@ function OurPresenceComponent() {
                 setOurPresence(res.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setOurPresenceLoading(false);
         }
     }

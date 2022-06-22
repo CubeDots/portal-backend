@@ -49,7 +49,7 @@ function MonthlySalesList() {
             setDashboardSalesStats(res.data.data);
 
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setDashboardSalesStatsLoader(false);
         }
     }
@@ -130,7 +130,7 @@ function MonthlySalesList() {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {console.log('activeRow', activeRow)}
+                    {/* {console.log('activeRow', activeRow)} */}
                     {activeRow ?
                         <div className="table-responsive">
                             <table className="table table-sm">

@@ -17,7 +17,7 @@ function DeveloperAssociateComponent(props) {
                 setDeveloperAssociate(res.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setDeveloperAssociateLoading(false);
         }
     }

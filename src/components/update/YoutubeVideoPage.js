@@ -25,13 +25,13 @@ function YoutubeVideoPage() {
     const [cuSocials, setCuSocials] = useState([]);
 
     const showVideoModal = (r) => {
-        console.log("showVideoModal clicked");
+        // console.log("showVideoModal clicked");
         setActiveVideoData(r);
         setIsVideoModalShow(true);
     }
 
     const closeVideoModal = () => {
-        console.log("closeVideoModal trigger");
+        // console.log("closeVideoModal trigger");
         setIsVideoModalShow(false);
         setActiveVideoData(null);
     }
@@ -51,7 +51,7 @@ function YoutubeVideoPage() {
             setCuSocialsLoading(false);
 
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setCuSocialsLoading(false);
         }
     }

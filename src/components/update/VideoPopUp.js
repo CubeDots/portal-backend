@@ -8,7 +8,7 @@ function VideoPopUp(props) {
 
     useEffect(() => {
         //
-        console.log(props.data);
+        // console.log(props.data);
     }, [props]);
 
     return (

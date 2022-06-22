@@ -11,13 +11,13 @@ function Knowlegdepage() {
 
 
     const showVideoModal = (r) => {
-        console.log("showVideoModal clicked");
+        // console.log("showVideoModal clicked");
         setActiveVideoData(r);
         setIsVideoModalShow(true);
     }
 
     const closeVideoModal = () => {
-        console.log("closeVideoModal trigger");
+        // console.log("closeVideoModal trigger");
         setIsVideoModalShow(false);
         setActiveVideoData(null);
     }

@@ -7,21 +7,22 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useIsAuthenticated } from 'react-auth-kit';
 import BecomeOurPartnerModal from "../home/BecomeOurPartnerModal";
 
-// const UpdatingPopover = React.forwardRef(
-//   ({ popper, children, show: _, ...props }, ref) => {
-//     useEffect(() => {
-//       console.log('updating!');
-//       popper.scheduleUpdate();
-//     }, [children, popper]);
+{/*
+const UpdatingPopover = React.forwardRef(
+  ({ popper, children, show: _, ...props }, ref) => {
+    useEffect(() => {
+      // console.log('updating!');
+      popper.scheduleUpdate();
+    }, [children, popper]);
 
-//     return (
-//       <Popover ref={ref} body {...props}>
-//         {children}
-//       </Popover>
-//     );
-//   },
-// );
-
+    return (
+      <Popover ref={ref} body {...props}>
+        {children}
+      </Popover>
+    );
+  },
+);
+*/}
 
 function PopoverDownloadButton(props) {
   const { row } = props;
@@ -32,9 +33,9 @@ function PopoverDownloadButton(props) {
 
   const getFileDownload = async (row) => {
     setdownLoading(true);
-    console.log("row.mime_type ", row.mime_type, row.path, row);
+    // console.log("row.mime_type ", row.mime_type, row.path, row);
     let fileURL = row.path;
-    console.log("fileURL", fileURL.replace(" ", "_"));
+    // console.log("fileURL", fileURL.replace(" ", "_"));
     let fileNameRename = row.name;
     let newFileName = fileNameRename.replace(" ", "_");
     let fileName = newFileName;
@@ -63,12 +64,12 @@ function PopoverDownloadButton(props) {
         })
         .catch(error => {
           setdownLoading(false);
-          console.log("Errors: ", error.message);
+          // console.log("Errors: ", error.message);
           return [];
         });
 
     } catch (error) {
-      console.log("error ", error);
+      // console.log("error ", error);
       setdownLoading(false);
       alert('File downloading failed.')
     }
@@ -94,12 +95,12 @@ function PopoverDownloadButton(props) {
   };
   const [isBecomeOurPartnerModalShow, setIsBecomeOurPartnerModalShow] = useState(false);
   const showBecomeOurPartnerModal = () => {
-    console.log("showBecomeOurPartnerModal clicked");
+    // console.log("showBecomeOurPartnerModal clicked");
     setIsBecomeOurPartnerModalShow(true);
   }
 
   const closeBecomeOurPartnerModalModal = () => {
-    console.log("closeBecomeOurPartnerModalModal trigger");
+    // console.log("closeBecomeOurPartnerModalModal trigger");
     setIsBecomeOurPartnerModalShow(false);
   }
 
