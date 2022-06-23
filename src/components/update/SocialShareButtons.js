@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import {
     FacebookShareButton,
     LinkedinShareButton,
@@ -19,12 +20,31 @@ import {
 const ImageUrll = "https://cuengine-portal.s3.eu-west-2.amazonaws.com/"
 function SocialShareButtons(props) {
     let publicPath = process.env.PUBLIC_URL;
-    const image_url = "https://cuengine-portal.s3.eu-west-2.amazonaws.com/"+props.data.featured_image;
-    document.querySelector('meta[property="og:image"]').setAttribute("content", "https://cuengine-portal.s3.eu-west-2.amazonaws.com/" + props.data.featured_image);
-    document.querySelector('meta[property="og:title"]').setAttribute("content", props.data.title);
-    document.querySelector('meta[property="og:description"]').setAttribute("content", props.data.long_description);
-    document.querySelector('meta[property="og:image:height"]').style.height = "100px";
-    document.querySelector('meta[property="og:image:width"]').style.width = "100px";
+
+    const image_url = "https://cuengine-portal.s3.eu-west-2.amazonaws.com/" + props.data.featured_image;
+    const [title , setTitle] = useState(props.data.title);
+    const [imageurl , setImageurl] = useState(image_url);
+    const [description , setDescription] = useState(props.data.long_description);
+
+    document.querySelector('meta[property="og:title"]').setAttribute("content", title);
+    document.querySelector('meta[property="og:image"]').setAttribute("content", imageurl);
+    document.querySelector('meta[property="og:url"]').setAttribute("content", 'https://staging.cubedots.com/');
+    document.querySelector('meta[property="og:description"]').setAttribute("content", description);
+
+    
+
+    const TitleClickHandler = (props) =>{
+        setTitle(props.data.title)
+    }
+
+    const ImageUrlHandler = () =>{
+        setImageurl(imageurl)
+    }
+
+    const DescritionHandler = (props) =>{
+        setDescription(props.data.long_description)
+    }
+
     if (!props.data)
         return "";
 
@@ -34,11 +54,12 @@ function SocialShareButtons(props) {
                 Share it
                 &nbsp;
                 <FacebookShareButton
-                    url={publicPath + 'https://staging.cubedots.com/cusocials/' + props.data.category + '/' + props.data.slug}
+                    url={imageurl}
                     // url={'imageUrl,whatsapp:https://www.cubedots.com/cusocials/offers'}
-                    imageUrl={'og:image'}
-                    title={props.data.title}
-                    description={props.data.long_description}>
+                    onImageurl={ImageUrlHandler}
+                    onTitle={TitleClickHandler}
+                    onDescription={DescritionHandler}
+                    >
                     <FacebookIcon size={32} round />
                 </FacebookShareButton>
                 &nbsp;
@@ -70,6 +91,7 @@ function SocialShareButtons(props) {
 
             </div>
            
+
         </>
     );
 

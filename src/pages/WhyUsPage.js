@@ -208,7 +208,18 @@ function WhyUsPage() {
                                     </ul>
                                 </div>
                                 <div className="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                    <h3>Partnership Benefits</h3>
+                                    <h3>Partnership Benefits</h3>                                    
+                                    <ul>
+                                        <li>Establishing relations with agents</li>
+                                        <li>Contracts with agents</li>
+                                        <li>Enrollment and training for Cubedots</li>
+                                        <li>Creating the marketing materials for the project</li>
+                                        <li>Settlement of payments</li>
+                                        <li>Assisting international agents through legal procedures and citizenship</li>
+                                    </ul>
+                                </div>
+                                <div className="tab-pane fade" id="Agency" role="tabpanel" aria-labelledby="Agency-tab">
+                                    <h3>Agency Relations Support</h3>
                                     <ul>
                                         <li>Cutting-edge presentation technology</li>
                                         <li>The best commission and price offers</li>
@@ -219,17 +230,6 @@ function WhyUsPage() {
                                         <li>Office space for meetings and appointments</li>
                                         <li>Special offers and rates</li>
                                         <li>Special promotions</li>
-                                    </ul>
-                                </div>
-                                <div className="tab-pane fade" id="Agency" role="tabpanel" aria-labelledby="Agency-tab">
-                                    <h3>Agency Relations Support</h3>
-                                    <ul>
-                                        <li>Establishing relations with agents</li>
-                                        <li>Contracts with agents</li>
-                                        <li>Enrollment and training for Cubedots</li>
-                                        <li>Creating the marketing materials for the project</li>
-                                        <li>Settlement of payments</li>
-                                        <li>Assisting international agents through legal procedures and citizenship</li>
                                     </ul>
                                 </div>
                             </div>
