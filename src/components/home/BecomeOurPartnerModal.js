@@ -332,6 +332,7 @@ function BecomeOurPartnerModal(props) {
                   <div className="row">
                     <div className="col mb-3">
                       <select
+                      required
                         className="form-select"
                         placeholder="Occupation"
                         name="occupation"
@@ -431,6 +432,7 @@ function BecomeOurPartnerModal(props) {
                           options={projectList}
                           hidePlaceholder={true}
                           placeholder={"Select Projects *"}
+                          singleSelect={true}
                         />
                       </>
                     ) : (

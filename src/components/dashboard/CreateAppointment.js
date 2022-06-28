@@ -267,6 +267,7 @@ function CreateAppointment(props) {
                                                 placeholder="00:00"
                                                 showSecond={false}
                                                 className="form-control"
+                                                required={true}
                                             />
                                             {/* <input className="form-control" type="time" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required /> */}
                                         </div>

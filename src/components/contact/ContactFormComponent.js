@@ -254,6 +254,7 @@ function ContactFormComponent(props) {
                                     options={projectList}             
                                     hidePlaceholder={true}                      
                                     placeholder={"Select Projects *"}
+                                    singleSelect={true}
                                 />
                                 {/* <select className="form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
                                     <option value="">Project Interest</option>
