@@ -1751,11 +1751,13 @@ img.bgImageUpdates {
     color: #e65400;
 }
 
+/*
 .culibraryNewContent {
     height: 550px;
     overflow-y: auto;
     overflow-x: hidden;
 }
+*/
 
 
 
@@ -1934,7 +1936,11 @@ img.bgImageUpdates {
     top: -57px;
     left: 14px;
 }
-
+.FolderChooser-filemanager-2 .FolderChooser-data-5.animated.row{
+    height: 550px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 span.FolderChooser-icon-14 {
     font-size: 20px;
     margin: 8px;
