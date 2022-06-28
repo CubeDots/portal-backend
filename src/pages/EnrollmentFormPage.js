@@ -424,6 +424,7 @@ function EnrollmentFromAds(props) {
                           options={projectList}
                           hidePlaceholder={true}
                           placeholder={"Select Projects *"}
+                          singleSelect={true}
                         />
                       </>
                     ) : (
