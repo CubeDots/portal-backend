@@ -144,7 +144,6 @@ function ContactFormComponent(props) {
                     setSelectedValue(['']);
                     setSelectedValue([]);
                     setLoading(false);
-                    resetFrom();
                     setTimeout(() => {
                         alert(res.data.message);
                     }, 1000);
@@ -243,7 +242,7 @@ function ContactFormComponent(props) {
                             <>
 
                                 {/* <Select options="" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} /> */}
-                                <Multiselect
+                                {/* <Multiselect
                                     ref={multiselectRef}
                                     isObject={false}
                                     onKeyPressFn={function noRefCheck() { }}
@@ -255,11 +254,11 @@ function ContactFormComponent(props) {
                                     hidePlaceholder={true}                      
                                     placeholder={"Select Projects *"}
                                     singleSelect={true}
-                                />
-                                {/* <select className="form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
-                                    <option value="">Project Interest</option>
-                                    {projects.length > 0 && projects.map((row, index) => <option value={row.title} key={index} >{row.title}</option>)}
-                                </select> */}
+                                /> */}
+                                <select className="contactComponent form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
+                                    <option value="" disabled selected hidden>Project Interest</option>
+                                    {projects.length > 0 && projects.map((row, index) => <option value={row.title === "AcarBlu" ? "" : row.title} key={index} >{row.title === "AcarBlu" ? "" : row.title}</option>)}
+                                </select>
                                 {/* <Select
                                     onChange = {(e) => setFormData({ ...formData, project_interest: e.target.value })}
                                     value={formData.project_interest}

@@ -29,7 +29,7 @@ function EnrollmentFromAds(props) {
 
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    project_interest: "-",
+    project_interest: "",
     first_name: "",
     last_name: "",
     email: "",
@@ -128,7 +128,7 @@ function EnrollmentFromAds(props) {
     let dial_code = newDialCode.length ? newDialCode[0] : "";
     setFormData((formData) => ({ ...formData, dial_code: dial_code }));
   };
-  const handleChange = (e) => {
+  const handleChangeProjectInterest = (e) => {
     //console.log("isClearable", e);
     let selectedProject = e;
     console.log("projectList", selectedProject);
@@ -411,7 +411,7 @@ function EnrollmentFromAds(props) {
                     </div>
                   </div>
                   <div className="row mb-3">
-                    {projects.length > 0 ? (
+                    {/* {projects.length > 0 ? (
                       <>
                         <Multiselect
                           ref={multiselectRef}
@@ -429,7 +429,35 @@ function EnrollmentFromAds(props) {
                       </>
                     ) : (
                       ""
-                    )}
+                    )} */}
+
+<div className="row">
+  <div className="col mb-3">
+    {projects.length > 0 ? (
+      <>
+        <select
+          className="contactComponent form-select"
+          placeholder="Select Projects"
+          name="country"
+          onChange={handleChangeProjectInterest}
+          defaultValue={formData.project_interest}
+          required
+        >
+          <option value="" disabled selected hidden>
+            Select Projects *
+          </option>
+          {projects.length > 0 &&
+            projects.map((row, index) => (
+              <option value={row.title === "AcarBlu" ? null : row.title} key={index}>
+              {row.title === "AcarBlu" ? null : row.title}
+            </option>
+            ))}
+        </select>
+      </>
+    ) : null}
+  </div>
+</div>
+
                   </div>
                   <div className="row">
                     <div className="captchInput">

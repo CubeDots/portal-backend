@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from "react";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -12,7 +12,7 @@ import Multiselect from "multiselect-react-dropdown";
 import _ from "lodash";
 
 function BecomeOurPartnerModal(props) {
-    let multiselectRef = React.createRef();
+  let multiselectRef = React.createRef();
 
   const simpleValidator = useRef(new SimpleReactValidator());
   let publicPath = process.env.PUBLIC_URL;
@@ -20,7 +20,7 @@ function BecomeOurPartnerModal(props) {
   const isAuthenticated = useIsAuthenticated();
   const auth = useAuthUser();
   const user = isAuthenticated() ? auth().user : null;
-  const [projectList, setProjectList] = useState([]);
+  const [projectList, setProjectList] = useState();
   const [projects, setProjects] = useState([]);
   const [selectedValue, setSelectedValue] = useState([]);
 
@@ -32,7 +32,7 @@ function BecomeOurPartnerModal(props) {
 
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    project_interest: "-",
+    project_interest: "",
     first_name: "",
     last_name: "",
     email: "",
@@ -80,29 +80,27 @@ function BecomeOurPartnerModal(props) {
   async function fetchProjects() {
     setCountriesLoading(true);
     try {
-        const res = await axios.get(API_ENDPOINT + "projects/list");
-        if (res.data.data) {
-            setCountriesLoading(false);
-            setProjects(res.data.data.projects);
-            let projects = res.data.data.projects;
-            let filtered_array = _.filter(
-                projects, function (o) {
-                    return o.title !== 'AcarBlu';
-                }
-            );
-            // console.log("filtered_array", filtered_array);
-            let projectTitle = filtered_array.map((x) => {
-                return x.title
-            });
-
-            setProjectList(projectTitle);
-            // console.log("project list", projectTitle, projectList)
-        }
-    } catch (error) {
-        // console.error("error ", error);
+      const res = await axios.get(API_ENDPOINT + "projects/list");
+      if (res.data.data) {
         setCountriesLoading(false);
+        setProjects(res.data.data.projects);
+        let projects = res.data.data.projects;
+        let filtered_array = _.filter(projects, function(o) {
+          return o.title !== "AcarBlu";
+        });
+        // console.log("filtered_array", filtered_array);
+        let projectTitle = filtered_array.map((x) => {
+          return x.title;
+        });
+
+        setProjectList(projectTitle);
+        // console.log("project list", projectTitle, projectList)
+      }
+    } catch (error) {
+      // console.error("error ", error);
+      setCountriesLoading(false);
     }
-}
+  }
   async function fetchCountries() {
     setCountriesLoading(true);
     try {
@@ -133,12 +131,16 @@ function BecomeOurPartnerModal(props) {
     let dial_code = newDialCode.length ? newDialCode[0] : "";
     setFormData((formData) => ({ ...formData, dial_code: dial_code }));
   };
-  const handleChange = (e) => {
+
+  const handleChangeProjectInterest = (e) => {
     //console.log("isClearable", e);
     let selectedProject = e;
-    // console.log("projectList", selectedProject);
-    setFormData(formData => ({ ...formData, project_interest: selectedProject }));
-}
+    //alert(e.target.value);
+    setFormData((formData) => ({
+      ...formData,
+      project_interest: e.target.value,
+    }));
+  };
   const handleChangeTerms = (status) => {
     // console.log("terms ", status);
     setFormData((formData) => ({ ...formData, terms: status }));
@@ -158,7 +160,7 @@ function BecomeOurPartnerModal(props) {
 
   const resetFrom = () => {
     setFormData({
-        project_interest: [],
+      project_interest: "",
       first_name: "",
       last_name: "",
       email: "",
@@ -175,7 +177,7 @@ function BecomeOurPartnerModal(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // console.log("formData ", formData);
+    console.log("formData ", formData);
     if (formData.security_code !== securityCode) {
       alert("Please enter correct security code");
       return false;
@@ -189,11 +191,12 @@ function BecomeOurPartnerModal(props) {
     axios
       .post(API_ENDPOINT + "orgzit/requestEnrollment", formData)
       .then((res) => {
-        // console.log("res ### ", res.status, res.data);
+        //console.log("res ### ", res.status, res.data);
+        
         if (res.status === 200) {
           setLoading(false);
           genRandomString();
-          setSelectedValue(['']);
+          setSelectedValue([""]);
           setSelectedValue([]);
           resetFrom();
           setTimeout(() => {
@@ -203,7 +206,7 @@ function BecomeOurPartnerModal(props) {
       })
       .catch((error) => {
         setLoading(false);
-        console.log("errors ### ", error);
+        //console.log("errors ### ", error);
         if (error) {
           if (error.response.status === 422) {
             let errors = error.response.data.errors;
@@ -332,7 +335,7 @@ function BecomeOurPartnerModal(props) {
                   <div className="row">
                     <div className="col mb-3">
                       <select
-                      required
+                        required
                         className="form-select"
                         placeholder="Occupation"
                         name="occupation"
@@ -342,8 +345,11 @@ function BecomeOurPartnerModal(props) {
                             occupation: e.target.value,
                           })
                         }
-                        defaultValue={formData.occupation}>
-                        <option value="" disabled selected hidden>Interested As</option>
+                        defaultValue={formData.occupation}
+                      >
+                        <option value="" disabled selected hidden>
+                          Interested As
+                        </option>
                         <option value="Agency">Real Estate Agency</option>
                         <option value="Developer">Developer</option>
                         <option value="Others">Others</option>
@@ -362,7 +368,9 @@ function BecomeOurPartnerModal(props) {
                             defaultValue={formData.country_name}
                             required
                           >
-                            <option value="" disabled selected hidden>Select Country *</option>
+                            <option value="" disabled selected hidden>
+                              Select Country *
+                            </option>
                             {countries.length > 0 &&
                               countries.map((row, index) => (
                                 <option value={row.country_name} key={index}>
@@ -418,34 +426,71 @@ function BecomeOurPartnerModal(props) {
                       ></textarea>
                     </div>
                   </div>
-                  <div className="row mb-3">
+                  
+
+
+
+<div className="row">
+  <div className="col mb-3">
+    {projects.length > 0 ? (
+      <>
+        <select
+          className="contactComponent form-select"
+          placeholder="Select Projects"
+          name="country"
+          onChange={handleChangeProjectInterest}
+          defaultValue={formData.project_interest}
+          required
+        >
+          <option value="" disabled selected hidden>
+            Select Projects *
+          </option>
+          {projects.length > 0 &&
+            projects.map((row, index) => (
+              <option value={row.title === "AcarBlu" ? null : row.title} key={index}>
+                {row.title === "AcarBlu" ? null : row.title}
+              </option>
+            ))}
+        </select>
+      </>
+    ) : null}
+  </div>
+</div>
+                    {/*<div className="row mb-3">
+                         {projects.length > 0 ? (
+                          <>
+                            <Multiselect
+                              ref={multiselectRef}
+                              isObject={false}
+                              onKeyPressFn={function noRefCheck() {}}
+                              onRemove={function noRefCheck() {}}
+                              onSearch={function noRefCheck() {}}
+                              onSelect={handleChange}
+                              selectedValues={selectedValue}
+                              options={projectList}
+                              hidePlaceholder={true}
+                              placeholder={"Select Projects *"}
+                            />
+                          </>
+                        ) : (
+                          ""
+                        )} 
+
                     {projects.length > 0 ? (
                       <>
-                        <Multiselect
-                          ref={multiselectRef}
-                          isObject={false}
-                          onKeyPressFn={function noRefCheck() {}}
-                          onRemove={function noRefCheck() {}}
-                          onSearch={function noRefCheck() {}}
-                          onSelect={handleChange}
-                          selectedValues={selectedValue}
-                          options={projectList}
-                          hidePlaceholder={true}
-                          placeholder={"Select Projects *"}
-                          singleSelect={true}
-                        />
+                        <select>
+                          <option select className="form-select" placeholder="Country" name="project_interest" onChange={handleChangeProjectInterest} defaultValue={formData.project_interest} required>Select Projects*</option>
+                          {projects.length > 0 && projects.map((row, index)=> <option value={row.title} key={index} >{row.title}</option>)}
+                        </select>
                       </>
                     ) : (
                       ""
                     )}
                   </div>
+                  */}
                   <div className="row">
                     <div className="captchInput">
-                      <input
-                        type="hidden"
-                        name="project_interest"
-                        value={"-"}
-                      />
+                     
 
                       <input
                         type="text"

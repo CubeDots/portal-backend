@@ -797,7 +797,9 @@ ul.agentdashboard {
     left: -107px;
     bottom: 20px;
 }
-
+select.contactComponent.form-select :last-child {
+    display: none;
+}
 .carousel-control-next,
 .carousel-control-prev {
     position: relative;
