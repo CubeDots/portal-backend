@@ -61,49 +61,49 @@ function ProfileDashPage() {
 
     return (
         <>
-            <div className="mt-2 mh-100">
-                <h2 className='ps-1'>Profile - {profiles.Title} ({profiles.AgentType})</h2>
-
-                <table className="table table-bordered0">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" colSpan="6">Profile - {profiles.Title} ({profiles.AgentType})</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <tr>
-                            <th className='ps-1'>Full Name</th>
+                            <th scope="row">Full Name</th>
                             <td>{profiles.FullName}</td>
-                        
-                            <th className='ps-1'>Email</th>
-                            <td>{profiles.Email}</td>
-                        
-                            <th className='ps-1'>Company Name</th>
+                            
+                            <th scope="row">Company</th>
                             <td>{profiles.CompanyName}</td>
                         </tr>
-                        
                         <tr>
-                            <th className='ps-1'>Phone Number</th>
+                            <th scope="row">Phone</th>
                             <td>{profiles.FirstPhone}</td>
-
-                            <th className='ps-1'>Country</th>
+                            
+                            
+                            <th scope="row">Email</th>
+                            <td>{profiles.Email}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Country</th>
                             <td>{profiles.Country}</td>
-                        
-                            <th className='ps-1'>Created By</th>
+                            
+                            <th scope="row">Created By</th>
                             <td>{profiles.CreatedBy}</td>
                         </tr>
-
                         <tr>
-                            <th className='ps-1'>Created Date</th>
+                            <th scope="row">Created Date</th>
                             <td>{profiles.CreatedDate}</td>
-
-                            <th className='ps-1'>Gender</th>
-                            <td>{profiles.Gender}</td>                        
                             
+                            
+                            <th scope="row">Gender</th>
+                            <td>{profiles.Gender}</td>
                         </tr>
-
-                        <tr className="changePasswordModel">
-                                <th className='ps-1' colSpan={2}><Link to="" onClick={openForgotPasswordModal}>Change Password </Link></th>
-                        </tr>
+                       
                     </tbody>
                 </table>
-
             </div>
+            
 
             <UpdatePasswordModal isForgotPasswordModalShow={isForgotPasswordModalShow} handleChane={closeForgotPasswordModal} />
 
