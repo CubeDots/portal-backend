@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useAuthUser, useIsAuthenticated, useAuthHeader } from 'react-auth-kit';
+import { API_ENDPOINT } from "../../common/Constants";
 import UpdatePasswordModal from '../../components/UpdatePasswordModal';
+import axios from 'axios';
+
 
 function ProfileDashPage() {
     const isAuthenticated = useIsAuthenticated();
     const authHeader = useAuthHeader();
     const auth = useAuthUser();
+
+    const [profileLoader, setProfileLoader] = useState(false);
+  
+    const [profiles, setProfiles] = useState([]);
 
     //console.log("authHeader == ",authHeader());
     const user = auth().user;
@@ -15,9 +22,33 @@ function ProfileDashPage() {
     const [isLoginModalShow, setisLoginModalShow] = React.useState(false);
     const [isForgotPasswordModalShow, setisForgotPasswordModalShow] = React.useState(false);
 
+    useEffect(() => {
+        fetchProfileData();
+      }, []);
+
+    async function fetchProfileData() {
+        setProfileLoader(true);
+        let postData = {
+            test: null,
+            email: user.email         
+        };
+        try {
+            setProfileLoader(true);
+            const res = await axios.post(API_ENDPOINT + "orgzit/profile_details", postData, { headers: { Authorization: authHeader() } });
+            setProfileLoader(false);
+            //console.log(res.data.data);
+            //return false;
+            if(res.data.data)
+            setProfiles(res.data.data);
+            //    console.log("res meeting", res.data);
+        } catch (error) {
+            console.error("error ", error);
+            setProfileLoader(false);
+        }
+    }      
   
-      /* FORGOT PASSWORD CODE GOES HERE */
-      const openForgotPasswordModal = () => {
+    /* FORGOT PASSWORD CODE GOES HERE */
+    const openForgotPasswordModal = () => {
         console.log('Forgot Password Modal click manually');
         setisForgotPasswordModalShow(true);
     }
@@ -27,29 +58,45 @@ function ProfileDashPage() {
         setisForgotPasswordModalShow(false);
     }
 
+
     return (
         <>
             <div className="mt-2 mh-100">
-                <h2 className='ps-1'>Profile</h2>
+                <h2 className='ps-1'>Profile - {profiles.Title} ({profiles.AgentType})</h2>
 
                 <table className="table table-bordered0">
                     <tbody>
                         <tr>
-                            <th className='ps-1'>Name</th>
-                            <td>{user.name}</td>
-                        </tr>
-                        <tr>
+                            <th className='ps-1'>Full Name</th>
+                            <td>{profiles.FullName}</td>
+                        
                             <th className='ps-1'>Email</th>
-                            <td>{user.email}</td>
+                            <td>{profiles.Email}</td>
+                        
+                            <th className='ps-1'>Company Name</th>
+                            <td>{profiles.CompanyName}</td>
                         </tr>
+                        
                         <tr>
-                            <th className='ps-1'>Company</th>
-                            <td>{user.company}</td>
+                            <th className='ps-1'>Phone Number</th>
+                            <td>{profiles.FirstPhone}</td>
+
+                            <th className='ps-1'>Country</th>
+                            <td>{profiles.Country}</td>
+                        
+                            <th className='ps-1'>Created By</th>
+                            <td>{profiles.CreatedBy}</td>
                         </tr>
+
                         <tr>
-                            <th className='ps-1'>Phone</th>
-                            <td>{user.phone}</td>
+                            <th className='ps-1'>Created Date</th>
+                            <td>{profiles.CreatedDate}</td>
+
+                            <th className='ps-1'>Gender</th>
+                            <td>{profiles.Gender}</td>                        
+                            
                         </tr>
+
                         <tr className="changePasswordModel">
                                 <th className='ps-1' colSpan={2}><Link to="" onClick={openForgotPasswordModal}>Change Password </Link></th>
                         </tr>
