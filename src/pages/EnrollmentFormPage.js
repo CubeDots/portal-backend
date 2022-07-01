@@ -11,13 +11,14 @@ import _ from "lodash";
 
 function EnrollmentFromAds(props) {
   let multiselectRef = React.createRef();
+
   const simpleValidator = useRef(new SimpleReactValidator());
   let publicPath = process.env.PUBLIC_URL;
   let mt = props.show;
   const isAuthenticated = useIsAuthenticated();
   const auth = useAuthUser();
   const user = isAuthenticated() ? auth().user : null;
-  const [projectList, setProjectList] = useState([]);
+  const [projectList, setProjectList] = useState();
   const [projects, setProjects] = useState([]);
   const [selectedValue, setSelectedValue] = useState([]);
 
@@ -41,6 +42,9 @@ function EnrollmentFromAds(props) {
     security_code: "",
     terms: false,
   });
+
+  
+
   const [securityCode, setSecurityCode] = useState(null);
 
   useEffect(() => {
@@ -58,7 +62,7 @@ function EnrollmentFromAds(props) {
         email: user.email,
       }));
     }
-    console.log("props", props.show);
+    // console.log("props", props.show);
   }, [user]);
 
   async function fetchFooterSocial() {
@@ -70,7 +74,7 @@ function EnrollmentFromAds(props) {
         setFooterSocialLinks(res.data.social_links);
       }
     } catch (error) {
-      console.error("error ", error);
+      // console.error("error ", error);
       setFooterSocialLoading(false);
     }
   }
@@ -85,16 +89,16 @@ function EnrollmentFromAds(props) {
         let filtered_array = _.filter(projects, function(o) {
           return o.title !== "AcarBlu";
         });
-        console.log("filtered_array", filtered_array);
+        // console.log("filtered_array", filtered_array);
         let projectTitle = filtered_array.map((x) => {
           return x.title;
         });
 
         setProjectList(projectTitle);
-        console.log("project list", projectTitle, projectList);
+        // console.log("project list", projectTitle, projectList)
       }
     } catch (error) {
-      console.error("error ", error);
+      // console.error("error ", error);
       setCountriesLoading(false);
     }
   }
@@ -128,17 +132,18 @@ function EnrollmentFromAds(props) {
     let dial_code = newDialCode.length ? newDialCode[0] : "";
     setFormData((formData) => ({ ...formData, dial_code: dial_code }));
   };
+
   const handleChangeProjectInterest = (e) => {
     //console.log("isClearable", e);
     let selectedProject = e;
-    console.log("projectList", selectedProject);
+    //alert(e.target.value);
     setFormData((formData) => ({
       ...formData,
-      project_interest: selectedProject,
+      project_interest: e.target.value,
     }));
   };
   const handleChangeTerms = (status) => {
-    console.log("terms ", status);
+    // console.log("terms ", status);
     setFormData((formData) => ({ ...formData, terms: status }));
   };
 
@@ -156,7 +161,7 @@ function EnrollmentFromAds(props) {
 
   const resetFrom = () => {
     setFormData({
-      project_interest: [],
+      project_interest: "",
       first_name: "",
       last_name: "",
       email: "",
@@ -187,23 +192,22 @@ function EnrollmentFromAds(props) {
     axios
       .post(API_ENDPOINT + "orgzit/requestEnrollment", formData)
       .then((res) => {
-        console.log("res ### ", res.status, res.data);
+        //console.log("res ### ", res.status, res.data);
+        
         if (res.status === 200) {
           setLoading(false);
           genRandomString();
           setSelectedValue([""]);
           setSelectedValue([]);
           resetFrom();
-
           setTimeout(() => {
             alert(res.data.message);
-            window.location.replace("/home");
           }, 1000);
         }
       })
       .catch((error) => {
         setLoading(false);
-        console.log("errors ### ", error);
+        //console.log("errors ### ", error);
         if (error) {
           if (error.response.status === 422) {
             let errors = error.response.data.errors;
@@ -448,9 +452,9 @@ function EnrollmentFromAds(props) {
           </option>
           {projects.length > 0 &&
             projects.map((row, index) => (
-              <option value={row.title === "AcarBlu" ? null : row.title} key={index}>
-              {row.title === "AcarBlu" ? null : row.title}
-            </option>
+             <option value={row.title === "AcarBlu" ? null : row.title} key={index}>
+                {row.title === "AcarBlu" ? null : row.title}
+              </option>
             ))}
         </select>
       </>
