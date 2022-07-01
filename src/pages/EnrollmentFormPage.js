@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import { Link } from "react-router-dom";
+import { Link,useNavigate  } from "react-router-dom";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 import { useAuthUser, useIsAuthenticated } from "react-auth-kit";
@@ -11,7 +11,7 @@ import _ from "lodash";
 
 function EnrollmentFromAds(props) {
   let multiselectRef = React.createRef();
-
+  let navigate = useNavigate();
   const simpleValidator = useRef(new SimpleReactValidator());
   let publicPath = process.env.PUBLIC_URL;
   let mt = props.show;
@@ -21,7 +21,6 @@ function EnrollmentFromAds(props) {
   const [projectList, setProjectList] = useState();
   const [projects, setProjects] = useState([]);
   const [selectedValue, setSelectedValue] = useState([]);
-
   const [footersocialLoading, setFooterSocialLoading] = useState(false);
   const [footerSocialLinks, setFooterSocialLinks] = useState(null);
 
@@ -42,9 +41,6 @@ function EnrollmentFromAds(props) {
     security_code: "",
     terms: false,
   });
-
-  
-
   const [securityCode, setSecurityCode] = useState(null);
 
   useEffect(() => {
@@ -188,7 +184,6 @@ function EnrollmentFromAds(props) {
       return false;
     }
     setLoading(true);
-
     axios
       .post(API_ENDPOINT + "orgzit/requestEnrollment", formData)
       .then((res) => {
@@ -202,7 +197,10 @@ function EnrollmentFromAds(props) {
           resetFrom();
           setTimeout(() => {
             alert(res.data.message);
-          }, 1000);
+        }, 1000);
+        setTimeout(()=>{
+          navigate('/home')
+        },2500)
         }
       })
       .catch((error) => {
