@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import InstagramEmbed from "react-instagram-embed";
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -25,13 +24,9 @@ import { width } from "@mui/system";
 function SocialShareButtons(props) {
   let publicPath = process.env.PUBLIC_URL;
   const second_url =
-    "https://cuengine-portal.s3.eu-west-2.amazonaws.com/" +
-    props.data.featured_image;
+    "https://cuengine-portal.s3.eu-west-2.amazonaws.com/" +props.data.featured_image;
   const image_url =
-    "https://www.cubedots.com/cusocials/" +
-    props.data.category +
-    "/" +
-    props.data.slug;
+    "https://www.cubedots.com/cusocials/" + props.data.category +"/" +props.data.slug;
 
   const phpurl = "https://www.cubedots.com/social_share.php?title=";
 
@@ -117,19 +112,7 @@ function SocialShareButtons(props) {
         >
           <EmailIcon size={32} round />
         </EmailShareButton>
-        <InstagramEmbed
-          url="https://instagr.am/p/Zw9o4/"
-          clientAccessToken="8d781de280413a4c60601791d13050b6"
-          maxWidth={320}
-          hideCaption={false}
-          containerTagName="div"
-          protocol=""
-          injectScript
-          onLoading={() => {}}
-          onSuccess={() => {}}
-          onAfterRender={() => {}}
-          onFailure={() => {}}
-        > </InstagramEmbed> */}
+       */}
       </div>
     </>
   );
