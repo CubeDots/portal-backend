@@ -24,6 +24,8 @@ function BecomeOurPartnerModal(props) {
   const [projects, setProjects] = useState([]);
   const [selectedValue, setSelectedValue] = useState([]);
 
+  const [showInput, setShowInput] = useState('');
+
   const [footersocialLoading, setFooterSocialLoading] = useState(false);
   const [footerSocialLinks, setFooterSocialLinks] = useState(null);
 
@@ -45,6 +47,12 @@ function BecomeOurPartnerModal(props) {
     terms: false,
   });
   const [securityCode, setSecurityCode] = useState(null);
+
+  const HandleInputHide = (event) => {
+    const setUserInput = event.target.value;
+    setShowInput(setUserInput)
+    console.log(event.target.value)
+  }
 
   useEffect(() => {
     genRandomString();
@@ -85,7 +93,7 @@ function BecomeOurPartnerModal(props) {
         setCountriesLoading(false);
         setProjects(res.data.data.projects);
         let projects = res.data.data.projects;
-        let filtered_array = _.filter(projects, function(o) {
+        let filtered_array = _.filter(projects, function (o) {
           return o.title !== "AcarBlu";
         });
         // console.log("filtered_array", filtered_array);
@@ -192,7 +200,7 @@ function BecomeOurPartnerModal(props) {
       .post(API_ENDPOINT + "orgzit/requestEnrollment", formData)
       .then((res) => {
         //console.log("res ### ", res.status, res.data);
-        
+
         if (res.status === 200) {
           setLoading(false);
           genRandomString();
@@ -333,24 +341,22 @@ function BecomeOurPartnerModal(props) {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col mb-3">
-                      <select
-                        required
-                        className="form-select"
-                        placeholder="Occupation"
-                        name="occupation"
+                    <div className="col mb-3" onChange={(e) =>
+                         {HandleInputHide(e)}
+                        }>
+                      <select required className="form-select" placeholder="Occupation" name="occupation"
+                        
                         onChange={(e) =>
                           setFormData({
                             ...formData,
                             occupation: e.target.value,
                           })
                         }
-                        defaultValue={formData.occupation}
-                      >
+                        defaultValue={formData.occupation}>
                         <option value="" disabled selected hidden>
                           Interested As
                         </option>
-                        <option value="Agency">Real Estate Agency</option>
+                        <option value="Agency" >Real Estate Agency</option>
                         <option value="Developer">Developer</option>
                         <option value="Others">Others</option>
                       </select>
@@ -422,41 +428,45 @@ function BecomeOurPartnerModal(props) {
                         defaultValue={formData.message}
                         onChange={(e) =>
                           setFormData({ ...formData, message: e.target.value })
-                        }
-                      ></textarea>
+                        }>
+                      </textarea>
                     </div>
                   </div>
-                  
 
 
 
-<div className="row">
-  <div className="col mb-3">
-    {projects.length > 0 ? (
-      <>
-        <select
-          className="contactComponent form-select"
-          placeholder="Select Projects"
-          name="country"
-          onChange={handleChangeProjectInterest}
-          defaultValue={formData.project_interest}
-          required
-        >
-          <option value="" disabled selected hidden>
-            Select Projects *
-          </option>
-          {projects.length > 0 &&
-            projects.map((row, index) => (
-              <option value={row.title === "AcarBlu" ? null : row.title} key={index}>
-                {row.title === "AcarBlu" ? null : row.title}
-              </option>
-            ))}
-        </select>
-      </>
-    ) : null}
-  </div>
-</div>
-                    {/*<div className="row mb-3">
+                  {
+                    showInput == 'Agency' && (
+                      <div className="row">
+                        <div className="col mb-3">
+                          {projects.length > 0 ? (
+                            <>
+                              <select
+                                className="contactComponent form-select"
+                                placeholder="Select Projects"
+                                name="country"
+                                onChange={handleChangeProjectInterest}
+                                defaultValue={formData.project_interest}
+                                required
+                              >
+                                <option value="" disabled selected hidden>
+                                  Select Projects *
+                                </option>
+                                {projects.length > 0 &&
+                                  projects.map((row, index) => (
+                                    <option value={row.title === "AcarBlu" ? null : row.title} key={index}>
+                                      {row.title === "AcarBlu" ? null : row.title}
+                                    </option>
+                                  ))}
+                              </select>
+                            </>
+                          ) : null}
+                        </div>
+                      </div>
+                    )
+                  }
+
+                  {/*<div className="row mb-3">
                          {projects.length > 0 ? (
                           <>
                             <Multiselect
@@ -490,7 +500,7 @@ function BecomeOurPartnerModal(props) {
                   */}
                   <div className="row">
                     <div className="captchInput">
-                     
+
 
                       <input
                         type="text"

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import { Link,useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 import { useAuthUser, useIsAuthenticated } from "react-auth-kit";
@@ -23,6 +23,7 @@ function EnrollmentFromAds(props) {
   const [selectedValue, setSelectedValue] = useState([]);
   const [footersocialLoading, setFooterSocialLoading] = useState(false);
   const [footerSocialLinks, setFooterSocialLinks] = useState(null);
+  const [showInput, setShowInput] = useState('');
 
   const [countriesLoading, setCountriesLoading] = useState(false);
   const [countries, setCountries] = useState([]);
@@ -61,6 +62,12 @@ function EnrollmentFromAds(props) {
     // console.log("props", props.show);
   }, [user]);
 
+  const HandleInputHide = (event) => {
+    const setUserInput = event.target.value;
+    setShowInput(setUserInput)
+    console.log(event.target.value)
+  }
+
   async function fetchFooterSocial() {
     setFooterSocialLoading(true);
     try {
@@ -82,7 +89,7 @@ function EnrollmentFromAds(props) {
         setCountriesLoading(false);
         setProjects(res.data.data.projects);
         let projects = res.data.data.projects;
-        let filtered_array = _.filter(projects, function(o) {
+        let filtered_array = _.filter(projects, function (o) {
           return o.title !== "AcarBlu";
         });
         // console.log("filtered_array", filtered_array);
@@ -188,7 +195,7 @@ function EnrollmentFromAds(props) {
       .post(API_ENDPOINT + "orgzit/requestEnrollment", formData)
       .then((res) => {
         //console.log("res ### ", res.status, res.data);
-        
+
         if (res.status === 200) {
           setLoading(false);
           genRandomString();
@@ -197,10 +204,10 @@ function EnrollmentFromAds(props) {
           resetFrom();
           setTimeout(() => {
             alert(res.data.message);
-        }, 1000);
-        setTimeout(()=>{
-          navigate('/home')
-        },2500)
+          }, 1000);
+          setTimeout(() => {
+            navigate('/home')
+          }, 2500)
         }
       })
       .catch((error) => {
@@ -257,8 +264,7 @@ function EnrollmentFromAds(props) {
                             first_name: e.target.value,
                           })
                         }
-                        required
-                      />
+                        required />
                       <div className="text-danger formErrorMsg">
                         {simpleValidator.current.message(
                           "first_name",
@@ -283,8 +289,7 @@ function EnrollmentFromAds(props) {
                             last_name: e.target.value,
                           })
                         }
-                        required
-                      />
+                        required />
                       <div className="text-danger formErrorMsg">
                         {simpleValidator.current.message(
                           "last_name",
@@ -308,8 +313,7 @@ function EnrollmentFromAds(props) {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        required
-                      />
+                        required />
                     </div>
                     <div className="text-danger formErrorMsg">
                       {simpleValidator.current.message(
@@ -320,7 +324,7 @@ function EnrollmentFromAds(props) {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col mb-3">
+                    <div className="col mb-3" onChange={(e) => { HandleInputHide(e) }}>
                       <select
                         className="form-select"
                         placeholder="Occupation"
@@ -331,8 +335,7 @@ function EnrollmentFromAds(props) {
                             occupation: e.target.value,
                           })
                         }
-                        defaultValue={formData.occupation}
-                      >
+                        defaultValue={formData.occupation}>
                         <option value="" disabled selected hidden>
                           Interested As
                         </option>
@@ -352,8 +355,7 @@ function EnrollmentFromAds(props) {
                             name="country"
                             onChange={handleChangeCountry}
                             defaultValue={formData.country_name}
-                            required
-                          >
+                            required>
                             <option value="" disabled selected hidden>
                               Select Country *
                             </option>
@@ -386,8 +388,7 @@ function EnrollmentFromAds(props) {
                           onChange={(e) =>
                             setFormData({ ...formData, mobile: e.target.value })
                           }
-                          required
-                        />
+                          required />
                       </div>
                       <div className="text-danger formErrorMsg">
                         {simpleValidator.current.message(
@@ -408,12 +409,11 @@ function EnrollmentFromAds(props) {
                         defaultValue={formData.message}
                         onChange={(e) =>
                           setFormData({ ...formData, message: e.target.value })
-                        }
-                      ></textarea>
+                        }>
+                      </textarea>
                     </div>
                   </div>
-                  <div className="row mb-3">
-                    {/* {projects.length > 0 ? (
+                  {/* {projects.length > 0 ? (
                       <>
                         <Multiselect
                           ref={multiselectRef}
@@ -432,43 +432,42 @@ function EnrollmentFromAds(props) {
                     ) : (
                       ""
                     )} */}
+                    
+                  {
+                    showInput == 'Agency' && (
+                      <div className="row">
+                        <div className="col mb-3">
+                          {projects.length > 0 ? (
+                            <>
+                              <select
+                                className="contactComponent form-select"
+                                placeholder="Select Projects"
+                                name="country"
+                                onChange={handleChangeProjectInterest}
+                                defaultValue={formData.project_interest}
+                                required>
+                                <option value="" disabled selected hidden>
+                                  Select Projects *
+                                </option>
+                                {projects.length > 0 &&
+                                  projects.map((row, index) => (
+                                    <option value={row.title === "AcarBlu" ? null : row.title} key={index}>
+                                      {row.title === "AcarBlu" ? null : row.title}
+                                    </option>
+                                  ))}
+                              </select>
+                            </>
+                          ) : null}
+                        </div>
+                      </div>
+                    )}
 
-<div className="row">
-  <div className="col mb-3">
-    {projects.length > 0 ? (
-      <>
-        <select
-          className="contactComponent form-select"
-          placeholder="Select Projects"
-          name="country"
-          onChange={handleChangeProjectInterest}
-          defaultValue={formData.project_interest}
-          required
-        >
-          <option value="" disabled selected hidden>
-            Select Projects *
-          </option>
-          {projects.length > 0 &&
-            projects.map((row, index) => (
-             <option value={row.title === "AcarBlu" ? null : row.title} key={index}>
-                {row.title === "AcarBlu" ? null : row.title}
-              </option>
-            ))}
-        </select>
-      </>
-    ) : null}
-  </div>
-</div>
-
-                  </div>
                   <div className="row">
                     <div className="captchInput">
                       <input
                         type="hidden"
                         name="project_interest"
-                        value={"-"}
-                      />
-
+                        value={"-"} />
                       <input
                         type="text"
                         placeholder="Security Code"
@@ -480,29 +479,25 @@ function EnrollmentFromAds(props) {
                             ...formData,
                             security_code: e.target.value,
                           })
-                        }
-                      />
+                        } />
                       <span className="captha_code mr-sm-2" id="notcp">
                         {securityCode}
                       </span>
                       <button
                         type="button"
                         onClick={() => genRandomString()}
-                        className="btn btn-default"
-                      >
+                        className="btn btn-default">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
                           fill="currentColor"
                           className="bi bi-arrow-repeat"
-                          viewBox="0 0 16 16"
-                        >
+                          viewBox="0 0 16 16">
                           <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
                           <path
                             fillRule="evenodd"
-                            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
-                          />
+                            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
                         </svg>
                       </button>
                     </div>
@@ -515,8 +510,7 @@ function EnrollmentFromAds(props) {
                           type="checkbox"
                           id="flexCheckDefault"
                           defaultValue={formData.terms}
-                          onClick={() => handleChangeTerms(!formData.terms)}
-                        />
+                          onClick={() => handleChangeTerms(!formData.terms)} />
                         <label className="form-check-label">
                           <div className="termsAndConditionSection">
                             <small>
@@ -539,8 +533,8 @@ function EnrollmentFromAds(props) {
                             animation="border"
                             size="sm"
                             role="status"
-                            aria-hidden="true"
-                          />{" "}
+                            aria-hidden="true" />
+                          {" "}
                           Submitting...
                         </button>
                       ) : (

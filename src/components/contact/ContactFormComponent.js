@@ -22,6 +22,7 @@ function ContactFormComponent(props) {
     const [selectedValue, setSelectedValue] = useState([]);
     const [footersocialLoading, setFooterSocialLoading] = useState(false);
     const [footerSocialLinks, setFooterSocialLinks] = useState(null);
+    const [showInput, setShowInput] = useState('');
 
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
@@ -31,6 +32,12 @@ function ContactFormComponent(props) {
 
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', country: '', occupation: '', project_interest: [], dial_code: '', mobile: '', message: '', terms: false });
+    
+    const HandleInputHide = (event) => {
+        const setUserInput = event.target.value;
+        setShowInput(setUserInput)
+        console.log(event.target.value)
+      }
 
     useEffect(() => {
         fetchFooterSocial();
@@ -209,7 +216,8 @@ function ContactFormComponent(props) {
                             </>
                             : ''}
                     </div>
-                    <div className="col-md-6 mb-3">
+                    <div className="col-md-6 mb-3" onChange={(e) =>
+                         {HandleInputHide(e)}}>
                         {/* <label className="form-label">Occupation</label> */}
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
                             <option value="" disabled selected hidden>Interested As</option>
@@ -255,10 +263,14 @@ function ContactFormComponent(props) {
                                     placeholder={"Select Projects *"}
                                     singleSelect={true}
                                 /> */}
+                                 {
+                    showInput == 'Agency' && (
                                 <select className="contactComponent form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
                                     <option value="" disabled selected hidden>Project Interest</option>
                                     {projects.length > 0 && projects.map((row, index) => <option value={row.title === "AcarBlu" ? "" : row.title} key={index} >{row.title === "AcarBlu" ? "" : row.title}</option>)}
                                 </select>
+                    )
+}
                                 {/* <Select
                                     onChange = {(e) => setFormData({ ...formData, project_interest: e.target.value })}
                                     value={formData.project_interest}
