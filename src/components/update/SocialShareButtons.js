@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import InstagramEmbed from "react-instagram-embed";
+
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -52,7 +52,7 @@ function SocialShareButtons(props) {
             "&img=" +
             second_url +
             "&callback=" +
-            image_url
+            image_url+"&type=f"
           }
         >
           <FacebookIcon size={32} round />
@@ -67,11 +67,27 @@ function SocialShareButtons(props) {
             "&img=" +
             second_url +
             "&callback=" +
-            image_url
+            image_url+"&type=l"
           }
         >
           <LinkedinIcon size={32} round />
         </LinkedinShareButton>
+        &nbsp;
+        
+        <TelegramShareButton
+          url={
+            phpurl +
+            props.data.title.replace(/\s+/g, '_') +
+            "&desc=" +
+            `${props.data.medium_description.substring(0, 100).replace(/\s+/g, '_')}` +
+            "&img=" +
+            second_url +
+            "&callback=" +
+            image_url+"&type=t"
+          }
+        >
+          <TelegramIcon size={32} round />
+        </TelegramShareButton>
         {/* &nbsp;
         <WhatsappShareButton
           url={
@@ -100,7 +116,7 @@ function SocialShareButtons(props) {
             image_url
           }
         >
-          <TelegramIcon size={32} round />
+        <TelegramIcon size={32} round />
         </TelegramShareButton>
         &nbsp;
         <EmailShareButton

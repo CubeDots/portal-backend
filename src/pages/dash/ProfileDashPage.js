@@ -18,7 +18,9 @@ function ProfileDashPage() {
     //console.log("authHeader == ",authHeader());
     const user = auth().user;
 
-
+    //console.log(user);    
+    //return false;
+    
     const [isLoginModalShow, setisLoginModalShow] = React.useState(false);
     const [isForgotPasswordModalShow, setisForgotPasswordModalShow] = React.useState(false);
 
@@ -65,47 +67,56 @@ function ProfileDashPage() {
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" colSpan="6">Profile - {profiles.Title} ({profiles.AgentType})</th>
+                            <th scope="col" colSpan="6">Orgzit ID - {user.orgzit_id != '' ? `${user.orgzit_id}` : `${profiles.Title}` (`${profiles.AgentType}`)}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">Full Name</th>
-                            <td>{profiles.FullName}</td>
+                            <td>{user.name != '' ? `${user.name}` : `${profiles.FullName}`}</td>
                             
                             <th scope="row">Company</th>
-                            <td>{profiles.CompanyName}</td>
+                            <td>{user.company_name != '' ? `${user.company_name}` : `${profiles.CompanyName}`}</td>
                         </tr>
                         <tr>
                             <th scope="row">Phone</th>
-                            <td>{profiles.FirstPhone}</td>
+                            <td>{user.phone != '' ? `${user.phone}` : `${profiles.FirstPhone}`}</td>
                             
                             
                             <th scope="row">Email</th>
-                            <td>{profiles.Email}</td>
+                            <td>{user.email != '' ? `${user.email}` : `${profiles.Email}`}</td>
                         </tr>
                         <tr>
                             <th scope="row">Country</th>
-                            <td>{profiles.Country}</td>
+                            <td>{user.user_type ? `${user.user_type}` : `${profiles.Country}`}</td>
                             
                             <th scope="row">Created By</th>
-                            <td>{profiles.CreatedBy}</td>
+                            <td>{user.user_type ? `${user.user_type}` : `${profiles.CreatedBy}`}</td>
                         </tr>
+                        {/* 
                         <tr>
                             <th scope="row">Created Date</th>
-                            <td>{profiles.CreatedDate}</td>
+                            <td>{user.created_at != '' ? `${user.created_at}` : `${profiles.CreatedDate}`}</td>
                             
                             
                             <th scope="row">Gender</th>
-                            <td>{profiles.Gender}</td>
+                            <td>{user.phone != '' ? `${user.phone}` : `${profiles.Gender}`}</td>
                         </tr>
-                       
+                        */}
+
+                        <tr className="changePasswordModel">
+                                <th className='ps-1' colSpan={2}><Link to="" onClick={openForgotPasswordModal}>Change Password </Link></th>
+                        </tr>
+
+                        
+                        
                     </tbody>
+
                 </table>
             </div>
             
-
             <UpdatePasswordModal isForgotPasswordModalShow={isForgotPasswordModalShow} handleChane={closeForgotPasswordModal} />
+            
 
         </>
     );
