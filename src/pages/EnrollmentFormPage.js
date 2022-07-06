@@ -386,7 +386,7 @@ function EnrollmentFromAds(props) {
                             simpleValidator.current.showMessageFor("mobile")
                           }
                           onChange={(e) =>
-                            setFormData({ ...formData, mobile: e.target.value })
+                            setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "")})
                           }
                           required />
                       </div>

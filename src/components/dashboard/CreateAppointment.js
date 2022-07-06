@@ -243,7 +243,7 @@ function CreateAppointment(props) {
                                             <div className="input-group">
                                                 <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
                                                 <input className="form-control" type="text" placeholder="Mobile *"
-                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} defaultValue={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} defaultValue={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
                                             </div>
                                             <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                         </div>

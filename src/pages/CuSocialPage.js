@@ -37,9 +37,9 @@ function CuSocialPage(props) {
     }
     useEffect(() => {
         window.history.scrollRestoration = 'manual'
-      }, []);
+    }, []);
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         fetchUpdates();
     }, []);
 
@@ -79,45 +79,47 @@ function CuSocialPage(props) {
                     <img src={publicPath + "/assets/images/bannerimages/cusocialbanner.jpg"} className="img-fluid w-100" />
 
                 </div>
-                <div className='container'>
-                    <div className='bannerAboutUs'>
-                        <h1>CuSocial</h1>
-                    </div>
+                <div className='cusocialBannerSection'>
+                    <div className='container'>
+                        <div className='bannerAboutUs'>
+                            <h1>CuSocial</h1>
+                        </div>
 
-                    <div className="row justify-content-evenly">
-                        <div className="col-md-6">
-                            <div className="newsfeedcard">
-                                <div>
-                                    <Link to={"/cusocials/offers"} ><LazyLoadImage alt="" src={publicPath + '/assets/images/cusocial/offers-thumbnail.jpg'} className="img-fluid" />
-                                    </Link>
+                        <div className="row justify-content-evenly">
+                            <div className="col-md-6">
+                                <div className="newsfeedcard">
+                                    <div>
+                                        <Link to={"/cusocials/offers"} ><LazyLoadImage alt="" src={publicPath + '/assets/images/cusocial/offers-thumbnail.jpg'} className="img-fluid" />
+                                        </Link>
+                                    </div>
+                                    <div>
+                                        <div className="newsfeedDetail">
+                                            <Link to={"/cusocials/offers"} ><h2>
+                                                Offers
+                                            </h2></Link>
+                                            <p>
+                                                Check Out the Latest Offers and Exclusive Deals
+                                            </p>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="newsfeedcard">
+                                    <div>
+                                        <Link to={"/cusocials/blog"}>
+                                            <LazyLoadImage alt="" src={publicPath + '/assets/images/cusocial/Blog-thumbnail.jpg'} className="img-fluid" />
+                                        </Link>
+                                    </div>
                                     <div className="newsfeedDetail">
-                                        <Link to={"/cusocials/offers"} ><h2>
-                                            Offers
+                                        <Link to={"/cusocials/blog"} ><h2>
+                                            Blog
                                         </h2></Link>
                                         <p>
-                                        Check Out the Latest Offers and Exclusive Deals
+                                            Read More About Real Estate
                                         </p>
                                     </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="newsfeedcard">
-                                <div>
-                                    <Link to={"/cusocials/blog"}>
-                                        <LazyLoadImage alt="" src={publicPath + '/assets/images/cusocial/Blog-thumbnail.jpg'} className="img-fluid" />
-                                    </Link>
-                                </div>
-                                <div className="newsfeedDetail">
-                                    <Link to={"/cusocials/blog"} ><h2>
-                                        Blog
-                                    </h2></Link>
-                                    <p>
-                                    Read More About Real Estate
-                                    </p>
                                 </div>
                             </div>
                         </div>
