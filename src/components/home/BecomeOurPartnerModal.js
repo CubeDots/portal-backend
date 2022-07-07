@@ -158,7 +158,7 @@ function BecomeOurPartnerModal(props) {
     var text = "";
     var length = 6;
     var possible =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      "ABCDEFGHJKMNOPQRSTUVWXYZabcdefghjkmnopqrstuvwxyz0123456789";
     for (var i = 0; i < length; i++) {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     }
@@ -404,7 +404,7 @@ function BecomeOurPartnerModal(props) {
                             simpleValidator.current.showMessageFor("mobile")
                           }
                           onChange={(e) =>
-                            setFormData({ ...formData, mobile: e.target.value })
+                            setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })
                           }
                           required
                         />

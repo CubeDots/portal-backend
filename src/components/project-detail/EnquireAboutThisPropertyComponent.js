@@ -175,7 +175,7 @@ function EnquireAboutThisPropertyComponent(props) {
                     <div className="mb-3">
                         <label className="form-label">Occupation</label>
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                            <option value="" disabled selected hidden>Select Occupation</option>
+                            <option value="" disabled selected hidden required>Select Occupation</option>
                             <option value="Agency">Agency</option>
                             <option value="Developer">Developer</option>
                             <option value="Others">Others</option>
@@ -186,7 +186,7 @@ function EnquireAboutThisPropertyComponent(props) {
                         {countries.length > 0 ?
                             <>
                                 <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
-                                    <option value="" disabled selected hidden>Select Country</option>
+                                    <option value="" disabled selected hidden required>Select Country</option>
                                     {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                 </select>
                             </>
@@ -196,7 +196,7 @@ function EnquireAboutThisPropertyComponent(props) {
                         <label className="form-label">Mobile</label>
                         <div className="input-group">
                             <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                            <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                            <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
                         </div>
                         <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                     </div>
