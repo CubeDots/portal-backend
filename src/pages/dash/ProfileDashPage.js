@@ -93,6 +93,7 @@ function ProfileDashPage() {
                             <th scope="row">Created By</th>
                             <td>{user.user_type ? `${user.user_type}` : `${profiles.CreatedBy}`}</td>
                         </tr>
+                        
                         {/* 
                         <tr>
                             <th scope="row">Created Date</th>
