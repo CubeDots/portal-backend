@@ -126,6 +126,7 @@ function ContactFormComponent(props) {
     const resetFrom = () => {
         setFormData({ first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', project_interest: [], message: '', terms: false });
         document.getElementById("form2").reset();
+        fetchCountries()
         // multiselectRef.current.resetSelectedValues();
     }
     const handleChange = (e) => {
@@ -143,13 +144,17 @@ function ContactFormComponent(props) {
             return false;
         }
         setLoading(true);
-
+        
         axios.post(API_ENDPOINT + 'orgzit/requestEnrollment', formData)
             .then((res) => {
                 // console.log('res ### ', res.status, res.data)
                 if (res.status === 200) {
                     setSelectedValue(['']);
                     setSelectedValue([]);
+                    resetFrom('');
+                    setCountries([])
+                    setShowInput('')
+                    // setFormData({ country: "Select Country * "})
                     setLoading(false);
                     setTimeout(() => {
                         alert(res.data.message);
@@ -209,15 +214,14 @@ function ContactFormComponent(props) {
                         {/* <label className="form-label">Country</label> */}
                         {countries.length > 0 ?
                             <>
-                                <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
-                                    <option value=""disabled selected hidden>Select Country *</option>
+                                <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} >
+                                    <option value="" disabled selected hidden>{formData.country ? formData.country : 'Select Country *'}</option>
                                     {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                 </select>
                             </>
                             : ''}
                     </div>
-                    <div className="col-md-6 mb-3" onChange={(e) =>
-                         {HandleInputHide(e)}}>
+                    <div className="col-md-6 mb-3" onChange={(e) =>{HandleInputHide(e)}}>
                         {/* <label className="form-label">Occupation</label> */}
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
                             <option value="" disabled selected hidden>Interested As</option>

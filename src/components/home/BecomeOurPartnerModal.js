@@ -180,6 +180,7 @@ function BecomeOurPartnerModal(props) {
       security_code: "",
       terms: false,
     });
+    fetchCountries()
     document.getElementById("form1").reset();
   };
 
@@ -207,6 +208,8 @@ function BecomeOurPartnerModal(props) {
           setSelectedValue([""]);
           setSelectedValue([]);
           resetFrom();
+          setShowInput('')
+          setCountries([])
           setTimeout(() => {
             alert(res.data.message);
           }, 1000);
