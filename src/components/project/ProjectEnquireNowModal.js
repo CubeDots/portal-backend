@@ -91,7 +91,7 @@ function ProjectEnquireNowModal(props) {
     }
 
     const resetFrom = () => {
-        setFormData({project_interest: project, first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', security_code: '', appointment_date: '', appointment_time: '', message: '', terms: false });
+        setFormData({ project_interest: project, first_name: '', last_name: '', email: '', country: '', occupation: '', dial_code: '', mobile: '', security_code: '', appointment_date: '', appointment_time: '', message: '', terms: false });
         document.getElementById("form1").reset();
     }
 
@@ -215,7 +215,12 @@ function ProjectEnquireNowModal(props) {
                                                 <input className="form-control" type="text" placeholder="Mobile No."
                                                     name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
                                             </div>
-                                            <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                            {
+                                                formData.mobile.length < 4 || formData.mobile.length > 20 ?
+                                                    <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                                    : ""
+                                            }
+                                            {/* <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div> */}
                                         </div>
                                     </div>
                                     <div className="row">

@@ -8,7 +8,7 @@ function HelpSupport() {
     const [countries, setCountries] = useState([]);
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({name:'',email:'', mobile:'', country:'', dial_code: '', message:''});
+    const [formData, setFormData] = useState({ name: '', email: '', mobile: '', country: '', dial_code: '', message: '' });
     const onSubmit = (e) => {
         e.preventDefault();
         axios.post(API_ENDPOINT + 'orgzit/help_support_email', formData)
@@ -42,7 +42,7 @@ function HelpSupport() {
         try {
             const res = await axios.get(publicPath + "/assets/data/countries.json");
             if (res.data) {
-                console.log("res.data ",res.data.data);
+                console.log("res.data ", res.data.data);
                 setCountriesLoading(false);
                 setCountries(res.data.data);
             }
@@ -70,13 +70,13 @@ function HelpSupport() {
     }
     useEffect(() => {
         window.history.scrollRestoration = 'manual'
-      }, []);
-    useEffect(()=>{
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+    }, []);
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         fetchCountries();
-        
-    },[])
-    
+
+    }, [])
+
     return (
         <div className='mt-70'>
             <div className="helpAndSupportOffCanvas">
@@ -92,38 +92,43 @@ function HelpSupport() {
                                 <div className='col-md-3'></div>
                                 <div className='col-md-6'>
                                     <form id="form2" onSubmit={onSubmit}>
-                                    <div className='helpAndSupportInput'>
-                                        <div className='helpAndSupporttitleDiv'>
-                                            <input type="text" onChange={(e) => setFormData({ ...formData, name: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor('name')} value={formData.name} className='form-control inputOffCanvas' placeholder='Enter Name *' name="name" required />
-                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('name', formData.name, 'alpha_space')}</div>
-                                        </div>
-                                        <div className='helpAndSupporttitleDiv'>
-                                            <input type="text" className='form-control' name="email" placeholder='Enter Email *' onChange={(e) => setFormData({ ...formData, email: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} required />
-                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
-                                        </div>
-                                        <div className='helpAndSupporttitleDiv'>
-                                            {countries.length > 0 ?
-                                                <>
-                                                    <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
-                                                        <option value="" selected disabled hidden>Select Country *</option>
-                                                        {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
-                                                    </select>
-                                                </>
-                                                : null}
-                                        </div>
-                                        <div className='helpAndSupporttitleDiv'>
-                                            <div className="input-group">
-                                                <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                                                <input className="form-control" type="text" placeholder="Mobile No. *"
-                                                    name="mobile" value={formData.mobile} onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                                        <div className='helpAndSupportInput'>
+                                            <div className='helpAndSupporttitleDiv'>
+                                                <input type="text" onChange={(e) => setFormData({ ...formData, name: e.target.value.replace(/[^a-z]/gi, '') })} onKeyUp={() => simpleValidator.current.showMessageFor('name')} value={formData.name} className='form-control inputOffCanvas' placeholder='Enter Name *' name="name" required />
+                                                <div className='text-danger formErrorMsg'>{simpleValidator.current.message('name', formData.name, 'alpha_space')}</div>
                                             </div>
-                                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                            <div className='helpAndSupporttitleDiv'>
+                                                <input type="text" className='form-control' name="email" placeholder='Enter Email *' onChange={(e) => setFormData({ ...formData, email: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} required />
+                                                <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                                            </div>
+                                            <div className='helpAndSupporttitleDiv'>
+                                                {countries.length > 0 ?
+                                                    <>
+                                                        <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
+                                                            <option value="" selected disabled hidden>Select Country *</option>
+                                                            {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
+                                                        </select>
+                                                    </>
+                                                    : null}
+                                            </div>
+                                            <div className='helpAndSupporttitleDiv'>
+                                                <div className="input-group">
+                                                    <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
+                                                    <input className="form-control" type="text" placeholder="Mobile No. *"
+                                                        name="mobile" value={formData.mobile} onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                                                </div>
+                                                {
+                                                    formData.mobile.length < 4 || formData.mobile.length > 20 ?
+                                                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                                        : ""
+                                                }
+                                                {/* <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div> */}
+                                            </div>
+                                            <div className='helpAndSupporttitleDiv'>
+                                                <textarea className="form-control" id="exampleFormControlTextarea1" onChange={(e) => setFormData({ ...formData, message: e.target.value })} defaultValue={formData.message} name="message" rows="5" placeholder='Message *' required />
+                                            </div>
+                                            <button className='sendBtn'>Submit</button>
                                         </div>
-                                        <div className='helpAndSupporttitleDiv'>
-                                            <textarea className="form-control" id="exampleFormControlTextarea1" onChange={(e) => setFormData({ ...formData, message: e.target.value })} defaultValue={formData.message} name="message" rows="5" placeholder='Message *' required />
-                                        </div>
-                                        <button className='sendBtn'>Submit</button>
-                                    </div>
                                     </form>
                                 </div>
                             </div>

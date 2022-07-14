@@ -212,10 +212,10 @@ function UnitEnquireNowModal(props) {
                                 <form id="form1" onSubmit={onSubmit}>
                                     <div className="row">
                                         <div className="col mb-3">
-                                            <input className="form-control" type="text" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                                            <input className="form-control" type="text" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value.replace(/[^a-z]/gi, '') })} required />
                                         </div>
                                         <div className="col mb-3">
-                                            <input className="form-control" type="text" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                                            <input className="form-control" type="text" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value.replace(/[^a-z]/gi, '') })} required />
                                             <input className="form-control" type="hidden" placeholder="Project Interest" name="project_interest" defaultValue={project_interest} />
                                             <input className="form-control" type="hidden" placeholder="Apartment Id" name="apartment_id" defaultValue={formData.apartment_id} onChange={(e) => setFormData({ ...formData, apartment_id: e.target.value })} />
                                         </div>
@@ -228,7 +228,7 @@ function UnitEnquireNowModal(props) {
                                     </div>
                                     <div className="mb-3">
                                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                                            <option value=""disabled selected hidden>Select Occupation</option>
+                                            <option value="" disabled selected hidden>Select Occupation</option>
                                             <option value="Agency">Agency</option>
                                             <option value="Developer">Developer</option>
                                             <option value="Others">Others</option>
@@ -255,7 +255,12 @@ function UnitEnquireNowModal(props) {
                                                 <input className="form-control" type="text" placeholder="Mobile No."
                                                     name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
                                             </div>
-                                            <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                            {
+                                                formData.mobile.length < 4 || formData.mobile.length > 20 ?
+                                                    <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                                    : ""
+                                            }
+                                            {/* <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div> */}
                                         </div>
                                     </div>
                                     <div className="row">
