@@ -159,13 +159,13 @@ function EnquireAboutThisPropertyComponent(props) {
 
                     <div className="mb-3">
                         <label className="form-label">First Name</label>
-                        <input type="text" className="form-control" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
+                        <input type="text" className="form-control" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value.replace(/[^a-z]/gi, '') })} required />
                         <input className="form-control" type="hidden" placeholder="Project Interest" name="project_interest" defaultValue={project_interest} />
 
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Last Name</label>
-                        <input type="text" className="form-control" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
+                        <input type="text" className="form-control" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value.replace(/[^a-z]/gi, '') })} required />
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Email Address</label>
@@ -198,7 +198,12 @@ function EnquireAboutThisPropertyComponent(props) {
                             <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
                             <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
                         </div>
-                        <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                        {
+                          formData.mobile.length < 4 || formData.mobile.length > 20 ?
+                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                            : ""
+                        }
+                        {/* <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div> */}
                     </div>
                     <div className="row">
                         <div className="col-12 mb-3">
