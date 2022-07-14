@@ -77,9 +77,9 @@ function CuLibraryPage() {
                                                     <LazyLoadImage
                                                         // effect="blur"
                                                         src={project.featured_image ? project.media_s3_base_path + project.featured_image : publicPath + '/assets/images/home/01.jpg'}
-                                                        placeholderSrc={publicPath + "/assets/images/thumbnail.png"}
+                                                        // placeholderSrc={publicPath + "/assets/images/thumbnail.png"}
                                                         className="img-fluid"
-                                                        visibleByDefault={false}
+                                                        // visibleByDefault={false}
                                                         alt="" />
                                                 </>
                                                 : null}
