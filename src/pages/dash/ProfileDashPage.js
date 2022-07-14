@@ -67,7 +67,7 @@ function ProfileDashPage() {
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" colSpan="6">Orgzit ID - {user.orgzit_id != '' ? `${user.orgzit_id}` : `${profiles.Title}` (`${profiles.AgentType}`)}</th>
+                            <th scope="col" colSpan="6">Orgzit ID - {profiles.AgentType != '' ? `${profiles.Title}` `${profiles.AgentType}` : (`${user.orgzit_id}`)}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,7 +76,7 @@ function ProfileDashPage() {
                             <td>{user.name != '' ? `${user.name}` : `${profiles.FullName}`}</td>
                             
                             <th scope="row">Company</th>
-                            <td>{user.company_name != '' ? `${user.company_name}` : `${profiles.CompanyName}`}</td>
+                            <td>{profiles.CompanyName != '' ? `${profiles.CompanyName}` : `${user.company_name}`}</td>
                         </tr>
                         <tr>
                             <th scope="row">Phone</th>
@@ -84,16 +84,16 @@ function ProfileDashPage() {
                             
                             
                             <th scope="row">Email</th>
-                            <td>{user.email != '' ? `${user.email}` : `${profiles.Email}`}</td>
+                            <td>{profiles.Email != '' ? `${profiles.Email}` : `${user.email}`}</td>
                         </tr>
                         <tr>
                             <th scope="row">Country</th>
-                            <td>{user.user_type ? `${user.user_type}` : `${profiles.Country}`}</td>
+                            <td>{profiles.Country ? `${profiles.Country}` : `${user.user_type}`}</td>
                             
                             <th scope="row">Created By</th>
-                            <td>{user.user_type ? `${user.user_type}` : `${profiles.CreatedBy}`}</td>
+                            <td>{profiles.CreatedBy ? `${profiles.CreatedBy}` : `${user.user_type}`}</td>
                         </tr>
-                        
+
                         {/* 
                         <tr>
                             <th scope="row">Created Date</th>
