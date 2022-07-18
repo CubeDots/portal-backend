@@ -30,15 +30,15 @@ function CuVerseProjectPage() {
             setProjectsLoading(false);
         }
     }
-   useEffect(() => {
-        window.history.scrollRestoration = 'manual'
-      }, []);
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+        window.history.scrollRestoration = 'manual'
+    }, []);
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         fetchProjects();
     }, []);
 
-  
+
     useEffect(() => {
         if (location.hash) {
             let elem = document.getElementById(location.hash.slice(1))
@@ -66,11 +66,13 @@ function CuVerseProjectPage() {
                     </div>
                     <div className="container">
                         <div className="projectsCuverse">
-                            <button className="cusocialBackBtn" onClick={() => navigate(-1)}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
-                                    <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
-                                </svg> Back
-                            </button>
+                            {/* <div className="d-flex ">
+                                <button className="cusocialBackBtn" onClick={() => navigate(-1)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+                                        <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                                    </svg> Back
+                                </button>
+                            </div> */}
                             <div className="row">
                                 <div className="col-md-6">
                                     <img alt="" src={publicPath + "/assets/images/missionvision.png"} className="img-fluid" />
@@ -86,13 +88,13 @@ function CuVerseProjectPage() {
                                                     <ul>
                                                         {projects.map((row, i) =>
                                                             <div className="" key={row.id} >
-                                                                {row.slug != 'acarblu' ? 
-                                                                <Link className="notranslate" to={"/culibrary/" + row.slug}>
-                                                                    <li className="skylandContentSection mb-1">
-                                                                        <h5>{row.title}</h5>
-                                                                    </li>
-                                                                </Link>
-                                                                : ''}
+                                                                {row.slug != 'acarblu' ?
+                                                                    <Link className="notranslate" to={"/culibrary/" + row.slug}>
+                                                                        <li className="skylandContentSection mb-1">
+                                                                            <h5>{row.title}</h5>
+                                                                        </li>
+                                                                    </Link>
+                                                                    : ''}
                                                             </div>
                                                         )}
                                                     </ul>
