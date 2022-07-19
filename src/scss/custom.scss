@@ -1263,15 +1263,6 @@ select.contactComponent.form-select :last-child {
     background-color: #0f2232;
 }
 
-.viewAll {
-    margin-left: auto;
-    display: table;
-    text-decoration: none;
-    color: #000;
-    margin-bottom: 30px;
-    font-size: 14px;
-    text-transform: capitalize;
-}
 
 .viewAll svg {
     margin-left: 7px;
@@ -1617,21 +1608,25 @@ img.bgImageUpdates {
     border-color: #e65400;
 }
 
+/*
 .projectsCardSection .headingSection {
     padding-bottom: 55px;
 }
+*/
 
-.headingSection .viewAll {
-    position: absolute;
+.projectsHeadingSectionViewAll{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.projectsHeadingSectionViewAll .viewAll {
     text-decoration: none;
     color: #fff;
     right: 0;
     font-size: 14px;
     text-transform: capitalize;
     top: 0;
-    margin: auto;
-    display: flex;
-    align-items: center;
     transition: .4s all ease-in-out;
 }
 .headingSection .viewAll:hover{
@@ -2242,8 +2237,8 @@ div#overlay-example .tooltip-inner{
     border: 1px solid #ced4da;
 }
 
-.contactBtn:hover {
-    border-color: #e65400;
+.shareButtonSection{
+    margin-top: 25px;
 }
 
 .shareButtonSection .col-md-9 .row {
@@ -2671,7 +2666,9 @@ div#overlay-example .tooltip-inner{
 .signInBox .lazy-load-image-background {
     width: 100%;
 }
-
+.modal-content .modal-header .btn-close{
+    opacity: 1;
+}
 .signInBox .btn-close {
     box-sizing: content-box;
     width: 1em;
@@ -4740,6 +4737,7 @@ h5 {
     position: absolute;
     right: 20px;
     top: 25px;
+    opacity: 1;
 }
 
 .unitDetailModal .modal-header p {
@@ -4833,6 +4831,7 @@ h5 {
     right: 20px;
     top: 20px;
     z-index: 11;
+    opacity: 1;
 }
 
 /*enrollmentModal*/
@@ -5118,6 +5117,7 @@ footer h6 {
     border-radius: 50%;
     background-size: 45%;
     z-index: 11;
+    opacity: 1;
 }
 
 .MultipleMaps .map-container {
@@ -6229,6 +6229,7 @@ footer h6 {
     border-color: #e65400;
 }
 
+.formDatcheck .form-check-input:checked{  background-color: #e65400;  border-color: #e65400;}
 .contactformsection button.btn.btn-primary {
     margin-top: 15px;
 }
