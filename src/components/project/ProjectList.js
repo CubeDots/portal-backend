@@ -166,7 +166,7 @@ function ProjectList(props) {
                                                                 <img src={publicPath + "/assets/images/projectlist/heart.svg"} width="20" alt="" className="img-fluid" />
                                                             </button> */}
 
-                                                            <button type="button" disabled={row.project_status ? true : false} className="btn contactBtn" onClick={() => showProjectEnquireNowModal(row.title)}>Contact</button>
+                                                            <button type="button" disabled={row.project_status ? true : false} className="btn contactBtn enroll_btn" onClick={() => showProjectEnquireNowModal(row.title)}>Contact</button>
 
                                                         </div>
                                                     </div>

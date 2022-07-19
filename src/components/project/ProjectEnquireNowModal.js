@@ -223,17 +223,17 @@ function ProjectEnquireNowModal(props) {
                                             {/* <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div> */}
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    {/* <div className="row">
                                         <div className="col mb-3">
                                             <label className="form-label">Appointment Date</label>
-                                            {/* <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required /> */}
+                                            <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required />
                                             <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required minDate={moment().toDate()} />
                                         </div>
                                         <div className="col mb-3">
                                             <label className="form-label">Appointment Time</label>
                                             <input className="form-control" type="hidden" placeholder="Project Interest" name="project_interest" defaultValue={project} />
 
-                                            {/* <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required /> */}
+                                            <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required />
                                             <TimePicker
                                                 onChange={setFormatedTime}
                                                 placeholder="00:00"
@@ -243,7 +243,7 @@ function ProjectEnquireNowModal(props) {
                                             />
 
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="row">
                                         <div className="col mb-3">
                                             <label className="form-label">Your Message</label>

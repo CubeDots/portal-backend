@@ -205,27 +205,29 @@ function EnquireAboutThisPropertyComponent(props) {
                         }
                         {/* <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div> */}
                     </div>
-                    <div className="row">
+                    
+                    {/* <div className="row">
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Date</label>
 
-                            {/* <DatePicker className="form-control" placeholder="Appointment Date" name="appointment_date" value ={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required /> */}
+                            <DatePicker className="form-control" placeholder="Appointment Date" name="appointment_date" value ={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required />
 
                             <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required minDate={moment().toDate()} />
-                            {/* <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} /> */}
+                            <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} />
                         </div>
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Time</label>
-                            {/* <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} /> */}
+                            <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} />
                             <TimePicker
                                                 onChange={setFormatedTime}
                                                 placeholder="00:00"
                                                 showSecond={false}
                                                 className="form-control"
                                             />
-                            {/* <TimePicker className="form-control" value={toTime} onChange={setToTime} required /> */}
+                            <TimePicker className="form-control" value={toTime} onChange={setToTime} required />
                         </div>
-                    </div>
+                    </div> */}
+                    
                     <div className="row">
                         <div className="col mb-4">
                             <label className="form-label">Message</label>

@@ -11,6 +11,7 @@ import { API_ENDPOINT } from "../../common/Constants";
 import SocialSharingComponent from "../contact/SocialSharingComponent";
 
 function ContactFormComponent(props) {
+
     let multiselectRef = React.createRef();
     const simpleValidator = useRef(new SimpleReactValidator())
     let publicPath = process.env.PUBLIC_URL;
@@ -23,9 +24,10 @@ function ContactFormComponent(props) {
     const [footersocialLoading, setFooterSocialLoading] = useState(false);
     const [footerSocialLinks, setFooterSocialLinks] = useState(null);
     const [showInput, setShowInput] = useState('');
-
+    const [emailErr, setEmailErr] = useState(false);
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
+    const [email, setEmail] = useState('');
 
     const [projectsLoading, setProjectsLoading] = useState(false);
     const [projects, setProjects] = useState([]);
@@ -143,8 +145,8 @@ function ContactFormComponent(props) {
             alert("Please accept our Terms & Condition.");
             return false;
         }
-        setLoading(true);
 
+        setLoading(true);
         axios.post(API_ENDPOINT + 'orgzit/requestEnrollment', formData)
             .then((res) => {
                 // console.log('res ### ', res.status, res.data)
@@ -177,16 +179,14 @@ function ContactFormComponent(props) {
             })
     }
 
-
     return (
         <>
             <form id="form2" onSubmit={onSubmit}>
-
                 <div className="row">
                     <div className="col-md-6 mb-3 ">
                         {/* <label className="form-label required">First Name</label> */}
                         <input className="form-control" type="text" placeholder="First Name *" name="first_name" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha_space')}</div>
+                        {/* <div className='text-danger formErrorMsg'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha_space')}</div> */}
                     </div>
                     <div className="col-md-6 mb-3">
                         {/* <label className="form-label required">Last Name</label> */}
@@ -197,8 +197,15 @@ function ContactFormComponent(props) {
                 <div className="row ">
                     <div className="col-md-6 mb-3">
                         {/* <label  className="form-label required">Email Address</label> */}
-                        <input type="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} className="form-control required w-100" placeholder="Email *" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
-                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                        {/* <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        /> */}
+                        <input type="email" className="form-control required w-100" placeholder="Email *" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                        {emailErr && <p>Your email is invalid</p>}
+                        {/* <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div> */}
                     </div>
                     <div className="col-md-6 mb-3 mobileInputSection">
                         {/* <label className="form-label required">Mobile</label> */}
@@ -207,7 +214,7 @@ function ContactFormComponent(props) {
                             <input type="text" className="form-control " placeholder="Mobile *" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
                         </div>
                         {
-                            formData.mobile.length < 4 ||  formData.mobile.length > 20 ?
+                            formData.mobile.length < 4 || formData.mobile.length > 20 ?
                                 <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                 : ""
                         }
