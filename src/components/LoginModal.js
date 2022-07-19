@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, componentDidMount } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
@@ -73,6 +73,7 @@ function LoginModal(props) {
         }, 300);
 
     };
+    
     const closeForgotPasswordModal = () => {
         console.log('closeForgotPasswordModal trigger');
         setisForgotPasswordModalShow(false);
@@ -252,7 +253,7 @@ function LoginModal(props) {
                                         <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />  Submitting...
                                     </button>
                                     :
-                                    <button className="btn btn-primary" type="submit">Login</button>
+                                    <button className="btn btn-primary" type="submit">Sign In</button>
                                 }
 
 
