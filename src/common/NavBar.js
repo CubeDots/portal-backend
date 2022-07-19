@@ -165,7 +165,7 @@ function NavBar() {
                                             <li><Link className="dropdown-item navbarMenu" to="/dash/profile">Profile</Link></li>
                                             <li><a className="dropdown-item navbarMenu" onClick={openForgotPasswordModal}>Change Password</a></li>
                                             <li><hr className="dropdown-divider" /></li>
-                                            <li><button className="dropdown-item navbarMenu" to="" onClick={handleLogout} >Logout</button></li>
+                                            <li><button className="dropdown-item navbarMenu" to="" onClick={handleLogout} >Sign Out</button></li>
                                         </ul>
                                     </li>
                                 </>

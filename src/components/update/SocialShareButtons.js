@@ -77,7 +77,7 @@ function SocialShareButtons(props) {
           <LinkedinIcon size={32} round />
         </LinkedinShareButton>
         &nbsp;
-        {/*
+        
         <TelegramShareButton
           url={
             phpurl +
@@ -94,7 +94,7 @@ function SocialShareButtons(props) {
         </TelegramShareButton>
 
         &nbsp;
-        
+        {/*
         <WhatsappShareButton
           url={
             phpurl +

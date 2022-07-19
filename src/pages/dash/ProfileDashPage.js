@@ -67,31 +67,31 @@ function ProfileDashPage() {
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" colSpan="6">Orgzit ID - {profiles.AgentType != '' ? `${profiles.Title}` `${profiles.AgentType}` : (`${user.orgzit_id}`)}</th>
+                            <th scope="col" colSpan="6">Orgzit ID - {user.orgzit_id}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">Full Name</th>
-                            <td>{user.name != '' ? `${user.name}` : `${profiles.FullName}`}</td>
+                            <td>{user.name != undefined ? `${user.name}` : `${profiles.FullName}`}</td>
                             
                             <th scope="row">Company</th>
-                            <td>{profiles.CompanyName != '' ? `${profiles.CompanyName}` : `${user.company_name}`}</td>
+                            <td>{profiles.CompanyName != undefined ? `${profiles.CompanyName}` : `${user.company_name}`}</td>
                         </tr>
                         <tr>
                             <th scope="row">Phone</th>
-                            <td>{user.phone != '' ? `${user.phone}` : `${profiles.FirstPhone}`}</td>
+                            <td>{user.phone != undefined ? `${user.phone}` : `${profiles.FirstPhone}`}</td>
                             
                             
                             <th scope="row">Email</th>
-                            <td>{profiles.Email != '' ? `${profiles.Email}` : `${user.email}`}</td>
+                            <td>{profiles.Email != undefined ? `${profiles.Email}` : `${user.email}`}</td>
                         </tr>
                         <tr>
                             <th scope="row">Country</th>
-                            <td>{profiles.Country ? `${profiles.Country}` : `${user.user_type}`}</td>
+                            <td>{profiles.Country != undefined ? `${profiles.Country}` : `${user.user_type}`}</td>
                             
                             <th scope="row">Created By</th>
-                            <td>{profiles.CreatedBy ? `${profiles.CreatedBy}` : `${user.user_type}`}</td>
+                            <td>{profiles.CreatedBy != undefined ? `${profiles.CreatedBy}` : `${user.user_type}`}</td>
                         </tr>
 
                         {/* 

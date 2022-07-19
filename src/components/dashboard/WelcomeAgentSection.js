@@ -38,7 +38,7 @@ function WelcomeAgentSection() {
                     <div className="col-lg-6">
                         <div>
                             <h2>Welcome Agent</h2>
-                            <p>Last Login : {startOfMonth}</p>
+                            <p>Last Sign In : {startOfMonth}</p>
                         </div>
                     </div>
                 {/*</div>
