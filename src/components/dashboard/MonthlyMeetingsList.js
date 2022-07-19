@@ -100,7 +100,7 @@ function MonthlyMeetingsList() {
                                 <td>Meeting Location</td>
                                 <td>Meeting Date</td>
                                 <td>Meeting Time</td>
-                                <td>Meeting with Customer?</td>
+                                <td>Meeting with Customer</td>
                                 <td>View</td>
                             </tr>
                         </thead>
@@ -164,7 +164,7 @@ function MonthlyMeetingsList() {
                                         <td>{activeRow.createdTime}</td>
                                     </tr>
                                     <tr>
-                                        <th>Meeting With Customer?</th>
+                                        <th>Meeting With Customer</th>
                                         <td>{activeRow.MeetingWithCustomer}</td>
                                     </tr>
 
