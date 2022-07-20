@@ -530,7 +530,7 @@ function UnitsPage() {
                                     <div className="table-responsive">
                                         <table className="table table-sm table-hover0 table-bordered0 apartmentDetails" >
                                             <thead>
-                                                <tr align="center">
+                                                <tr >
                                                     <td>Apartment ID</td>
                                                     <td>Block</td>
                                                     <td>Floor</td>
@@ -539,16 +539,16 @@ function UnitsPage() {
                                                     <td>Built Up Area</td>
                                                     <td>Net Area</td>
                                                     <td>Direction</td>
-                                                    <td onClick={() => onSortChange('price')}>{['sort-up', 'sort-down'].includes(sortTypes[currentSort].class) ? (sortTypes[currentSort].class === 'sort-up' ? '↑' : '↓') : ''} Price</td>
+                                                    <td style={{padding:'0px 05px'}} onClick={() => onSortChange('price')}>{['sort-up', 'sort-down'].includes(sortTypes[currentSort].class) ? (sortTypes[currentSort].class === 'sort-up' ? '↑' : '↓') : ''} Price</td>
                                                     <td>Status</td>
-                                                    <td>Action</td>
+                                                    <td align="center">Action</td>
 
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {units.length < 1 ? <tr><td colSpan={11} align="center">No units found.</td></tr> : <></>}
                                                 {units.sort(dynamicSort(currentColumn)).map((row) =>
-                                                    <tr key={row.id} align="center">
+                                                    <tr key={row.id} >
                                                         <td>{row.apartment_id}</td>
                                                         <td>{row.block}</td>
                                                         <td>{row.floor}</td>

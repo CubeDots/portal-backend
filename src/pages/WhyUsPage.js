@@ -486,8 +486,8 @@ function WhyUsPage() {
                                                         <li>4% Title Deed Transfer, 2% for the buyer; 2% for the seller</li>
                                                         <li>1-18% VAT depends on project size & location</li>
                                                         <li>Offices & Shops 18%</li>
-                                                        <li>Large apartment 18% (+150sq net size)</li>
-                                                        <li> Small Apartment 1% (-150sq net size)</li>
+                                                        <li>Large apartment 18% (+150sq meter net size)</li>
+                                                        <li>Small Apartment 1% (-150sq meter net size)</li>
                                                     </ul>
                                                     <p>The VAT is always paid by the client except for when the client gets a VAT exemption paper from the Turkish Government. (The payment should be transferred in other currency to developers’ accounts from abroad)
                                                     </p>

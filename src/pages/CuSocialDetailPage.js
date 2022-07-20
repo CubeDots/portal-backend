@@ -59,11 +59,11 @@ function CuSocialDetailPage(props) {
                 <div className="container">
                     <div className="row my-5 py-5">
                         <div className="col my-5 text-center">
-                            <h4>To view Offers <button className="btntheme" onClick={() => openLogin()}>Login here</button></h4>
+                            <h4>To view Offers <button className="btntheme" onClick={() => openLogin()}>Sign In</button></h4>
                             <div><br /></div>
                             
                             &nbsp;
-                            <button className="btn btn-primary" onClick={() => navigate(-1)}>Go back</button>
+                            {/*<button className="btn btn-primary" onClick={() => navigate(-1)}>Go back</button>*/}
                         </div>
                     </div>
                 </div>
