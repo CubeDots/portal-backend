@@ -2,8 +2,9 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-color: #e65400 #fff;
+    scrollbar-width: thin;
 }
-
 body {
     padding: 0;
     margin: 0;
@@ -1941,6 +1942,8 @@ img.bgImageUpdates {
     max-height: 550px;
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-color: #e65400 #fff;
+    scrollbar-width: thin;
 }
 span.FolderChooser-icon-14 {
     font-size: 20px;
