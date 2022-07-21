@@ -5,12 +5,22 @@ html {
     scrollbar-color: #e65400 #fff;
     scrollbar-width: thin;
 }
+.scroller{
+    scrollbar-color: #e65400 #fff;
+    scrollbar-width: thin;
+}
 body {
     padding: 0;
     margin: 0;
     min-height: auto !important;
     font-family: 'Roboto';
     user-select: none;
+}
+.jss5.animated.row {
+    height: 520px !important;
+    overflow: auto !important;
+    padding: 18px 10px !important;
+    margin-top: 0px !important;
 }
 input,
 button,
@@ -19,6 +29,8 @@ optgroup,
 textarea {
     font-family: 'Roboto', sans-serif;
 }
+
+
 
 /*start starter logo*/
 .img-respon {
@@ -1945,6 +1957,7 @@ img.bgImageUpdates {
     scrollbar-color: #e65400 #fff;
     scrollbar-width: thin;
 }
+
 span.FolderChooser-icon-14 {
     font-size: 20px;
     margin: 8px;
@@ -6771,16 +6784,33 @@ footer h6 {
     color: #e65400 !important;
     transform: rotate(180deg)!important;
 }
+.goalandvalueslider{
+    height: 276px;
+    width: 90%;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    transition: .4s all ease-in-out;
+}
+.goalandvaluebacknext{
+    text-align: center;
+    padding: 15px 0;
+}
 .goalValuecontentbox {
     margin-bottom: 20px;
 }
-
+.goalandvaluesliderBox{
+    margin-bottom: 20px;
+}
 .goalValuecontent:hover {
     box-shadow: 0px 3px 8px rgb(0 0 0 / 30%);
     transform: translateY(0.2rem);
 }
 
 .goalValuecontent img {
+    width: 100px;
+}
+.goalandvaluesliderBox img{
     width: 100px;
 }
 
@@ -6793,8 +6823,8 @@ footer h6 {
     text-align: center;
     background-color: #0f2232;
     color: #fff;
-    border-radius: 10px;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .goalValuecontent {
@@ -6803,18 +6833,63 @@ footer h6 {
     height: 100%;
 }
 
+.goalandvaluesliderBox{
+    // transition: .4s all ease-in-out;
+    // transform: scale(1);
+    height: 100%;
+    text-align: center;
+    background-color: #0f2232;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.goalandvaluesliderBox h5{
+    margin-bottom: .6rem;
+    margin-top: 0.6rem;
+    color: #e65400;
+}
 .goalValuecontent h5 {
     margin-bottom: .6rem;
     margin-top: 0.6rem;
     color: #e65400;
 }
-
+.goalandvaluesliderBox p {
+    font-size: 14px;
+    margin-bottom: 0;
+    color: #fff;
+}
 .goalValuecontent p {
     font-size: 14px;
     margin-bottom: 0;
     color: #fff;
 }
-
+.multiCaruselGoalValue{
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.multiCaruselGoalValue .react-multi-carousel-list .react-multiple-carousel__arrow{
+    position: absolute;
+    outline: 0;
+    transition: all .5s;
+    border-radius: 35px;
+    z-index: 1000;
+    border: 0;
+    background: rgba(183, 183, 183, 0);
+    min-width: 35px;
+    min-height: 35px;
+    opacity: 1;
+}
+.multiCaruselGoalValue .react-multi-carousel-list .react-multiple-carousel__arrow--right{
+    right: calc(3% + 1px);
+}
+.multiCaruselGoalValue .react-multi-carousel-list .react-multiple-carousel__arrow--left{
+    left: calc(3% + 1px);
+}
 
 .goalValuesHeading {
     text-align: center;
@@ -7952,7 +8027,14 @@ footer h6 {
     .culibrarySecondProject::before {
         left: -100px;
     }
+    .goalandvalueslider{
+        width: 100%;
+    }
+    // .goalandvaluesliderBox{
+    //     border-radius: 0;
+    // }
 }
+
 
 .custom_pdf .react-pdf__Page__canvas,
 .custom_pdf .react-pdf__Page__textContent {

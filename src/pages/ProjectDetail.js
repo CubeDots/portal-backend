@@ -45,7 +45,7 @@ function ProjectDetail(props) {
     async function fetchProject() {
         setProjectLoading(true);
         try {
-            console.log("response data", id);
+            // console.log("response data", id);
             const res = await axios.get(API_ENDPOINT + "projects/show/" + id);
             if (res.data) {
                 //let projectsData = res.data.data;
@@ -57,7 +57,7 @@ function ProjectDetail(props) {
                 //     setProject(filteredProject[0]);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setProjectLoading(false);
         }
     }
@@ -65,14 +65,14 @@ function ProjectDetail(props) {
     async function fetchLocation() {
         try {
             const response = await axios.get(publicPath + "/assets/data/projectsLocation/" + id + ".json");
-            console.log("location data", response.data);
+            // console.log("location data", response.data);
             let resLocation = response.data;
             setlocationAirport(resLocation[0].airport);
             setlocationPublic(resLocation[1].publictransport);
             setlocationMall(resLocation[2].mall);
             setlocationHospital(resLocation[3].hospital);
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setProjectLoading(false);
         }
     }

@@ -34,12 +34,12 @@ function NavBar() {
 
     /* FORGOT PASSWORD CODE GOES HERE */
     const openForgotPasswordModal = () => {
-        console.log('Forgot Password Modal click manually');
+        // console.log('Forgot Password Modal click manually');
         setisForgotPasswordModalShow(true);
     }
 
     const closeForgotPasswordModal = () => {
-        console.log('close Forgot Password Modal trigger');
+        // console.log('close Forgot Password Modal trigger');
         setisForgotPasswordModalShow(false);
     }
 
@@ -47,13 +47,13 @@ function NavBar() {
     /* LOGIN MODAL CODE GOES HERE */
 
     const openLoginModal = () => {
-        console.log('openLoginModal click manually');
+        // console.log('openLoginModal click manually');
         setisLoginModalShow(true);
     };
 
 
     const closeLoginModal = () => {
-        console.log('closeLoginModal trigger');
+        // console.log('closeLoginModal trigger');
         setisLoginModalShow(false);
     };
 
@@ -78,7 +78,7 @@ function NavBar() {
         //togglebtn.classList.toggle("#navbarResponsive");
         for (let i = 0; i < navmenu.length; i++) {
             navmenu[i].addEventListener("click", function () {
-                console.log("menu");
+                // console.log("menu");
                 element.classList.remove("show");
                 togglebtn.classList.remove("active");
             });

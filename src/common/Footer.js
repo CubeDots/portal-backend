@@ -26,7 +26,7 @@ function Footer() {
                 setFooterContactEmails(res.data.emails_id);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setFooterSocialLoading(false);
         }
     }
@@ -35,13 +35,13 @@ function Footer() {
         try {
             const res = await axios.get(API_ENDPOINT + "projects/featuredHome");
             if (res.data.data) {
-                console.log("response project", res.data.data);
+                // console.log("response project", res.data.data);
                 setProjectsLoading(false);
                 //let featuredProjects = res.data.filter(obj => ["skylandistanbul", "alya4mevsim", "nisantasi", "acar-blu"].includes(obj.slug))
                 setProjects(res.data.data);
             }
         } catch (error) {
-            console.error("error ", error);
+            // console.error("error ", error);
             setProjectsLoading(false);
         }
     }
@@ -65,12 +65,12 @@ function Footer() {
 
     const [isBecomeOurPartnerModalShow, setIsBecomeOurPartnerModalShow] = useState(false);
     const showBecomeOurPartnerModal = () => {
-        console.log("showBecomeOurPartnerModal clicked");
+        // console.log("showBecomeOurPartnerModal clicked");
         setIsBecomeOurPartnerModalShow(true);
     }
 
     const closeBecomeOurPartnerModalModal = () => {
-        console.log("closeBecomeOurPartnerModalModal trigger");
+        // console.log("closeBecomeOurPartnerModalModal trigger");
         setIsBecomeOurPartnerModalShow(false);
     }
 
@@ -174,11 +174,13 @@ function Footer() {
                                 <div className="d-flex flex-column">
                                     {projects && projects.map((row, i) => {
                                         return (
+                                            <div key={i}>
                                             <>
                                                 {row.slug != 'acarblu' ?
-                                                    <Link to={`/projects/${row.slug}`} onClick={refreshPage} key={i} className="footer_link">{row.title}</Link>
+                                                    <Link to={`/projects/${row.slug}`} onClick={refreshPage}  className="footer_link">{row.title}</Link>
                                                     : ''}
                                             </>
+                                            </div>
                                         )
                                     })
                                     }

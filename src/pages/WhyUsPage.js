@@ -8,11 +8,11 @@ import BecomeOurPartnerModal from "../components/home/BecomeOurPartnerModal";
 
 function WhyUsPage() {
     let publicPath = process.env.PUBLIC_URL;
-      useEffect(() => {
-        window.history.scrollRestoration = 'manual'
-      }, []);
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+        window.history.scrollRestoration = 'manual'
+    }, []);
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         ;
     }, []);
     const [isBecomeOurPartnerModalShow, setIsBecomeOurPartnerModalShow] = useState(false);
@@ -50,47 +50,15 @@ function WhyUsPage() {
                     </div>
                     <BecomeOurPartnerModal show={isBecomeOurPartnerModalShow} onHide={closeBecomeOurPartnerModalModal} />
                 </div>
-                {/* <div className="rankingSection">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-6">
-                                <h1>What makes Cubedots the leading international real estate sales company in Turkey?</h1>
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="">
-
-                                    <p>Since its establishment in 2019, Cubedots has revolutionized the way real estate sales are made. With over (ex:200 million dollars) generated in revenue from the projects that Cubedots has been managing, within such short time frame.</p>
-
-                                    <button className="btn btntheme">Further details</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
                 <div className="alternetSection">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6 d-flex  justify-content-center justify-content-sm-flex-start">
-                                {/* <AnimationOnScroll animateIn="animate__fadeInLeft"> */}
                                 <div className="alternetSectionImg ">
                                     <img src={publicPath + "/assets/images/bannerimages/whyusportfoliobanner.png"} className="img-fluid vegonBorderRadious" alt="" />
                                 </div>
-                                {/* */}
-                                {/* <div className="alternetSectionImgContent">
-                                <h3>Lorem ipsum dolor sit ametcod</h3>
-                                <div className="pe-lg-5">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, laudantium adipisci. Vero reiciendis in nisi, sunt, obcaecati qui aliquam quam ex ducimus distinctio omnis officiis</p>
-                                </div>
-                                <div className="read_more_cont">
-                                    <a href="#">Read More </a>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
-                                        <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                                    </svg>
-                                </div>
-                            </div> */}
                             </div>
                             <div className="col-md-6 m-auto">
-                                {/* <AnimationOnScroll animateIn="animate__fadeInRight"> */}
                                 <div className="alternetSectionImgContent">
                                     <h3>Take your portfolio to the next level with Cubedots</h3>
                                     <div className="pe-lg-5">
@@ -100,56 +68,10 @@ function WhyUsPage() {
                                         <button className="btn btntheme" onClick={showBecomeOurPartnerModal}>Join our agent network</button>
                                     </div>
                                 </div>
-                                {/* */}
-                                {/* <div className="alternetSectionImg rightImgAlter">
-                                <img src={publicPath + "/assets/images/newsfeed.jpeg"} className="img-fluid" alt="" />
-                            </div> */}
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <div className="services">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 pe-0">
-                            <div className="serviceImg">
-                                <a href="#serviceContent">
-                                    <img alt="" src={publicPath + "/assets/images/whyus/salesservice.jpg"} className="img-fluid" />
-                                    <h3>Sales Services</h3>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="row mb-2">
-                                <div className="col-md-6 pe-1">
-                                    <div className="serviceImg">
-                                        <a href="#serviceContent">
-                                            <img alt="" src={publicPath + "/assets/images/whyus/AfterSalesServices.jpg"} className="img-fluid" />
-                                            <h3>After Sales Services</h3>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="col-md-6 ps-1">
-                                    <div className="serviceImg">
-                                        <a href="#serviceContent">
-                                            <img alt="" src={publicPath + "/assets/images/whyus/PartnershipBenefits.jpg"} className="img-fluid" />
-                                            <h3>Partnership Benefits</h3>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-12">
-                                <div className="serviceImg">
-                                    <a href="#serviceContent">
-                                        <img alt="" src={publicPath + "/assets/images/whyus/AgencyRelationsSupport.jpg"} className="img-fluid" />
-                                        <h3>Agency Relations Support</h3>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>*/}
                 <div className="serviceContent" id="serviceContent">
                     <div className="container">
                         <div className="serviceTabs">
@@ -168,14 +90,10 @@ function WhyUsPage() {
                                 </li>
                             </ul>
                             <div className="tab-content" id="myTabContent">
-                                <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div className="tab-pane fade show active scroller" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <h3>Sales Services</h3>
                                     <h4>Events :</h4>
                                     <ul>
-                                        {/* <li>Promotion of projects with events and exhibitions</li>
-                                        <li>International events (Cityscape, MIPIM, etc)</li>
-                                        <li>Local events</li>
-                                        <li>Presentations</li> */}
                                         <li>Open house events and exhibitions</li>
                                         <li>International real estate events</li>
                                     </ul>
@@ -208,7 +126,7 @@ function WhyUsPage() {
                                     </ul>
                                 </div>
                                 <div className="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                    <h3>Partnership Benefits</h3>                                    
+                                    <h3>Partnership Benefits</h3>
                                     <ul>
                                         <li>Establishing relations with agents</li>
                                         <li>Contracts with agents</li>
@@ -251,25 +169,6 @@ function WhyUsPage() {
                     <img alt="" src={publicPath + "/assets/images/whyus/agentmap.jpg"} className="img-fluid" />
                 </div>
             </div>
-            {/* <div className="whyTestimonail">
-                <div className="container">
-                    <h2>What they say about Cubedots</h2>
-                    <div className="row align-item">
-                        <div className="col-md-8 mx-auto ">
-                            <figure className="text-center">
-                                <blockquote className="blockquote">
-                                    <h2> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-quote" viewBox="0 0 16 16">
-                                        <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z" />
-                                    </svg>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, harum.</h2>
-                                </blockquote>
-                                <figcaption className="blockquote-footer">
-                                    Someone famous in lorem ipsum
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
 
             <WhyUsTestimonialsComponent />
             <div className="faq">
@@ -289,22 +188,13 @@ function WhyUsPage() {
                                 <li className="nav-item" role="presentation">
                                     <button className="nav-link" id="Finances-tab" data-bs-toggle="tab" data-bs-target="#Finances" type="button" role="tab" aria-controls="Finances" aria-selected="false">Finances</button>
                                 </li>
-                                {/* <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="General-tab" data-bs-toggle="tab" data-bs-target="#General" type="button" role="tab" aria-controls="General" aria-selected="false">General</button>
-                                        </li> */}
-                                {/* <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="Enrolment-tab" data-bs-toggle="tab" data-bs-target="#Enrolment" type="button" role="tab" aria-controls="Enrolment" aria-selected="false">Enrolment</button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="Developers-tab" data-bs-toggle="tab" data-bs-target="#Developers" type="button" role="tab" aria-controls="Developers" aria-selected="false">Developers</button>
-                                        </li> */}
                                 <li className="nav-item" role="presentation">
                                     <button className="nav-link" id="Projects-tab" data-bs-toggle="tab" data-bs-target="#Projects" type="button" role="tab" aria-controls="Projects" aria-selected="false">Projects</button>
                                 </li>
                             </ul>
                             <div className="tab-content" id="myTabContent">
-                                <div className="tab-pane fade show active" id="Citizenship" role="tabpanel" aria-labelledby="Citizenship-tab">
-                                    <div className="accordion mainAccordionWhyus" id="Citizenship">
+                                <div className="tab-pane fade show active " id="Citizenship" role="tabpanel" aria-labelledby="Citizenship-tab">
+                                    <div className="accordion mainAccordionWhyus scroller" id="Citizenship">
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Citizenship1">
                                                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitizenship1" aria-expanded="true" aria-controls="collapseCitizenship1">
@@ -449,7 +339,7 @@ function WhyUsPage() {
                                     </div>
                                 </div>
                                 <div className="tab-pane fade" id="Finances" role="tabpanel" aria-labelledby="Finances-tab">
-                                    <div className="accordion mainAccordionWhyus" id="finance">
+                                    <div className="accordion mainAccordionWhyus scroller" id="finance">
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="finance1">
                                                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefinance1" aria-expanded="true" aria-controls="collapsefinance1">
@@ -494,200 +384,12 @@ function WhyUsPage() {
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* <div className="accordion-item">
-                                            <h2 className="accordion-header" id="finance4">
-                                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefinance4" aria-expanded="false" aria-controls="collapsefinance4">
-                                                    <strong> What are the conditions for the VAT Exemption Paper?</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapsefinance4" className="accordion-collapse collapse" aria-labelledby="finance4" data-bs-parent="#finance">
-                                                <div className="accordion-body">
-                                                    <ul>
-                                                        <li>Transfer foreign currency from abroad</li>
-                                                        <li>No Turkish Citizenship &amp; Residency Permit</li>
-                                                        <li>They haven&#39;t been living there for more than 6 months within the last year.</li>
-                                                        <li>Especially great for Nişantaşı and Skyland Big Apartments and Offices</li>
-                                                        <li>It must be the first property investment of the investor</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div> */}
+
                                     </div>
                                 </div>
-                                {/* <div className="tab-pane fade" id="General" role="tabpanel" aria-labelledby="General-tab">
-                                            <div className="accordion mainAccordionWhyus" id="general">
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="general1">
-                                                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsegeneral1" aria-expanded="true" aria-controls="collapsegeneral1">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapsegeneral1" className="accordion-collapse collapse show" aria-labelledby="general1" data-bs-parent="#general">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="general2">
-                                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsegeneral2" aria-expanded="false" aria-controls="collapsegeneral2">
-                                                            Lorem Ipsum is simply dummy text?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapsegeneral2" className="accordion-collapse collapse" aria-labelledby="general2" data-bs-parent="#general">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="general3">
-                                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsegeneral3" aria-expanded="false" aria-controls="collapsegeneral3">
-                                                            Lorem Ipsum is simply dummy text of?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapsegeneral3" className="accordion-collapse collapse" aria-labelledby="general3" data-bs-parent="#general">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="general4">
-                                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsegeneral4" aria-expanded="false" aria-controls="collapsegeneral4">
-                                                            Lorem Ipsum is simply dummy text of the printing?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapsegeneral4" className="accordion-collapse collapse" aria-labelledby="general4" data-bs-parent="#general">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
-                                {/* <div className="tab-pane fade" id="Enrolment" role="tabpanel" aria-labelledby="Enrolment-tab">
-                                            <div className="accordion mainAccordionWhyus" id="enrolment">
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="enrolment1">
-                                                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseenrolment1" aria-expanded="true" aria-controls="collapseenrolment1">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseenrolment1" className="accordion-collapse collapse show" aria-labelledby="enrolment1" data-bs-parent="#enrolment">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="enrolment2">
-                                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseenrolment2" aria-expanded="false" aria-controls="collapseenrolment2">
-                                                            Lorem Ipsum is simply dummy text?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseenrolment2" className="accordion-collapse collapse" aria-labelledby="enrolment2" data-bs-parent="#enrolment">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="enrolment3">
-                                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseenrolment3" aria-expanded="false" aria-controls="collapseenrolment3">
-                                                            Lorem Ipsum is simply dummy text of?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseenrolment3" className="accordion-collapse collapse" aria-labelledby="enrolment3" data-bs-parent="#enrolment">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="enrolment4">
-                                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseenrolment4" aria-expanded="false" aria-controls="collapseenrolment4">
-                                                            Lorem Ipsum is simply dummy text of the printing?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseenrolment4" className="accordion-collapse collapse" aria-labelledby="enrolment4" data-bs-parent="#enrolment">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="tab-pane fade" id="Developers" role="tabpanel" aria-labelledby="Developers-tab">
-                                            <div className="accordion mainAccordionWhyus" id="developers">
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="developers1">
-                                                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedevelopers1" aria-expanded="true" aria-controls="collapsedevelopers1">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapsedevelopers1" className="accordion-collapse collapse show" aria-labelledby="developers1" data-bs-parent="#developers">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="developers2">
-                                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedevelopers2" aria-expanded="false" aria-controls="collapsedevelopers2">
-                                                            Lorem Ipsum is simply dummy text?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapsedevelopers2" className="accordion-collapse collapse" aria-labelledby="developers2" data-bs-parent="#developers">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="developers3">
-                                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedevelopers3" aria-expanded="false" aria-controls="collapsedevelopers3">
-                                                            Lorem Ipsum is simply dummy text of?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapsedevelopers3" className="accordion-collapse collapse" aria-labelledby="developers3" data-bs-parent="#developers">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="accordion-item">
-                                                    <h2 className="accordion-header" id="developers4">
-                                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedevelopers4" aria-expanded="false" aria-controls="collapsedevelopers4">
-                                                            Lorem Ipsum is simply dummy text of the printing?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapsedevelopers4" className="accordion-collapse collapse" aria-labelledby="developers4" data-bs-parent="#developers">
-                                                        <div className="accordion-body">
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
                                 <div className="tab-pane fade" id="Projects" role="tabpanel" aria-labelledby="Projects-tab">
-                                    <div className="accordion mainAccordionWhyus" id="Projects">
-                                        {/*<div className="accordion-item">
-                                            <h2 className="accordion-header" id="Projects1">
-                                                <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects1" aria-expanded="true" aria-controls="collapseProjects1">
-                                                    <strong>General</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapseProjects1" className="accordion-collapse collapse show" aria-labelledby="Projects1" data-bs-parent="#Projects">
-                                                <div className="accordion-body ">
-                                                    <strong>Are all of the projects on the Cubedots app?</strong>
-                                                    <p>   Yes, they are and it is updated regularly.</p>
-                                                    <strong>  What are the commission rates for each project?</strong>
-                                                    <p>  The commission rate for Nişantaşı Koru and AcarBlu is 5% and for Yamanevler and Alya 4
-                                                        Mevsim is 7%.</p>
-                                                </div>
-                                            </div>
-                                        </div>*/}
+                                    <div className="accordion mainAccordionWhyus scroller" id="Projects">
+
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Projects2">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects2" aria-expanded="false" aria-controls="collapseProjects2">
@@ -781,7 +483,7 @@ function WhyUsPage() {
                                             </div>
                                         </div>
 
-                                        
+
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="Projects4">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProjects4" aria-expanded="false" aria-controls="collapseProjects4">

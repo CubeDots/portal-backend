@@ -96,7 +96,7 @@ function TutorialPage() {
 
                     </div>
                 </div>
-                <Modal show={show} onHide={() => handleClose()} backdrop="static" keyboard={false} size="xl" aria-labelledby="contained-modal-title-vcenter" centered>
+                <Modal className="scroller" show={show} onHide={() => handleClose()} backdrop="static" keyboard={false} size="xl" aria-labelledby="contained-modal-title-vcenter" centered>
                     <Modal.Header className='p-2' closeButton>
                         <Modal.Title>{activeTutorial.title}</Modal.Title>
                     </Modal.Header>

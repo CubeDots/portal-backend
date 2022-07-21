@@ -13,7 +13,7 @@ function VideoPopUp(props) {
 
     return (
         <>
-            <Modal {...props} backdrop="static" keyboard={false} size="xl" aria-labelledby="contained-modal-title-vcenter" centered>
+            <Modal className="scroller" {...props} backdrop="static" keyboard={false} size="xl" aria-labelledby="contained-modal-title-vcenter" centered>
                 <Modal.Header className="p-2" closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
                         {props.data ? props.data.title : ''}

@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 //import { Link } from "react-router-dom";
 //import AnimationOnScroll from '../components/AnimationOnScroll';
-import GoalAndValueComponent from "../components/aboutus/GoalAndValueComponent";
+import GoalValueSliderComponents from "../components/aboutus/GoalValueSliderComponents";
 //import AboutCounterComponent from "../components/aboutus/AboutCounterComponent";
 //import DeveloperAssociateComponent from "../components/aboutus/DeveloperAssociateComponent";
 import OurFounderComponent from "../components/aboutus/OurFounderComponent"
 import OurPresenceComponent from "../components/aboutus/OurPresenceComponent";
-
+import GoalAndValueComponent from "../components/aboutus/GoalAndValueComponent"
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 
 
 function AboutUsPage(props) {
@@ -92,8 +93,10 @@ function AboutUsPage(props) {
                         </div>
                     </div>
                 </div>
-
-                <GoalAndValueComponent />
+{
+    isMobile ?  <GoalValueSliderComponents/> : <GoalAndValueComponent /> 
+}
+                
 
                 {/* <AboutCounterComponent /> */}
 

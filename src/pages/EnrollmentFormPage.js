@@ -391,11 +391,11 @@ function EnrollmentFromAds(props) {
                           required />
                       </div>
                       <div className="text-danger formErrorMsg">
-                        {simpleValidator.current.message(
-                          "mobile",
-                          formData.mobile,
-                          "phone"
-                        )}
+                      {
+                          formData.mobile.length < 4 || formData.mobile.length > 20 ?
+                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                            : ""
+                        }
                       </div>
                     </div>
                   </div>

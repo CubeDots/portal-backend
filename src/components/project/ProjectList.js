@@ -31,7 +31,7 @@ function ProjectList(props) {
     // }
 
     const showProjectEnquireNowModal = (p) => {
-        console.log("showProjectEnquireNowModal clicked", p);
+        // console.log("showProjectEnquireNowModal clicked", p);
         setSelectedProject(p);
         setIsProjectEnquireNowModalShow(true);
     }

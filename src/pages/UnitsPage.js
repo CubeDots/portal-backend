@@ -44,23 +44,27 @@ function UnitsPage() {
 
     const [priceMin, setPriceMin] = useState(0);
     const [priceMax, setPriceMax] = useState(0);
+
     useEffect(() => {
         window.history.scrollRestoration = 'manual'
-      }, []);
+    }, []);
+
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         //console.log('unit page loaded')
         fetchUnits();
         fetchExchangeRates();
-        // return () => { // ComponentWillUnmount in Class Component
-        //     setSearchFormData({ block: '', floor: '', area: '', price: '' });
-        // }
-        //console.log("searchFormData ", searchFormData);
-        // if(searchFormData){
-        //     setTimeout(() => {
-        //         searchNow();
-        //     }, 1000);
-        // }
+        /*
+        return () => { // ComponentWillUnmount in Class Component
+            setSearchFormData({ block: '', floor: '', area: '', price: '' });
+        }
+        console.log("searchFormData ", searchFormData);
+        if(searchFormData){
+            setTimeout(() => {
+                searchNow();
+            }, 1000);
+        }
+        */
     }, []);
 
 
@@ -154,28 +158,30 @@ function UnitsPage() {
         //console.log("unitPrice", unitPrice);
         return unitPrice;
     }
-
-    // const handleBlocks = (e) => {
-    //     console.log('handleBlocks' ,e.target.value);
-    //     let filterUnits = unitsAll.filter((item) => {
-    //         return item.block === e.target.value
-    //     });
-    //     console.log("filterUnits" ,unitsAll.length, filterUnits.length);
-
-    //     setUnits(filterUnits);
-    // }
-    // const handleFloors = (e) => {
-    //     console.log('handleFloors' ,e.target.value);
-
-    // }
-
+    /*
+        const handleBlocks = (e) => {
+            console.log('handleBlocks' ,e.target.value);
+            let filterUnits = unitsAll.filter((item) => {
+                return item.block === e.target.value
+            });
+            console.log("filterUnits" ,unitsAll.length, filterUnits.length);
+    
+            setUnits(filterUnits);
+        }
+        const handleFloors = (e) => {
+            console.log('handleFloors' ,e.target.value);
+    
+        }
+    */
     const handleChangeBlock = (e) => {
-        //e.persist();
-        //console.log('handleChangeBlock',e.target.value);
-        // setSearchFormData(searchFormData => ({ ...searchFormData, block: e.target.value }));
-        // setTimeout(() => {
-        //     searchNow();
-        // }, 1000);
+        /*
+        e.persist();
+        console.log('handleChangeBlock',e.target.value);
+        setSearchFormData(searchFormData => ({ ...searchFormData, block: e.target.value }));
+        setTimeout(() => {
+            searchNow();
+        }, 1000);
+        */
 
     }
     const handleChangeFloor = (e) => {
@@ -208,13 +214,13 @@ function UnitsPage() {
         const unitType = document.querySelector('#unitType').value;
         const area = document.querySelector('#area').value;
         const price = document.querySelector('#price').value;
-
-        // const block = searchFormData.block ; //document.querySelector('#block').value;
-        // const floor = searchFormData.floor; //document.querySelector('#floor').value;
-        // const area = searchFormData.area; //document.querySelector('#area').value;
-        // const price = searchFormData.price; //document.querySelector('#price').value;
-        //console.log('searchNow --', block, floor,unitType, area, prices);
-
+        /*
+                const block = searchFormData.block ; //document.querySelector('#block').value;
+                const floor = searchFormData.floor; //document.querySelector('#floor').value;
+                const area = searchFormData.area; //document.querySelector('#area').value;
+                const price = searchFormData.price; //document.querySelector('#price').value;
+                console.log('searchNow --', block, floor,unitType, area, prices);
+        */
         let areaArray = area ? area.split(' - ') : [areaMin, areaMax];
         let priceArray = price ? price.split(' - ') : [priceMin, priceMax];
 
@@ -392,7 +398,7 @@ function UnitsPage() {
                             <li>
                                 <div className="input-group select-group">
                                     <span className="input-group-addon">
-                                    <img src={publicPath + "/assets/images/icons/block.svg"} width={20} />
+                                        <img src={publicPath + "/assets/images/icons/block.svg"} width={20} />
                                         {/* <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 480 480">
                                             <g>
                                                 <g>
@@ -419,8 +425,8 @@ function UnitsPage() {
                             <li>
                                 <div className="input-group select-group">
                                     <span className="input-group-addon">
-                                    <img src={publicPath + "/assets/images/icons/floor.svg"} width={20} />
-                                    {/* <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512">
+                                        <img src={publicPath + "/assets/images/icons/floor.svg"} width={20} />
+                                        {/* <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512">
                                         <g transform="translate(1 1)">
                                             <g>
                                                 <g>
@@ -574,7 +580,7 @@ function UnitsPage() {
                                                             }
                                                         </td>
                                                         <td>
-                                                            <Link className="btnView" title="view" to={`/projects/${id}/unit/${row.cubedots_id}`}>
+                                                            <Link className="btnView"  title="view" to={`/projects/${id}/unit/${row.cubedots_id}`}>
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye" viewBox="0 0 16 16">
                                                                     <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                                                     <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />

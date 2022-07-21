@@ -29,9 +29,9 @@ function UnitInventoryData(props) {
     }
     useEffect(() => {
         window.history.scrollRestoration = 'manual'
-      }, []);
+    }, []);
     useEffect(() => {
-        window.scrollTo({ top:0,left:0,behavior:'smooth'});
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         fetchUnits();
     }, [])
     return (
@@ -49,8 +49,8 @@ function UnitInventoryData(props) {
                     </div>
                 </div>
                 <div className="searchUnitHeading col mb-3">
-                        <h2>{project ? project.title : ''}</h2>
-                    </div>
+                    <h2>{project ? project.title : ''}</h2>
+                </div>
                 <div className="text-center">
                     {unitsLoading ?
                         <>

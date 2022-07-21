@@ -113,7 +113,7 @@ export default function ProjectsMapComponent(props) {
     let t = ev.target;
     let currentId = t.getAttribute('id');
     let currentIdTitle = t.getAttribute('data-name');
-    console.log('@@@ Current Id Second Map =========', currentId);
+    // console.log('@@@ Current Id Second Map =========', currentId);
     if (currentId.toLowerCase() === 'map')
       setFilterData(null);
     else
@@ -130,7 +130,7 @@ export default function ProjectsMapComponent(props) {
 
         data={publicPath + "/assets/images/map/Istanbul-Map.svg"}
         aria-label="block view" />
-      {console.log("filterData ", filterData)}
+      {/* {console.log("filterData ", filterData)} */}
       {filterData && !projects[filterData.slug][0].project_status ?
       <Link to={`/projects/${projects[filterData.slug][0].slug}`} className={projects[filterData.slug][0].project_status ? 'disabled-link' : ''}>
           <div className="col-md-2 projectDetailBox" style={mobileCheck()? { top:115 , left:100 } :{    top: filterData.clientY, left: filterData.clientX }}>

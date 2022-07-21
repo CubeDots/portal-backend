@@ -239,7 +239,7 @@ function UnitEnquireNowModal(props) {
                                         <div className="col mb-3">
                                             {countries.length > 0 ?
                                                 <>
-                                                    <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
+                                                    <select className="form-select scroller" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
                                                         <option value="" disabled selected hidden>Select Country</option>
                                                         {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                                     </select>

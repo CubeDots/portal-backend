@@ -73,7 +73,7 @@ function HomeProjectsComponent() {
     return (
         <>
 
-            <div className="projectCardSection">
+            <div className="projectCardSection scroller">
                 <div className="row">
                     {projects && projects.map((row, i) => {
                         return (
@@ -130,7 +130,7 @@ function HomeProjectsComponent() {
                                             </div>
                                         </div>
                                         <p className="projectCardPara">{row.small_description}</p>
-                                        <p className="mb-0" style={{'font-size':'11px'}}>{row.slogan}</p>
+                                        <p className="mb-0" style={{fontSize:'11px'}}>{row.slogan}</p>
                                     </div>
                                 </div>
                             </div>

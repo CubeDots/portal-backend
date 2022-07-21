@@ -244,7 +244,7 @@ function BecomeOurPartnerModal(props) {
     <>
       <Modal
         {...props}
-        className="enrollmentModal"
+        className="enrollmentModal scroller"
         backdrop="static"
         keyboard={false}
         aria-labelledby="contained-modal-title-vcenter"
@@ -370,7 +370,7 @@ function BecomeOurPartnerModal(props) {
                       {countries.length > 0 ? (
                         <>
                           <select
-                            className="form-select"
+                            className="form-select scroller"
                             placeholder="Country"
                             name="country"
                             onChange={handleChangeCountry}

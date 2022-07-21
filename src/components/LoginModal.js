@@ -51,7 +51,7 @@ function LoginModal(props) {
     const [isForgotPasswordModalShow, setisForgotPasswordModalShow] = useState(false);
 
     const showBecomeOurPartnerModal = () => {
-        console.log("showBecomeOurPartnerModal clicked");
+        // console.log("showBecomeOurPartnerModal clicked");
         handleClose();
         setTimeout(() => {
             setIsBecomeOurPartnerModalShow(true);
@@ -61,12 +61,12 @@ function LoginModal(props) {
     }
 
     const closeBecomeOurPartnerModalModal = () => {
-        console.log("closeBecomeOurPartnerModalModal trigger");
+        // console.log("closeBecomeOurPartnerModalModal trigger");
         setIsBecomeOurPartnerModalShow(false);
     }
 
     const openForgotPasswordModal = () => {
-        console.log('openForgotPasswordModal click manually');
+        // console.log('openForgotPasswordModal click manually');
         handleClose();
         setTimeout(() => {
             setisForgotPasswordModalShow(true);
@@ -75,7 +75,7 @@ function LoginModal(props) {
     };
     
     const closeForgotPasswordModal = () => {
-        console.log('closeForgotPasswordModal trigger');
+        // console.log('closeForgotPasswordModal trigger');
         setisForgotPasswordModalShow(false);
         // handleShow();
         setTimeout(() => {
@@ -112,7 +112,7 @@ function LoginModal(props) {
             props.handleChane();
         }
 
-        console.log("location #### ", location.pathname);
+        // console.log("location #### ", location.pathname);
     }, [props, show])
 
     const onSubmit = (e) => {
@@ -125,7 +125,7 @@ function LoginModal(props) {
         }
         axios.post(API_ENDPOINT + 'auth', formData)
             .then((res) => {
-                console.log('login res', res.status, res.data)
+                // console.log('login res', res.status, res.data)
                 if (res.status === 200) {
                     setLoading(false);
                     if (signIn({
@@ -152,11 +152,11 @@ function LoginModal(props) {
                 }
             }).catch((error) => {
                 setLoading(false);
-                console.log("errors ### ", error.response);
+                // console.log("errors ### ", error.response);
                 if (error.response.status === 422) {
-                    console.log("errors data ", error.response.data.errors);
+                    // console.log("errors data ", error.response.data.errors);
                     //let errorm = error.response.data.errors[0];
-                    console.log("error \n", error.response.data.message)
+                    // console.log("error \n", error.response.data.message)
                     setFormValidationErrors(error.response.data.errors);
                     setFormErrors(error.response.data.message);
                     setTimeout(() => {

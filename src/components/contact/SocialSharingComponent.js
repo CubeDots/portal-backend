@@ -61,7 +61,7 @@ function SocialSharingComponent() {
         try {
             const res = await axios.get(publicPath + "/assets/data/countries.json");
             if (res.data) {
-                console.log("res.data ",res.data.data);
+                // console.log("res.data ",res.data.data);
                 setCountriesLoading(false);
                 setCountries(res.data.data);
             }
