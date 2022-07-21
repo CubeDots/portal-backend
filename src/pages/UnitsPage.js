@@ -536,7 +536,7 @@ function UnitsPage() {
                                     <div className="table-responsive">
                                         <table className="table table-sm table-hover0 table-bordered0 apartmentDetails" >
                                             <thead>
-                                                <tr align="center">
+                                                <tr >
                                                     <td>Apartment ID</td>
                                                     <td>Block</td>
                                                     <td>Floor</td>
@@ -545,24 +545,24 @@ function UnitsPage() {
                                                     <td>Built Up Area</td>
                                                     <td>Net Area</td>
                                                     <td>Direction</td>
-                                                    <td onClick={() => onSortChange('price')}>{['sort-up', 'sort-down'].includes(sortTypes[currentSort].class) ? (sortTypes[currentSort].class === 'sort-up' ? '↑' : '↓') : ''} Price</td>
+                                                    <td style={{padding:'4px 25px'}} onClick={() => onSortChange('price')}>{['sort-up', 'sort-down'].includes(sortTypes[currentSort].class) ? (sortTypes[currentSort].class === 'sort-up' ? '↑' : '↓') : ''} Price</td>
                                                     <td>Status</td>
-                                                    <td>Action</td>
+                                                    <td align="center">Action</td>
 
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {units.length < 1 ? <tr><td colSpan={11} align="center">No units found.</td></tr> : <></>}
                                                 {units.sort(dynamicSort(currentColumn)).map((row) =>
-                                                    <tr key={row.id} align="center">
+                                                    <tr key={row.id} >
                                                         <td>{row.apartment_id}</td>
                                                         <td>{row.block}</td>
-                                                        <td>{row.floor}</td>
-                                                        <td>{row.bedroom}</td>
-                                                        <td>{row.unit_type}</td>
-                                                        <td>{row.built_up_area}</td>
+                                                        <td style={{padding:'4px 10px'}}>{row.floor}</td>
+                                                        <td style={{padding:'4px 18px'}}>{row.bedroom}</td>
+                                                        <td style={{padding:'4px 12px'}}>{row.unit_type}</td>
+                                                        <td style={{padding:'4px 18px'}}>{row.built_up_area}</td>
                                                         <td>{row.net_area}</td>
-                                                        <td>{row.direction === 'null' ? '-' : row.direction}</td>
+                                                        <td style={{padding:'4px 10px'}}>{row.direction === 'null' ? '-' : row.direction}</td>
                                                         <td>
                                                             <OverlayTrigger trigger="click" placement="right" overlay={popover(project.currency_symbol, row.price)} rootClose="true">
                                                                 <CurrencyFormat value={row.price} displayType={'text'} thousandSeparator={true} suffix={project ? ' ' + project.currency_symbol : ''} />
