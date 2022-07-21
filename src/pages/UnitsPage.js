@@ -539,7 +539,7 @@ function UnitsPage() {
                                                     <td>Built Up Area</td>
                                                     <td>Net Area</td>
                                                     <td>Direction</td>
-                                                    <td style={{padding:'0px 05px'}} onClick={() => onSortChange('price')}>{['sort-up', 'sort-down'].includes(sortTypes[currentSort].class) ? (sortTypes[currentSort].class === 'sort-up' ? '↑' : '↓') : ''} Price</td>
+                                                    <td style={{padding:'4px 25px'}} onClick={() => onSortChange('price')}>{['sort-up', 'sort-down'].includes(sortTypes[currentSort].class) ? (sortTypes[currentSort].class === 'sort-up' ? '↑' : '↓') : ''} Price</td>
                                                     <td>Status</td>
                                                     <td align="center">Action</td>
 
@@ -551,12 +551,12 @@ function UnitsPage() {
                                                     <tr key={row.id} >
                                                         <td>{row.apartment_id}</td>
                                                         <td>{row.block}</td>
-                                                        <td>{row.floor}</td>
-                                                        <td>{row.bedroom}</td>
-                                                        <td>{row.unit_type}</td>
-                                                        <td>{row.built_up_area}</td>
+                                                        <td style={{padding:'4px 10px'}}>{row.floor}</td>
+                                                        <td style={{padding:'4px 18px'}}>{row.bedroom}</td>
+                                                        <td style={{padding:'4px 12px'}}>{row.unit_type}</td>
+                                                        <td style={{padding:'4px 18px'}}>{row.built_up_area}</td>
                                                         <td>{row.net_area}</td>
-                                                        <td>{row.direction === 'null' ? '-' : row.direction}</td>
+                                                        <td style={{padding:'4px 10px'}}>{row.direction === 'null' ? '-' : row.direction}</td>
                                                         <td>
                                                             <OverlayTrigger trigger="click" placement="right" overlay={popover(project.currency_symbol, row.price)} rootClose="true">
                                                                 <CurrencyFormat value={row.price} displayType={'text'} thousandSeparator={true} suffix={project ? ' ' + project.currency_symbol : ''} />
