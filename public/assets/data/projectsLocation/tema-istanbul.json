@@ -1,0 +1,88 @@
+[
+    {
+        "id":"01",
+        "airport":[
+            {
+                "id":"1",
+                "name":"İstanbul Airport",
+                "distance":"11.6 km",
+                "time":"30 min"
+            },
+            {
+                "id":"2",
+                "name":"Atatürk Airport",
+                "distance":"40 km",
+                "time":"50 min"
+            },
+            {
+                "id":"3",
+                "name":"Sabiha Gokcen Airport",
+                "distance":"100 km",
+                "time":"50 min"
+            }
+        ]
+    },
+    {
+        "id":"02",
+        "publictransport":[
+            {
+                "id":"1",
+                "name":"Halkalı Marmaray Station",
+                "distance":"5 km",
+                "time":"5 min"
+            },
+            {
+                "id":"2",
+                "name":"Halkalı Subway Station",
+                "distance":"3 Km",
+                "time":"8 min"
+            }
+        ]
+    },
+    {
+        "id":"03",
+        "mall":[
+            {
+                "id":"1",
+                "name":"Halkalı Center Mall",
+                "distance":"4.4 km",
+                "time":"10 min"
+            },
+            {
+                "id":"2",
+                "name":"ArenaPark Mall",
+                "distance":"3.2 km",
+                "time":"10 min"
+            }
+        ]
+    },
+    {
+        "id":"04",
+        "hospital":[
+            {
+                "id":"1",
+                "name":"Halkalı Private City Hospital",
+                "distance":"3.8 km",
+                "time":"3 min"
+            },
+            {
+                "id":"2",
+                "name":"Acıbadem Mehmet Ali Aydınlar University Hospital",
+                "distance":"3.1 km",
+                "time":"5 min"
+            },
+            {
+                "id":"3",
+                "name":"Private Istanbul Hospital",
+                "distance":"4.6 km",
+                "time":"6 min"
+            },
+            {
+                "id":"3",
+                "name":"Acıbadem Atakent Hospital",
+                "distance":"3.1 km",
+                "time":"6 min"
+            }
+        ]
+    }
+]
