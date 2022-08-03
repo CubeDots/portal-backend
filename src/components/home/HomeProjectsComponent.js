@@ -77,7 +77,10 @@ function HomeProjectsComponent() {
                 <div className="row">
                     {projects && projects.map((row, i) => {
                         return (
+                            <>
+                            {/* row.slug != 'four-winds-residence' ? */}
                             <div className="col-md-6" key={i}>
+                                
                                 <div className="projectcard ">
                                     {/* <AnimationOnScroll animateIn="animate__zoomIn"> */}
                                     <div className="imgproject">
@@ -132,8 +135,11 @@ function HomeProjectsComponent() {
                                         <p className="projectCardPara">{row.small_description}</p>
                                         <p className="mb-0" style={{fontSize:'11px'}}>{row.slogan}</p>
                                     </div>
-                                </div>
+                                </div>                                
                             </div>
+                            {/* :''
+                            */}
+                            </>
                         )
                     })
                     }

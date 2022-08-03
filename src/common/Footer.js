@@ -176,9 +176,12 @@ function Footer() {
                                         return (
                                             <div key={i}>
                                             <>
-                                                {row.slug != 'acarblu' ?
+                                            
+                                                { row.slug != 'acarblu' ?
                                                     <Link to={`/projects/${row.slug}`} onClick={refreshPage}  className="footer_link">{row.title}</Link>
                                                     : ''}
+                                                
+                                            
                                             </>
                                             </div>
                                         )
