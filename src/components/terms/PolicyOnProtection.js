@@ -280,7 +280,7 @@ function PolicyOnProtection() {
                             <li>Personal data retention periods</li>
                         </ul>
                         <p>9. Roles and Responsibilities</p>
-                        <p className="policyOnProtectionPara">The roles ans responsibilities of our Company regarding the processing of personal data are as follows:</p>
+                        <p className="policyOnProtectionPara">The roles and responsibilities of our Company regarding the processing of personal data are as follows:</p>
                         <ul className="policyParaHeading">
                             <li>In accordance with Article 7 of the KVKK and provisions of other relevant legislation, in the event that the reasons for the processing of personal data no longer exist, the personal data are deleted, destrucred or anonymized upon the Company's decision, periodic checks and /or upon the request of the data subject.</li>
                             <li>The Company will not store personal data for longer than necessary in connection with the reason for obtaining of personal data. The Company deletes, destroys or anonymizes the personal data during the first periodic destruction process following the date when the obligation to delete, destroy or anonymize the personal data arises with the disappearance of the reasons for processing.</li>

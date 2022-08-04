@@ -372,7 +372,7 @@ function UnitsPage() {
                     <div className="row mt-3 mb-3">
                         <div className="col">
                             <div className="searchUnitHeading"><h2> {project ? project.title : ''}</h2></div>
-                            <div><p>{project ? project.small_description : ''}</p></div>
+                            {/* <div><p>{project ? project.small_description : ''}</p></div> */}
                         </div>
                     </div>
 

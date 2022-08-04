@@ -22,10 +22,14 @@ function CreateAppointment(props) {
     const [locations, setLocations] = useState([]);
 
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({ first_name: null, last_name: null, email: null, country: null, mobile: null, appointment_date: null, appointment_time: null, location: null, message:null });
+    const [formData, setFormData] = useState({ first_name: null, last_name: null, email: null, country: "", mobile: "", appointment_date: null, appointment_time: null, location: "", message: null });
     const [securityCode, setSecurityCode] = useState(null);
     const [toDayDate, setToDayDate] = useState(new Date());
     const [toTime, setToTime] = useState('10:00:00');
+
+    const [countryselect, setCountrySelect] = useState("")
+    const [mobileselect, setMobileSelect] = useState("")
+    const [locationselect, setLocationSelect] = useState("")
 
     useEffect(() => {
 
@@ -116,9 +120,15 @@ function CreateAppointment(props) {
     }
 
     const onSubmit = (e) => {
+        e.preventDefault();
+        if (formData.country.length == "" || formData.mobile.length == "" || formData.location.length == "") {
+            setCountrySelect("please select country")
+            setMobileSelect("please enter valid mobile number")
+            setLocationSelect("please select project")
+            return false;
+        }
         e.preventDefault(); formData.appointment_date = toDayDate
         e.preventDefault(); formData.appointment_time = toTime
-        e.preventDefault();
         //console.log("formData ", formData);        
         if (formData.country === null) {
             alert("Please select country name.");
@@ -212,7 +222,7 @@ function CreateAppointment(props) {
 
                                     <div className="row">
                                         <div className="col mb-3">
-                                            <input value={auth().user.name} readOnly={auth().user.name ? true : false} className="form-control" type="text" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} placeholder="Full Name *" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value})} required />
+                                            <input value={auth().user.name} readOnly={auth().user.name ? true : false} className="form-control" type="text" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} placeholder="Full Name *" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
                                             <div className='text-danger fs-6'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha')}</div>
                                         </div>
                                     </div>
@@ -228,13 +238,15 @@ function CreateAppointment(props) {
                                         <div className="col mb-3">
                                             {countries.length > 0 ?
                                                 <>
-                                                    <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
+                                                    <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name}>
                                                         <option value="" disabled selected hidden>Select Country</option>
                                                         {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                                     </select>
                                                 </>
                                                 : null}
-
+                                            <div className='validationError'>
+                                                <p className='errorMsg'>{formData.country.length == "" ? countryselect : ""}</p>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -243,7 +255,10 @@ function CreateAppointment(props) {
                                             <div className="input-group">
                                                 <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
                                                 <input className="form-control" type="text" placeholder="Mobile *"
-                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} defaultValue={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
+                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} defaultValue={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })}/>
+                                            </div>
+                                            <div className='validationError'>
+                                                <p className='errorMsg'>{formData.mobile.length == "" ? mobileselect : ""}</p>
                                             </div>
                                             <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                         </div>
@@ -253,7 +268,7 @@ function CreateAppointment(props) {
                                     <div className="row">
                                         <div className="col mb-3">
                                             <label className='mb-1'>Appointment Date</label>
-                                            <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required minDate={moment().toDate()} />
+                                            <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" minDate={moment().toDate()} />
 
                                             {/* <input className="form-control" type="date" placeholder="Appointment Date *" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required/> */}
                                         </div>
@@ -264,10 +279,9 @@ function CreateAppointment(props) {
                                             <label className='mb-1'>Appointment Time</label>
                                             <TimePicker
                                                 onChange={setFormatedTime}
-                                                placeholder="00:00"
+                                                placeholder="10:00"
                                                 showSecond={false}
                                                 className="form-control"
-                                                required={true}
                                             />
                                             {/* <input className="form-control" type="time" placeholder="Appointment Time *" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required /> */}
                                         </div>
@@ -282,16 +296,18 @@ function CreateAppointment(props) {
                                         <div className="col mb-3">
                                             {locations.length > 0 ?
                                                 <>
-                                                    <select className="form-select" placeholder="Location" name="location" onChange={handleChangeLocation} defaultValue={formData.location_name} required>
+                                                    <select className="form-select" placeholder="Location" name="location" onChange={handleChangeLocation} defaultValue={formData.location_name}>
                                                         <option value="">Select Location *</option>
                                                         {locations.length > 0 && locations.map((row, index) => <option value={row.OrgzitRecordId} key={index} >{row.ProjectName}</option>)}
                                                     </select>
                                                 </>
                                                 : null}
-
+                                            <div className='validationError'>
+                                                <p className='errorMsg'>{formData.location.length == "" ? locationselect : ""}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                   
+
                                     <div className="row">
                                         <div className="col">
                                             {loading ?

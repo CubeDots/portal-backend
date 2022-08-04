@@ -16,8 +16,8 @@ function AboutUsPage(props) {
 
     useEffect(() => {
         window.history.scrollRestoration = 'manual'
-      }, []);
-      
+    }, []);
+
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, []);
@@ -93,10 +93,10 @@ function AboutUsPage(props) {
                         </div>
                     </div>
                 </div>
-{
-    isMobile ?  <GoalValueSliderComponents/> : <GoalAndValueComponent /> 
-}
-                
+                {
+                    isMobile ? <GoalValueSliderComponents /> : <GoalAndValueComponent />
+                }
+
 
                 {/* <AboutCounterComponent /> */}
 

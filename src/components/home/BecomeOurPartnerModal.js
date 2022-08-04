@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
@@ -31,6 +30,15 @@ function BecomeOurPartnerModal(props) {
 
   const [countriesLoading, setCountriesLoading] = useState(false);
   const [countries, setCountries] = useState([]);
+
+  const [warnemail, setwarnemail] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [emailerror, setEmailError] = useState("");
+  const [mobileerror, setMobileError] = useState("")
+  const [projectinterest, setProjectInterest] = useState("")
+  const [countryselect, setCountrySelect] = useState("")
+  const [occupationslected, setOccupationSelected] = useState("")
+  // const [interestselect, setInterestSelect] = useState("")
 
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -186,6 +194,22 @@ function BecomeOurPartnerModal(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (formData.first_name.length == "" || formData.last_name.length == "" || formData.email.length == "" || formData.occupation.length == "" || formData.country.length == "" || formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20) {
+      setwarnemail("please enter valid first name")
+      setLastName("please enter valid last name")
+      setEmailError("please enter valid email address")
+      setMobileError("please enter valid mobile number")
+      setProjectInterest("please select occupation")
+      setCountrySelect("please select country")
+      return false;
+    }
+    if (formData.occupation == "Agency" && formData.project_interest.length == "") {
+      setOccupationSelected("please select project")
+      return false;
+    } 
+    
+
     console.log("formData ", formData);
     if (formData.security_code !== securityCode) {
       alert("Please enter correct security code");
@@ -203,6 +227,12 @@ function BecomeOurPartnerModal(props) {
         //console.log("res ### ", res.status, res.data);
 
         if (res.status === 200) {
+          setwarnemail("")
+          setLastName("")
+          setEmailError("")
+          setMobileError("")
+          setProjectInterest("")
+          setCountrySelect("")
           setLoading(false);
           genRandomString();
           setSelectedValue([""]);
@@ -271,17 +301,10 @@ function BecomeOurPartnerModal(props) {
                         type="text"
                         placeholder="First Name *"
                         name="first_name"
-                        onKeyUp={() =>
-                          simpleValidator.current.showMessageFor("first_name")
-                        }
+                        onKeyUp={() => simpleValidator.current.showMessageFor("first_name")}
                         value={formData.first_name}
                         onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            first_name: e.target.value.replace(/[^a-z]/gi, ''),
-                          })
-                        }
-                        required
+                          setFormData({ ...formData, first_name: e.target.value.replace(/[^a-z]/gi, ''), })}
                       />
                       <div className="text-danger formErrorMsg">
                         {simpleValidator.current.message(
@@ -289,6 +312,9 @@ function BecomeOurPartnerModal(props) {
                           formData.first_name,
                           "alpha_space"
                         )}
+                      </div>
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.first_name.length == "" ? warnemail : ""}</p>
                       </div>
                     </div>
                     <div className="col-md-6 mb-3">
@@ -298,16 +324,9 @@ function BecomeOurPartnerModal(props) {
                         placeholder="Last Name *"
                         name="last_name"
                         onKeyUp={() =>
-                          simpleValidator.current.showMessageFor("last_name")
-                        }
+                          simpleValidator.current.showMessageFor("last_name")}
                         value={formData.last_name}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            last_name: e.target.value.replace(/[^a-z]/gi, ''),
-                          })
-                        }
-                        required
+                        onChange={(e) => setFormData({ ...formData, last_name: e.target.value.replace(/[^a-z]/gi, ''), })}
                       />
                       <div className="text-danger formErrorMsg">
                         {simpleValidator.current.message(
@@ -315,6 +334,9 @@ function BecomeOurPartnerModal(props) {
                           formData.last_name,
                           "alpha_space"
                         )}
+                      </div>
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.last_name.length == "" ? lastname : ""}</p>
                       </div>
                     </div>
                   </div>
@@ -325,44 +347,28 @@ function BecomeOurPartnerModal(props) {
                         type="text"
                         placeholder="Email *"
                         name="email"
-                        onKeyUp={() =>
-                          simpleValidator.current.showMessageFor("email")
-                        }
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        required
+                        onKeyUp={() => simpleValidator.current.showMessageFor("email")} value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       />
-                    </div>
-                    <div className="text-danger formErrorMsg">
-                      {simpleValidator.current.message(
-                        "email",
-                        formData.email,
-                        "email"
-                      )}
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.email.length == "" ? emailerror : ""}</p>
+                      </div>
+                      <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col mb-3" onChange={(e) =>
-                         {HandleInputHide(e)}
-                        }>
-                      <select required className="form-select" placeholder="Occupation" name="occupation"
-                        
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            occupation: e.target.value,
-                          })
-                        }
+                    <div className="col mb-3" onChange={(e) => { HandleInputHide(e) }}>
+                      <select className="form-select" placeholder="Occupation" name="occupation"
+                        onChange={(e) => setFormData({ ...formData,  occupation: e.target.value, })}
                         defaultValue={formData.occupation}>
-                        <option value="" disabled selected hidden>
-                          Interested As
-                        </option>
+                        <option value="" disabled selected hidden>Interested As * </option>
                         <option value="Agency" >Real Estate Agency</option>
                         <option value="Developer">Developer</option>
                         <option value="Others">Others</option>
                       </select>
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.occupation === "" ? projectinterest : ""}</p>
+                      </div>
                     </div>
                   </div>
                   <div className="row">
@@ -374,12 +380,8 @@ function BecomeOurPartnerModal(props) {
                             placeholder="Country"
                             name="country"
                             onChange={handleChangeCountry}
-                            defaultValue={formData.country_name}
-                            required
-                          >
-                            <option value="" disabled selected hidden>
-                              Select Country *
-                            </option>
+                            defaultValue={formData.country_name}>
+                            <option value="" disabled selected hidden> Select Country * </option>
                             {countries.length > 0 &&
                               countries.map((row, index) => (
                                 <option value={row.country_name} key={index}>
@@ -389,6 +391,9 @@ function BecomeOurPartnerModal(props) {
                           </select>
                         </>
                       ) : null}
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.country.length == "" ? countryselect : ""}</p>
+                      </div>
                     </div>
                   </div>
                   <div className="row mb-3">
@@ -403,13 +408,8 @@ function BecomeOurPartnerModal(props) {
                           placeholder="Mobile No. *"
                           name="mobile"
                           value={formData.mobile}
-                          onKeyUp={() =>
-                            simpleValidator.current.showMessageFor("mobile")
-                          }
-                          onChange={(e) =>
-                            setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })
-                          }
-                          required
+                          onKeyUp={() => simpleValidator.current.showMessageFor("mobile")}
+                          onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })}
                         />
                       </div>
                       <div className="text-danger formErrorMsg">
@@ -418,11 +418,14 @@ function BecomeOurPartnerModal(props) {
                           formData.mobile,
                           "phone"
                         )} */}
-                        {
+                        {/* {
                           formData.mobile.length < 4 || formData.mobile.length > 20 ?
                             <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                             : ""
-                        }
+                        } */}
+                      </div>
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20 ? mobileerror : ""}</p>
                       </div>
                     </div>
                   </div>
@@ -434,15 +437,10 @@ function BecomeOurPartnerModal(props) {
                         placeholder="Write Your Message"
                         name="message"
                         defaultValue={formData.message}
-                        onChange={(e) =>
-                          setFormData({ ...formData, message: e.target.value })
-                        }>
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}>
                       </textarea>
                     </div>
                   </div>
-
-
-
                   {
                     showInput == 'Agency' && (
                       <div className="row">
@@ -454,12 +452,9 @@ function BecomeOurPartnerModal(props) {
                                 placeholder="Select Projects"
                                 name="country"
                                 onChange={handleChangeProjectInterest}
-                                defaultValue={formData.project_interest}
-                                required
+                              // defaultValue={formData.project_interest}
                               >
-                                <option value="" disabled selected hidden>
-                                  Select Projects *
-                                </option>
+                                <option value="" disabled selected hidden> Select Projects *</option>
                                 {projects.length > 0 &&
                                   projects.map((row, index) => (
                                     <option value={row.title === "AcarBlu" ? null : row.title} key={index}>
@@ -467,10 +462,14 @@ function BecomeOurPartnerModal(props) {
                                     </option>
                                   ))}
                               </select>
+                          <div className='validationError'>
+                            <p className='errorMsg'>{formData.project_interest.length == "" ? occupationslected : ""}</p>
+                          </div>
                             </>
                           ) : null}
                         </div>
                       </div>
+
                     )
                   }
 
@@ -508,42 +507,31 @@ function BecomeOurPartnerModal(props) {
                   */}
                   <div className="row">
                     <div className="captchInput">
-
-
                       <input
                         type="text"
                         placeholder="Security Code"
                         name="security_code"
                         autoComplete="off"
                         defaultValue={formData.security_code}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            security_code: e.target.value,
-                          })
-                        }
-                      />
+                        onChange={(e) => setFormData({ ...formData, security_code: e.target.value, })} />
                       <span className="captha_code mr-sm-2" id="notcp">
                         {securityCode}
                       </span>
                       <button
                         type="button"
                         onClick={() => genRandomString()}
-                        className="btn btn-default"
-                      >
+                        className="btn btn-default">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
                           fill="currentColor"
                           className="bi bi-arrow-repeat"
-                          viewBox="0 0 16 16"
-                        >
+                          viewBox="0 0 16 16">
                           <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
                           <path
                             fillRule="evenodd"
-                            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
-                          />
+                            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
                         </svg>
                       </button>
                     </div>
@@ -555,9 +543,7 @@ function BecomeOurPartnerModal(props) {
                           className="form-check-input"
                           type="checkbox"
                           id="flexCheckDefault"
-                          defaultValue={formData.terms}
-                          onClick={() => handleChangeTerms(!formData.terms)}
-                        />
+                          defaultValue={formData.terms} onClick={() => handleChangeTerms(!formData.terms)} />
                         <label className="form-check-label">
                           <div className="termsAndConditionSection">
                             <small>
@@ -580,8 +566,8 @@ function BecomeOurPartnerModal(props) {
                             animation="border"
                             size="sm"
                             role="status"
-                            aria-hidden="true"
-                          />{" "}
+                            aria-hidden="true" />
+                          {" "}
                           Submitting...
                         </button>
                       ) : (

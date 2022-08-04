@@ -26,10 +26,18 @@ function EnquireAboutThisPropertyComponent(props) {
 
     // const [value, onChange] = useState('10:00');
 
+    const [warnemail, setwarnemail] = useState("");
+    const [lastname, setLastName] = useState("");
+    const [emailerror, setEmailError] = useState("");
+    const [mobileerror, setMobileError] = useState("")
+    // const [projectinterest, setProjectInterest] = useState("")
+    const [countryselect, setCountrySelect] = useState("")
+    const [occupationslected , setOccupationSelected] = useState("")
+
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
     const [loading, setLoading] = useState(false);
-    const formColumns = { project_interest: '', first_name: '', last_name: '', email: '', country: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false };
+    const formColumns = { project_interest: '', first_name: '', last_name: '',occupation: '', email: '', country: '', dial_code: '', mobile: '', message: '', appointment_date: '', appointment_time: '', terms: false };
     const [formData, setFormData] = useState(formColumns);
     const [project_interest, setProjectInterest] = useState(props.data.title);
 
@@ -91,6 +99,17 @@ function EnquireAboutThisPropertyComponent(props) {
     }
 
     const onSubmit = (e) => {
+        e.preventDefault()
+        if (formData.first_name.length == ""|| formData.occupation.length == "" ||formData.last_name.length == ""|| formData.email.length == "" ||   formData.country.length == "" || formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20) {
+            setwarnemail("please enter valid first name")
+            setLastName("please enter valid last name")
+            setEmailError("please enter valid email address")
+            setMobileError("please enter valid mobile number")
+            // setProjectInterest("please select project interest")
+            setCountrySelect("please select country")
+            setOccupationSelected("please select occupation")
+            return false;
+        }
         e.preventDefault(); formData.appointment_date = toDayDate
         e.preventDefault(); formData.appointment_time = toTime
 
@@ -107,6 +126,12 @@ function EnquireAboutThisPropertyComponent(props) {
             .then((res) => {
                 // console.log('res ### ', res.status, res.data)
                 if (res.status === 200) {
+                    setwarnemail("")
+                    setLastName("")
+                    setEmailError("")
+                    setMobileError("")
+                    setProjectInterest("")
+                    setCountrySelect("")
                     setLoading(false);
                     resetFrom();
                     setTimeout(() => {
@@ -156,56 +181,72 @@ function EnquireAboutThisPropertyComponent(props) {
             <div className="enquireForm sticky-top">
                 <h3 className="">Enquire about this Property</h3>
                 <form id="form2" onSubmit={onSubmit}>
-
                     <div className="mb-3">
                         <label className="form-label">First Name</label>
-                        <input type="text" className="form-control" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value.replace(/[^a-z]/gi, '') })} required />
+                        <input type="text" className="form-control" placeholder="First Name" name="first_name" value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value.replace(/[^a-z]/gi, '') })} />
                         <input className="form-control" type="hidden" placeholder="Project Interest" name="project_interest" defaultValue={project_interest} />
-
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.first_name.length == "" ? warnemail : ""}</p>
+                        </div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Last Name</label>
-                        <input type="text" className="form-control" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value.replace(/[^a-z]/gi, '') })} required />
+                        <input type="text" className="form-control" placeholder="Last Name" name="last_name" value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value.replace(/[^a-z]/gi, '') })} />
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.last_name.length == "" ? lastname : ""}</p>
+                        </div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Email Address</label>
-                        <input type="email" className="form-control" placeholder="Email Address" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                        <input type="email" className="form-control" placeholder="Email Address" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                         <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.email.length == "" ? emailerror : ""}</p>
+                        </div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Occupation</label>
-                        <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
+                        <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} value={formData.occupation}>
                             <option value="" disabled selected hidden required>Select Occupation</option>
                             <option value="Agency">Agency</option>
                             <option value="Developer">Developer</option>
                             <option value="Others">Others</option>
                         </select>
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.occupation.length == "" ? occupationslected : ""}</p>
+                        </div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Country</label>
                         {countries.length > 0 ?
                             <>
-                                <select className="form-select scroller" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
+                                <select className="form-select scroller" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name}>
                                     <option value="" disabled selected hidden required>Select Country</option>
                                     {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                 </select>
                             </>
                             : null}
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.country.length == "" ? countryselect : ""}</p>
+                        </div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Mobile</label>
                         <div className="input-group">
                             <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                            <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
+                            <input type="text" className="form-control" placeholder="Mobile" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })}/>
                         </div>
-                        {
-                          formData.mobile.length < 4 || formData.mobile.length > 20 ?
-                            <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
-                            : ""
-                        }
+                        {/* {
+                            formData.mobile.length < 4 || formData.mobile.length > 20 ?
+                                <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
+                                : ""
+                        } */}
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20 ? mobileerror : ""}</p>
+                        </div>
                         {/* <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div> */}
                     </div>
-                    
+
                     {/* <div className="row">
                         <div className="col-12 mb-3">
                             <label className="form-label">Appointment Date</label>
@@ -227,7 +268,7 @@ function EnquireAboutThisPropertyComponent(props) {
                             <TimePicker className="form-control" value={toTime} onChange={setToTime} required />
                         </div>
                     </div> */}
-                    
+
                     <div className="row">
                         <div className="col mb-4">
                             <label className="form-label">Message</label>

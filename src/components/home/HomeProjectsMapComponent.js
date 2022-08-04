@@ -97,7 +97,7 @@ export default function ProjectsMapComponent(props) {
           p.setAttribute('cursor', 'pointer')
         }
 
-        // console.log("path", p.getAttribute('id'), p);
+        console.log("path", p.getAttribute('id'), p);
         // let svg = p.querySelector('id');
         if(mobileCheck())
         p.addEventListener('touchstart', handlePlaceClick)
@@ -113,7 +113,7 @@ export default function ProjectsMapComponent(props) {
     let t = ev.target;
     let currentId = t.getAttribute('id');
     let currentIdTitle = t.getAttribute('data-name');
-    // console.log('@@@ Current Id Second Map =========', currentId);
+    console.log('@@@ Current Id Second Map =========', currentId);
     if (currentId.toLowerCase() === 'map')
       setFilterData(null);
     else

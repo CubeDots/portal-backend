@@ -35,6 +35,17 @@ function ContactFormComponent(props) {
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', country: '', occupation: '', project_interest: [], dial_code: '', mobile: '', message: '', terms: false });
 
+    const [validation, setValidation] = useState({ first_name: '', last_name: '', email: '', country: '', occupation: '', project_interest: [], dial_code: '', mobile: '', message: '', terms: false })
+    const [wemail, setwemail] = useState("");
+
+    const [warnemail, setwarnemail] = useState("");
+    const [lastname, setLastName] = useState("");
+    const [emailerror, setEmailError] = useState("");
+    const [mobileerror, setMobileError] = useState("")
+    const [countryselect, setCountrySelect] = useState("")
+    const [occupationselect, setOccupationSelect] = useState("");
+    const [projectselectInterest, setProjectSelectInterest] = useState("")
+
     const HandleInputHide = (event) => {
         const setUserInput = event.target.value;
         setShowInput(setUserInput)
@@ -140,7 +151,34 @@ function ContactFormComponent(props) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        // console.log("formData ", formData);
+        if (formData.first_name.length == "" || formData.occupation.length == "" || formData.last_name.length == "" || formData.email.length == "" || formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20) {
+            setwarnemail("please enter valid first name")
+            setLastName("please enter valid last name")
+            setEmailError("please enter valid email address")
+            setMobileError("please enter valid mobile number")
+            setCountrySelect("please select country")
+            setOccupationSelect("please select occupation")
+            return false;
+        }
+        if (formData.occupation == "Agency" && formData.project_interest.length == "") {
+            setProjectSelectInterest("please select project")
+            return false;
+        }
+        /*
+        else if(formData.last_name.length == ""){
+            setLastName("please enter valid last name")
+            return false;
+        }
+        else if(formData.email.length == ""){
+            setEmailError("please enter valid email address")
+            return false;
+        }
+        else if(formData.mobile.length == "" ){
+            setMobileError("please enter valid mobile number")
+            return false;
+        }
+        console.log("formData ", formData);
+        */
         if (formData.terms === false) {
             alert("Please accept our Terms & Condition.");
             return false;
@@ -156,6 +194,8 @@ function ContactFormComponent(props) {
                     resetFrom('');
                     setCountries([])
                     setShowInput('')
+                    // checkValidation();
+
                     // setFormData({ country: "Select Country * "})
                     setLoading(false);
                     setTimeout(() => {
@@ -185,13 +225,18 @@ function ContactFormComponent(props) {
                 <div className="row">
                     <div className="col-md-6 mb-3 ">
                         {/* <label className="form-label required">First Name</label> */}
-                        <input className="form-control" type="text" placeholder="First Name *" name="first_name" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} required />
-                        {/* <div className='text-danger formErrorMsg'>{simpleValidator.current.message('first_name', formData.first_name, 'alpha_space')}</div> */}
+                        <input className="form-control" type="text" placeholder="First Name *" name="first_name" onKeyUp={() => simpleValidator.current.showMessageFor('first_name')} value={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value })} />
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.first_name.length == "" ? warnemail : ""}</p>
+                        </div>
                     </div>
                     <div className="col-md-6 mb-3">
                         {/* <label className="form-label required">Last Name</label> */}
-                        <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} required />
-                        <div className='text-danger formErrorMsg'>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
+                        <input className="form-control" type="text" placeholder="Last Name *" name="last_name" onKeyUp={() => simpleValidator.current.showMessageFor('last_name')} value={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value })} />
+                        <div className='text-danger '>{simpleValidator.current.message('last_name', formData.last_name, 'alpha_space')}</div>
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.last_name.length == "" ? lastname : ""}</p>
+                        </div>
                     </div>
                 </div>
                 <div className="row ">
@@ -203,21 +248,27 @@ function ContactFormComponent(props) {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         /> */}
-                        <input type="email" className="form-control required w-100" placeholder="Email *" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
-                        {emailErr && <p>Your email is invalid</p>}
-                        {/* <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div> */}
+                        <input type="email" className="form-control required w-100" placeholder="Email *" name="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor("email")}/>
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.email.length == "" ? emailerror : ""}</p>
+                        </div>
+                        <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                     </div>
                     <div className="col-md-6 mb-3 mobileInputSection">
                         {/* <label className="form-label required">Mobile</label> */}
                         <div className="input-group">
                             <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
-                            <input type="text" className="form-control " placeholder="Mobile *" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
+                            <input type="text" className="form-control " placeholder="Mobile *" name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} />
                         </div>
-                        {
+                        {/* {
                             formData.mobile.length < 4 || formData.mobile.length > 20 ?
                                 <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                 : ""
-                        }
+                        } */}
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20 ? mobileerror : ""}</p>
+                        </div>
+
                     </div>
                 </div>
                 <div className="row">
@@ -225,21 +276,28 @@ function ContactFormComponent(props) {
                         {/* <label className="form-label">Country</label> */}
                         {countries.length > 0 ?
                             <>
-                                <select className="form-select scroller" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} >
+                                <select className="form-select scroller" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name}>
                                     <option value="" disabled selected hidden>{formData.country ? formData.country : 'Select Country *'}</option>
                                     {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                 </select>
                             </>
                             : ''}
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.country.length == "" ? countryselect : ""}</p>
+                        </div>
                     </div>
                     <div className="col-md-6 mb-3" onChange={(e) => { HandleInputHide(e) }}>
                         {/* <label className="form-label">Occupation</label> */}
                         <select className="form-select" placeholder="Occupation" name="occupation" onChange={(e) => setFormData({ ...formData, occupation: e.target.value })} defaultValue={formData.occupation}>
-                            <option value="" disabled selected hidden>Interested As</option>
+                            <option value="" disabled selected hidden>Interested As *</option>
                             <option value="Agency">Real Estate Agency</option>
                             <option value="Developer">Developer</option>
                             <option value="Others">Others</option>
                         </select>
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.occupation.length == "" ? occupationselect : ""}</p>
+                        </div>
+
                     </div>
                     {/* <div className="col-md-6 mb-3 mobileInputSection">
                         <div className="input-group">
@@ -263,7 +321,6 @@ function ContactFormComponent(props) {
                         {/* <label className="form-label">Project Interest</label> */}
                         {projects.length > 0 ?
                             <>
-
                                 {/* <Select options="" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} /> */}
                                 {/* <Multiselect
                                     ref={multiselectRef}
@@ -281,7 +338,7 @@ function ContactFormComponent(props) {
                                 {
                                     showInput == 'Agency' && (
                                         <select className="contactComponent form-select" placeholder="Select Project Interest" name="project_interest" onChange={(e) => setFormData({ ...formData, project_interest: e.target.value })} defaultValue={formData.project_interest}>
-                                            <option value="" disabled selected hidden>Project Interest</option>
+                                            <option value="" disabled selected hidden>Project Interest *</option>
                                             {projects.length > 0 && projects.map((row, index) => <option value={row.title === "AcarBlu" ? "" : row.title} key={index} >{row.title === "AcarBlu" ? "" : row.title}</option>)}
                                         </select>
                                     )
@@ -294,6 +351,9 @@ function ContactFormComponent(props) {
                                 {projectList} */}
                             </>
                             : ''}
+                        <div className='validationError'>
+                            <p className='errorMsg'>{formData.project_interest.length == "" ? projectselectInterest : ""}</p>
+                        </div>
                     </div>
                 </div>
                 <div className="row">

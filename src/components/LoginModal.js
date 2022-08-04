@@ -31,7 +31,9 @@ function LoginModal(props) {
         }
         setPasswordType("password")
     }
-
+    const [emailerror, setEmailError] = useState("");
+    const [passwordselect, setPasswordSelect] = useState("");
+    
     const isAuthenticated = useIsAuthenticated();
     const navigate = useNavigate();
     const location = useLocation();
@@ -73,7 +75,7 @@ function LoginModal(props) {
         }, 300);
 
     };
-    
+
     const closeForgotPasswordModal = () => {
         // console.log('closeForgotPasswordModal trigger');
         setisForgotPasswordModalShow(false);
@@ -117,6 +119,11 @@ function LoginModal(props) {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        if (formData.email.length == "" || formData.password == "") {
+            setEmailError("please enter valid email address")
+            setPasswordSelect("please enter valid password")
+            return false;
+        }
         setLoading(true);
         if (formData.rememberMe) {
             setLoginData(formData);
@@ -212,7 +219,10 @@ function LoginModal(props) {
                                     {
                                         formData.email.value == '' ? 'fgkj' : <div className='text-danger formErrorMsg'>{simpleValidator.current.message('', formData.email, 'email')}</div>
                                     }
-
+                                    <div className='validationError'>
+                                        <p className='errorMsg'>{formData.email.length == "" ? emailerror : ""}</p>
+                                    </div>
+                                    <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                 </div>
                                 <div className="mb-3 passwordType">
                                     <input type={passwordType} className="form-control" name="password" placeholder='Password' onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
@@ -228,6 +238,9 @@ function LoginModal(props) {
                                                 <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
                                             </svg>}
                                     </span>
+                                    <div className='validationError'>
+                                        <p className='errorMsg'>{formData.password.length == "" ? passwordselect : ""}</p>
+                                    </div>
                                 </div>
 
                                 <div className="mb-3 formDatcheck">

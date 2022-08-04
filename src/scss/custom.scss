@@ -30,7 +30,9 @@ textarea {
     font-family: 'Roboto', sans-serif;
 }
 
-
+span.image-gallery-thumbnail-inner img.image-gallery-thumbnail-image{
+    height: 57px;
+}
 
 /*start starter logo*/
 .img-respon {
@@ -60,12 +62,16 @@ textarea {
 .srv-validation-message{
     background: #cf3030;
     color: #fff;
-    padding: 4px;
+    // padding: 4px;
     box-shadow: 2px 2px 10px rgb(0 0 0 / 50%);
     margin-top: 11px;
     border-radius: 5px;
     position: relative;
+    font-size: 12px;
+    padding-left: 8px;
+    border-radius:10px ;
 }
+/*
 .srv-validation-message::before{
     content: "";
     position: absolute;
@@ -76,7 +82,7 @@ textarea {
     transform: rotate(45deg);
     left: 12px;
 }
-
+*/
 @-webkit-keyframes rotationOne {
     0% {
         -webkit-transform: rotate(0deg);
@@ -309,10 +315,35 @@ textarea {
 .vegonBorderRadious {
     border-radius: 10px;
 }
+.validationError{
+    // padding: 5px;
+    position: relative;
+    margin-bottom: 0;
+    background-color: #df1616;
+    border-radius: 10px;
+}
+.errorMsg{
+    color: #fff;
+    margin: 5px;
+    font-size: 12px;
+    margin-left: 12px;
+}
+.ll{
+    border:1px solid red;
+}   
+/*
+.validationError::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    transform: rotate(45deg);
+}
 
-
-
-/**/
+*/
 
 
 .becomeeee{
@@ -2413,8 +2444,11 @@ div#overlay-example .tooltip-inner{
     border: 0;
     padding: 0;
     position: relative;
+    height: 100%;
 }
-
+.react-date-picker__wrapper .react-date-picker__clear-button.react-date-picker__button{
+    display: none;
+}
 .galleryThumb::before {
     content: "";
     background-color: rgba(15, 34, 50, 0.4);
@@ -3917,6 +3951,7 @@ span.rc-time-picker.form-control {
 
 .ProjectDetailSlider img {
     border-radius: 10px;
+    height: 100%;
 }
 
 .ProjectDetailSlider .col-md-8 img {
@@ -7106,6 +7141,9 @@ div#phno3 {
     .toOfferpageErrorPage{
         min-height: 63vh;
     }
+    .tutorialSection {
+        padding:133px 0;
+    }
 }
 
 @media (max-width:1200px) {
@@ -7220,11 +7258,16 @@ div#phno3 {
     .banner {
         height: auto;
     }
+    .tutorialSection {
+        padding: 225px 0;
+    }
 
     .bannerSlider {
         bottom: -7px;
     }
-
+    .whyTestimonail .carousel-item {
+        min-height: 250px;
+    }
     .aboutturkeybox p {
         font-size: 18px;
     }

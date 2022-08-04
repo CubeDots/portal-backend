@@ -76,7 +76,7 @@ function EventComponent(props) {
                             partialVisbile
                             itemClass="image-item"
                             responsive={responsive}
-                            autoPlay={props.deviceType !== "mobile" ? true : false}>
+                            infinite={true}>
                             {events && events.map((image, index) => {
                                 return (
                                     <div key={index} className="eventContent ">

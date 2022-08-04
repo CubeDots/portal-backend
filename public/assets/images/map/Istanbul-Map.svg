@@ -71,6 +71,6 @@
     <rect class="cls-6 location" id="alya-4-mevsim" data-name="4mevsim" width="145" height="42" transform="translate(423 292)" fill="url(#pattern-5)"/>
     <rect class="cls-7 location" id="skyland-istanbul" width="78" height="57" transform="translate(733 174)" fill="url(#pattern-6)"/>
     <rect class="cls-8 location" id="four-winds-residence" width="116" height="36" transform="translate(843 410)" fill="url(#pattern-7)"/>
-    <!-- <rect class="cls-9 location" id="tema-istanbul-2" width="86" height="59" transform="translate(562 254)" fill="url(#pattern-8)"/> -->
+    <rect class="cls-9 location" id="tema-istanbul-2" width="86" height="59" transform="translate(562 254)" fill="url(#pattern-8)"/>
   </g>
 </svg>

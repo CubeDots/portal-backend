@@ -19,9 +19,10 @@ function UnitEnquireNowModal(props) {
     const auth = useAuthUser();
     const user = isAuthenticated() ? auth().user : null;
 
-    // const [footersocialLoading, setFooterSocialLoading] = useState(false);
-    // const [footerSocialLinks, setFooterSocialLinks] = useState(null);
-
+    /*
+    const [footersocialLoading, setFooterSocialLoading] = useState(false);
+    const [footerSocialLinks, setFooterSocialLinks] = useState(null);
+    */
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [countries, setCountries] = useState([]);
     const [toTime, setToTime] = useState('00:00');
@@ -33,6 +34,13 @@ function UnitEnquireNowModal(props) {
     const [apartment_id, setApartmentId] = useState('');
     const [project_interest, setProjectInterest] = useState(props.project.title);
 
+    const [warnemail, setwarnemail] = useState("");
+    const [lastname, setLastName] = useState("");
+    const [emailerror, setEmailError] = useState("");
+    const [mobileerror, setMobileError] = useState("")
+    // const [projectinterest, setProjectInterest] = useState("")
+    const [countryselect, setCountrySelect] = useState("")
+    const [occupationselect, setOccupationSelect] = useState("");
 
     const [unit, setUnit] = useState(null);
     //const unit = props.length ? props.unit : null;
@@ -60,21 +68,21 @@ function UnitEnquireNowModal(props) {
 
     }, [props.unit, props.project, user]);
 
-
-    // async function fetchFooterSocial() {
-    //     setFooterSocialLoading(true);
-    //     try {
-    //         const res = await axios.get(publicPath + "/assets/data/social.json");
-    //         if (res.data) {
-    //             setFooterSocialLoading(false);
-    //             setFooterSocialLinks(res.data.social_links);
-    //         }
-    //     } catch (error) {
-    //         console.error("error ", error);
-    //         setFooterSocialLoading(false);
-    //     }
-    // }
-
+            /*
+                async function fetchFooterSocial() {
+                    setFooterSocialLoading(true);
+                    try {
+                        const res = await axios.get(publicPath + "/assets/data/social.json");
+                        if (res.data) {
+                            setFooterSocialLoading(false);
+                            setFooterSocialLinks(res.data.social_links);
+                        }
+                    } catch (error) {
+                        console.error("error ", error);
+                        setFooterSocialLoading(false);
+                    }
+                }
+            */
     async function fetchCountries() {
         genRandomString();
         setCountriesLoading(true);
@@ -127,6 +135,18 @@ function UnitEnquireNowModal(props) {
     //setProjectInterest(props.project.title);
     const onSubmit = (e) => {
         e.preventDefault();
+
+        if (formData.first_name.length == "" || formData.occupation.length == "" || formData.last_name.length == "" || formData.email.length == "" || formData.project_interest.value == "Interested As *" || formData.country.length == "" || formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20) {
+            setwarnemail("please enter valid first name")
+            setLastName("please enter valid last name")
+            setEmailError("please enter valid email address")
+            setMobileError("please enter valid mobile number")
+            setProjectInterest("please select project interest")
+            setCountrySelect("please select country")
+            setOccupationSelect("please select occupation")
+            return false;
+        }
+
         e.preventDefault(); formData.appointment_date = toDayDate;
         e.preventDefault(); formData.appointment_time = toTime;
         // console.log("formData ", formData);
@@ -144,6 +164,12 @@ function UnitEnquireNowModal(props) {
             .then((res) => {
                 // console.log('res ### ', res.status, res.data)
                 if (res.status === 200) {
+                    setwarnemail("")
+                    setLastName("")
+                    setEmailError("")
+                    setMobileError("")
+                    setProjectInterest("")
+                    setCountrySelect("")
                     setLoading(false);
                     genRandomString();
                     //resetFrom('');
@@ -212,17 +238,26 @@ function UnitEnquireNowModal(props) {
                                 <form id="form1" onSubmit={onSubmit}>
                                     <div className="row">
                                         <div className="col mb-3">
-                                            <input className="form-control" type="text" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value.replace(/[^a-z]/gi, '') })} required />
+                                            <input className="form-control" type="text" placeholder="First Name" name="first_name" defaultValue={formData.first_name} onChange={(e) => setFormData({ ...formData, first_name: e.target.value.replace(/[^a-z]/gi, '') })} />
+                                            <div className='validationError'>
+                                                <p className='errorMsg'>{formData.first_name.length == "" ? warnemail : ""}</p>
+                                            </div>
                                         </div>
                                         <div className="col mb-3">
-                                            <input className="form-control" type="text" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value.replace(/[^a-z]/gi, '') })} required />
+                                            <input className="form-control" type="text" placeholder="Last Name" name="last_name" defaultValue={formData.last_name} onChange={(e) => setFormData({ ...formData, last_name: e.target.value.replace(/[^a-z]/gi, '') })} />
                                             <input className="form-control" type="hidden" placeholder="Project Interest" name="project_interest" defaultValue={project_interest} />
                                             <input className="form-control" type="hidden" placeholder="Apartment Id" name="apartment_id" defaultValue={formData.apartment_id} onChange={(e) => setFormData({ ...formData, apartment_id: e.target.value })} />
+                                            <div className='validationError'>
+                                                <p className='errorMsg'>{formData.last_name.length == "" ? lastname : ""}</p>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
                                         <div className="col">
-                                            <input className="form-control" type="email" placeholder="Email" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                                            <input className="form-control" type="email" placeholder="Email" name="email" onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                                            <div className='validationError'>
+                                                <p className='errorMsg'>{formData.email.length == "" ? emailerror : ""}</p>
+                                            </div>
                                         </div>
                                         <div className='text-danger'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
                                     </div>
@@ -233,19 +268,24 @@ function UnitEnquireNowModal(props) {
                                             <option value="Developer">Developer</option>
                                             <option value="Others">Others</option>
                                         </select>
+                                        <div className='validationError'>
+                                            <p className='errorMsg'>{formData.occupation.length == "" ? occupationselect : ""}</p>
+                                        </div>
                                     </div>
                                     <div className="row">
 
                                         <div className="col mb-3">
                                             {countries.length > 0 ?
                                                 <>
-                                                    <select className="form-select scroller" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
+                                                    <select className="form-select scroller" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} >
                                                         <option value="" disabled selected hidden>Select Country</option>
                                                         {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                                     </select>
                                                 </>
                                                 : ''}
-
+                                            <div className='validationError'>
+                                                <p className='errorMsg'>{formData.country.length == "" ? countryselect : ""}</p>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="row mb-3">
@@ -253,7 +293,7 @@ function UnitEnquireNowModal(props) {
                                             <div className="input-group">
                                                 <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
                                                 <input className="form-control" type="text" placeholder="Mobile No."
-                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} required />
+                                                    name="mobile" onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} value={formData.mobile} onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })} />
                                             </div>
                                             {
                                                 formData.mobile.length < 4 || formData.mobile.length > 20 ?
@@ -261,18 +301,21 @@ function UnitEnquireNowModal(props) {
                                                     : ""
                                             }
                                             {/* <div className='text-danger'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div> */}
+                                            <div className='validationError'>
+                                                <p className='errorMsg'>{formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20 ? mobileerror : ""}</p>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col mb-3">
+                                        {/* <div className="col mb-3">
                                             <label className="form-label">Appointment Date</label>
-                                            {/* <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required /> */}
+                                            <input type="date" className="form-control" placeholder="Appointment Date" name="appointment_date" defaultValue={formData.appointment_date} onChange={(e) => setFormData({ ...formData, appointment_date: e.target.value })} required />
                                             <DatePicker className="form-control" placeholder="Appointment Date *" name="appointment_date" value={toDayDate} onChange={setToDayDate} format="dd/MM/yyyy" required minDate={moment().toDate()} />
 
-                                        </div>
-                                        <div className="col mb-3">
+                                        </div> */}
+                                        {/* <div className="col mb-3">
                                             <label className="form-label">Appointment Time</label>
-                                            {/* <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required /> */}
+                                            <input type="time" className="form-control" placeholder="Appointment Time" name="appointment_time" defaultValue={formData.appointment_time} onChange={(e) => setFormData({ ...formData, appointment_time: e.target.value })} required />
                                             <TimePicker
                                                 onChange={setFormatedTime}
                                                 placeholder="00:00"
@@ -280,7 +323,7 @@ function UnitEnquireNowModal(props) {
                                                 className="form-control"
                                                 required={true}
                                             />
-                                        </div>
+                                        </div> */}
                                     </div>
 
                                     <div className="row">
