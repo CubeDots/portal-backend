@@ -233,11 +233,11 @@ function ProjectDetail(props) {
                                                                     Browse in 3D
                                                                 </PopoverButton>
                                                                 : null}
-
+                                                            {/* project.slug !='four-winds-residence' ? */}
                                                             <PopoverButton to={`/projects/${project.slug}/units`}>
                                                                 Inventory
                                                             </PopoverButton>
-
+                                                            
                                                         </li>
                                                     </ul>
                                                 </div>
