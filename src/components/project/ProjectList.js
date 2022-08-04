@@ -134,7 +134,7 @@ function ProjectList(props) {
 
                                                 <div className="mt-2">
                                                     {/* {row.description} */}
-                                                    <p><CharactersLimitComponent isShowbutton={false} content={row.medium_description} limit={350} /></p>
+                                                    <p><CharactersLimitComponent isShowbutton={false} content={row.medium_description} limit={300} /></p>
                                                 </div>
 
                                                 <p className="mb-0" style={{'fontSize':'11px'}}>{row.slogan}</p>
