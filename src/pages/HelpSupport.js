@@ -9,8 +9,23 @@ function HelpSupport() {
     const [countriesLoading, setCountriesLoading] = useState(false);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({ name: '', email: '', mobile: '', country: '', dial_code: '', message: '' });
+
+    const [nameselect, setNameSelect] = useState("");
+    const [emailselect, setEmailSelect] = useState("");
+    const [countryselect, setCountrySelect] = useState("");
+    const [mobileselect, setMobileSelect] = useState("");
+    const [messageselect, setMessageSelect] = useState("");
+
     const onSubmit = (e) => {
         e.preventDefault();
+        if (formData.name.length == "" || formData.email.length == "" || formData.country.length == "" || formData.dial_code.length == "" || formData.message.length == "" || formData.dial_code.length < 4 || formData.dial_code.length > 20) {
+            setNameSelect("please enter valid email name")
+            setEmailSelect("please enter valid email address")
+            setCountrySelect("please select country")
+            setMobileSelect("please enter valid mobile number")
+            setMessageSelect("please enter message")
+            return false;
+        }
         axios.post(API_ENDPOINT + 'orgzit/help_support_email', formData)
             .then((res) => {
                 console.log('res ### ', res.status, res.data)
@@ -94,38 +109,53 @@ function HelpSupport() {
                                     <form id="form2" onSubmit={onSubmit}>
                                         <div className='helpAndSupportInput'>
                                             <div className='helpAndSupporttitleDiv'>
-                                                <input type="text" onChange={(e) => setFormData({ ...formData, name: e.target.value.replace(/[^a-z]/gi, '') })} onKeyUp={() => simpleValidator.current.showMessageFor('name')} value={formData.name} className='form-control inputOffCanvas' placeholder='Enter Name *' name="name" required />
+                                                <input type="text" onChange={(e) => setFormData({ ...formData, name: e.target.value.replace(/[^a-z]/gi, '') })} onKeyUp={() => simpleValidator.current.showMessageFor('name')} value={formData.name} className='form-control inputOffCanvas' placeholder='Enter Name *' name="name"  />
                                                 <div className='text-danger formErrorMsg'>{simpleValidator.current.message('name', formData.name, 'alpha_space')}</div>
+                                                <div className='validationError'>
+                                                    <p className='errorMsg'>{formData.name.length == "" ? nameselect : ""}</p>
+                                                </div>
                                             </div>
                                             <div className='helpAndSupporttitleDiv'>
-                                                <input type="text" className='form-control' name="email" placeholder='Enter Email *' onChange={(e) => setFormData({ ...formData, email: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email} required />
+                                                <input type="text" className='form-control' name="email" placeholder='Enter Email *' onChange={(e) => setFormData({ ...formData, email: e.target.value })} onKeyUp={() => simpleValidator.current.showMessageFor('email')} value={formData.email}  />
                                                 <div className='text-danger formErrorMsg'>{simpleValidator.current.message('email', formData.email, 'email')}</div>
+                                                <div className='validationError'>
+                                                    <p className='errorMsg'>{formData.email.length == "" ? emailselect : ""}</p>
+                                                </div>
                                             </div>
                                             <div className='helpAndSupporttitleDiv'>
                                                 {countries.length > 0 ?
                                                     <>
-                                                        <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} required>
+                                                        <select className="form-select" placeholder="Country" name="country" onChange={handleChangeCountry} defaultValue={formData.country_name} >
                                                             <option value="" selected disabled hidden>Select Country *</option>
                                                             {countries.length > 0 && countries.map((row, index) => <option value={row.country_name} key={index} >{row.country_name}</option>)}
                                                         </select>
                                                     </>
                                                     : null}
+                                                <div className='validationError'>
+                                                    <p className='errorMsg'>{formData.country.length == "" ? countryselect : ""}</p>
+                                                </div>
                                             </div>
                                             <div className='helpAndSupporttitleDiv'>
                                                 <div className="input-group">
                                                     <span className="input-group-text" id="basic-addon1">{formData.dial_code ? formData.dial_code : '+91'}</span>
                                                     <input className="form-control" type="text" placeholder="Mobile No. *"
-                                                        name="mobile" value={formData.mobile} onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })} required />
+                                                        name="mobile" value={formData.mobile} onKeyUp={() => simpleValidator.current.showMessageFor('mobile')} onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}  />
                                                 </div>
-                                                {
+                                                <div className='validationError'>
+                                                    <p className='errorMsg'>{formData.dial_code.length == "" ? mobileselect : ""}</p>
+                                                </div>
+                                                {/* {
                                                     formData.mobile.length < 4 || formData.mobile.length > 20 ?
                                                         <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                                                         : ""
-                                                }
+                                                } */}
                                                 {/* <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div> */}
                                             </div>
                                             <div className='helpAndSupporttitleDiv'>
-                                                <textarea className="form-control" id="exampleFormControlTextarea1" onChange={(e) => setFormData({ ...formData, message: e.target.value })} defaultValue={formData.message} name="message" rows="5" placeholder='Message *' required />
+                                                <textarea className="form-control" id="exampleFormControlTextarea1" onChange={(e) => setFormData({ ...formData, message: e.target.value })} defaultValue={formData.message} name="message" rows="5" placeholder='Message *'  />
+                                                <div className='validationError'>
+                                                    <p className='errorMsg'>{formData.message.length == "" ? messageselect : ""}</p>
+                                                </div>
                                             </div>
                                             <button className='sendBtn'>Submit</button>
                                         </div>

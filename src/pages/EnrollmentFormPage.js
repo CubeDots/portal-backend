@@ -27,7 +27,13 @@ function EnrollmentFromAds(props) {
 
   const [countriesLoading, setCountriesLoading] = useState(false);
   const [countries, setCountries] = useState([]);
-
+  const [warnemail, setwarnemail] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [emailerror, setEmailError] = useState("");
+  const [mobileerror, setMobileError] = useState("")
+  const [projectinterest, setProjectInterest] = useState("")
+  const [countryselect, setCountrySelect] = useState("")
+  const [occupationslected, setOccupationSelected] = useState("")
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     project_interest: "",
@@ -181,6 +187,19 @@ function EnrollmentFromAds(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (formData.first_name.length == "" || formData.last_name.length == "" || formData.email.length == "" || formData.occupation.length == "" || formData.country.length == "" || formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20) {
+      setwarnemail("please enter valid first name")
+      setLastName("please enter valid last name")
+      setEmailError("please enter valid email address")
+      setMobileError("please enter valid mobile number")
+      setProjectInterest("please select occupation")
+      setCountrySelect("please select country")
+      return false;
+    }
+    if (formData.occupation == "Agency" && formData.project_interest.length == "") {
+      setOccupationSelected("please select project")
+      return false;
+    }
     console.log("formData ", formData);
     if (formData.security_code !== securityCode) {
       alert("Please enter correct security code");
@@ -264,7 +283,10 @@ function EnrollmentFromAds(props) {
                             first_name: e.target.value,
                           })
                         }
-                        required />
+                         />
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.first_name.length == "" ? warnemail : ""}</p>
+                      </div>
                       <div className="text-danger formErrorMsg">
                         {simpleValidator.current.message(
                           "first_name",
@@ -272,6 +294,7 @@ function EnrollmentFromAds(props) {
                           "alpha_space"
                         )}
                       </div>
+
                     </div>
                     <div className="col-md-6 mb-3">
                       <input
@@ -289,7 +312,10 @@ function EnrollmentFromAds(props) {
                             last_name: e.target.value,
                           })
                         }
-                        required />
+                         />
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.last_name.length == "" ? lastname : ""}</p>
+                      </div>
                       <div className="text-danger formErrorMsg">
                         {simpleValidator.current.message(
                           "last_name",
@@ -313,7 +339,10 @@ function EnrollmentFromAds(props) {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        required />
+                         />
+                         <div className='validationError'>
+                        <p className='errorMsg'>{formData.email.length == "" ? emailerror : ""}</p>
+                      </div>
                     </div>
                     <div className="text-danger formErrorMsg">
                       {simpleValidator.current.message(
@@ -343,6 +372,9 @@ function EnrollmentFromAds(props) {
                         <option value="Developer">Developer</option>
                         <option value="Others">Others</option>
                       </select>
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.occupation === "" ? projectinterest : ""}</p>
+                      </div>
                     </div>
                   </div>
                   <div className="row">
@@ -355,7 +387,7 @@ function EnrollmentFromAds(props) {
                             name="country"
                             onChange={handleChangeCountry}
                             defaultValue={formData.country_name}
-                            required>
+                            >
                             <option value="" disabled selected hidden>
                               Select Country *
                             </option>
@@ -368,6 +400,9 @@ function EnrollmentFromAds(props) {
                           </select>
                         </>
                       ) : null}
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.country.length == "" ? countryselect : ""}</p>
+                      </div>
                     </div>
                   </div>
                   <div className="row mb-3">
@@ -386,12 +421,15 @@ function EnrollmentFromAds(props) {
                             simpleValidator.current.showMessageFor("mobile")
                           }
                           onChange={(e) =>
-                            setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "")})
+                            setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })
                           }
-                          required />
+                           />
+                      </div>
+                      <div className='validationError'>
+                        <p className='errorMsg'>{formData.mobile.length == "" || formData.mobile.length < 4 || formData.mobile.length > 20 ? mobileerror : ""}</p>
                       </div>
                       <div className="text-danger formErrorMsg">
-                      {
+                        {
                           formData.mobile.length < 4 || formData.mobile.length > 20 ?
                             <div className='text-danger formErrorMsg'>{simpleValidator.current.message('mobile', formData.mobile, 'phone')}</div>
                             : ""
@@ -432,7 +470,7 @@ function EnrollmentFromAds(props) {
                     ) : (
                       ""
                     )} */}
-                    
+
                   {
                     showInput == 'Agency' && (
                       <div className="row">
@@ -445,7 +483,7 @@ function EnrollmentFromAds(props) {
                                 name="country"
                                 onChange={handleChangeProjectInterest}
                                 defaultValue={formData.project_interest}
-                                required>
+                                >
                                 <option value="" disabled selected hidden>
                                   Select Projects *
                                 </option>
@@ -458,6 +496,9 @@ function EnrollmentFromAds(props) {
                               </select>
                             </>
                           ) : null}
+                           <div className='validationError'>
+                            <p className='errorMsg'>{formData.project_interest.length == "" ? occupationslected : ""}</p>
+                          </div>
                         </div>
                       </div>
                     )}
