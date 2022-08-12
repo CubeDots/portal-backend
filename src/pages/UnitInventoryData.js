@@ -10,17 +10,25 @@ function UnitInventoryData(props) {
     const [floorplan, setFloorPlan] = useState(null);
     const [project, setProject] = useState({});
     let navigate = useNavigate();
+    
     async function fetchUnits() {
+        
         setUnitsLoading(true);
+        
         try {
+            //alert(apartment_id)
             const res = await axios.get(API_ENDPOINT + "projects/interiorInventory/" + id + '/' + apartment_id);
+            //alert('TTTTT DDDDDDDD LLL AAA CCC');
+            //alert('START DATA');
+            //console.log(res.data);
+            //alert('END DATA');
             if (res.data) {
-                console.log('res.data.data ', res.data.floorplans);
+                console.log('res.data.data ', res.data);
                 setFloorPlan(res.data.floorplans);
                 setUnitsLoading(false);
-                let units = res.data.data.data;
+                //let units = res.data.data.data;
                 setProject(res.data.project);
-                console.log("units", units);
+                //console.log("units", units);
             }
         } catch (error) {
             console.error("error ", error);
@@ -52,7 +60,7 @@ function UnitInventoryData(props) {
                     <h2>{project ? project.title : ''}</h2>
                 </div>
                 <div className="text-center">
-                    {unitsLoading ?
+                    { unitsLoading ?
                         <>
                             <div className="text-center">Loading...</div>
                         </>
