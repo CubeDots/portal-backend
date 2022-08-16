@@ -180,7 +180,7 @@ function ContactFormComponent(props) {
         console.log("formData ", formData);
         */
         if (formData.terms === false) {
-            alert("Please accept our Terms & Condition.");
+            alert("Please accept our Terms & Conditions.");
             return false;
         }
 

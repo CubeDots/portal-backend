@@ -56,7 +56,7 @@ function TermsOfUsePage() {
                                 <h5>Declaration of Explicit Consent for Processing of Personal Data via Website or Mobile App</h5> </button>
                                 <button className="nav-link" id="v-pills-information-tab" data-bs-toggle="pill" data-bs-target="#v-pills-information" type="button" role="tab" aria-controls="v-pills-information" aria-selected="false">
                                 <h5>Information Security Policy Of Cuengine</h5> </button>
-                                <button className="nav-link" id="v-pills-Employee-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Employee" type="button" role="tab" aria-controls="v-pills-Employee" aria-selected="false">
+                                <button className="nav-link employeeCertificate" id="v-pills-Employee-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Employee" type="button" role="tab" aria-controls="v-pills-Employee" aria-selected="false">
                                 <h5>Employee Candidate Clarification Text</h5> </button>
                         </div>
                         <div className="termsPolicyData">

@@ -206,7 +206,7 @@ function EnrollmentFromAds(props) {
       return false;
     }
     if (formData.terms === false) {
-      alert("Please accept our Terms & Condition.");
+      alert("Please accept our Terms & Conditions.");
       return false;
     }
     setLoading(true);
