@@ -141,7 +141,6 @@ function ProjectEnquireNowModal(props) {
                     setLoading(false);
                     genRandomString();
                     resetFrom();
-                    formData("");
                     setTimeout(() => {
                         alert(res.data.message);
                     }, 1000);
