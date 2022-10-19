@@ -84,8 +84,6 @@ const AboutTurkeyPage = React.lazy(() => import("./pages/AboutTurkeyPage"));
 const CitizenshipPage = React.lazy(() => import("./pages/CitizenshipPage"));
 const UnitInventoryData = React.lazy(() => import("./pages/UnitInventoryData"));
 
-
-
 // loading component for suspense fallback
 // const Loader = () => (
 //   <>
@@ -176,8 +174,6 @@ function App() {
                   <Route path="invitations" element={<React.Suspense fallback={<Loader />}> <InvitationsDashPage /> </React.Suspense>} />
                   <Route path="meetings" element={<React.Suspense fallback={<Loader />}> <MeetingsListPage /> </React.Suspense>} />                  
                   <Route path="reservationlogs" element={<React.Suspense fallback={<Loader />}> <ReservationLogPage /> </React.Suspense>} />
-
-
 
                 </Route>
                 <Route path="/projects/3dSystem/:id" element={<React.Suspense fallback={<Loader />}> <ThreeDSystemPage /> </React.Suspense>} />

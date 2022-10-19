@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './chatbot/botSrc/App';
 //import App from './testredux/app/App';
 import reportWebVitals from './reportWebVitals';
 
