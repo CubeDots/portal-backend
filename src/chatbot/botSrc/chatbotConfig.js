@@ -8,18 +8,18 @@ import CoBotAvatar from "./CoBotAvatar";
 
 const config = {
   lang: "no",
-  botName: "CoBot",
+  botName: "CuBot",
   customStyles: {
     botMessageBox: {
       backgroundColor: "#04668a"
     },
     chatButton: {
-      backgroundColor: "#0f5faf"
+      backgroundColor: "#F8400C"
     }
   },
   initialMessages: [
     createChatBotMessage(
-      `Hi, I'm here to provide you with latest COVID 19 data to keep you safe!`
+      `Hi, I'm here to provide you with latest CUBEDOTS feeds!`
     ),
     createChatBotMessage(
       "Here's a quick overview of what I can help you with. You can also type in.",

@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './chatbot/botSrc/App';
+import App from './App';
+import App1 from './chatbot/botSrc/App';
 //import App from './testredux/app/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App></App>
+    <App1/>
   </React.StrictMode>,
   document.getElementById('root')
 );

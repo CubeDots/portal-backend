@@ -20,7 +20,7 @@ class ActionProvider {
   
     handleGlobalStats = () => {
       const message = this.createChatBotMessage(
-        "Here's the latest global stats.",
+        "Here's the NRI services",
         {
           widget: "globalStatistics",
           loading: true,
@@ -34,7 +34,7 @@ class ActionProvider {
   
     handleLocalStats = () => {
       const message = this.createChatBotMessage(
-        "Here's the latest stats in Sri Lanka.",
+        "Here's the Buyers Corner",
         {
           widget: "localStatistics",
           loading: true,
@@ -48,7 +48,7 @@ class ActionProvider {
   
     handleContact = () => {
       const message = this.createChatBotMessage(
-        "Call 1999 for Trilingual Health Assistance.",
+        "Here's the Latest Blogs",
         {
           widget: "emergencyContact",
           loading: true,
@@ -62,7 +62,7 @@ class ActionProvider {
   
     handleMedicine = () => {
       const message = this.createChatBotMessage(
-        "To have clinical medicine safely delivered to your home, please refer to the link below.",
+        "For help, please refer to the link below.",
         {
           widget: "medicineDelivery",
           loading: true,
@@ -92,7 +92,7 @@ class ActionProvider {
     };
   
     handleThanks = () => {
-      const message = this.createChatBotMessage("You're welcome, and stay safe!");
+      const message = this.createChatBotMessage("You're welcome!");
   
       this.addMessageToState(message);
     };

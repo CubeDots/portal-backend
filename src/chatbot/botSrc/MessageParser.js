@@ -42,13 +42,13 @@ class MessageParser {
         return this.actionProvider.handleMedicine();
       }
   
-      if (
-        message.includes("joke") ||
-        message.includes("jokes") ||
-        message.includes("funny")
-      ) {
-        return this.actionProvider.handleJoke();
-      }
+      // if (
+      //   message.includes("joke") ||
+      //   message.includes("jokes") ||
+      //   message.includes("funny")
+      // ) {
+      //   return this.actionProvider.handleJoke();
+      // }
   
       if (message.includes("thanks") || message.includes("thank you")) {
         return this.actionProvider.handleThanks();

@@ -6,8 +6,8 @@ const CoBotAvatar = () => {
   return (
     <div className="react-chatbot-kit-chat-bot-avatar">
       <div
-        className="react-chatbot-kit-chat-bot-avatar-container"
-        style={{ background: "none" }}
+         className="column-right"
+        style={{ background: "none", alignItems: 'center', justifyContent: 'center' }}
       >
         <img alt="BotAvatar" src={BotAvatar} />
       </div>
