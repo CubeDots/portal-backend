@@ -1,6 +1,6 @@
 import React from "react";
 
-import BotAvatar from "./icons/bot.svg";
+import BotAvatar from "./icons/logo512.png";
 
 const CoBotAvatar = () => {
   return (
@@ -9,7 +9,7 @@ const CoBotAvatar = () => {
          className="column-right"
         style={{ background: "none", alignItems: 'center', justifyContent: 'center' }}
       >
-        <img alt="BotAvatar" src={BotAvatar} />
+        <img alt="BotAvatar" src={BotAvatar} style={{height: 40, width: 40}} />
       </div>
     </div>
   );

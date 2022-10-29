@@ -73,6 +73,20 @@ class ActionProvider {
   
       this.addMessageToState(message);
     };
+
+    handleOthers = () => {
+      const message = this.createChatBotMessage(
+        "Find your solution below:",
+        {
+          widget: "others",
+          loading: true,
+          terminateLoading: true,
+          withAvatar: true
+        }
+      );
+  
+      this.addMessageToState(message);
+    };
   
     handleJoke = () => {
       var jokes = [

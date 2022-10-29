@@ -15,6 +15,12 @@ class MessageParser {
       ) {
         return this.actionProvider.handleOptions({ withAvatar: true });
       }
+
+      if (
+        message.includes("other")
+      ) {
+        return this.actionProvider.handleOthers({ withAvatar: true });
+      }
   
       if (
         message.includes("talk") ||

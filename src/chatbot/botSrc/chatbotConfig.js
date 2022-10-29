@@ -5,6 +5,7 @@ import LocalStatistics from "./widgets/LocalStatistics";
 import Contact from "./widgets/Contact";
 import MedicineDelivery from "./widgets/MedicineDelivery";
 import CoBotAvatar from "./CoBotAvatar";
+import OtherQuestions from "./widgets/OtherQuestions";
 
 const config = {
   lang: "no",
@@ -31,28 +32,32 @@ const config = {
     )
   ],
   state: {},
-  // customComponents: { botAvatar: (props) => <CoBotAvatar {...props} /> },
+  customComponents: { botAvatar: (props) => <CoBotAvatar {...props} /> },
   widgets: [
     {
       widgetName: "overview",
       widgetFunc: (props) => <Overview {...props} />,
       mapStateToProps: ["messages"]
-    },
-    {
-      widgetName: "globalStatistics",
-      widgetFunc: (props) => <GlobalStatistics />
-    },
-    {
-      widgetName: "localStatistics",
-      widgetFunc: (props) => <LocalStatistics />
-    },
-    {
-      widgetName: "emergencyContact",
-      widgetFunc: (props) => <Contact />
-    },
-    {
-      widgetName: "medicineDelivery",
-      widgetFunc: (props) => <MedicineDelivery />
+      },
+      {
+        widgetName: "globalStatistics",
+        widgetFunc: (props) => <GlobalStatistics />
+      },
+      {
+        widgetName: "localStatistics",
+        widgetFunc: (props) => <LocalStatistics />
+      },
+      {
+        widgetName: "emergencyContact",
+        widgetFunc: (props) => <Contact />
+      },
+      {
+        widgetName: "medicineDelivery",
+        widgetFunc: (props) => <MedicineDelivery />
+      },
+      {
+        widgetName: "others",
+        widgetFunc: (props) => <OtherQuestions />
     }
   ]
 };

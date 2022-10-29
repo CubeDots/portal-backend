@@ -1,7 +1,7 @@
 import Options from "./Options";
 
 const GeneralOptions = (props) => {
-  const options = [
+  const mainCategory = [
     {
       name: "Show NRI Services",
       handler: props.actionProvider.handleGlobalStats,
@@ -18,11 +18,21 @@ const GeneralOptions = (props) => {
       id: 3
     },
     {
-      name: "Help and Support ",
+      name: "Help and Support",
       handler: props.actionProvider.handleMedicine,
       id: 4
+    },
+    {
+      name: "Others",
+      handler: props.actionProvider.handleOthers,
+      id: 5
     }
   ];
+
+  const subCategory = [];
+  // const mainCategory = [];
+
+  const options = mainCategory;
   return <Options options={options} title="Options" {...props} />;
 };
 
